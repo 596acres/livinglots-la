@@ -4,7 +4,7 @@ requirejs.config({
         "bootstrap": "../bower_components/bootstrap/dist/js/bootstrap",
         "django": "djangojs/django",
         "fancybox": "../bower_components/fancybox/source/jquery.fancybox",
-        "jquery": "../bower_components/jquery/jquery",
+        "jquery": "../bower_components/jQuery/dist/jquery.min",
         "jquery.infinitescroll": "../bower_components/infinite-scroll/jquery.infinitescroll",
         "handlebars": "../bower_components/handlebars/handlebars",
         "leaflet": "../bower_components/leaflet/leaflet-src",
