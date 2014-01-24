@@ -81,8 +81,11 @@ define(
             },
 
             initialize: function (id, options) {
+                options.zoomControl = false;
                 L.Map.prototype.initialize.call(this, id, options);
                 this.addBaseLayer();
+                L.control.zoom().addTo(this);
+                L.Control.loading().addTo(this);
                 var hash = new L.Hash(this);
 
                 this.boundariesLayer = L.geoJson(null, {
@@ -126,9 +129,13 @@ define(
 
                 var bing = new L.BingLayer('Ajio1n0EgmAAvT3zLndCpHrYR_LHJDgfDU6B0tV_1RClr7OFLzy4RnkLXlSdkJ_x');
 
-                L.control.layers({
+                var baseLayers = {
                     streets: cloudmade,
                     satellite: bing
+                };
+
+                L.control.layers(baseLayers, {}, {
+                    position: 'topleft'               
                 }).addTo(this);
             },
 
