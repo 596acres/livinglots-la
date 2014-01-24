@@ -12,6 +12,17 @@ a {
     color: black;
 }
 
+
+/* Header */
+
+.navbar-default .navbar-nav > li > a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
 /* Footer */
 
 footer .row {
