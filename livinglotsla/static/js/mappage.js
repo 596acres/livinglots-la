@@ -185,6 +185,10 @@ define(
                 e.preventDefault();
             });
 
+            $('.map-filters-expander').click(function () {
+                $('.map-filters').toggleClass('expanded');
+            });
+
         });
 
     }

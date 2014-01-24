@@ -108,6 +108,30 @@ footer .row {
     height: 1000px;
 }
 
+.map-filters {
+    background: rgba(256, 256, 256, .8);
+    left: 66.666666%;
+    padding: 5px;
+    position: relative;
+    width: 250px;
+    z-index: 5000;
+}
+.map-filters.expanded {
+    height: 100%;
+}
+
+.map-filters-expander {
+    cursor: pointer;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.map-filters-content {
+    display: none;
+}
+.map-filters.expanded .map-filters-content {
+    display: block;
+}
 
 /*
  * Leaflet overrides
