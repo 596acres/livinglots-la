@@ -56,8 +56,28 @@ header .row {
 
 /* Footer */
 
+footer {
+    border-bottom: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+}
+
 footer .row {
     margin: 0;
+}
+
+.footer-collaborator-links {
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    color: #aaa;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-transform: uppercase;
+}
+
+.footer-collaborator-links a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 
