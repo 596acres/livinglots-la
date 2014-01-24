@@ -37,45 +37,9 @@
     {% endverbatim %}
 </script>
 
-<section id="map-welcome" class="hidden-print">
-    <h1>
-        {% trans "Welcome!" %}
-        <a href="#" class="map-welcome-close-button">close</a>
-        <a href="#" class="map-welcome-open-button">show</a>
-    </h1>
-    <div class="map-welcome-body">
-        {% feincms_render_region feincms_page "welcome" request %}
-    </div>
-</section>
-
+{% comment %}
 <div id="map-header" class="hidden-xs hidden-print">
     <div class="row map-header-content">
-        <div class="map-header-currently-viewing col-sm-4">
-            <h2>You are currently viewing</h2>
-            <ul>
-                <li>
-                    <span id="no-known-use-acres"></span>
-                    acres of opportunity on
-                    <span id="no-known-use-count"></span>
-                    lots
-                </li>
-                <li>
-                    <span id="in-use-acres"></span>
-                    acres of community projects on 
-                    <span id="in-use-count"></span>
-                    lots
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-sm-2">
-            <a class="btn btn-default overlay-details-button btn-block" href="#">
-                details
-            </a>
-            <a class="btn btn-default overlay-download-button btn-block" href="#">
-                download
-            </a>
-        </div>
 
         <div class="col-sm-4">
             <div class="map-search">
@@ -94,19 +58,9 @@
                 </div>
             {% endif %}
         </div>
-
-        <div class="col-sm-1">
-            <a class="btn btn-default overlay-filter-button" href="#">
-                filter
-            </a>
-        </div>
-        <div class="col-sm-1">
-            <a class="btn btn-default overlay-news-button" href="#">
-                news
-            </a>
-        </div>
     </div>
 </div>
+{% endcomment %}
 
 <div id="map"
     data-l-zoom="11"
@@ -119,34 +73,9 @@
     data-l-lot-centroids-url="{% url "lots:lot_geojson_centroid" %}"
     data-l-lot-polygons-url="{% url "lots:lot_geojson_polygon" %}"
 >
-    <div id="map-legend" class="hidden-print">
-        <div>
-            <span class="legend-marker legend-marker-public"></span>
-            <label class="legend-label">
-                {% trans "publicly-owned land" %}
-            </label>
-        </div>
-        <div>
-            <span class="legend-marker legend-marker-private"></span>
-            <label class="legend-label">
-                {% trans "private land belonging to an owner who wants to see it used" %}
-            </label>
-        </div>
-        <div>
-            <span class="legend-marker legend-marker-project"></span>
-            <label class="legend-label">
-                {% trans "project" %}
-            </label>
-        </div>
-        <div>
-            <span class="legend-marker legend-marker-organized"></span>
-            <label class="legend-label legend-label-organized">
-                {% trans "lot being organized" %}
-            </label>
-        </div>
-    </div>
 </div>
 
+{% comment %}
 <div class="overlaymenu overlaymenu-details">
     {% include "livinglots/lots/details.html" %}
 </div>
@@ -207,3 +136,4 @@
         </div>
     </div>
 </div>
+{% endcomment %}
