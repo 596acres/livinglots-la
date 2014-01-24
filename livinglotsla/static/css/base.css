@@ -2,6 +2,13 @@
  * Global properties
  */
 
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
 body {
     margin: 0;
     padding: 0;
@@ -89,7 +96,8 @@ footer .row {
 
 .header-home-link h1 {
     margin-bottom: 5px;
-    margin-top: 5px;
+    margin-top: 0;
+    padding-top: 5px;
 }
 
 

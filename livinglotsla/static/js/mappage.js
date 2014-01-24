@@ -43,6 +43,13 @@ define(
             return params;
         }
 
+        function maximizeMainContentHeight() {
+            var otherHeight = $('header').outerHeight() + $('footer').outerHeight(),
+                windowHeight = $(window).height(),
+                mainContentHeight = windowHeight - otherHeight;
+            $('#map').height(mainContentHeight);
+        }
+
         function updateLotCount(map) {
             var url = Django.url('lots:lot_count') + '?' +
                 $.param(buildLotFilterParams(map, { bbox: true }));
@@ -113,7 +120,11 @@ define(
             }
         }
 
+        $(window).resize(_.debounce(maximizeMainContentHeight, 250));
+
         $(document).ready(function () {
+            maximizeMainContentHeight();
+
             var params;
             if (window.location.search.length) {
                 params = deparam();
