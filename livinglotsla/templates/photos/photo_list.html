@@ -5,6 +5,10 @@
         <li class="photo-list-item">
             {% thumbnail '300x300' photo.original_image %}
 
+            <div class="photo-description">
+                {{ photo.description }}
+            </div>
+
             {% if "photos" in perms %}
                 <div class="admin-only">
 
