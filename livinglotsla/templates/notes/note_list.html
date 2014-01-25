@@ -3,16 +3,16 @@
 <ul class="note-list">
     {% for note in notes %}
         <li class="note-list-item">
-            <span class="note-added-by-name">
-                {{ note.added_by_name }}
-            </span>
-            {% trans "said" %}
-            <span class="note-text">
-                "{{ note.text }}"
-            </span>
-            <div class="note-added">
-                &mdash;
-                {{ note.added }}
+            <div>
+                <span class="note-added">
+                    {{ note.added }}
+                </span> |
+                <span class="note-added-by-name">
+                    {{ note.added_by_name }}
+                </span>
+            </div>
+            <div class="note-text">
+                {{ note.text|urlize|linebreaks }}
             </div>
 
             {% if "notes" in perms %}
