@@ -51,10 +51,10 @@ define(
             addBaseLayer(map);
             addLotsLayer(map);
             StreetView.load_streetview(
-                $('.lot-detail-header-image').data('lon'),
-                $('.lot-detail-header-image').data('lat'),
-                $('.lot-detail-header-image'),
-                $('.lot-detail-header-streetview-error')
+                $('.lot-detail-streetview').data('lon'),
+                $('.lot-detail-streetview').data('lat'),
+                $('.lot-detail-streetview'),
+                $('.lot-detail-streetview-error')
             );
         });
 
