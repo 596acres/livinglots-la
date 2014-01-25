@@ -96,6 +96,16 @@
             {% render_note_list for lot %}
         </section>
 
+        <section id="files" class="files lot-detail-main-section">
+            <h2>
+                {% trans "Files" %}
+            </h2>
+            <a class="btn btn-default" href="{% url "usercontent:add_file" pk=lot.pk %}">
+                {% trans "Add a file" %}
+            </a>
+            {% render_file_list for lot %}
+        </section>
+
         {% if lot.steward_projects.all.count > 0 %}
             {% with steward=lot.steward_projects.all.0 %}
                 {% if steward.organizer %}
@@ -164,16 +174,6 @@
                 {% endif %}
             {% endwith %}
         {% endif %}
-
-        <section id="files" class="files lot-detail-main-section">
-            <h2>
-                {% trans "Files" %}
-            </h2>
-            <a class="btn btn-default" href="{% url "usercontent:add_file" pk=lot.pk %}">
-                {% trans "Add a file" %}
-            </a>
-            {% render_file_list for lot %}
-        </section>
 
     </div>
 {% endblock %}
