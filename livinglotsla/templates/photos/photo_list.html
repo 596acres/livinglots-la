@@ -1,19 +1,27 @@
 {% load i18n imagekit %}
 
-{% for photo in photos %}
-    {% thumbnail '100x100' photo.original_image %}
+<ul class="photo-list">
+    {% for photo in photos %}
+        <li class="photo-list-item">
+            {% thumbnail '300x300' photo.original_image %}
 
-    {% if "photos" in perms %}
-        <div class="admin-only">
+            {% if "photos" in perms %}
+                <div class="admin-only">
 
-            {% if "photos.change_photo" in perms %}
-                <a href="{% url "admin:photos_photo_change" photo.pk %}">{% trans "Edit this photo" %}</a>
+                    {% if "photos.change_photo" in perms %}
+                        <a href="{% url "admin:photos_photo_change" photo.pk %}" class="btn btn-small btn-warning">
+                            {% trans "Edit this photo" %}
+                        </a>
+                    {% endif %}
+
+                    {% if "photos.delete_photo" in perms %}
+                        <a href="{% url "admin:photos_photo_delete" photo.pk %}" class="btn btn-small btn-warning">
+                            {% trans "Delete this photo" %}
+                        </a>
+                    {% endif %}
+
+                </div>
             {% endif %}
-
-            {% if "photos.delete_photo" in perms %}
-                <a href="{% url "admin:photos_photo_delete" photo.pk %}">{% trans "Delete this photo" %}</a>
-            {% endif %}
-
-        </div>
-    {% endif %}
-{% endfor %}
+        </li>
+    {% endfor %}
+</ul>

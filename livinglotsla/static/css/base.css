@@ -156,6 +156,18 @@ footer .row {
 .file-description {
   font-size: 24px;
 }
+.photo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.photo-list-item {
+  margin-top: 10px;
+}
+.photo-list img {
+  max-width: 100%;
+  height: auto;
+}
 /*
  * Overrides
  */
