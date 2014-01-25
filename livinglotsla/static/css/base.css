@@ -137,6 +137,20 @@ footer .row {
 /*
  * Overrides
  */
+.btn {
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.btn-default {
+  background: black;
+  color: white;
+}
+.btn-default:hover {
+  color: black;
+  background: #eee;
+}
 .leaflet-bar a,
 .leaflet-bar a:hover {
   font-size: 30px;
