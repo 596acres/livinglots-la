@@ -22,12 +22,12 @@ header .row {
   margin: 0;
 }
 .header-menu {
-  border-bottom: 1px solid #aaa;
-  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaaaaa;
+  border-top: 1px solid #aaaaaa;
 }
 .header-tagline {
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
+  border-left: 1px solid #aaaaaa;
+  border-right: 1px solid #aaaaaa;
   font-style: italic;
   padding-bottom: 5px;
   padding-top: 5px;
@@ -52,15 +52,15 @@ header .row {
 }
 /* Footer */
 footer {
-  border-bottom: 1px solid #aaa;
-  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaaaaa;
+  border-top: 1px solid #aaaaaa;
 }
 footer .row {
   margin: 0;
 }
 .footer-collaborator-links {
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
+  border-left: 1px solid #aaaaaa;
+  border-right: 1px solid #aaaaaa;
   color: #aaa;
   padding-bottom: 5px;
   padding-top: 5px;
@@ -80,7 +80,9 @@ footer .row {
   margin-top: 0;
   padding-top: 5px;
 }
-/* Map page */
+/*
+ * Pages
+ */
 .map-page #map {
   width: 100%;
   height: 1000px;
@@ -93,8 +95,11 @@ footer .row {
   width: 250px;
   z-index: 5000;
 }
-.map-filters.expanded {
+.map-filters .expanded {
   height: 100%;
+}
+.map-filters .expanded .map-filters-content {
+  display: block;
 }
 .map-filters-expander {
   cursor: pointer;
@@ -104,11 +109,8 @@ footer .row {
 .map-filters-content {
   display: none;
 }
-.map-filters.expanded .map-filters-content {
-  display: block;
-}
 /*
- * Leaflet overrides
+ * Overrides
  */
 .leaflet-bar a,
 .leaflet-bar a:hover {
