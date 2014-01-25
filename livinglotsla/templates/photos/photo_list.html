@@ -9,13 +9,13 @@
                 <div class="admin-only">
 
                     {% if "photos.change_photo" in perms %}
-                        <a href="{% url "admin:photos_photo_change" photo.pk %}" class="btn btn-small btn-warning">
+                        <a href="{% url "admin:photos_photo_change" photo.pk %}" class="btn btn-xs btn-warning">
                             {% trans "Edit this photo" %}
                         </a>
                     {% endif %}
 
                     {% if "photos.delete_photo" in perms %}
-                        <a href="{% url "admin:photos_photo_delete" photo.pk %}" class="btn btn-small btn-warning">
+                        <a href="{% url "admin:photos_photo_delete" photo.pk %}" class="btn btn-xs btn-warning">
                             {% trans "Delete this photo" %}
                         </a>
                     {% endif %}
