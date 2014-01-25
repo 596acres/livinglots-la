@@ -33,7 +33,7 @@
     }
 }
 
-.note-list {
+.content-list() {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -41,6 +41,10 @@
     &-item {
         margin-top: 10px;
     }
+}
+
+.note-list {
+    .content-list;
 }
 
 .note {
@@ -50,13 +54,7 @@
 }
 
 .file-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    
-    &-item {
-        margin-top: 10px;
-    }
+    .content-list;
 }
 
 .file {
@@ -66,13 +64,7 @@
 }
 
 .photo-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    
-    &-item {
-        margin-top: 10px;
-    }
+    .content-list;
 
     img {
         max-width: 100%;
