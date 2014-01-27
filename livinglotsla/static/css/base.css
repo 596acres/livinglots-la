@@ -25,14 +25,27 @@ header .row {
   border-bottom: 1px solid #aaaaaa;
   border-top: 1px solid #aaaaaa;
 }
-.header-tagline {
+.header-search {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
-  font-size: 10px;
-  font-style: italic;
+  height: 100%;
   line-height: 20px;
   padding-bottom: 5px;
   padding-top: 5px;
+}
+.header-search input {
+  border: 0;
+  width: 100%;
+}
+.header-tagline {
+  border-left: 1px solid #aaaaaa;
+  border-right: 1px solid #aaaaaa;
+  height: 100%;
+  line-height: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 10px;
+  font-style: italic;
 }
 .navbar-default {
   background-color: transparent;
