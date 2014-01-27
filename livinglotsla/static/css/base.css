@@ -149,6 +149,25 @@ footer .row {
 .map-filters-content {
   display: none;
 }
+.popup header {
+  font-size: 20px;
+}
+.popup header a {
+  color: black;
+  text-transform: uppercase;
+}
+.popup .btn-learn-more {
+  background: purple;
+  border-radius: 30px;
+  color: white;
+  font-size: 10px;
+  height: 50px;
+  margin-top: 15px;
+  padding: 0;
+  padding-top: 10px;
+  text-align: center;
+  width: 50px;
+}
 #lot-detail-map {
   width: 100%;
   height: 150px;
@@ -249,4 +268,7 @@ footer .row {
 }
 .leaflet-left {
   margin-left: 8.33333333333333%;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 0;
 }
