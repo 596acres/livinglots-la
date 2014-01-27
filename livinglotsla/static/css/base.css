@@ -69,8 +69,6 @@ header .row {
 }
 /* Footer */
 footer {
-  border-bottom: 1px solid #aaaaaa;
-  border-top: 1px solid #aaaaaa;
   bottom: 0;
   position: fixed;
   width: 100%;
@@ -78,18 +76,37 @@ footer {
 footer .row {
   margin: 0;
 }
+.footer-menu {
+  border-bottom: 1px solid #aaaaaa;
+  border-top: 1px solid #aaaaaa;
+}
 .footer-collaborator-links {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
-  color: #aaa;
+  height: 100%;
+  line-height: 20px;
   padding-bottom: 5px;
   padding-top: 5px;
+  color: #aaa;
+  font-size: 12px;
   text-transform: uppercase;
 }
 .footer-collaborator-links a {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
+}
+.footer-subscribe input {
+  border: 0;
+  width: 100%;
+}
+.footer-social {
+  border-left: 1px solid #aaaaaa;
+  border-right: 1px solid #aaaaaa;
+  height: 100%;
+  line-height: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 #page-wrapper.row {
   margin: 0;

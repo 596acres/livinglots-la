@@ -28,7 +28,7 @@ header .row {
     margin: 0;
 }
 
-.header-bookend() {
+.menu-bookend() {
     border-left: @frame-border;
     border-right: @frame-border;
     height: 100%;
@@ -48,13 +48,11 @@ header .row {
             border: 0;
             width: 100%;
         }
-        .header-bookend;
-
-
+        .menu-bookend;
     }
 
     &-tagline {
-        .header-bookend;
+        .menu-bookend;
         font-size: 10px;
         font-style: italic;
     }
@@ -87,8 +85,6 @@ header .row {
 /* Footer */
 
 footer {
-    border-bottom: @frame-border;
-    border-top: @frame-border;
     bottom: 0;
     position: fixed;
     width: 100%;
@@ -98,18 +94,34 @@ footer {
     }
 }
 
-.footer-collaborator-links {
-    border-left: @frame-border;
-    border-right: @frame-border;
-    color: #aaa;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    text-transform: uppercase;
+.footer {
+    &-menu {
+        border-bottom: @frame-border;
+        border-top: @frame-border;
+    }
 
-    a {
-        color: black;
-        text-decoration: none;
+    &-collaborator-links {
+        .menu-bookend;
+        color: #aaa;
+        font-size: 12px;
         text-transform: uppercase;
+
+        a {
+            color: black;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+
+    &-subscribe {
+        input {
+            border: 0;
+            width: 100%;
+        }
+    }
+
+    &-social {
+        .menu-bookend;
     }
 }
 

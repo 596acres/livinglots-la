@@ -1,13 +1,27 @@
 {% load feincms_tags i18n %}
 
 <footer>
-    <div class="row">
-        <div class="footer-collaborator-links col-md-6 col-md-offset-1">
-            {% trans "A project of" %}:
-            <a href="http://www.chc-inc.org/">{% trans "Community Health Councils" %}</a> |
-            <a href="http://596acres.org/">596 Acres</a> |
-            <a href="http://c-lab.columbia.edu/">C-Lab</a> |
-            <a href="http://www.la2050.org/">LA 2050</a>
+    <div class="footer-menu row">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="row">
+
+                <div class="footer-collaborator-links col-md-6">
+                    {% trans "A project of" %}:
+                    <a href="http://www.chc-inc.org/">{% trans "Community Health Councils" %}</a> |
+                    <a href="http://596acres.org/">596 Acres</a> |
+                    <a href="http://c-lab.columbia.edu/">C-Lab</a> |
+                    <a href="http://www.la2050.org/">LA 2050</a>
+                </div>
+
+                <div class="footer-subscribe col-md-3">
+                    <input type="email" placeholder="{% trans "subscribe" %}" />
+                </div>
+
+                <div class="footer-social col-md-3">
+                    social
+                </div>
+
+            </div>
         </div>
     </div>
 </footer>
