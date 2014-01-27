@@ -68,6 +68,9 @@ header .row {
 footer {
     border-bottom: @frame-border;
     border-top: @frame-border;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
 
     .row {
         margin: 0;
@@ -87,6 +90,11 @@ footer {
         text-decoration: none;
         text-transform: uppercase;
     }
+}
+
+
+#page-wrapper.row {
+    margin: 0;
 }
 
 

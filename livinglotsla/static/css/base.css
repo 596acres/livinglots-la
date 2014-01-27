@@ -54,6 +54,9 @@ header .row {
 footer {
   border-bottom: 1px solid #aaaaaa;
   border-top: 1px solid #aaaaaa;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
 }
 footer .row {
   margin: 0;
@@ -70,6 +73,9 @@ footer .row {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
+}
+#page-wrapper.row {
+  margin: 0;
 }
 /* Base page */
 .header-home-link {
