@@ -300,6 +300,10 @@ LIVING_LOTS = {
     },
 }
 
+LADATA_PARCEL_VIEWER_URL = 'http://maps.assessor.lacounty.gov/mapping/rolldata.asp?ain='
+LADATA_UA = ('Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 '
+             '(KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36')
+
 # TODO replace with project reasons and email addresses
 CONTACT_FORM_REASONS = OrderedDict([
     ('The lot I want permission to use is not here.', ['info@example.com',]),
