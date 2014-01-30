@@ -190,6 +190,9 @@ INSTALLED_APPS = (
     'pathways',
     'steward',
     'usercontent',
+
+    'ladata',
+    'ladata.parcels',
 )
 
 LOGGING = {
