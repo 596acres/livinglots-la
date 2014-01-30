@@ -144,7 +144,6 @@ Page.create_content_type(MailchimpSignup)
 
 Page.create_content_type(ApplicationContent, APPLICATIONS=(
     ('livinglots_lots.map_urls', _('Lots map')),
-    ('elephantblog.urls', _('Blog')),
     ('extraadmin.cms_urls', _('Extra admin functions')),
     ('contact_form', _('Contact form'), {
         'urls': 'contact.form_urls',

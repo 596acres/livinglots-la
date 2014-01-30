@@ -140,7 +140,6 @@ INSTALLED_APPS = (
     'contact_form',
     'django_monitor',
     'djangojs',
-    'elephantblog',
     'feincms',
     'feincms.module.medialibrary',
     'feincms.module.page',
@@ -180,7 +179,6 @@ INSTALLED_APPS = (
     # first-party, project-specific
     #
     'activity_stream',
-    'blog',
     'cms',
     'contact',
     'groundtruth',
@@ -259,28 +257,6 @@ MAILREADER_HOST_PASSWORD = get_env_variable('MAILREADER_HOST_PASSWORD')
 FEINCMS_RICHTEXT_INIT_TEMPLATE = 'admin/content/richtext/init_richtext.html'
 FEINCMS_RICHTEXT_INIT_CONTEXT = {
     'TINYMCE_JS_URL': STATIC_URL + 'bower_components/tinymce/js/tinymce/tinymce.js',
-}
-
-def elephantblog_entry_url_app(self):
-    from feincms.content.application.models import app_reverse
-    return app_reverse('elephantblog_entry_detail', 'elephantblog.urls',
-                       kwargs={
-                           'year': self.published_on.strftime('%Y'),
-                           'month': self.published_on.strftime('%m'),
-                           'day': self.published_on.strftime('%d'),
-                           'slug': self.slug,
-                       })
-
-
-def elephantblog_categorytranslation_url_app(self):
-    from feincms.content.application.models import app_reverse
-    return app_reverse('elephantblog_category_detail', 'elephantblog.urls',
-                       kwargs={ 'slug': self.slug, })
-
-
-ABSOLUTE_URL_OVERRIDES = {
-    'elephantblog.entry': elephantblog_entry_url_app,
-    'elephantblog.categorytranslation': elephantblog_categorytranslation_url_app,
 }
 
 SOUTH_MIGRATION_MODULES = {
