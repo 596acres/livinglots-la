@@ -41,6 +41,23 @@ class RecentActivitiesContent(models.Model):
         ], {}, context_instance=kwargs.get('context'))
 
 
+class RssFeedContent(models.Model):
+
+    feed = models.ForeignKey('rsssync.RssFeed')
+
+    class Meta:
+        abstract = True
+        verbose_name = _('rss feed')
+        verbose_name_plural = _('rss feeds')
+
+    def render(self, **kwargs):
+        ctx = { 'content': self }
+        ctx.update(kwargs)
+        return render_to_string([
+            'rsssync/plugin.html',
+        ], ctx, context_instance=kwargs.get('context'))
+
+
 class ExternallyLinkedMediaFileContent(ContentWithMediaFile):
 
     class Meta:
@@ -134,6 +151,7 @@ Page.create_content_type(RichTextContent)
 Page.create_content_type(CollapsibleSectionContent)
 Page.create_content_type(PathwayListContent)
 Page.create_content_type(RecentActivitiesContent)
+Page.create_content_type(RssFeedContent)
 
 Page.create_content_type(MediaFileContent, TYPE_CHOICES=(
     ('default', _('default')),

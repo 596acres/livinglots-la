@@ -1,0 +1,11 @@
+{% load rsssync_tags %}
+
+<section class="blog-entry-list row">
+    {% get_latest_entries for content.feed 10 as entries %}
+    {% for entry in entries %}
+        <article class="col-md-9">
+            <h2>{{ entry.title }}</h2>
+            {{ entry.summary|safe }}
+        </article>
+    {% endfor %}
+</section>

@@ -161,6 +161,7 @@ INSTALLED_APPS = (
     'external_data_sync',
     'inplace_activity_stream',
     'pagepermissions',
+    'rsssync',
 
     #
     # Living Lots
