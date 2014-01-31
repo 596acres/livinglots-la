@@ -5,6 +5,9 @@
     {% for entry in entries %}
         <article class="col-md-9">
             <h2>{{ entry.title }}</h2>
+            <div class="meta">
+                <time datetime="{{ entry.date|date:"Y-d-m H:i" }}">{{ entry.date|date:"d F, Y" }}</time>
+            </div>
             {{ entry.summary|safe }}
         </article>
     {% endfor %}

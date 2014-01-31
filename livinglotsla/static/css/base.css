@@ -127,6 +127,17 @@ footer .row {
 /*
  * Pages
  */
+.blog-entry-list h2 {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.blog-entry-list .meta {
+  color: gray;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 .blog-entry-list img {
   height: auto;
   max-width: 100%;
