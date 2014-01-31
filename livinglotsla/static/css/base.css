@@ -111,6 +111,37 @@ footer .row {
   line-height: 20px;
   padding-bottom: 5px;
   padding-top: 5px;
+  line-height: 5px;
+}
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-social ul li {
+  float: left;
+}
+.social-fb {
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 5px;
+  height: 21px;
+  width: 21px;
+  background: url(/static/img/fb.png);
+}
+.social-fb:hover {
+  background: url(/static/img/fb-hover.png);
+}
+.social-twitter {
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: 5px;
+  height: 21px;
+  width: 21px;
+  background: url(/static/img/twitter.png);
+}
+.social-twitter:hover {
+  background: url(/static/img/twitter-hover.jpg);
 }
 #page-wrapper.row {
   margin: 0;

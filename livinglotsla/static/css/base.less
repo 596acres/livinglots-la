@@ -127,7 +127,47 @@ footer {
 
     &-social {
         .menu-bookend;
+        line-height: 5px;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                float: left;
+            }
+
+        }
     }
+}
+
+.social-icon() {
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 5px;
+    height: 21px;
+    width: 21px;
+}
+
+.social {
+
+    &-fb {
+        .social-icon;
+        background: url(/static/img/fb.png);
+        &:hover {
+            background: url(/static/img/fb-hover.png);
+        }
+    }
+
+    &-twitter {
+        .social-icon;
+        background: url(/static/img/twitter.png);
+        &:hover {
+            background: url(/static/img/twitter-hover.jpg);
+        }
+    }
+
 }
 
 
