@@ -100,6 +100,9 @@ footer .row {
   text-decoration: none;
   text-transform: uppercase;
 }
+.footer-subscribe {
+  line-height: 27px;
+}
 .footer-subscribe input {
   border: 0;
   width: 100%;
