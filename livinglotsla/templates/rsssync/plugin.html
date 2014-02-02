@@ -3,12 +3,32 @@
 <section class="blog-entry-list row">
     {% get_latest_entries for content.feed 10 as entries %}
     {% for entry in entries %}
-        <article class="col-md-9">
-            <h2>{{ entry.title }}</h2>
-            <div class="meta">
-                <time datetime="{{ entry.date|date:"Y-d-m H:i" }}">{{ entry.date|date:"d F, Y" }}</time>
+        <article>
+            <div class="blog-entry-summary">
+                <h2>
+                    {% if entry.link %}
+                        <a href="{{ entry.link }}">
+                            {{ entry.title }}
+                        </a>
+                    {% else %}
+                        {{ entry.title }}
+                    {% endif %}
+                </h2>
+                <div class="meta">
+                    <time datetime="{{ entry.date|date:"Y-d-m H:i" }}">{{ entry.date|date:"d F, Y" }}</time>
+                </div>
+                {{ entry.summary|striptags|truncatewords:"75" }}
+                {% if entry.link %}
+                    <a class="meta" href="{{ entry.link }}">
+                        read more
+                    </a>
+                {% endif %}
             </div>
-            {{ entry.summary|safe }}
+            <div class="blog-entry-cover-image">
+                {% if entry.cover_image_url %}
+                    <img src="{{ entry.cover_image_url }}" />
+                {% endif %}
+            </div>
         </article>
     {% endfor %}
 </section>
