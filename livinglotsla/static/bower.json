@@ -14,7 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.0.3",
+    "bootstrap": "3.1.0",
     "fancybox": "~2.1.5",
     "leaflet.usermarker": "git://github.com/heyman/leaflet-usermarker.git#master",
     "requirejs": "~2.1.10",
