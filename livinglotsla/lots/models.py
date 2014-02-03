@@ -78,8 +78,7 @@ class LotMixin(models.Model):
 
     def calculate_polygon_area(self):
         try:
-            # TODO replace with local projection
-            return self.polygon.transform(3452, clone=True).area
+            return self.polygon.transform(2229, clone=True).area
         except Exception:
             return None
 
