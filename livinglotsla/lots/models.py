@@ -20,7 +20,7 @@ class LotManager(BaseLotManager):
 
         # Check parcel validity
         for parcel in parcels:
-            if parcel.lot_set.count():
+            if parcel.lot_model.count():
                 raise ParcelAlreadyInLot()
 
         # Create lots for each parcel
@@ -29,8 +29,11 @@ class LotManager(BaseLotManager):
                 'parcel': parcel,
                 'polygon': parcel.geom,
                 'centroid': parcel.geom.centroid,
-                'address_line1': parcel.address,
-                'name': parcel.address,
+                'address_line1': parcel.street_address,
+                'name': parcel.street_address,
+                'postal_code': parcel.zip_code,
+                'city': parcel.city,
+                'state_province': parcel.state,
             }
             kwargs.update(**lot_kwargs)
             lot = Lot(**kwargs)
