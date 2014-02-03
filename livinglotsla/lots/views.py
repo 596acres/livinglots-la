@@ -194,19 +194,16 @@ class LotsCountViewWithAcres(LotsCountView):
 class LotsCSV(BaseLotsCSV):
 
     def get_sitename(self):
-        # TODO replace with site name
-        return ''
+        return 'LA Open Acres'
 
 
 class LotsKML(BaseLotsKML):
 
     def get_sitename(self):
-        # TODO replace with site name
-        return ''
+        return 'LA Open Acres'
 
 
 class LotsGeoJSON(BaseLotsGeoJSON):
 
     def get_sitename(self):
-        # TODO replace with site name
-        return ''
+        return 'LA Open Acres'
