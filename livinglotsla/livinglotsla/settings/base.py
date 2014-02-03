@@ -288,10 +288,10 @@ LADATA_UA = ('Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 '
              '(KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36')
 
 CONTACT_FORM_REASONS = OrderedDict([
-    ('The lot I want permission to use is not here.', ['info@laopenacres.org',]),
-    ('I want to share my land access story.', ['info@laopenacres.org',]),
-    ('I want to loan or lease my land for a temporary project.', ['info@laopenacres.org',]),
-    ('I want to invite admins to an event.', ['info@laopenacres.org',]),
+    ('The lot I want permission to use is not here.', ['hello@laopenacres.org',]),
+    ('I want to share my land access story.', ['hello@laopenacres.org',]),
+    ('I want to loan or lease my land for a temporary project.', ['hello@laopenacres.org',]),
+    ('I want to invite admins to an event.', ['hello@laopenacres.org',]),
     ('I want to reach 596 Acres, the team that made this site.', ['paula@596acres.org',]),
-    ('I have a press inquiry.', ['info@laopenacres.org',]),
+    ('I have a press inquiry.', ['hello@laopenacres.org',]),
 ])
