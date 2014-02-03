@@ -182,6 +182,7 @@ INSTALLED_APPS = (
     'activity_stream',
     'cms',
     'contact',
+    'datasync',
     'groundtruth',
     'lots',
     'organize',
