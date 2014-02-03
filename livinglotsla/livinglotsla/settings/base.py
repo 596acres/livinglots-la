@@ -287,12 +287,11 @@ LADATA_PARCEL_VIEWER_URL = 'http://maps.assessor.lacounty.gov/mapping/rolldata.a
 LADATA_UA = ('Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 '
              '(KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36')
 
-# TODO replace with project reasons and email addresses
 CONTACT_FORM_REASONS = OrderedDict([
-    ('The lot I want permission to use is not here.', ['info@example.com',]),
-    ('I want to share my land access story.', ['info@example.com',]),
-    ('I want to loan or lease my land for a temporary project.', ['info@example.com',]),
-    ('I want to invite admins to an event.', ['info@example.com',]),
+    ('The lot I want permission to use is not here.', ['info@laopenacres.org',]),
+    ('I want to share my land access story.', ['info@laopenacres.org',]),
+    ('I want to loan or lease my land for a temporary project.', ['info@laopenacres.org',]),
+    ('I want to invite admins to an event.', ['info@laopenacres.org',]),
     ('I want to reach 596 Acres, the team that made this site.', ['paula@596acres.org',]),
-    ('I have a press inquiry.', ['info@example.com',]),
+    ('I have a press inquiry.', ['info@laopenacres.org',]),
 ])
