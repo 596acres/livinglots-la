@@ -1,5 +1,6 @@
 from pint import UnitRegistry
 
+from django.conf import settings
 from django.contrib.contenttypes import generic
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -78,7 +79,7 @@ class LotMixin(models.Model):
 
     def calculate_polygon_area(self):
         try:
-            return self.polygon.transform(2229, clone=True).area
+            return self.polygon.transform(settings.LOCAL_PROJECTION, clone=True).area
         except Exception:
             return None
 
