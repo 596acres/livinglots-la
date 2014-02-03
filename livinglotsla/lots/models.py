@@ -102,6 +102,13 @@ class Lot(LotMixin, LotGroupLotMixin, BaseLot):
 
     objects = LotManager()
 
+    parcel = models.ForeignKey(
+        'parcels.Parcel',
+        related_name='lot_model',
+        blank=True,
+        null=True
+    )
+
     class Meta:
         permissions = (
             ('view_preview', 'Can view preview map'),
