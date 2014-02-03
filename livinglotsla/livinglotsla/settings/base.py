@@ -248,8 +248,7 @@ FACILITATORS = {
     'global': [],
 }
 
-# TODO Replace with project name
-EMAIL_SUBJECT_PREFIX = '[] '
+EMAIL_SUBJECT_PREFIX = '[LA Open Acres] '
 
 MAILREADER_REPLY_PREFIX = 'Reply with text above this line to post a public note.'
 MAILREADER_IGNORE_FROM = []
