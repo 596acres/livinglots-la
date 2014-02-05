@@ -3674,6 +3674,7 @@ footer .row {
 }
 #page-wrapper.row {
   margin: 0;
+  margin-bottom: 50px;
 }
 /* Base page */
 .header-home-link {
@@ -3841,9 +3842,6 @@ footer .row {
 }
 .lot-detail-streetview-error {
   display: none;
-}
-.lot-detail-page #page-wrapper.row {
-  margin: 0;
 }
 .lot-detail-page .content-wrapper {
   padding-top: 10px;
