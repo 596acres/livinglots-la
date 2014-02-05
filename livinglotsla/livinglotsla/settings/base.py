@@ -192,6 +192,7 @@ INSTALLED_APPS = (
     'usercontent',
 
     'ladata',
+    'ladata.buildings',
     'ladata.localroll',
     'ladata.parcels',
 )
