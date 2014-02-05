@@ -71,20 +71,46 @@
     data-l-lot-centroids-url="{% url "lots:lot_geojson_centroid" %}"
     data-l-lot-polygons-url="{% url "lots:lot_geojson_polygon" %}"
 >
-    <div class="map-filters">
-        <span class="map-filters-expander">filter</span>
+    <div id="map-filters-parent" class="map-filters">
+        <h2 class="map-filters-expander">filter</h2>
         <section class="map-filters-content">
-            <section>
-                TYPE
+            <section class="map-filters">
+                <h3 class="map-filters-expander">type</h3>
+                <div class="map-filters-content">
+                    <ul class="map-filters-type">
+                        <ul>
+                            <li>publicly owned vacant</li>
+                            <li>remnant/odd shape</li>
+                        </ul>
+                        <ul>
+                            <li>privately owned vacant</li>
+                            <li>tax default</li>
+                        </ul>
+                        <ul>
+                            <li>being organized</li>
+                            <li>garden/farm/nursery</li>
+                            <li>park/greenspace/forest</li>
+                        </ul>
+                    </ul>
+                </div>
             </section>
-            <section>
-                SEARCH
+            <section class="map-filters">
+                <h3 class="map-filters-expander">search</h3>
+                <div class="map-filters-content">
+                    <input id="map-filters-search" class="map-filters-search" type="search" placeholder="address, intersection, zip, owner" />
+                </div>
             </section>
-            <section>
-                FILTER BY
+            <section class="map-filters">
+                <h3 class="map-filters-expander">filter by</h3>
+                <div class="map-filters-content">
+                    filter by
+                </div>
             </section>
-            <section>
-                SIZE
+            <section class="map-filters">
+                <h3 class="map-filters-expander">size</h3>
+                <div class="map-filters-content">
+                    size
+                </div>
             </section>
         </section>
     </div>

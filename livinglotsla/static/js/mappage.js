@@ -186,7 +186,7 @@ define(
             });
 
             $('.map-filters-expander').click(function () {
-                $('.map-filters').toggleClass('expanded');
+                $(this).parent('.map-filters').toggleClass('expanded');
             });
 
         });

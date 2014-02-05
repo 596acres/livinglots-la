@@ -3752,26 +3752,65 @@ footer .row {
   height: 1000px;
 }
 .map-filters {
+  border-top: 1px solid #aaaaaa;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.map-filters h2 {
+  font-size: 24px;
+}
+.map-filters h3 {
+  font-size: 18px;
+}
+.map-filters#map-filters-parent {
   background: rgba(255, 255, 255, 0.8);
-  left: 66.666666%;
-  padding: 5px;
+  border: none;
+  left: 70.3%;
+  margin: 0;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
   position: relative;
   width: 250px;
   z-index: 5000;
 }
-.map-filters .expanded {
+.map-filters#map-filters-parent.expanded {
   height: 100%;
-}
-.map-filters .expanded .map-filters-content {
-  display: block;
 }
 .map-filters-expander {
   cursor: pointer;
-  font-size: 26px;
+  font-weight: bold;
   text-transform: uppercase;
+}
+.map-filters-expander:before {
+  content: "\25B8";
+  margin-right: 10px;
 }
 .map-filters-content {
   display: none;
+}
+.map-filters.expanded > .map-filters-content {
+  display: block;
+}
+.map-filters.expanded > .map-filters-expander:before {
+  content: "\25BE";
+  margin-right: 10px;
+}
+.map-filters-search {
+  border: 1px solid #aaaaaa;
+  width: 100%;
+}
+.map-filters-type {
+  margin: 0;
+  margin-left: 20px;
+  padding: 0;
+}
+.map-filters-type ul {
+  margin: 0;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 0;
 }
 .popup header {
   font-size: 20px;
