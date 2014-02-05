@@ -36,31 +36,6 @@
     {% endverbatim %}
 </script>
 
-{% comment %}
-<div id="map-header" class="hidden-xs hidden-print">
-    <div class="row map-header-content">
-
-        <div class="col-sm-4">
-            <div class="map-search">
-                <form class="map-search-form row" data-bounds="[-89.4747,29.7387,-90.4628,30.2158]" data-city="New Orleans" data-state="LA" data-error-message="Could not find your location. Try again?" data-warning-selector="map-search.warning">
-                    <input class="col-sm-6" id="search" name="search" placeholder="{% trans "Search by address, zip code" %}" type="text" />
-                    <button class="map-search-submit col-sm-2 btn btn-default" type="submit">{% trans "GO" %}</button>
-                    <div class="warning" style="display: none;"></div>
-                </form>
-            </div>
-
-            {% if user.is_superuser %}
-                <div class="row">
-                    <a class="overlay-admin-button btn btn-warning" href="#">
-                        {% trans "admin" %}
-                    </a>
-                </div>
-            {% endif %}
-        </div>
-    </div>
-</div>
-{% endcomment %}
-
 <div id="map"
     data-l-zoom="11"
     data-l-center="[33.995750,-118.215637]"
@@ -97,7 +72,10 @@
             <section class="map-filters">
                 <h3 class="map-filters-expander">search</h3>
                 <div class="map-filters-content">
-                    <input id="map-filters-search" class="map-filters-search" type="search" placeholder="address, intersection, zip, owner" />
+                    <form class="map-filters-search-form" data-bounds="[-117.5359,33.5391,-118.8872,34.5733]" data-city="Los Angeles" data-state="CA" data-error-message="Could not find your location. Try again?" data-warning-selector=".map-filters-search.warning">
+                        <input id="map-filters-search" class="map-filters-search" type="search" placeholder="{% trans "address, intersection, zip, owner" %}" />
+                        <div class="warning" style="display: none;"></div>
+                    </form>
                 </div>
             </section>
             <section class="map-filters">

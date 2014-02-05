@@ -151,7 +151,7 @@ define(
                 window.print();
             });
 
-            $('form.map-search-form').mapsearch()
+            $('form.map-filters-search-form').mapsearch()
                 .on('searchstart', function (e) {
                     map.removeUserLayer();
                 })

@@ -21,7 +21,7 @@ define(
                 bounds = form.data('bounds'),
                 city = form.data('city'),
                 state = form.data('state'),
-                query = form.find('input[type="text"]').val();
+                query = form.find('input[type="search"]').val();
 
             form.find(warningSelector).hide();
             form.find(':input[type=submit]')
