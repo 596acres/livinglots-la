@@ -292,16 +292,18 @@
         </section>
         {% endcomment %}
 
-        <section class="lot-detail-organizers">
-            {% get_organizer_count for lot as organizer_count %}
-            <h2>Number of organizers: {{ organizer_count }}</h2>
-            <div>
-                <section class="lot-detail-organizer-intro">
-                    <h3>Hey organizers!</h3>
-                    {% flatblock "lot-detail-organizer-intro" %}
-                    {% flatblock "lot-detail-organizer-contact" %}
-                </section>
-                {% render_organizer_list for lot %}
+        <section class="lot-detail-organizers row">
+            <div class="col-xs-2 icon"></div>
+            <div class="col-xs-10">
+                {% get_organizer_count for lot as organizer_count %}
+                <h2>Number of organizers: {{ organizer_count }}</h2>
+                <div>
+                    <section class="lot-detail-organizer-intro">
+                        {% flatblock "lot-detail-organizer-intro" %}
+                        {% flatblock "lot-detail-organizer-contact" %}
+                    </section>
+                    {% render_organizer_list for lot %}
+                </div>
             </div>
         </section>
     </aside>
