@@ -3935,3 +3935,6 @@ footer .row {
 .leaflet-popup-content-wrapper {
   border-radius: 0;
 }
+.leaflet-control-layers-toggle {
+  background-image: url(/static/img/layer-switcher.png);
+}
