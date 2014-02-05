@@ -187,6 +187,20 @@
             </h2>
             <div class="lot-detail-details">
 
+                {% if lot.parcel %}
+                    <div>
+                        AIN {{ lot.parcel.ain }}
+                    </div>
+                {% endif %}
+
+                <div>
+                    {{ lot.address_line1|title }}<br />
+                    {{ lot.city|title }}, {{ lot.state_province }}
+                    {% if lot.postal_code %}
+                        {{ lot.postal_code }}
+                    {% endif %}
+                </div>
+
                 <div>
                     {% trans "Owner" %}: {{ lot.owner|default:"unknown" }}
 
