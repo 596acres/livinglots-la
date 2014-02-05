@@ -3938,3 +3938,6 @@ footer .row {
 .leaflet-control-layers-toggle {
   background-image: url(/static/img/layer-switcher.png);
 }
+.leaflet-control-loading {
+  background-image: url(/static/img/loading.gif);
+}
