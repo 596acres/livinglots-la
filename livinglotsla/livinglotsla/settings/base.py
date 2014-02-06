@@ -193,8 +193,11 @@ INSTALLED_APPS = (
 
     'ladata',
     'ladata.buildings',
+    'ladata.communityplanareas',
+    'ladata.councildistricts',
     'ladata.localroll',
     'ladata.parcels',
+    'ladata.protectedareas',
 )
 
 LOGGING = {
