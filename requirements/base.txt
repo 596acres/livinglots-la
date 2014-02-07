@@ -1,7 +1,6 @@
 # General requirements
 Fabric==1.6.1
 IMAPClient==0.10.2
-ModestMaps==1.4.1
 Pillow==1.7.8
 Pint==0.3.2
 argparse==1.2.1
