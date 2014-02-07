@@ -20,6 +20,7 @@ FACILITATORS = {
 }
 
 ALLOWED_HOSTS = get_env_variable('ALLOWED_HOSTS').split(',')
+STATIC_ROOT = get_env_variable('STATIC_ROOT').split(',')
 
 #
 # cache-machine
