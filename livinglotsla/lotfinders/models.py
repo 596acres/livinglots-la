@@ -17,6 +17,12 @@ class VacantParcelFinderAttempt(models.Model):
         default='not added'
     )
 
+    reason = models.TextField(
+        _('reason'),
+        blank=True,
+        null=True
+    )
+
     parcel = models.ForeignKey(
         'parcels.Parcel',
         blank=True,
