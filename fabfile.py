@@ -3,27 +3,23 @@ import contextlib
 from fabric.api import *
 
 
-# TODO set hosts
-env.hosts = ['',]
+env.hosts = ['la',]
 env.use_ssh_config = True
 
-
-# TODO set
 server_project_dirs = {
-    'dev': '~/webapps/',
-    'prod': '~/webapps/',
+    'prod': '~/webapps/laopenacres/livinglots-la',
 }
 
-# TODO set
+server_collected_static = {
+    'prod': '~/webapps/laopenacres_static',
+}
+
 server_virtualenvs = {
-    'dev': '',
-    'prod': '',
+    'prod': 'laopenacres',
 }
 
-# TODO set
 supervisord_programs = {
-    'dev': '',
-    'prod': '',
+    'prod': 'laopenacres',
 }
 
 supervisord_conf = '~/var/supervisor/supervisord.conf'
@@ -33,6 +29,13 @@ supervisord_conf = '~/var/supervisor/supervisord.conf'
 def cdversion(version, subdir=''):
     """cd to the version indicated"""
     with prefix('cd %s' % '/'.join([server_project_dirs[version], subdir])):
+        yield
+
+
+@contextlib.contextmanager
+def cdstatic(version, subdir=''):
+    """cd to the version indicated"""
+    with prefix('cd %s' % '/'.join([server_collected_static[version], subdir])):
         yield
 
 
@@ -60,9 +63,9 @@ def install_requirements(version='prod'):
 def build_static(version='prod'):
     with workon(version):
         run('django-admin.py collectstatic --noinput')
-        with cdversion(version, 'livinglotsla/collected_static/'):
+        with cdstatic(version, ''):
             run('bower install')
-        with cdversion(version, 'livinglotsla/collected_static/js/'):
+        with cdstatic(version, 'js'):
             run('r.js -o app.build.js')
 
 
@@ -79,8 +82,10 @@ def migrate(version='prod'):
 
 
 @task
-def restart_django():
-    run('supervisorctl -c %s restart llnola' % supervisord_conf)
+def restart_django(version='prod'):
+    with workon(version):
+        run('supervisorctl -c %s restart %s' % (supervisord_conf,
+                                                supervisord_programs[version]))
 
 
 @task
@@ -128,3 +133,4 @@ def prepare_environment(version='prod'):
     # mkvirtualenv
     # clone code
     # add2virtualenv
+    pass
