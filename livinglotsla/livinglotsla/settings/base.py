@@ -8,13 +8,15 @@ from django.core.exceptions import ImproperlyConfigured
 
 ENV_VARIABLE_PREFIX = 'LAOA'
 
-def get_env_variable(var_name):
+def get_env_variable(var_name, optional=False):
     """Get the environment variable or return exception"""
     if not ENV_VARIABLE_PREFIX:
         raise ImproperlyConfigured('Set ENV_VARIABLE_PREFIX')
     try:
         return os.environ[ENV_VARIABLE_PREFIX + '_' + var_name]
     except KeyError:
+        if optional:
+            return None
         error_msg = "Set the %s env variable" % var_name
         raise ImproperlyConfigured(error_msg)
 
@@ -185,6 +187,7 @@ INSTALLED_APPS = (
     'datasync',
     'groundtruth',
     'lots',
+    'lotfinders',
     'organize',
     'owners',
     'pathways',
@@ -288,7 +291,8 @@ LIVING_LOTS = {
 LOCAL_PROJECTION = 2229
 
 LADATA_PARCEL_VIEWER_URL = 'http://maps.assessor.lacounty.gov/mapping/rolldata.asp?ain='
-LADATA_PROCESSED_DATA_DIR = get_env_variable('LADATA_PROCESSED_DATA_DIR')
+LADATA_PROCESSED_DATA_DIR = get_env_variable('LADATA_PROCESSED_DATA_DIR',
+                                             optional=True)
 LADATA_UA = ('Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 '
              '(KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36')
 

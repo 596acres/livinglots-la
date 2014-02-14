@@ -2,7 +2,7 @@ from ladata.councildistricts.models import CouncilDistrict
 from ladata.parcels.models import Parcel
 from ladata.protectedareas.models import ProtectedArea
 
-from .models import Lot
+from lots.models import Lot
 
 
 class VacantParcelFinder(object):
@@ -16,6 +16,8 @@ class VacantParcelFinder(object):
     def find_parcels(self, count=None):
         vacant_use_codes = (self.private_vacant_use_codes +
                             self.public_vacant_use_codes)
+        # TODO rather than select any, shuffled, make a record of parcels
+        # attempted, and when
         parcels = Parcel.objects.filter(
             local_roll__use_cde__in=(vacant_use_codes),
             lot_model=None,
