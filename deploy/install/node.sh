@@ -18,3 +18,6 @@ make install
 
 # Install bower
 npm install -g bower
+
+# Install requirejs
+npm install -g requirejs
