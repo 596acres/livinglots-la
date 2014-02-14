@@ -6,8 +6,8 @@ PORT=<PORT>
 USER=laopenacres
 GROUP=laopenacres
 NUM_WORKERS=3
-DJANGO_SETTINGS_MODULE=laopenacres.settings.production
-DJANGO_WSGI_MODULE=laopenacres.wsgi
+DJANGO_SETTINGS_MODULE=livinglotsla.settings.production
+DJANGO_WSGI_MODULE=livinglotsla.wsgi
 VIRTUALENV=laopenacres
 LOGDIR=$HOME/webapps/laopenacres/logs
 
