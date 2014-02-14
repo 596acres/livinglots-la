@@ -5,6 +5,7 @@
 
 NODE_VERSION=0.10.25
 
+# Install node/npm
 mkdir -p ~/src/
 cd ~/src/
 wget http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.gz
@@ -14,3 +15,6 @@ alias python=python2.7
 python configure --prefix=$HOME
 make
 make install
+
+# Install bower
+npm install -g bower
