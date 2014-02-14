@@ -9,7 +9,7 @@ NUM_WORKERS=3
 DJANGO_SETTINGS_MODULE=laopenacres.settings.production
 DJANGO_WSGI_MODULE=laopenacres.wsgi
 VIRTUALENV=laopenacres
-LOGDIR=$HOME/webapps/llnola_django/logs
+LOGDIR=$HOME/webapps/laopenacres/logs
 
 echo "Starting $NAME"
 
