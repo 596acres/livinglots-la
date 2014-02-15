@@ -8,6 +8,8 @@ from django.utils.translation import ugettext_lazy as _
 from livinglots_lots.models import BaseLot, BaseLotGroup, BaseLotManager
 
 from organize.models import Organizer
+from owners.models import Owner
+
 from .exceptions import ParcelAlreadyInLot
 
 
@@ -37,6 +39,17 @@ class LotManager(BaseLotManager):
                 'state_province': parcel.state,
             }
             kwargs.update(**lot_kwargs)
+
+            # Create or get owner for parcels
+            if parcel.owner_name:
+                (owner, created) = Owner.objects.get_or_create(
+                    parcel.owner_name,
+                    defaults={
+                        'owner_type': parcel.owner_type,
+                    }
+                )
+                kwargs['owner'] = owner
+
             lot = Lot(**kwargs)
             lot.save()
             lots.append(lot)
