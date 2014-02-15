@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 
-class VacantParcelFinderAttempt(models.Model):
+class LotFinderAttempt(models.Model):
 
     checked = models.DateTimeField(_('checked'), auto_now=True)
 

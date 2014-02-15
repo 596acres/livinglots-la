@@ -8,20 +8,20 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'VacantParcelFinderAttempt'
-        db.create_table(u'lotfinders_vacantparcelfinderattempt', (
+        # Adding model 'LotFinderAttempt'
+        db.create_table(u'lotfinders_lotfinderattempt', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('checked', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('status', self.gf('django.db.models.fields.CharField')(default='not added', max_length=50)),
             ('reason', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('parcel', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['parcels.Parcel'], null=True, blank=True)),
         ))
-        db.send_create_signal(u'lotfinders', ['VacantParcelFinderAttempt'])
+        db.send_create_signal(u'lotfinders', ['LotFinderAttempt'])
 
 
     def backwards(self, orm):
-        # Deleting model 'VacantParcelFinderAttempt'
-        db.delete_table(u'lotfinders_vacantparcelfinderattempt')
+        # Deleting model 'LotFinderAttempt'
+        db.delete_table(u'lotfinders_lotfinderattempt')
 
 
     models = {
@@ -83,8 +83,8 @@ class Migration(SchemaMigration):
             'yr_sold_to_state': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
             'zoning_code': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'})
         },
-        u'lotfinders.vacantparcelfinderattempt': {
-            'Meta': {'object_name': 'VacantParcelFinderAttempt'},
+        u'lotfinders.lotfinderattempt': {
+            'Meta': {'object_name': 'LotFinderAttempt'},
             'checked': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'parcel': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['parcels.Parcel']", 'null': 'True', 'blank': 'True'}),
