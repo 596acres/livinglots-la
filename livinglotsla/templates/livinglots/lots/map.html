@@ -46,51 +46,55 @@
     data-l-lot-centroids-url="{% url "lots:lot_geojson_centroid" %}"
     data-l-lot-polygons-url="{% url "lots:lot_geojson_polygon" %}"
 >
-    <div id="map-filters-parent" class="map-filters">
-        <h2 class="map-filters-expander">filter</h2>
-        <section class="map-filters-content">
-            <section class="map-filters">
-                <h3 class="map-filters-expander">type</h3>
-                <div class="map-filters-content">
-                    <ul class="map-filters-type">
-                        <ul>
-                            <li class="map-filters-type-public">publicly owned vacant</li>
-                            <li class="map-filters-type-public-remnant">remnant/odd shape</li>
-                        </ul>
-                        <ul>
-                            <li class="map-filters-type-private">privately owned vacant</li>
-                            <li class="map-filters-type-private-tax-default">tax default</li>
-                        </ul>
-                        <ul>
-                            <li>being organized</li>
-                            <li>garden/farm/nursery</li>
-                            <li>park/greenspace/forest</li>
-                        </ul>
-                    </ul>
-                </div>
-            </section>
-            <section class="map-filters">
-                <h3 class="map-filters-expander">search</h3>
-                <div class="map-filters-content">
-                    <form class="map-filters-search-form" data-bounds="[-117.5359,33.5391,-118.8872,34.5733]" data-city="Los Angeles" data-state="CA" data-error-message="Could not find your location. Try again?" data-warning-selector=".map-filters-search.warning">
-                        <input id="map-filters-search" class="map-filters-search" type="search" placeholder="{% trans "address, intersection, zip, owner" %}" />
-                        <div class="warning" style="display: none;"></div>
-                    </form>
-                </div>
-            </section>
-            <section class="map-filters">
-                <h3 class="map-filters-expander">filter by</h3>
-                <div class="map-filters-content">
-                    filter by
-                </div>
-            </section>
-            <section class="map-filters">
-                <h3 class="map-filters-expander">size</h3>
-                <div class="map-filters-content">
-                    size
-                </div>
-            </section>
-        </section>
+    <div class="map-filters-wrapper">
+        <div class="map-filters-inner-wrapper">
+            <div id="map-filters-parent" class="map-filters">
+                <h2 class="map-filters-expander">filter</h2>
+                <section class="map-filters-content">
+                    <section class="map-filters">
+                        <h3 class="map-filters-expander">type</h3>
+                        <div class="map-filters-content">
+                            <ul class="map-filters-type">
+                                <ul>
+                                    <li class="map-filters-type-public">publicly owned vacant</li>
+                                    <li class="map-filters-type-public-remnant">remnant/odd shape</li>
+                                </ul>
+                                <ul>
+                                    <li class="map-filters-type-private">privately owned vacant</li>
+                                    <li class="map-filters-type-private-tax-default">tax default</li>
+                                </ul>
+                                <ul>
+                                    <li>being organized</li>
+                                    <li>garden/farm/nursery</li>
+                                    <li>park/greenspace/forest</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="map-filters">
+                        <h3 class="map-filters-expander">search</h3>
+                        <div class="map-filters-content">
+                            <form class="map-filters-search-form" data-bounds="[-117.5359,33.5391,-118.8872,34.5733]" data-city="Los Angeles" data-state="CA" data-error-message="Could not find your location. Try again?" data-warning-selector=".map-filters-search.warning">
+                                <input id="map-filters-search" class="map-filters-search" type="search" placeholder="{% trans "address, intersection, zip, owner" %}" />
+                                <div class="warning" style="display: none;"></div>
+                            </form>
+                        </div>
+                    </section>
+                    <section class="map-filters">
+                        <h3 class="map-filters-expander">filter by</h3>
+                        <div class="map-filters-content">
+                            filter by
+                        </div>
+                    </section>
+                    <section class="map-filters">
+                        <h3 class="map-filters-expander">size</h3>
+                        <div class="map-filters-content">
+                            size
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </div>
     </div>
 </div>
 
