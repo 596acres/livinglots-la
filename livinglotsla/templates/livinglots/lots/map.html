@@ -56,12 +56,24 @@
                         <div class="map-filters-content">
                             <ul class="map-filters-type">
                                 <ul>
-                                    <li class="map-filters-type-item map-filters-type-public">publicly owned vacant</li>
-                                    <li class="map-filters-type-item map-filters-type-public-remnant">remnant/odd shape</li>
+                                    <li class="map-filters-type-item map-filters-type-public">
+                                        <input type="checkbox" name="public" class="filter filter-layer hidden" checked="true" />
+                                        publicly owned vacant
+                                    </li>
+                                    <li class="map-filters-type-item map-filters-type-public-remnant">
+                                        <input type="checkbox" name="public_remnant" class="filter filter-layer hidden" checked="true" />
+                                        remnant/odd shape
+                                    </li>
                                 </ul>
                                 <ul>
-                                    <li class="map-filters-type-item map-filters-type-private">privately owned vacant</li>
-                                    <li class="map-filters-type-item map-filters-type-private-tax-default">tax default</li>
+                                    <li class="map-filters-type-item map-filters-type-private">
+                                        <input type="checkbox" name="private" class="filter filter-layer hidden" checked="true" />
+                                        privately owned vacant
+                                    </li>
+                                    <li class="map-filters-type-item map-filters-type-private-tax-default">
+                                        <input type="checkbox" name="private_tax_default" class="filter filter-layer hidden" checked="true" />
+                                        tax default
+                                    </li>
                                 </ul>
                                 <ul>
                                     <li>being organized</li>

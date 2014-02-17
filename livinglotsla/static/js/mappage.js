@@ -165,6 +165,12 @@ define(
                 updateLotCount(map);
             });
 
+            $('.map-filters-type-item').click(function () {
+                var $input = $(this).find(':input');
+                $input.attr('checked', !$input.attr('checked'))
+                    .trigger('change');
+            });
+
             updateLotCount(map);
             map.on({
                 'moveend': function () {

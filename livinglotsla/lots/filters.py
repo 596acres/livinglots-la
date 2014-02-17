@@ -94,6 +94,7 @@ class ProjectFilter(django_filters.Filter):
 class LotFilter(django_filters.FilterSet):
 
     bbox = BoundingBoxFilter()
+    layers = LayerFilter()
     lot_center = LotCenterFilter()
     parents_only = LotGroupParentFilter()
     projects = ProjectFilter()
@@ -114,6 +115,7 @@ class LotFilter(django_filters.FilterSet):
             'address_line1',
             'bbox',
             'known_use',
+            'layers',
             'lot_center',
             'parents_only',
             'projects',
