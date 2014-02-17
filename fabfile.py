@@ -63,10 +63,10 @@ def install_requirements(version='prod'):
 def build_static(version='prod'):
     with workon(version):
         run('django-admin.py collectstatic --noinput')
-        with cdstatic(version, ''):
-            run('bower install')
-        with cdstatic(version, 'js'):
-            run('r.js -o app.build.js')
+    with cdstatic(version, ''):
+        run('bower install')
+    with cdstatic(version, 'js'):
+        run('r.js -o app.build.js')
 
 
 @task
