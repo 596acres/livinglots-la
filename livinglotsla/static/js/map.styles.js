@@ -5,9 +5,9 @@
 define([], function () {
 
     return {
-        in_use: '#97b03d',
-        private: '#ea292e',
-        public: '#812683'
+        in_use: '#BAB974',
+        private: '#D4A7D4',
+        public: '#A9756D'
     };
 
 });
