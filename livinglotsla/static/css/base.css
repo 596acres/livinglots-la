@@ -3785,6 +3785,7 @@ footer .row {
 }
 .map-filters {
   border-top: 1px solid #aaaaaa;
+  font-size: 16px;
   margin-bottom: 15px;
   margin-top: 15px;
 }
@@ -3855,7 +3856,6 @@ footer .row {
   padding: 0;
 }
 .map-filters-type {
-  font-size: 16px;
   font-weight: bold;
 }
 .map-filters-type-public {
