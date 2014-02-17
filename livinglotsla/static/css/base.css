@@ -3858,6 +3858,9 @@ footer .row {
 .map-filters-type {
   font-weight: bold;
 }
+.map-filters-type-item {
+  cursor: pointer;
+}
 .map-filters-type-public {
   color: #A9756D;
 }
