@@ -52,7 +52,8 @@ define(
                     var style = {
                         fillColor: '#000000',
                         fillOpacity: 1,
-                        stroke: 0
+                        stroke: 1,
+                        color: '#E7DADF'
                     };
                     style.fillColor = mapstyles[feature.properties.layer];
                     if (!style.fillColor) {
