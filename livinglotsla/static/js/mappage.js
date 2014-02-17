@@ -166,8 +166,12 @@ define(
             });
 
             $('.map-filters-type-item').click(function () {
+                $(this).toggleClass('on');
                 var $input = $(this).find(':input');
-                $input.attr('checked', !$input.attr('checked'))
+                $input
+                    .prop('checked', function (i, val) {
+                        return !val;
+                    })
                     .trigger('change');
             });
 

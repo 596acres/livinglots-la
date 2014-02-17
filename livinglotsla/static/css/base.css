@@ -3860,6 +3860,10 @@ footer .row {
 }
 .map-filters-type-item {
   cursor: pointer;
+  list-style: circle;
+}
+.map-filters-type-item.on {
+  list-style: disc;
 }
 .map-filters-type-public {
   color: #A9756D;
