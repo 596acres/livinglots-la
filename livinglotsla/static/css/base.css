@@ -3830,6 +3830,12 @@ footer .row {
   content: "\25B8";
   margin-right: 10px;
 }
+.map-filters-grouped {
+  border: 0;
+}
+.map-filters-grouped .map-filters-expander {
+  text-transform: capitalize;
+}
 .map-filters-content {
   display: none;
 }
