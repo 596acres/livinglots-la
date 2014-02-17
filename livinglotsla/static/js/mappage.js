@@ -96,6 +96,21 @@ define(
             return vars;
         }
 
+        // TODO make more generalized
+        function updateCouncilDistrict(map, councildistrict) {
+            if (councildistrict) {
+                var url = Django.url('councildistrict_details_geojson', {
+                    label: councildistrict 
+                });
+                $.getJSON(url, function (data) {
+                    map.updateBoundaries(data, { zoomToBounds: true });
+                });
+            }
+            else {
+                map.removeBoundaries();
+            }
+        }
+
         function setFilters(params) {
             // Clear checkbox filters
             $('.filter[type=checkbox]').prop('checked', false);
@@ -197,6 +212,11 @@ define(
 
             $('.map-filters-expander').click(function () {
                 $(this).parent('.map-filters').toggleClass('expanded');
+            });
+
+            $('.map-filters-councildistrict').click(function () {
+                // TODO actually update filters
+                updateCouncilDistrict(map, $(this).data('label'));
             });
 
         });
