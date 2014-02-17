@@ -3813,6 +3813,22 @@ footer .row {
   margin-top: 5px;
   padding: 0;
 }
+.map-filters-type {
+  font-size: 16px;
+  font-weight: bold;
+}
+.map-filters-type-public {
+  color: #A9756D;
+}
+.map-filters-type-public-remnant {
+  color: #8C474D;
+}
+.map-filters-type-private {
+  color: #D4A7D4;
+}
+.map-filters-type-private-tax-default {
+  color: #9A649E;
+}
 .popup header {
   font-size: 20px;
 }
