@@ -30,6 +30,9 @@ urlpatterns += patterns('',
         include('organize.urls', 'organize')),
     url(r'^lots/', include('lots.urls', 'lots')),
 
+    # LA data
+    url('^councildistricts/', include('ladata.councildistricts.urls')),
+
     # Activity stream
     url('^activity/', include('actstream.urls')),
     url('^activity-stream/', include('inplace_activity_stream.urls')),
