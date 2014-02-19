@@ -96,12 +96,9 @@ define(
             return vars;
         }
 
-        // TODO make more generalized
-        function updateCouncilDistrict(map, councildistrict) {
-            if (councildistrict) {
-                var url = Django.url('councildistrict_details_geojson', {
-                    label: councildistrict 
-                });
+        function updateBoundary(map, urlName, label) {
+            if (label) {
+                var url = Django.url(urlName, { label: label });
                 $.getJSON(url, function (data) {
                     map.updateBoundaries(data, { zoomToBounds: true });
                 });
@@ -216,7 +213,14 @@ define(
 
             $('.map-filters-councildistrict').click(function () {
                 // TODO actually update filters
-                updateCouncilDistrict(map, $(this).data('label'));
+                updateBoundary(map, 'councildistrict_details_geojson',
+                               $(this).data('label'));
+            });
+
+            $('.map-filters-communityplanarea').click(function () {
+                // TODO actually update filters
+                updateBoundary(map, 'communityplanarea_details_geojson',
+                               $(this).data('label'));
             });
 
         });

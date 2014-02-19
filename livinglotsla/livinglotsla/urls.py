@@ -31,6 +31,7 @@ urlpatterns += patterns('',
     url(r'^lots/', include('lots.urls', 'lots')),
 
     # LA data
+    url('^communityplanareas/', include('ladata.communityplanareas.urls')),
     url('^councildistricts/', include('ladata.councildistricts.urls')),
 
     # Activity stream

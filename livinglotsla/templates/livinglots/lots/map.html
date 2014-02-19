@@ -1,4 +1,4 @@
-{% load councildistricts_tags feincms_tags i18n inplace_tags static %}
+{% load communityplanareas_tags councildistricts_tags feincms_tags i18n inplace_tags static %}
 
 <script id="popup-template" type="text/x-handlebars-template">
     {% verbatim %}
@@ -117,7 +117,19 @@
                             </section>
                             <section class="map-filters map-filters-grouped">
                                 <h4 class="map-filters-expander">community plan area</h4>
-                                <div class="map-filters-content">community plan area</div>
+                                <div class="map-filters-content">
+                                    <ul class="map-filters-communityplanareas">
+                                        {% get_community_plan_areas as communityplanareas %}
+                                        {% for communityplanarea in communityplanareas %}
+                                            <li>
+                                        
+                                                <a href="#" class="map-filters-communityplanarea" data-label="{{ communityplanarea.label }}">
+                                                    {{ communityplanarea.label }} 
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
                             </section>
                             <section class="map-filters map-filters-grouped">
                                 <h4 class="map-filters-expander">zoning code</h4>
