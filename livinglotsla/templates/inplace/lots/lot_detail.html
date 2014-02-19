@@ -194,15 +194,17 @@
                 {% endif %}
 
                 <div>
-                    {{ lot.address_line1|title }}<br />
-                    {{ lot.city|title }}, {{ lot.state_province }}
-                    {% if lot.postal_code %}
-                        {{ lot.postal_code }}
+                    {% if lot.address_line1 %}
+                        {{ lot.address_line1|title }}<br />
                     {% endif %}
+                    {% if lot.city %}
+                        {{ lot.city|title }}, {{ lot.state_province|default:"CA" }}
+                    {% endif %}
+                    {{ lot.postal_code|default:"" }}
                 </div>
 
                 <div>
-                    {% trans "Owner" %}: {{ lot.owner|default:"unknown" }}
+                    {% trans "Owner" %}: {{ lot.owner|default:"unknown"|title }}
 
                     {% if lot.owner and "owners.change_owner" in perms %}
                         <span class="lot-detail-admin admin-only">
