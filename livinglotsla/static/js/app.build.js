@@ -12,6 +12,7 @@
         'main',
 
         // Per-page modules go here
+        'lotdetailpage',
 
         // require()d dependencies
         'fancybox',
