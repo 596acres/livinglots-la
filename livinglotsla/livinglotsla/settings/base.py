@@ -199,6 +199,7 @@ INSTALLED_APPS = (
     'ladata.communityplanareas',
     'ladata.councildistricts',
     'ladata.localroll',
+    'ladata.neighborhoodcouncils',
     'ladata.parcels',
     'ladata.protectedareas',
 )

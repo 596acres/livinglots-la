@@ -215,12 +215,21 @@ define(
                 // TODO actually update filters
                 updateBoundary(map, 'councildistrict_details_geojson',
                                $(this).data('label'));
+                return false;
             });
 
             $('.map-filters-communityplanarea').click(function () {
                 // TODO actually update filters
                 updateBoundary(map, 'communityplanarea_details_geojson',
                                $(this).data('label'));
+                return false;
+            });
+
+            $('.map-filters-neighborhoodcouncil').click(function () {
+                // TODO actually update filters
+                updateBoundary(map, 'neighborhoodcouncil_details_geojson',
+                               $(this).data('label'));
+                return false;
             });
 
         });

@@ -1,4 +1,4 @@
-{% load communityplanareas_tags councildistricts_tags feincms_tags i18n inplace_tags static %}
+{% load communityplanareas_tags councildistricts_tags feincms_tags i18n inplace_tags neighborhoodcouncils_tags static %}
 
 <script id="popup-template" type="text/x-handlebars-template">
     {% verbatim %}
@@ -112,7 +112,17 @@
                             <section class="map-filters map-filters-grouped">
                                 <h4 class="map-filters-expander">neighborhood council area</h4>
                                 <div class="map-filters-content">
-                                    neighborhood council area
+                                    <ul class="map-filters-neighborhoodcouncils">
+                                        {% get_neighborhood_councils as neighborhoodcouncils %}
+                                        {% for neighborhoodcouncil in neighborhoodcouncils %}
+                                            <li>
+                                        
+                                                <a href="#" class="map-filters-neighborhoodcouncil" data-label="{{ neighborhoodcouncil.label }}">
+                                                    {{ neighborhoodcouncil.label }} 
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
                                 </div>
                             </section>
                             <section class="map-filters map-filters-grouped">

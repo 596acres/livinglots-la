@@ -33,6 +33,7 @@ urlpatterns += patterns('',
     # LA data
     url('^communityplanareas/', include('ladata.communityplanareas.urls')),
     url('^councildistricts/', include('ladata.councildistricts.urls')),
+    url('^neighborhoodcouncils/', include('ladata.neighborhoodcouncils.urls')),
 
     # Activity stream
     url('^activity/', include('actstream.urls')),
