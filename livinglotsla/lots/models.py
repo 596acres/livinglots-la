@@ -36,7 +36,7 @@ class LotManager(BaseLotManager):
                 'name': parcel.street_address,
                 'postal_code': parcel.zip_code,
                 'city': parcel.city,
-                'state_province': parcel.state,
+                'state_province': parcel.state or 'CA',
             }
             kwargs.update(**lot_kwargs)
 
