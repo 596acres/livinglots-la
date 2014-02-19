@@ -48,7 +48,8 @@ class VacantParcelFinder(object):
 
     def accept_parcel(self, parcel, reason):
         self.get_or_create_attempt(parcel, reason=reason, status='added')
-        Lot.objects.create_lot_for_parcels([parcel])
+        Lot.objects.create_lot_for_parcels([parcel], known_use=None,
+                                           known_use_certainty=7)
 
     def reject_parcel(self, parcel, reason):
         self.get_or_create_attempt(parcel, reason=reason, status='not added')
