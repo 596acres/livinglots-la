@@ -3,6 +3,7 @@ from django.utils.timezone import now
 
 from ladata.parcels.models import Parcel
 from ladata.protectedareas.models import ProtectedArea
+from ladata.localroll.utils import vacant_use_codes
 
 from lots.models import Lot
 
@@ -14,12 +15,7 @@ class VacantParcelFinder(object):
     Find lots by looking for parcels in LA city with vacant use codes.
     """
 
-    private_vacant_use_codes = ('100V', '010V', '300V', '200V',)
-    public_vacant_use_codes = ('880V',)
-
     def find_parcels(self, count=None):
-        vacant_use_codes = (self.private_vacant_use_codes +
-                            self.public_vacant_use_codes)
         a_year_ago = now().replace(year=now().year - 1)
         parcels = Parcel.objects.filter(
             (Q(lotfinderattempt=None) |
