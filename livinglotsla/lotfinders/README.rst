@@ -41,6 +41,7 @@ How lot finders match this documentation
 ----------------------------------------
 
 **VacantParcelFinder**:
+
 * Filter by use code (step 2)
 * Parcels are already clipped to the city (step 4)
 * Parcels are compared with ProtectedAreas (step 5), not added as lots if they
