@@ -36,6 +36,11 @@ define(
                 public_owners: publicOwners.join(',')
             };
 
+            var councilDistrict = $('.map-filters-councildistricts').data('selected');
+            if (councilDistrict && councilDistrict !== '') {
+                params.council_district = councilDistrict;
+            }
+
             if (options && options.bbox) {
                 params.bbox = map.getBounds().toBBoxString();
             }
@@ -212,9 +217,9 @@ define(
             });
 
             $('.map-filters-councildistrict').click(function () {
-                // TODO actually update filters
-                updateBoundary(map, 'councildistrict_details_geojson',
-                               $(this).data('label'));
+                var label = $(this).data('label');
+                updateBoundary(map, 'councildistrict_details_geojson', label);
+                $('.map-filters-councildistricts').data('selected', label);
                 return false;
             });
 

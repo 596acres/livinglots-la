@@ -7,6 +7,8 @@ from django.contrib.gis.measure import D
 
 import django_filters
 
+from ladata.councildistricts.models import CouncilDistrict
+
 from .models import Lot
 
 
@@ -15,6 +17,20 @@ class BoundingBoxFilter(django_filters.Filter):
     def filter(self, qs, value):
         bbox = Polygon.from_bbox(value.split(','))
         return qs.filter(centroid__within=bbox)
+
+
+class BoundaryFilter(django_filters.Filter):
+
+    def __init__(self, boundary_model, *args, **kwargs):
+        super(BoundaryFilter, self).__init__(*args, **kwargs)
+        self.boundary_model = boundary_model
+
+    def filter(self, qs, value):
+        print 'BoundaryFilter:', value
+        if not value:
+            return qs
+        boundary = self.boundary_model.objects.get(label=value)
+        return qs.filter(centroid__within=boundary.geometry)
 
 
 class LayerFilter(django_filters.Filter):
@@ -94,6 +110,7 @@ class ProjectFilter(django_filters.Filter):
 class LotFilter(django_filters.FilterSet):
 
     bbox = BoundingBoxFilter()
+    council_district = BoundaryFilter(CouncilDistrict)
     layers = LayerFilter()
     lot_center = LotCenterFilter()
     parents_only = LotGroupParentFilter()
@@ -114,6 +131,7 @@ class LotFilter(django_filters.FilterSet):
         fields = [
             'address_line1',
             'bbox',
+            'council_district',
             'known_use',
             'layers',
             'lot_center',
