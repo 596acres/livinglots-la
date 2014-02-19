@@ -9,14 +9,14 @@ Original data documentation from C-Lab
    * Side Lots (YES/NO),
    * and Easement (YES/NO).
 
-    Using the data sets from all three sources we labelled whether these
-    categories were YES or NO.
+   Using the data sets from all three sources we labelled whether these
+   categories were YES or NO.
 
-    a. NOTE: The Surplus Data had been reduced previous to this addition
-       because it contained parcels with and without structures on the site.
-       This was done by filtering whether the given parcel was simply
-       "Surplus" or "Surplus Vacant"; only those labelled as "Surplus Vacant"
-       were noted in our new column in the County Assessor Data
+   a. NOTE: The Surplus Data had been reduced previous to this addition because
+      it contained parcels with and without structures on the site.  This was 
+      done by filtering whether the given parcel was simply "Surplus" or 
+      "Surplus Vacant"; only those labelled as "Surplus Vacant" were noted in
+      our new column in the County Assessor Data
 2. We filtered the data based on the Land Use column. We searched for any row
    with a private vacant land use code (100V, 010V, 300V, 200V) or with a
    public vacant land use code (880V)
