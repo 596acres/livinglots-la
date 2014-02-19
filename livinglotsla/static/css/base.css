@@ -3884,6 +3884,14 @@ footer .row {
 .map-filters-type-private-tax-default {
   color: #9A649E;
 }
+.map-filters-councildistricts {
+  margin-left: 3%;
+}
+.map-filters-councildistricts .map-filters-councildistrict {
+  display: block;
+  text-align: center;
+  width: 20%;
+}
 .popup header {
   font-size: 20px;
 }

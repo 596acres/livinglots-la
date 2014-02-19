@@ -98,12 +98,15 @@
                             <section class="map-filters map-filters-grouped">
                                 <h4 class="map-filters-expander">council district</h4>
                                 <div class="map-filters-content">
-                                    {% get_council_districts as councildistricts %}
-                                    {% for councildistrict in councildistricts %}
-                                        <a href="#" class="map-filters-councildistrict" data-label="{{ councildistrict.label }}">
-                                            {{ councildistrict.label }} 
-                                        </a>
-                                    {% endfor %}
+                                    <div class="map-filters-councildistricts">
+                                        {% get_council_districts as councildistricts %}
+                                        {% for councildistrict in councildistricts %}
+                                        
+                                            <a href="#" class="map-filters-councildistrict pull-left" data-label="{{ councildistrict.label }}">
+                                                {{ councildistrict.label }} 
+                                            </a>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </section>
                             <section class="map-filters map-filters-grouped">
