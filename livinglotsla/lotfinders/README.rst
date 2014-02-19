@@ -30,7 +30,7 @@ Original data documentation from C-Lab
     District shapefile.
 5. We then erased all parcels that overlapped with the park shapefile.
 6. We joined the County Assessor data to the parcel shapefile, eliminating
-    all parcels that were not in the modified County Assessor data set.
+   all parcels that were not in the modified County Assessor data set.
 7. We visualized the building footprint data and highlighted all vacant parcels
     that contained a building (Select by Location). All parcels that contained
     a building on them were deleted from the data set.
