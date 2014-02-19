@@ -5,9 +5,10 @@ Original data documentation from C-Lab
 --------------------------------------
 
 1. Using the County Assessor's data as our base, we added 3 columns: 
- * Surplus Vacant (YES/NO),
- * Side Lots (YES/NO),
- * and Easement (YES/NO).
+
+    * Surplus Vacant (YES/NO),
+    * Side Lots (YES/NO),
+    * and Easement (YES/NO).
 
    Using the data sets from all three sources we labelled whether these
    categories were YES or NO.
