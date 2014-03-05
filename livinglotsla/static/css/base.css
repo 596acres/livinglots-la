@@ -3545,9 +3545,17 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  font-family: "Times New Roman", serif;
+  font-size: 21px;
+  line-height: 24px;
 }
 a {
   color: black;
+}
+h1,
+h2,
+h3 {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 /* Header */
 header {
@@ -3564,7 +3572,7 @@ header .row {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   height: 100%;
-  line-height: 20px;
+  line-height: 26px;
   padding-bottom: 5px;
   padding-top: 5px;
 }
@@ -3576,16 +3584,19 @@ header .row {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   height: 100%;
-  line-height: 20px;
+  line-height: 26px;
   padding-bottom: 5px;
   padding-top: 5px;
-  font-size: 10px;
+  font-size: 12px;
   font-style: italic;
 }
 .navbar-default {
   background-color: transparent;
   border: none;
-  font-size: 12px;
+  font-size: 16px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+  line-height: 26px;
   margin-bottom: 0;
   min-height: 0;
   padding-left: 0;
@@ -3620,10 +3631,11 @@ footer .row {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   height: 100%;
-  line-height: 20px;
+  line-height: 26px;
   padding-bottom: 5px;
   padding-top: 5px;
   color: #aaa;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 12px;
   text-transform: uppercase;
 }
@@ -3643,7 +3655,7 @@ footer .row {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   height: 100%;
-  line-height: 20px;
+  line-height: 26px;
   padding-bottom: 5px;
   padding-top: 5px;
   line-height: 5px;
@@ -3927,10 +3939,15 @@ footer .row {
 }
 .lot-detail-page h2 {
   font-size: 18px;
+  font-style: normal;
   font-weight: bold;
   margin-bottom: 10px;
   margin-top: 10px;
   text-transform: uppercase;
+}
+.lot-detail-page #aside-right {
+  font-size: 18px;
+  font-style: italic;
 }
 .lot-detail-main-section {
   border-top: 1px solid black;
@@ -3991,6 +4008,8 @@ footer .row {
 .btn-default {
   background: black;
   color: white;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 18px;
 }
 .btn-default:hover {
   color: black;
