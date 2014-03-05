@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block sidebar_left %}
-    <aside id="aside-left" class="col-md-2 col-md-offset-1">
+    <aside id="aside-left">
         <a href="/#18/{{ lot.centroid.y|floatformat:"4" }}/{{ lot.centroid.x|floatformat:"4" }}">
             <div id="lot-detail-map"
                 data-l-zoom="16" 
@@ -39,8 +39,6 @@
         </section>
     </aside>
 {% endblock %}
-
-{% block mainclasses %} col-md-6 {% endblock %}
 
 {% block content %}
 
@@ -179,7 +177,7 @@
 {% endblock %}
 
 {% block sidebar %}
-    <aside id="aside-right" class="col-md-2">
+    <aside id="aside-right">
 
         <section>
             <h2>

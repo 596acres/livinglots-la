@@ -15,6 +15,9 @@
 .lot-detail-page {
 
     .content-wrapper {
+        .make-row();
+        .make-md-column(10);
+        .make-md-column-offset(1);
         padding-top: 10px;
     }
 
@@ -27,7 +30,17 @@
         text-transform: uppercase;
     }
 
+    #aside-left {
+        .make-md-column(3);
+    }
+
+    #main {
+        .make-md-column(6);
+        .make-md-column-offset(0);
+    }
+
     #aside-right {
+        .make-md-column(3);
         font-size: 18px;
         font-style: italic;
     }

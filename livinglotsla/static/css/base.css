@@ -3330,7 +3330,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .map-filters-wrapper:before,
 .map-filters-wrapper:after,
 .map-filters-inner-wrapper:before,
-.map-filters-inner-wrapper:after {
+.map-filters-inner-wrapper:after,
+.lot-detail-page .content-wrapper:before,
+.lot-detail-page .content-wrapper:after {
   content: " ";
   display: table;
 }
@@ -3345,7 +3347,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse:after,
 .blog-entry-list article:after,
 .map-filters-wrapper:after,
-.map-filters-inner-wrapper:after {
+.map-filters-inner-wrapper:after,
+.lot-detail-page .content-wrapper:after {
   clear: both;
 }
 .center-block {
@@ -3697,6 +3700,23 @@ footer .row {
   margin-bottom: 50px;
 }
 /* Base page */
+#main {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  #main {
+    float: left;
+    width: 75%;
+  }
+}
+@media (min-width: 992px) {
+  #main {
+    margin-left: 8.333333333333332%;
+  }
+}
 .header-home-link {
   text-align: center;
 }
@@ -3937,7 +3957,24 @@ footer .row {
   display: none;
 }
 .lot-detail-page .content-wrapper {
+  margin-left: -15px;
+  margin-right: -15px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top: 10px;
+}
+@media (min-width: 992px) {
+  .lot-detail-page .content-wrapper {
+    float: left;
+    width: 83.33333333333334%;
+  }
+}
+@media (min-width: 992px) {
+  .lot-detail-page .content-wrapper {
+    margin-left: 8.333333333333332%;
+  }
 }
 .lot-detail-page h2 {
   font-size: 18px;
@@ -3947,9 +3984,48 @@ footer .row {
   margin-top: 10px;
   text-transform: uppercase;
 }
+.lot-detail-page #aside-left {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  .lot-detail-page #aside-left {
+    float: left;
+    width: 25%;
+  }
+}
+.lot-detail-page #main {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  .lot-detail-page #main {
+    float: left;
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .lot-detail-page #main {
+    margin-left: 0%;
+  }
+}
 .lot-detail-page #aside-right {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   font-size: 18px;
   font-style: italic;
+}
+@media (min-width: 992px) {
+  .lot-detail-page #aside-right {
+    float: left;
+    width: 25%;
+  }
 }
 .lot-detail-main-section {
   border-top: 1px solid black;
