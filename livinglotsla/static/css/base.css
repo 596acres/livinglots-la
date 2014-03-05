@@ -3628,16 +3628,12 @@ footer .row {
   border-top: 1px solid #aaaaaa;
 }
 .footer-collaborator-links {
-  border-left: 1px solid #aaaaaa;
-  border-right: 1px solid #aaaaaa;
-  height: 100%;
-  line-height: 26px;
-  padding-bottom: 5px;
-  padding-top: 5px;
   color: #aaa;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 12px;
   text-transform: uppercase;
+  line-height: 27px;
+  padding-top: 5px;
 }
 .footer-collaborator-links a {
   color: black;
@@ -3645,6 +3641,12 @@ footer .row {
   text-transform: uppercase;
 }
 .footer-subscribe {
+  border-left: 1px solid #aaaaaa;
+  border-right: 1px solid #aaaaaa;
+  height: 100%;
+  line-height: 26px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   line-height: 27px;
 }
 .footer-subscribe input {
@@ -3658,7 +3660,7 @@ footer .row {
   line-height: 26px;
   padding-bottom: 5px;
   padding-top: 5px;
-  line-height: 5px;
+  line-height: 27px;
 }
 .footer-social ul {
   list-style: none;
@@ -3672,7 +3674,7 @@ footer .row {
   background-repeat: no-repeat;
   display: inline-block;
   margin-right: 5px;
-  height: 21px;
+  height: 20px;
   width: 21px;
   background: url(/static/img/fb.png);
 }
@@ -3683,7 +3685,7 @@ footer .row {
   background-repeat: no-repeat;
   display: inline-block;
   margin-right: 5px;
-  height: 21px;
+  height: 20px;
   width: 21px;
   background: url(/static/img/twitter.png);
 }
