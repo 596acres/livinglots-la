@@ -47,3 +47,10 @@ How lot finders match this documentation
 * Parcels are already clipped to the city (step 4)
 * Parcels are compared with ProtectedAreas (step 5), not added as lots if they
   are present
+* Parcels with buildings on them are not added (step 7)
+
+TODO:
+* easements (step 1)
+* side lots (step 1)
+* weed abatement (step 3)
+* zoning (step 8)
