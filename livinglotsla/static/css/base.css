@@ -4132,14 +4132,15 @@ footer .row {
 .btn {
   border: none;
   border-radius: 0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 18px;
+  font-style: normal;
   font-weight: bold;
   text-transform: uppercase;
 }
 .btn-default {
   background: black;
   color: white;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 18px;
 }
 .btn-default:hover {
   color: black;
