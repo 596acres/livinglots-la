@@ -4078,6 +4078,24 @@ footer .row {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.lot-detail-content {
+  margin-left: 32px;
+}
+.lot-detail-icon {
+  float: left;
+  height: 21px;
+  width: 24px;
+}
+.lot-detail-legal {
+  margin-top: 25px;
+}
+.lot-detail-legal ul {
+  list-style: none;
+  padding: 0;
+}
+.lot-detail-legal .lot-detail-icon {
+  background: url(/static/img/lot-detail-legal.png);
+}
 /*
  * Overrides
  */
