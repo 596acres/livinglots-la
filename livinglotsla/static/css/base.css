@@ -4109,6 +4109,13 @@ footer .row {
   height: 23px;
   width: 13px;
 }
+.lot-detail-reasons {
+  margin-top: 25px;
+}
+.lot-detail-reasons ul {
+  list-style: disc outside;
+  padding-left: 25px;
+}
 /*
  * Overrides
  */

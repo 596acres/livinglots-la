@@ -299,7 +299,7 @@
             </section>
         {% endif %}
 
-        <section>
+        <section class="lot-detail-reasons">
             <div class="lot-detail-content">
                 <h2>{% trans "Why is this lot here?" %}</h2>
                 {% if not lot.is_visible %}
@@ -313,7 +313,7 @@
                     {% get_vacant_reasons for lot as reasons %}
                     {% if reasons %}
                         <p>{% trans "We think this lot is vacant because:" %}</p>
-                        <ul class="lot-detail-reasons">
+                        <ul>
                             {% for reason in reasons %}
                                 <li>{{ reason|safe }}</li>
                             {% endfor %}
