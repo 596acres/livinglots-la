@@ -4116,6 +4116,13 @@ footer .row {
   list-style: disc outside;
   padding-left: 25px;
 }
+.lot-detail-pathways {
+  margin-top: 25px;
+}
+.lot-detail-pathways ul {
+  list-style: disc outside;
+  padding-left: 25px;
+}
 /*
  * Overrides
  */
