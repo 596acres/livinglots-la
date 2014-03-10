@@ -223,18 +223,6 @@
                         {{ lot.postal_code|default:"" }}
                     </div>
 
-                    <div>
-                        {% trans "Owner" %}: {{ lot.owner|default:"unknown"|title }}
-
-                        {% if lot.owner and "owners.change_owner" in perms %}
-                            <span class="lot-detail-admin admin-only">
-                                <a class="btn btn-small btn-warning" href="{% url "admin:lots_lot_changelist" %}?owner={{ lot.owner.pk }}">
-                                    {% trans "View all lots this owner owns" %}
-                                </a>
-                            </span>
-                        {% endif %}
-                    </div>
-
                     {% if lot.number_of_lots > 1 %}
                         <div>
                             {% trans "Number of Lots" %}: {{ lot.number_of_lots }}
@@ -267,11 +255,36 @@
             </div>
         </section>
 
+        <section class="lot-detail-ownership">
+            <div class="lot-detail-icon"></div>
+            <div class="lot-detail-content">
+                <ul>
+                    <li>
+                        {% if lot.owner.owner_type == "public" %}
+                            {% trans "publicly owned" %}
+                        {% elif lot.owner.owner_type == "private" %}
+                            {% trans "privately owned" %}
+                        {% endif %}
+                    </li>
+                    <li>
+                        {{ lot.owner.name|default:"unknown"|title }}
+                    </li>
+                </ul>
+            </div>
+        </section>
+
         {% if "lots.view_all_details" in perms %}
             <section>
                 <div class="lot-detail-content">
                     <h2>{% trans "Admin Details" %}</h2>
                     <div class="help-text">(This section is only visible to admins.)</div>
+
+                    <span class="lot-detail-admin admin-only">
+                        <a class="btn btn-small btn-warning" href="{% url "admin:lots_lot_changelist" %}?owner={{ lot.owner.pk }}">
+                            {% trans "View all lots this owner owns" %}
+                        </a>
+                    </span>
+
                     <table>
 
                         {% if lot.steward_projects.count > 0 %}

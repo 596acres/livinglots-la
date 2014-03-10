@@ -4081,7 +4081,12 @@ footer .row {
 .lot-detail-content {
   margin-left: 32px;
 }
+.lot-detail-content ul {
+  list-style: none;
+  padding: 0;
+}
 .lot-detail-icon {
+  background-image-repeat: no-repeat;
   float: left;
   height: 21px;
   width: 24px;
@@ -4095,6 +4100,14 @@ footer .row {
 }
 .lot-detail-legal .lot-detail-icon {
   background: url(/static/img/lot-detail-legal.png);
+}
+.lot-detail-ownership {
+  margin-top: 25px;
+}
+.lot-detail-ownership .lot-detail-icon {
+  background: url(/static/img/lot-detail-ownership.png);
+  height: 23px;
+  width: 13px;
 }
 /*
  * Overrides
