@@ -63,10 +63,6 @@
                 </a>
             {% endif %}
 
-            <a class="btn btn-default build-community-button lot-page-tooltip" href="{% url "organize:add_organizer" pk=lot.pk %}" data-toggle="tooltip" title="{% trans "Get involved with this lot or let people know you are already working towards growing community here." %}">
-                {% trans "organize" %}
-            </a>
-
             {% if lot.nearby %}
                 <a class="btn btn-default disabled">
                     {% trans "find lots nearby" %}
@@ -82,6 +78,31 @@
                     {% trans "Have we made a mistake?" %}
                 </a>
             {% endif %}
+        </section>
+
+        <section class="lot-detail-organizers">
+            {% get_organizer_count for lot as organizer_count %}
+            <h2>
+                {% trans "build community" %}: 
+                <span class="lot-detail-organizers-count">{{ organizer_count }}</span>
+                {% blocktrans count counter=organizer_count %}
+                    organizer and counting!
+                {% plural %}
+                    organizers and counting!
+                {% endblocktrans %}
+            </h2>
+
+            <a class="btn btn-default build-community-button lot-page-tooltip" href="{% url "organize:add_organizer" pk=lot.pk %}" data-toggle="tooltip" title="{% trans "Get involved with this lot or let people know you are already working towards growing community here." %}">
+                {% trans "organize with us" %}
+            </a>
+
+            <div>
+                <section class="lot-detail-organizer-intro">
+                    {% flatblock "lot-detail-organizer-intro" %}
+                    {% flatblock "lot-detail-organizer-contact" %}
+                </section>
+                {% render_organizer_list for lot %}
+            </div>
         </section>
 
         <section id="notes" class="notes lot-detail-main-section">
@@ -297,20 +318,5 @@
             <h2>Project Contact</h2>
         </section>
         {% endcomment %}
-
-        <section class="lot-detail-organizers row">
-            <div class="col-xs-2 icon"></div>
-            <div class="col-xs-10">
-                {% get_organizer_count for lot as organizer_count %}
-                <h2>Number of organizers: {{ organizer_count }}</h2>
-                <div>
-                    <section class="lot-detail-organizer-intro">
-                        {% flatblock "lot-detail-organizer-intro" %}
-                        {% flatblock "lot-detail-organizer-contact" %}
-                    </section>
-                    {% render_organizer_list for lot %}
-                </div>
-            </div>
-        </section>
     </aside>
 {% endblock %}

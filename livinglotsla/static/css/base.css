@@ -4065,11 +4065,18 @@ footer .row {
   max-width: 100%;
   height: auto;
 }
-.lot-detail-organizers .icon {
-  background-image: url(/static/img/lot-detail-organize.png);
-  background-repeat: no-repeat;
-  height: 19px;
-  width: 19px;
+.lot-detail-organizers-count {
+  color: #8D474D;
+}
+.lot-detail-organizers .organizer-list {
+  font-size: 18px;
+  font-style: italic;
+  list-style: none;
+  padding: 0;
+}
+.lot-detail-organizers .organizer-list-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 /*
  * Overrides

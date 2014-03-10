@@ -7,10 +7,14 @@
                 </div>
                 <div class="organizer-contact">
                     {% if organizer.email %}
-                        {{ organizer.email }}{% if organizer.phone %},{% endif %}
+                        <div class="organizer-contact-email">
+                            {{ organizer.email }}
+                        </div>
                     {% endif %}
                     {% if organizer.phone %}
-                        {{ organizer.phone }}
+                        <div class="organizer-contact-phone">
+                            {{ organizer.phone }}
+                        </div>
                     {% endif %}
                 </div>
             </li>
