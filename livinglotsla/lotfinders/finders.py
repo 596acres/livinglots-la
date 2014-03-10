@@ -1,6 +1,7 @@
 from django.db.models import Q
 from django.utils.timezone import now
 
+from ladata.buildings.models import Building
 from ladata.parcels.models import Parcel
 from ladata.protectedareas.models import ProtectedArea
 from ladata.localroll.utils import vacant_use_codes
@@ -29,8 +30,11 @@ class VacantParcelFinder(object):
 
     def find_lots(self, batch_size=1000):
         for parcel in self.find_parcels(count=batch_size):
-            # Ensure parcel is not in a protected area
-            if ProtectedArea.objects.filter(geom__overlaps=parcel.geom).exists():
+            if Building.objects.filter(geom__overlaps=parcel.geom).exists():
+                # Ensure parcel has no buildings on it
+                self.reject_parcel(parcel, 'contains buildings')
+            elif ProtectedArea.objects.filter(geom__overlaps=parcel.geom).exists():
+                # Ensure parcel is not in a protected area
                 self.reject_parcel(parcel, 'in a protected area')
             else:
                 self.accept_parcel(parcel, 'use code vacant')
