@@ -202,6 +202,7 @@ INSTALLED_APPS = (
     'ladata.neighborhoodcouncils',
     'ladata.parcels',
     'ladata.protectedareas',
+    'ladata.transmissionlines',
 )
 
 LOGGING = {
