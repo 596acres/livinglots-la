@@ -113,6 +113,17 @@ class LotMixin(models.Model):
 
     area_acres = property(_area_acres)
 
+    def _layer(self):
+        if self.known_use:
+            return 'in_use'
+        elif self.owner and self.owner.owner_type == 'public':
+            return 'public'
+        elif self.owner and self.owner.owner_type == 'private':
+            return 'private'
+        return ''
+
+    layer = property(_layer)
+
     # TODO council district
     # TODO community plan area
     # TODO neighborhood councils 1 -> *
