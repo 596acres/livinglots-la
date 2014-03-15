@@ -3,8 +3,11 @@ from pint import UnitRegistry
 from django.conf import settings
 from django.contrib.contenttypes import generic
 from django.db import models
+from django.db.models.signals import post_delete, post_save
+from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
+from cartodbsync.models import SyncEntry
 from livinglots_lots.models import BaseLot, BaseLotGroup, BaseLotManager
 
 from organize.models import Organizer
@@ -110,6 +113,11 @@ class LotMixin(models.Model):
 
     area_acres = property(_area_acres)
 
+    # TODO council district
+    # TODO community plan area
+    # TODO neighborhood councils 1 -> *
+    # TODO zoning
+
     class Meta:
         abstract = True
 
@@ -133,3 +141,22 @@ class Lot(LotMixin, LotGroupLotMixin, BaseLot):
 
 class LotGroup(BaseLotGroup, Lot):
     objects = models.Manager()
+
+
+#
+# Handle some signals
+#
+
+
+@receiver(post_save, sender=Lot, dispatch_uid='lots.models.sync_on_save')
+def sync_on_save(sender, instance=None, created=False, **kwargs):
+    if instance and created:
+        SyncEntry.objects.mark_as_pending_insert([instance])
+    elif instance:
+        SyncEntry.objects.mark_as_pending_update([instance])
+
+
+@receiver(post_delete, sender=Lot, dispatch_uid='lots.models.sync_on_delete')
+def sync_on_delete(sender, instance=None, **kwargs):
+    if instance:
+        SyncEntry.objects.mark_as_pending_delete([instance])
