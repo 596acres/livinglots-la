@@ -10,6 +10,6 @@ class LotSynchronizer(BaseSynchronizer):
         return {
             'id': instance.pk,
             'layer': instance.layer,
-            'size': instance.area_acres,
+            'size': round(instance.area_acres, 2),
             'the_geom': instance.centroid,
         }
