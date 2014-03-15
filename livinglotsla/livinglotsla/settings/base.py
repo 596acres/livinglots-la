@@ -160,6 +160,7 @@ INSTALLED_APPS = (
     #
     # first-party, project-generic
     #
+    'cartodbsync',
     'external_data_sync',
     'inplace_activity_stream',
     'pagepermissions',
@@ -307,3 +308,16 @@ CONTACT_FORM_REASONS = OrderedDict([
     ('I want to reach 596 Acres, the team that made this site.', ['paula@596acres.org',]),
     ('I have a press inquiry.', ['hello@laopenacres.org',]),
 ])
+
+
+CARTODB_SYNC = {
+    'API_KEY': get_env_variable('CARTODBSYNC_API_KEY'),
+    'DOMAIN': get_env_variable('CARTODBSYNC_DOMAIN'),
+    'MODELS': [
+        {
+            'CARTODB_TABLE': get_env_variable('CARTODBSYNC_LOTS_TABLE'),
+            'MODEL_CLASS': 'lots.Lot',
+            'SYNCHRONIZER_CLASS': 'lots.cartodbsynchronizers.LotSynchronizer',
+        }
+    ]
+}
