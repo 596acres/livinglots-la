@@ -2,6 +2,7 @@ requirejs.config({
     baseUrl: "/static/js",
     paths: {
         "bootstrap": "../bower_components/bootstrap/dist/js/bootstrap",
+        "cartodb": "../bower_components/cartodb.js/dist/cartodb.noleaflet",
         "django": "djangojs/django",
         "fancybox": "../bower_components/fancybox/source/jquery.fancybox",
         "jquery": "../bower_components/jQuery/dist/jquery.min",
@@ -31,6 +32,9 @@ requirejs.config({
     },
     shim: {
         "bootstrap": ["jquery"],
+        "cartodb": {
+            "deps": ["jquery", "leaflet"]
+        },
         "django": {
             "deps": ["jquery"],
             "exports": "Django"

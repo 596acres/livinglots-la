@@ -1,6 +1,8 @@
 {% load compress js static %}
 
 {% compress css %}
+    <link rel="stylesheet" href="{% static "bower_components/cartodb.js/dist/cartodb.css" %}">
+    <link rel="stylesheet" href="{% static "bower_components/cartodb.js/dist/cartodb.ie.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/fancybox/source/jquery.fancybox.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/leaflet/leaflet.css" %}">
     <link rel="stylesheet" href="{% static "bower_components/leaflet.loading/src/Control.Loading.css" %}" />

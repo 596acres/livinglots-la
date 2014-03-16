@@ -1,9 +1,11 @@
 define(
     [
+        'jquery',
         'django',
         'leaflet',
         'map.styles',
 
+        'cartodb',
         'leaflet.bing',
         'leaflet.dataoptions',
         'leaflet.handlebars',
@@ -11,7 +13,9 @@ define(
         'leaflet.lotlayer',
         'leaflet.lotmarker',
         'leaflet.usermarker'
-    ], function (Django, L, mapstyles) {
+    ], function ($, Django, L, mapstyles) {
+
+        var cartodb = window.cartodb;
 
         L.LotMap = L.Map.extend({
 
@@ -85,6 +89,7 @@ define(
                 options.zoomControl = false;
                 L.Map.prototype.initialize.call(this, id, options);
                 this.addBaseLayer();
+                this.addLotsLayer({});
                 L.control.zoom().addTo(this);
                 L.Control.loading().addTo(this);
                 var hash = new L.Hash(this);
@@ -123,13 +128,15 @@ define(
             },
 
             addBaseLayer: function () {
-                var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
+                this.cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
                     key: this.options.apikey,
                     styleId: this.options.styleid
                 }).addTo(this);
 
-                var bing = new L.BingLayer('Ajio1n0EgmAAvT3zLndCpHrYR_LHJDgfDU6B0tV_1RClr7OFLzy4RnkLXlSdkJ_x');
+                this.bing = new L.BingLayer('Ajio1n0EgmAAvT3zLndCpHrYR_LHJDgfDU6B0tV_1RClr7OFLzy4RnkLXlSdkJ_x');
 
+                // TODO re-add layers control
+                /*
                 var baseLayers = {
                     streets: cloudmade,
                     satellite: bing
@@ -138,35 +145,44 @@ define(
                 L.control.layers(baseLayers, {}, {
                     position: 'topleft'               
                 }).addTo(this);
+                */
             },
 
             addLotsLayer: function (params) {
-                this.addCentroidsLayer(params);
                 this.addPolygonsLayer(params);
                 if (this.getZoom() <= this.lotLayerTransitionPoint) {
-                    this.addLayer(this.centroidsLayer);
+                    this.addCentroidsLayer(params);
+                    if (this.centroidsLayer) {
+                        this.addLayer(this.centroidsLayer);
+                    }
                     this.removeLayer(this.polygonsLayer);
                 }
                 else {
-                    this.removeLayer(this.centroidsLayer);
+                    if (this.centroidsLayer) {
+                        this.removeLayer(this.centroidsLayer);
+                    }
                     this.addLayer(this.polygonsLayer);
                 }
             },
 
             addCentroidsLayer: function (params) {
+                var map = this;
                 if (this.centroidsLayer) {
                     this.removeLayer(this.centroidsLayer);
                 }
-                var url = this.options.lotCentroidsUrl + '?' + $.param(params);
-
-                var options = {
-                    serverZooms: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                    unique: function (feature) {
-                        return feature.id;
-                    }
-                };
-
-                this.centroidsLayer = L.lotLayer(url, options, this.lotLayerOptions);
+                cartodb.createLayer(map, {
+                    user_name: 'laopenacres',
+                    type: 'cartodb',
+                    sublayers: [{
+                        sql: 'SELECT * FROM lots_production',
+                        cartocss: '#lots_production {marker-width: 5; marker-fill: green; marker-allow-overlap: true;}'
+                    }]
+                })
+                .addTo(map)
+                .done(function (layer) {
+                    map.centroidsLayer = layer;
+                    map.addLayer(layer);
+                });
             },
 
             addPolygonsLayer: function (params) {
