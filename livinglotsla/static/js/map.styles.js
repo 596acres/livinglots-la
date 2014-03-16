@@ -34,7 +34,6 @@ define(['underscore'], function (_) {
         });
 
         cartocss += '}';
-        console.log(cartocss);
         return cartocss;
     }
 
