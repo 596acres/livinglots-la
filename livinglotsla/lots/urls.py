@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url
 
 import livinglots_lots.urls as llurls
 
-from .views import (LotsCountViewWithAcres, LotsGeoJSONCentroid,
+from .views import (LotsCountViewWithAcres, LotDetailJSON, LotsGeoJSONCentroid,
                     LotsGeoJSONPolygon, LotsOwnershipOverview, LotsCSV,
                     LotsKML, LotsGeoJSON)
 
@@ -19,5 +19,8 @@ urlpatterns = patterns('',
     url(r'^csv/', LotsCSV.as_view(), name='csv'),
     url(r'^kml/', LotsKML.as_view(), name='kml'),
     url(r'^geojson/', LotsGeoJSON.as_view(), name='geojson'),
+
+    url(r'^(?P<pk>\d+)/json/$', LotDetailJSON.as_view(),
+        name='lot_detail_json'),
 
 ) + llurls.urlpatterns

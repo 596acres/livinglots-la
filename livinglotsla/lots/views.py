@@ -16,8 +16,29 @@ from livinglots_lots.views import LotsCSV as BaseLotsCSV
 from livinglots_lots.views import LotsKML as BaseLotsKML
 from livinglots_lots.views import LotsGeoJSON as BaseLotsGeoJSON
 
+from .models import Lot
+
 
 ureg = UnitRegistry()
+
+
+class LotDetailJSON(JSONResponseView):
+
+    def get_context_data(self, **kwargs):
+        lot = Lot.objects.get(pk=kwargs['pk'])
+        return self.get_properties(lot)
+
+    def get_properties(self, lot):
+        return {
+            'address_line1': lot.address_line1,
+            'has_organizers': lot.organizers.count() > 0,
+            'layer': lot.layer,
+            'number_of_lots': lot.number_of_lots,
+            'number_of_lots_plural': lot.number_of_lots > 1,
+            'owner': str(lot.owner) or 'unknown',
+            'pk': lot.pk,
+            'size': lot.area_acres,
+        }
 
 
 class LotGeoJSONMixin(object):
