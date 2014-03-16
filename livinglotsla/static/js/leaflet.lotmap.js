@@ -175,7 +175,7 @@ define(
                     type: 'cartodb',
                     sublayers: [{
                         sql: 'SELECT * FROM lots_production',
-                        cartocss: '#lots_production {marker-width: 5; marker-fill: green; marker-allow-overlap: true;}'
+                        cartocss: mapstyles.asCartocss('lots_production')
                     }]
                 })
                 .addTo(map)
