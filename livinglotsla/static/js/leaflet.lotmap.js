@@ -168,19 +168,53 @@ define(
             addCentroidsLayer: function (params) {
                 var map = this;
                 if (this.centroidsLayer) {
-                    this.removeLayer(this.centroidsLayer);
+                    return;
                 }
                 cartodb.createLayer(map, {
                     user_name: 'laopenacres',
                     type: 'cartodb',
                     sublayers: [{
-                        sql: 'SELECT * FROM lots_production',
-                        cartocss: mapstyles.asCartocss('lots_production')
+                        cartocss: mapstyles.asCartocss('lots_production'),
+                        interactivity: 'id',
+                        sql: 'SELECT * FROM lots_production'
                     }]
                 })
                 .addTo(map)
                 .done(function (layer) {
                     map.centroidsLayer = layer;
+
+                    layer.getSubLayer(0).setInteraction(true);
+                    layer.on('featureClick', function (e, latlng, pos, data, sublayerIndex) {
+                        var url = Django.url('lots:lot_detail_json', { pk: data.id });
+                        $.getJSON(url, function (lotData) {
+                            var source = $('#popup-template').html(),
+                                template = Handlebars.compile(source);
+                            var context = {
+                                detailUrl: Django.url('lots:lot_detail', {
+                                    pk: data.id
+                                }),
+                                feature: {
+                                    // Mimic the situation that will exist
+                                    // in L.Handlebars, where feature data is 
+                                    // loaded as one large GeoJSON file
+                                    properties: lotData
+                                }
+                            };
+                            var popup = L.popup()
+                                .setLatLng(latlng)
+                                .setContent(template(context))
+                                .openOn(map);
+                        });
+                    });
+
+                    // Update mouse cursor when over a feature
+                    layer.on('featureOver', function () {
+                        $('#' + map._container.id).css('cursor', 'pointer');
+                    });
+                    layer.on('featureOut', function () {
+                        $('#' + map._container.id).css('cursor', 'grab');
+                    });
+
                     map.addLayer(layer);
                 });
             },

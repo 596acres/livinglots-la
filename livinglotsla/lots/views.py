@@ -31,13 +31,14 @@ class LotDetailJSON(JSONResponseView):
     def get_properties(self, lot):
         return {
             'address_line1': lot.address_line1,
+            'centroid': [lot.centroid.x, lot.centroid.y],
             'has_organizers': lot.organizers.count() > 0,
             'layer': lot.layer,
             'number_of_lots': lot.number_of_lots,
             'number_of_lots_plural': lot.number_of_lots > 1,
             'owner': str(lot.owner) or 'unknown',
             'pk': lot.pk,
-            'size': lot.area_acres,
+            'size': round(lot.area_acres, 2),
         }
 
 
