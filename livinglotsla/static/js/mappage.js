@@ -263,13 +263,13 @@ define(
 
             $('.filter-size').noUiSlider({
                 connect: true,
-                margin: 0.1,
+                margin: 0.05,
                 range: {
                     min: 0,
                     max: sizeMax
                 },
                 start: [0, sizeMax],
-                step: 0.1
+                step: 0.05
             });
             updateSizeLabels();
             $('.filter-size').on({
