@@ -117,6 +117,7 @@
                                 <h4 class="map-filters-expander">{% trans "neighborhood council area" %}</h4>
                                 <div class="map-filters-content">
                                     <select class="map-filters-neighborhoodcouncils">
+                                        <option value="">Pick one</option>
                                         {% get_neighborhood_councils as neighborhoodcouncils %}
                                         {% for neighborhoodcouncil in neighborhoodcouncils %}
                                             <option value="{{ neighborhoodcouncil.label }}">
@@ -130,6 +131,7 @@
                                 <h4 class="map-filters-expander">{% trans "community plan area" %}</h4>
                                 <div class="map-filters-content">
                                     <select class="map-filters-communityplanareas">
+                                        <option value="">Pick one</option>
                                         {% get_community_plan_areas as communityplanareas %}
                                         {% for communityplanarea in communityplanareas %}
                                             <option value="{{ communityplanarea.label }}">
