@@ -6,6 +6,7 @@ from pint import UnitRegistry
 from random import shuffle
 
 from django.db.models import Count
+from django.http import Http404
 
 from caching.base import cached
 
@@ -25,7 +26,10 @@ ureg = UnitRegistry()
 class LotDetailJSON(JSONResponseView):
 
     def get_context_data(self, **kwargs):
-        lot = Lot.objects.get(pk=kwargs['pk'])
+        try:
+            lot = Lot.objects.get(pk=kwargs['pk'])
+        except Exception:
+            raise Http404
         return self.get_properties(lot)
 
     def get_properties(self, lot):
