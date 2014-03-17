@@ -189,14 +189,6 @@ class LotsOwnershipOverview(FilteredLotsMixin, JSONResponseView):
 
 class LotsCountViewWithAcres(LotsCountView):
 
-    def get_area_in_acres(self, lots_qs):
-        sqft = lots_qs.aggregate(total_area=Sum('polygon_area'))['total_area']
-        if not sqft:
-            return 0
-        sqft = sqft * (ureg.feet ** 2)
-        acres = sqft.to(ureg.acre).magnitude
-        return int(round(acres))
-
     def get_context_data(self, **kwargs):
         lots = self.get_lots().qs
         no_known_use = lots.filter(known_use__isnull=True)
@@ -204,11 +196,12 @@ class LotsCountViewWithAcres(LotsCountView):
 
         context = {
             'lots-count': lots.count(),
-            'lots-acres': self.get_area_in_acres(lots),
+            'private-lots-count': lots.filter(owner__owner_type='private').count(),
+            'private-taxdefault-count': 0,
+            'public-lots-count': lots.filter(owner__owner_type='public').count(),
+            'public-remnant-count': 0,
             'no-known-use-count': no_known_use.count(),
-            'no-known-use-acres': self.get_area_in_acres(no_known_use),
             'in-use-count': in_use.count(),
-            'in-use-acres': self.get_area_in_acres(in_use),
         }
         return context
 
