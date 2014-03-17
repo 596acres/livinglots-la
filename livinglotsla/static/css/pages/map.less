@@ -1,3 +1,5 @@
+@map-overlay-background: rgba(256, 256, 256, .8);
+
 .map-page #map {
     width: 100%;
     height: 1000px;
@@ -33,7 +35,7 @@
         .make-md-column(3);
         .make-md-column-offset(9);
 
-        background: rgba(256, 256, 256, .8);
+        background: @map-overlay-background;
         border: none;
         margin: 0;
         overflow-y: auto;
@@ -200,5 +202,33 @@
     &-label-min {
         float: left;
         margin-left: 10px;
+    }
+}
+
+.map-download-wrapper {
+    .make-row(0);
+    .make-md-column(10);
+    .make-md-column-offset(1);
+    height: 65px;
+    position: absolute;
+    bottom: 0;
+    z-index: 4999;
+}
+
+.map-download-inner-wrapper {
+    .make-row(0);
+    height: 100%;
+}
+
+#map-download {
+    .make-md-column(3);
+    background: @map-overlay-background;
+    height: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    a {
+        color: black;
+        text-decoration: underline;
     }
 }

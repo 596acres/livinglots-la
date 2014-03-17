@@ -203,6 +203,7 @@ define(
             $('.filter').change(function () {
                 var params = buildLotFilterParams(map);
                 map.updateDisplayedLots(params);
+                updateDetailsLink();
                 updateLotCount(map);
             });
 
@@ -276,6 +277,8 @@ define(
                 set: updateSizeLabels,
                 slide: updateSizeLabels
             });
+
+            updateDetailsLink();
 
         });
 

@@ -158,28 +158,35 @@
                             </div>
                         </div>
                     </section>
-                    <section class="map-filters">
-                        <h3 class="map-filters-expander">download</h3>
-                        <div class="map-filters-content">
-                            <section style="margin-bottom: 10px;">
-                                {% blocktrans %}
-                                    Download currently viewed lots. GeoJSON and KML are mapping formats, so you can make your own maps!
-                                {% endblocktrans %}
-                            </section>
+                </section>
+            </div>
+        </div>
+    </div>
 
-                            <section class="details-buttons hidden-print">
-                                <a href="#" class="btn btn-default btn-block export export-csv" data-baseurl="{% url "lots:csv" %}?">
-                                    {% trans "spreadsheet" %}
-                                </a>
-                                <a href="#" class="btn btn-default btn-block export export-geojson" data-baseurl="{% url "lots:geojson" %}?download=yes&">
-                                    {% trans "GeoJSON" %}
-                                </a>
-                                <a href="#" class="btn btn-default btn-block export export-kml" data-baseurl="{% url "lots:kml" %}?">
-                                    {% trans "KML" %}
-                                </a>
-                            </section>
-                        </div>
-                    </section>
+    <div class="map-download-wrapper">
+        <div class="map-download-inner-wrapper">
+            <div id="map-download">
+                <div>
+                    <a class="details-link" href="#">
+                        {% blocktrans %}
+                        link to this view
+                        {% endblocktrans %}
+                    </a>
+                </div>
+
+                <section class="details-buttons hidden-print">
+                    {% blocktrans %}
+                        download map as
+                    {% endblocktrans %}
+                    <a href="#" class="export export-csv" data-baseurl="{% url "lots:csv" %}?">
+                        {% trans "csv" %}
+                    </a> /
+                    <a href="#" class="export export-geojson" data-baseurl="{% url "lots:geojson" %}?download=yes&">
+                        {% trans "GeoJSON" %}
+                    </a> /
+                    <a href="#" class="export export-kml" data-baseurl="{% url "lots:kml" %}?">
+                        {% trans "KML" %}
+                    </a>
                 </section>
             </div>
         </div>
