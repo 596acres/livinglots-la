@@ -49,6 +49,11 @@ define(
                 params.size_max = selectedSizeMax;
             }
 
+            var communityPlanAreas = $('.map-filters-communityplanareas:input').val();
+            if (communityPlanAreas && communityPlanAreas !== '') {
+                params.community_plan_area = communityPlanAreas;
+            }
+
             var councilDistrict = $('.map-filters-councildistricts').data('selected');
             if (councilDistrict && councilDistrict !== '') {
                 params.council_district = councilDistrict;

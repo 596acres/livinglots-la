@@ -8,6 +8,7 @@ from django.contrib.gis.measure import D
 
 import django_filters
 
+from ladata.communityplanareas.models import CommunityPlanArea
 from ladata.councildistricts.models import CouncilDistrict
 from ladata.neighborhoodcouncils.models import NeighborhoodCouncil
 
@@ -133,6 +134,7 @@ class ProjectFilter(django_filters.Filter):
 class LotFilter(django_filters.FilterSet):
 
     bbox = BoundingBoxFilter()
+    community_plan_area = BoundaryFilter(CommunityPlanArea)
     council_district = BoundaryFilter(CouncilDistrict)
     layers = LayerFilter()
     lot_center = LotCenterFilter()
