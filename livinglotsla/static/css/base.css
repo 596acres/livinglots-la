@@ -3969,6 +3969,17 @@ footer .row {
 .filter-size .noUi-handle:before {
   background: transparent;
 }
+.filter-size-labels {
+  margin-top: 10px;
+}
+.filter-size-label-max {
+  float: right;
+  margin-right: 10px;
+}
+.filter-size-label-min {
+  float: left;
+  margin-left: 10px;
+}
 #lot-detail-map {
   width: 100%;
   height: 150px;

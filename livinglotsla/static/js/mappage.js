@@ -113,6 +113,18 @@ define(
             return vars;
         }
 
+        function updateSizeLabels() {
+            var range = $('.filter-size').val(),
+                min = range[0],
+                max = range[1];
+            $('.filter-size-label-min').html(min + ' acres');
+
+            if (max == sizeMax) {
+                max = sizeMax + '+';
+            }
+            $('.filter-size-label-max').html(max + ' acres');
+        }
+
         function updateBoundary(map, urlName, label) {
             if (label) {
                 var url = Django.url(urlName, { label: label });
@@ -258,6 +270,11 @@ define(
                 },
                 start: [0, sizeMax],
                 step: 0.1
+            });
+            updateSizeLabels();
+            $('.filter-size').on({
+                set: updateSizeLabels,
+                slide: updateSizeLabels
             });
 
         });
