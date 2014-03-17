@@ -11,7 +11,6 @@ requirejs.config({
         "leaflet": "../bower_components/leaflet/leaflet-src",
         "leaflet.bing": "../bower_components/leaflet-plugins/layer/tile/Bing",
         "leaflet.dataoptions": "../bower_components/leaflet.dataoptions/src/leaflet.dataoptions",
-        "leaflet.handlebars": "../bower_components/leaflet.handlebars/src/leaflet.handlebars",
         "leaflet.hash": "../bower_components/leaflet-hash/leaflet-hash",
         "leaflet.loading": "../bower_components/leaflet.loading/src/Control.Loading",
         "leaflet.usermarker": "../bower_components/leaflet.usermarker/src/leaflet.usermarker",

@@ -5,16 +5,16 @@ define(
         'leaflet',
         'map.styles',
         'underscore',
+        'handlebars',
 
         'cartodb',
         'leaflet.bing',
         'leaflet.dataoptions',
-        'leaflet.handlebars',
         'leaflet.hash',
         'leaflet.lotlayer',
         'leaflet.lotmarker',
         'leaflet.usermarker'
-    ], function ($, Django, L, mapstyles, _) {
+    ], function ($, Django, L, mapstyles, _, Handlebars) {
 
         var cartodb = window.cartodb;
 
@@ -38,6 +38,7 @@ define(
                                 x = this._map.latLngToContainerPoint(latlng).x,
                                 y = this._map.latLngToContainerPoint(latlng).y - 100,
                                 point = this._map.containerPointToLatLng([x, y]);
+                            this._map.createAndOpenPopup(this.feature.id, latlng);
                             return this._map.setView(point, this._map._zoom);
                         },
                         'mouseover': function (event) {
@@ -74,18 +75,28 @@ define(
                     minWidth: 250,
                     offset: [0, 0]
                 },
-                handlebarsTemplateSelector: '#popup-template',
-                getTemplateContext: function (layer) {
-                    if (!layer.feature) {
-                        throw 'noFeatureForContext';
-                    }
-                    return {
-                        detailUrl: Django.url('lots:lot_detail', {
-                            pk: layer.feature.id
-                        }),
-                        feature: layer.feature
+            },
+
+            createAndOpenPopup: function (lotPk, latlng) {
+                var map = this,
+                    url = Django.url('lots:lot_detail_json', { pk: lotPk });
+                $.getJSON(url, function (lotData) {
+                    var source = $('#popup-template').html(),
+                        template = Handlebars.compile(source);
+                    var context = {
+                        detailUrl: Django.url('lots:lot_detail', { pk: lotPk }),
+                        feature: {
+                            // Mimic the situation that will exist
+                            // in L.Handlebars, where feature data is 
+                            // loaded as one large GeoJSON file
+                            properties: lotData
+                        }
                     };
-                }
+                    var popup = L.popup()
+                        .setLatLng(latlng)
+                        .setContent(template(context))
+                        .openOn(map);
+                });
             },
 
             initialize: function (id, options) {
@@ -190,26 +201,7 @@ define(
 
                     layer.getSubLayer(0).setInteraction(true);
                     layer.on('featureClick', function (e, latlng, pos, data, sublayerIndex) {
-                        var url = Django.url('lots:lot_detail_json', { pk: data.id });
-                        $.getJSON(url, function (lotData) {
-                            var source = $('#popup-template').html(),
-                                template = Handlebars.compile(source);
-                            var context = {
-                                detailUrl: Django.url('lots:lot_detail', {
-                                    pk: data.id
-                                }),
-                                feature: {
-                                    // Mimic the situation that will exist
-                                    // in L.Handlebars, where feature data is 
-                                    // loaded as one large GeoJSON file
-                                    properties: lotData
-                                }
-                            };
-                            var popup = L.popup()
-                                .setLatLng(latlng)
-                                .setContent(template(context))
-                                .openOn(map);
-                        });
+                        map.createAndOpenPopup(data.id, latlng);
                     });
 
                     // Update mouse cursor when over a feature
