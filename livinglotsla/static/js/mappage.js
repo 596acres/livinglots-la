@@ -19,8 +19,12 @@ define(
         'leaflet.loading',
         'leaflet.lotmap',
 
-        'map.search',
+        'nouislider',
+
+        'map.search'
     ], function (Django, $, Handlebars, _, L, Spinner, singleminded) {
+
+        var sizeMax = 3;
 
         function buildLotFilterParams(map, options) {
             var layers = _.map($('.filter-layer:checked'), function (layer) {
@@ -33,8 +37,16 @@ define(
                 layers: layers.join(','),
                 parents_only: true,
                 projects: $('.filter-projects').val(),
-                public_owners: publicOwners.join(',')
+                public_owners: publicOwners.join(','),
+                size_min: $('.filter-size').val()[0]
             };
+
+            // Only include maximum size if it's less than the maximum in the
+            // range.
+            var selectedSizeMax = $('.filter-size').val()[1];
+            if (selectedSizeMax < sizeMax) {
+                params.size_max = selectedSizeMax;
+            }
 
             var councilDistrict = $('.map-filters-councildistricts').data('selected');
             if (councilDistrict && councilDistrict !== '') {
@@ -235,6 +247,17 @@ define(
                 updateBoundary(map, 'neighborhoodcouncil_details_geojson',
                                $(this).data('label'));
                 return false;
+            });
+
+            $('.filter-size').noUiSlider({
+                connect: true,
+                margin: 0.1,
+                range: {
+                    min: 0,
+                    max: sizeMax
+                },
+                start: [0, sizeMax],
+                step: 0.1
             });
 
         });

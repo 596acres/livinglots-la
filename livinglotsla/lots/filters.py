@@ -1,4 +1,5 @@
 from hashlib import sha1
+from pint import UnitRegistry
 
 from django.db.models import Q
 
@@ -10,6 +11,9 @@ import django_filters
 from ladata.councildistricts.models import CouncilDistrict
 
 from .models import Lot
+
+
+ureg = UnitRegistry()
 
 
 class BoundingBoxFilter(django_filters.Filter):
@@ -26,7 +30,6 @@ class BoundaryFilter(django_filters.Filter):
         self.boundary_model = boundary_model
 
     def filter(self, qs, value):
-        print 'BoundaryFilter:', value
         if not value:
             return qs
         boundary = self.boundary_model.objects.get(label=value)
@@ -92,6 +95,24 @@ class OwnerFilter(django_filters.Filter):
         return qs.filter(owner_query | other_owners_query)
 
 
+class AcreageMaxFilter(django_filters.Filter):
+
+    def filter(self, qs, value):
+        if not value:
+            return qs
+        max_sq_feet = (float(value) * ureg.acre).to(ureg.feet ** 2)
+        return qs.filter(polygon_area__lte=max_sq_feet.magnitude)
+
+
+class AcreageMinFilter(django_filters.Filter):
+
+    def filter(self, qs, value):
+        if not value:
+            return qs
+        min_sq_feet = (float(value) * ureg.acre).to(ureg.feet ** 2)
+        return qs.filter(polygon_area__gte=min_sq_feet.magnitude)
+
+
 class ProjectFilter(django_filters.Filter):
 
     def filter(self, qs, value):
@@ -116,6 +137,8 @@ class LotFilter(django_filters.FilterSet):
     parents_only = LotGroupParentFilter()
     projects = ProjectFilter()
     public_owners = OwnerFilter(owner_type='public')
+    size_max = AcreageMaxFilter()
+    size_min = AcreageMinFilter()
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
@@ -138,4 +161,6 @@ class LotFilter(django_filters.FilterSet):
             'parents_only',
             'projects',
             'public_owners',
+            'size_max',
+            'size_min',
         ]

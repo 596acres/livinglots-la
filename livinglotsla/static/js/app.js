@@ -15,6 +15,7 @@ requirejs.config({
         "leaflet.hash": "../bower_components/leaflet-hash/leaflet-hash",
         "leaflet.loading": "../bower_components/leaflet.loading/src/Control.Loading",
         "leaflet.usermarker": "../bower_components/leaflet.usermarker/src/leaflet.usermarker",
+        "nouislider": "../bower_components/nouislider/jquery.nouislider",
         "requirejs": "../bower_components/requirejs",
         "select2": "../bower_components/select2/select2",
         "spin": "../bower_components/spin.js/spin",

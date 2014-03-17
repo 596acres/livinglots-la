@@ -255,6 +255,12 @@ define(
                     layers = _.map(layers, function (l) { return "'" + l + "'"; });
                     whereConditions.push('layer IN (' + layers.join(',') + ')');
                 }
+                if (params.size_max) {
+                    whereConditions.push('size <= ' + params.size_max);
+                }
+                if (params.size_min) {
+                    whereConditions.push('size >= ' + params.size_min);
+                }
                 if (whereConditions.length) {
                     sql += ' WHERE ' + whereConditions.join(' AND ');
                 }
