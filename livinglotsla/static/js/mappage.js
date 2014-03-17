@@ -266,7 +266,7 @@ define(
             });
 
             $('.map-filters-communityplanareas').select2();
-            $('.map-filters-communityplanareas').click(function () {
+            $('.map-filters-communityplanareas').change(function () {
                 updateBoundary(map, 'communityplanarea_details_geojson',
                                $(this).val());
                 return false;
