@@ -99,7 +99,8 @@ define(
 
             var l = window.location,
                 query = '?' + $.param(params),
-                url = l.protocol + '//' + l.host + l.pathname + query + l.hash;
+                hash = L.Hash.formatHash(map),
+                url = l.protocol + '//' + l.host + l.pathname + query + hash;
             $('a.details-link').attr('href', url);
         }
 
@@ -221,9 +222,11 @@ define(
             updateLotCount(map);
             map.on({
                 'moveend': function () {
+                    updateDetailsLink(map);
                     updateLotCount(map);
                 },
                 'zoomend': function () {
+                    updateDetailsLink(map);
                     updateLotCount(map);
                 },
                 'lotlayertransition': function (e) {
@@ -281,7 +284,7 @@ define(
                 slide: updateSizeLabels
             });
 
-            updateDetailsLink();
+            updateDetailsLink(map);
 
         });
 
