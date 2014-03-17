@@ -35,7 +35,6 @@ class BoundaryFilter(django_filters.Filter):
         if not value:
             return qs
         boundary = self.boundary_model.objects.get(label=value)
-        print boundary
         return qs.filter(centroid__within=boundary.geometry)
 
 

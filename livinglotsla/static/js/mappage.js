@@ -144,7 +144,19 @@ define(
             $('.filter-size-label-max').html(max + ' acres');
         }
 
-        function updateBoundary(map, urlName, label) {
+        function updateBoundary(map, urlName, label, type) {
+            // Clear inputs for other boundaries
+            if (type !== 'communityplanareas') {
+                $('.map-filters-communityplanareas.select2-container').select2('val', '');
+            }
+            if (type !== 'councildistrict') {
+                $('.map-filters-councildistricts').removeData('selected');
+            }
+            if (type !== 'neighborhoodcouncils') {
+                $('.map-filters-neighborhoodcouncils.select2-container').select2('val', '');
+            }
+
+            // Update boundaries to selected boundary
             if (label) {
                 var url = Django.url(urlName, { label: label });
                 $.getJSON(url, function (data) {
@@ -260,7 +272,8 @@ define(
 
             $('.map-filters-councildistrict').click(function () {
                 var label = $(this).data('label');
-                updateBoundary(map, 'councildistrict_details_geojson', label);
+                updateBoundary(map, 'councildistrict_details_geojson', label,
+                               $(this).data('type'));
                 $('.map-filters-councildistricts').data('selected', label);
                 return false;
             });
@@ -268,15 +281,13 @@ define(
             $('.map-filters-communityplanareas').select2();
             $('.map-filters-communityplanareas').change(function () {
                 updateBoundary(map, 'communityplanarea_details_geojson',
-                               $(this).val());
-                return false;
+                               $(this).val(), $(this).data('type'));
             });
 
             $('.map-filters-neighborhoodcouncils').select2();
             $('.map-filters-neighborhoodcouncils').change(function () {
                 updateBoundary(map, 'neighborhoodcouncil_details_geojson',
-                               $(this).val());
-                return false;
+                               $(this).val(), $(this).data('type'));
             });
 
             $('.filter-size').noUiSlider({

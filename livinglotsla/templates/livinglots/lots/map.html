@@ -106,7 +106,7 @@
                                         {% get_council_districts as councildistricts %}
                                         {% for councildistrict in councildistricts %}
                                         
-                                            <a href="#" class="map-filters-councildistrict pull-left" data-label="{{ councildistrict.label }}">
+                                            <a href="#" class="map-filters-councildistrict pull-left" data-label="{{ councildistrict.label }}" data-type="councildistricts">
                                                 {{ councildistrict.label }} 
                                             </a>
                                         {% endfor %}
@@ -116,7 +116,7 @@
                             <section class="map-filters map-filters-grouped">
                                 <h4 class="map-filters-expander">{% trans "neighborhood council area" %}</h4>
                                 <div class="map-filters-content">
-                                    <select class="map-filters-neighborhoodcouncils">
+                                    <select class="map-filters-neighborhoodcouncils" data-type="neighborhoodcouncils">
                                         <option value="">Pick one</option>
                                         {% get_neighborhood_councils as neighborhoodcouncils %}
                                         {% for neighborhoodcouncil in neighborhoodcouncils %}
@@ -130,7 +130,7 @@
                             <section class="map-filters map-filters-grouped">
                                 <h4 class="map-filters-expander">{% trans "community plan area" %}</h4>
                                 <div class="map-filters-content">
-                                    <select class="map-filters-communityplanareas">
+                                    <select class="map-filters-communityplanareas" data-type="communityplanareas">
                                         <option value="">Pick one</option>
                                         {% get_community_plan_areas as communityplanareas %}
                                         {% for communityplanarea in communityplanareas %}
