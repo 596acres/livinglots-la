@@ -3798,6 +3798,13 @@ footer .row {
   width: 100%;
   height: 1000px;
 }
+.map-overlay {
+  background: rgba(255, 255, 255, 0.8);
+}
+.map-overlay a {
+  color: black;
+  text-decoration: underline;
+}
 .map-filters-wrapper {
   margin-left: 0;
   margin-right: 0;
@@ -3833,12 +3840,16 @@ footer .row {
   font-size: 24px;
 }
 .map-filters h3 {
-  font-size: 18px;
+  font-size: 16px;
+}
+.map-filters h4 {
+  font-size: 14px;
+  font-family: "Times New Roman", serif;
+  font-weight: normal;
 }
 .map-filters#map-filters-parent {
   position: relative;
   min-height: 1px;
-  background: rgba(255, 255, 255, 0.8);
   border: none;
   margin: 0;
   overflow-y: auto;
@@ -4019,7 +4030,6 @@ footer .row {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  background: rgba(255, 255, 255, 0.8);
   height: 100%;
   font-weight: bold;
   text-transform: uppercase;
@@ -4029,10 +4039,6 @@ footer .row {
     float: left;
     width: 25%;
   }
-}
-#map-download a {
-  color: black;
-  text-decoration: underline;
 }
 #lot-detail-map {
   width: 100%;

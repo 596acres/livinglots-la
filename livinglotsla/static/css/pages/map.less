@@ -5,6 +5,15 @@
     height: 1000px;
 }
 
+.map-overlay {
+    background: @map-overlay-background;
+
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+}
+
 .map-filters-wrapper {
     .make-row(0);
     .make-md-column(10);
@@ -28,14 +37,19 @@
     }
 
     h3 {
-        font-size: 18px;
+        font-size: 16px;
+    }
+
+    h4 {
+        font-size: 14px;
+        font-family: @body-font-family;
+        font-weight: normal;
     }
 
     &#map-filters-parent {
         .make-md-column(3);
         .make-md-column-offset(9);
 
-        background: @map-overlay-background;
         border: none;
         margin: 0;
         overflow-y: auto;
@@ -222,13 +236,7 @@
 
 #map-download {
     .make-md-column(3);
-    background: @map-overlay-background;
     height: 100%;
     font-weight: bold;
     text-transform: uppercase;
-
-    a {
-        color: black;
-        text-decoration: underline;
-    }
 }
