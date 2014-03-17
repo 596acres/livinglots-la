@@ -71,14 +71,7 @@ class LotGeoJSONMixin(object):
 
     def get_properties(self, lot):
         return {
-            'address_line1': lot.address_line1,
-            'has_organizers': lot.organizers__count > 0,
             'layer': self.get_layer(lot),
-            'number_of_lots': lot.number_of_lots,
-            'number_of_lots_plural': lot.number_of_lots > 1,
-            'owner': str(lot.owner) or 'unknown',
-            'pk': lot.pk,
-            'size': self.get_acres(lot),
         }
 
     def get_geometry(self, lot):
