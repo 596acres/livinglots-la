@@ -104,6 +104,13 @@ define(
             $('a.details-link').attr('href', url);
         }
 
+        function updateExportLinks(map) {
+            var params = $.param(buildLotFilterParams(map, { bbox: true }));
+            $('.export').each(function () {
+                $(this).attr('href', $(this).data('baseurl') + params);
+            });
+        }
+
         function deparam() {
             var vars = {},
                 param,
@@ -205,7 +212,8 @@ define(
             $('.filter').change(function () {
                 var params = buildLotFilterParams(map);
                 map.updateDisplayedLots(params);
-                updateDetailsLink();
+                updateDetailsLink(map);
+                updateExportLinks(map);
                 updateLotCount(map);
             });
 
@@ -223,22 +231,17 @@ define(
             map.on({
                 'moveend': function () {
                     updateDetailsLink(map);
+                    updateExportLinks(map);
                     updateLotCount(map);
                 },
                 'zoomend': function () {
                     updateDetailsLink(map);
+                    updateExportLinks(map);
                     updateLotCount(map);
                 },
                 'lotlayertransition': function (e) {
                     map.addLotsLayer(buildLotFilterParams(map));
                 }
-            });
-
-            $('.export').click(function (e) {
-                var url = $(this).data('baseurl') + 
-                    $.param(buildLotFilterParams(map, { bbox: true }));
-                window.location.href = url;
-                e.preventDefault();
             });
 
             $('.map-filters-expander').click(function () {
@@ -285,6 +288,7 @@ define(
             });
 
             updateDetailsLink(map);
+            updateExportLinks(map);
 
         });
 
