@@ -20,6 +20,7 @@ define(
         'leaflet.lotmap',
 
         'nouislider',
+        'select2',
 
         'map.search'
     ], function (Django, $, Handlebars, _, L, Spinner, singleminded) {
@@ -255,10 +256,11 @@ define(
                 return false;
             });
 
-            $('.map-filters-neighborhoodcouncil').click(function () {
+            $('.map-filters-neighborhoodcouncils').select2();
+            $('.map-filters-neighborhoodcouncils').change(function () {
                 // TODO actually update filters
                 updateBoundary(map, 'neighborhoodcouncil_details_geojson',
-                               $(this).data('label'));
+                               $(this).val());
                 return false;
             });
 

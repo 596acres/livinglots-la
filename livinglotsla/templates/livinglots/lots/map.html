@@ -112,17 +112,14 @@
                             <section class="map-filters map-filters-grouped">
                                 <h4 class="map-filters-expander">{% trans "neighborhood council area" %}</h4>
                                 <div class="map-filters-content">
-                                    <ul class="map-filters-neighborhoodcouncils">
+                                    <select class="map-filters-neighborhoodcouncils">
                                         {% get_neighborhood_councils as neighborhoodcouncils %}
                                         {% for neighborhoodcouncil in neighborhoodcouncils %}
-                                            <li>
-                                        
-                                                <a href="#" class="map-filters-neighborhoodcouncil" data-label="{{ neighborhoodcouncil.label }}">
-                                                    {{ neighborhoodcouncil.label }} 
-                                                </a>
-                                            </li>
+                                            <option value="{{ neighborhoodcouncil.label }}">
+                                                {{ neighborhoodcouncil.label }} 
+                                            </option>
                                         {% endfor %}
-                                    </ul>
+                                    </select>
                                 </div>
                             </section>
                             <section class="map-filters map-filters-grouped">
