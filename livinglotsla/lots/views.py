@@ -5,7 +5,7 @@ from operator import itemgetter
 from pint import UnitRegistry
 from random import shuffle
 
-from django.db.models import Count, Sum
+from django.db.models import Count
 
 from caching.base import cached
 
