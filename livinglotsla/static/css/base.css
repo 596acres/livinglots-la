@@ -3902,7 +3902,14 @@ footer .row {
   border: 1px solid #aaaaaa;
   width: 100%;
 }
+.map-filters .select2-container {
+  max-width: 100%;
+  width: 100%;
+}
 .map-filters-type {
+  font-size: 14px;
+  font-family: "Times New Roman", serif;
+  font-weight: normal;
   margin: 0;
   margin-left: 20px;
   padding: 0;
@@ -3912,13 +3919,6 @@ footer .row {
   margin-bottom: 5px;
   margin-top: 5px;
   padding: 0;
-}
-.map-filters .select2-container {
-  max-width: 100%;
-  width: 100%;
-}
-.map-filters-type {
-  font-weight: bold;
 }
 .map-filters-type-item {
   cursor: pointer;
