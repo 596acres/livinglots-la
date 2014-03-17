@@ -16,7 +16,7 @@ define(['underscore'], function (_) {
         'marker-allow-overlap': true,
         'marker-fill': 'black',
         'marker-line-color': 'white',
-        'marker-line-width': 1.5,
+        'marker-line-width': 1,
         'marker-width': 10
     };
 
