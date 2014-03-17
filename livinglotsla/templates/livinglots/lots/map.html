@@ -49,54 +49,54 @@
     <div class="map-filters-wrapper">
         <div class="map-filters-inner-wrapper">
             <div id="map-filters-parent" class="map-overlay map-filters">
-                <h2 class="map-filters-expander">filter</h2>
+                <h2 class="map-filters-expander">{% trans "filter" %}</h2>
                 <section class="map-filters-content">
                     <section class="map-filters">
-                        <h3 class="map-filters-expander">type</h3>
+                        <h3 class="map-filters-expander">{% trans "type" %}</h3>
                         <div class="map-filters-content">
                             <ul class="map-filters-type">
                                 <ul>
                                     <li class="map-filters-type-item map-filters-type-public on">
                                         <input type="checkbox" name="public" class="filter filter-layer hidden" checked="true" />
-                                        publicly owned vacant
+                                        {% trans "publicly owned vacant" %}
                                     </li>
                                     <li class="map-filters-type-item map-filters-type-public-remnant">
                                         <input type="checkbox" name="public_remnant" class="filter filter-layer hidden" />
-                                        remnant/odd shape
+                                        {% trans "remnant/odd shape" %}
                                     </li>
                                 </ul>
                                 <ul>
                                     <li class="map-filters-type-item map-filters-type-private on">
                                         <input type="checkbox" name="private" class="filter filter-layer hidden" checked="true" />
-                                        privately owned vacant
+                                        {% trans "privately owned vacant" %}
                                     </li>
                                     <li class="map-filters-type-item map-filters-type-private-tax-default">
                                         <input type="checkbox" name="private_tax_default" class="filter filter-layer hidden" />
-                                        tax default
+                                        {% trans "tax default" %}
                                     </li>
                                 </ul>
                                 <ul>
-                                    <li>being organized</li>
-                                    <li>garden/farm/nursery</li>
-                                    <li>park/greenspace/forest</li>
+                                    <li>{% trans "being organized" %}</li>
+                                    <li>{% trans "garden/farm/nursery" %}</li>
+                                    <li>{% trans "park/greenspace/forest" %}</li>
                                 </ul>
                             </ul>
                         </div>
                     </section>
                     <section class="map-filters">
-                        <h3 class="map-filters-expander">search</h3>
+                        <h3 class="map-filters-expander">{% trans "search" %}</h3>
                         <div class="map-filters-content">
-                            <form class="map-filters-search-form" data-bounds="[-117.5359,33.5391,-118.8872,34.5733]" data-city="Los Angeles" data-state="CA" data-error-message="Could not find your location. Try again?" data-warning-selector=".map-filters-search.warning">
+                            <form class="map-filters-search-form" data-bounds="[-117.5359,33.5391,-118.8872,34.5733]" data-city="Los Angeles" data-state="CA" data-error-message="{% trans "Could not find your location. Try again?" %}" data-warning-selector=".map-filters-search.warning">
                                 <input id="map-filters-search" class="map-filters-search" type="search" placeholder="{% trans "address, intersection, zip, owner" %}" />
                                 <div class="warning" style="display: none;"></div>
                             </form>
                         </div>
                     </section>
                     <section class="map-filters">
-                        <h3 class="map-filters-expander">political boundaries</h3>
+                        <h3 class="map-filters-expander">{% trans "political boundaries" %}</h3>
                         <div class="map-filters-content">
                             <section class="map-filters map-filters-grouped">
-                                <h4 class="map-filters-expander">council district</h4>
+                                <h4 class="map-filters-expander">{% trans "council district" %}</h4>
                                 <div class="map-filters-content">
                                     <div class="map-filters-councildistricts">
                                         {% get_council_districts as councildistricts %}
@@ -110,7 +110,7 @@
                                 </div>
                             </section>
                             <section class="map-filters map-filters-grouped">
-                                <h4 class="map-filters-expander">neighborhood council area</h4>
+                                <h4 class="map-filters-expander">{% trans "neighborhood council area" %}</h4>
                                 <div class="map-filters-content">
                                     <ul class="map-filters-neighborhoodcouncils">
                                         {% get_neighborhood_councils as neighborhoodcouncils %}
@@ -126,7 +126,7 @@
                                 </div>
                             </section>
                             <section class="map-filters map-filters-grouped">
-                                <h4 class="map-filters-expander">community plan area</h4>
+                                <h4 class="map-filters-expander">{% trans "community plan area" %}</h4>
                                 <div class="map-filters-content">
                                     <ul class="map-filters-communityplanareas">
                                         {% get_community_plan_areas as communityplanareas %}
@@ -142,13 +142,13 @@
                                 </div>
                             </section>
                             <section class="map-filters map-filters-grouped">
-                                <h4 class="map-filters-expander">zoning code</h4>
-                                <div class="map-filters-content">zoning code</div>
+                                <h4 class="map-filters-expander">{% trans "zoning code" %}</h4>
+                                <div class="map-filters-content">{% trans "zoning code" %}</div>
                             </section>
                         </div>
                     </section>
                     <section class="map-filters">
-                        <h3 class="map-filters-expander">size</h3>
+                        <h3 class="map-filters-expander">{% trans "size" %}</h3>
                         <div class="map-filters-content">
                             <div class="filter filter-size"></div>
                             <div class="filter-size-labels">
@@ -167,17 +167,11 @@
         <div class="map-download-inner-wrapper">
             <div id="map-download" class="map-overlay">
                 <div>
-                    <a class="details-link" href="#">
-                        {% blocktrans %}
-                        link to this view
-                        {% endblocktrans %}
-                    </a>
+                    <a class="details-link" href="#">{% trans "link to this view" %}</a>
                 </div>
 
                 <section class="details-buttons hidden-print">
-                    {% blocktrans %}
-                        download map as
-                    {% endblocktrans %}
+                    {% trans "download map as" %}
                     <a href="#" class="export export-csv" data-baseurl="{% url "lots:csv" %}?">
                         {% trans "csv" %}
                     </a> /
