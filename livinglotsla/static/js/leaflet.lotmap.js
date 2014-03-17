@@ -4,6 +4,7 @@ define(
         'django',
         'leaflet',
         'map.styles',
+        'underscore',
 
         'cartodb',
         'leaflet.bing',
@@ -13,7 +14,7 @@ define(
         'leaflet.lotlayer',
         'leaflet.lotmarker',
         'leaflet.usermarker'
-    ], function ($, Django, L, mapstyles) {
+    ], function ($, Django, L, mapstyles, _) {
 
         var cartodb = window.cartodb;
 
@@ -26,6 +27,8 @@ define(
             previousZoom: null,
             userLayer: null,
             userLocationZoom: 16,
+
+            addingCentroidsLayer: false,
 
             lotLayerOptions: {
                 onEachFeature: function (feature, layer) {
@@ -166,10 +169,11 @@ define(
             },
 
             addCentroidsLayer: function (params) {
-                var map = this;
-                if (this.centroidsLayer) {
+                if (this.centroidsLayer || this.addingCentroidsLayer) {
                     return;
                 }
+                var map = this;
+                map.addingCentroidsLayer = true;
                 cartodb.createLayer(map, {
                     user_name: 'laopenacres',
                     type: 'cartodb',
@@ -182,6 +186,7 @@ define(
                 .addTo(map)
                 .done(function (layer) {
                     map.centroidsLayer = layer;
+                    map.addingCentroidsLayer = false;
 
                     layer.getSubLayer(0).setInteraction(true);
                     layer.on('featureClick', function (e, latlng, pos, data, sublayerIndex) {
@@ -237,9 +242,23 @@ define(
             },
 
             updateDisplayedLots: function (params) {
-                this.removeLayer(this.centroidsLayer);
                 this.removeLayer(this.polygonsLayer);
+                this.updateCentroidsSQL(params);
                 this.addLotsLayer(params);
+            },
+
+            updateCentroidsSQL: function (params) {
+                var sql = 'SELECT * FROM lots_production';
+                var whereConditions = [];
+                if (params.layers) {
+                    var layers = params.layers.split(',');
+                    layers = _.map(layers, function (l) { return "'" + l + "'"; });
+                    whereConditions.push('layer IN (' + layers.join(',') + ')');
+                }
+                if (whereConditions.length) {
+                    sql += ' WHERE ' + whereConditions.join(' AND ');
+                }
+                this.centroidsLayer.getSubLayer(0).setSQL(sql);
             },
 
             addUserLayer: function (latlng) {
