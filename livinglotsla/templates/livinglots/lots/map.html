@@ -11,25 +11,43 @@
             <div class="popup-streetview">
                 <div>
                     {{#if feature.properties.centroid}}
-                        <img src="http://maps.googleapis.com/maps/api/streetview?location={{feature.properties.centroid.[1]}},{{feature.properties.centroid.[0]}}&size=250x110&sensor=false&fov=45" />
+                        <img src="http://maps.googleapis.com/maps/api/streetview?location={{feature.properties.centroid.[1]}},{{feature.properties.centroid.[0]}}&size=300x110&sensor=false&fov=45" />
                     {{else}}
-                        <img src="http://maps.googleapis.com/maps/api/streetview?location={{feature.geometry.coordinates.[1]}},{{feature.geometry.coordinates.[0]}}&size=250x110&sensor=false&fov=45" />
+                        <img src="http://maps.googleapis.com/maps/api/streetview?location={{feature.geometry.coordinates.[1]}},{{feature.geometry.coordinates.[0]}}&size=300x110&sensor=false&fov=45" />
                     {{/if}}
                 </div>
             </div>
             <div class="popup-lot-details row">
-                <div class="col-xs-9">
+                <div class="col-xs-2">
+                    <a target="_blank" href="{{detailUrl}}" class="btn btn-learn-more">learn<br />more</a>
+                    <a target="_blank" href="{{detailUrl}}" class="btn btn-learn-more">organize</a>
+                </div>
+                <div class="col-xs-10">
+                    {{#if feature.properties.organizers_count}}
+                        <div class="popup-lot-details-organizers">
+                            This lot has 
+                            <span class="organizers-count">{{feature.properties.organizers_count}}</span>
+                            {{#if feature.properties.organizers_count_plural}}
+                                organizers.
+                            {{else}}
+                                organizer.
+                            {{/if}}
+                        </div>
+                    {{/if}}
+                    <div class="popup-lot-details-ain">
+                        APN {{feature.properties.ain}}
+                    </div>
                     {{#if feature.properties.number_of_lots_plural}}
                         <div class="lot-count">
                             {{feature.properties.number_of_lots}}
                             lots
                         </div>
                     {{/if}}
-                    <div class="size">Size: {{feature.properties.size}} acres</div>
-                    <div class="owner">Owner: {{feature.properties.owner}}</div>
-                </div>
-                <div class="col-xs-3">
-                    <a target="_blank" href="{{detailUrl}}" class="btn btn-learn-more">learn<br />more</a>
+                    <div class="size">{{feature.properties.size}} acres</div>
+                    <div class="owner">
+                        <span class="owner-type owner-type-{{feature.properties.owner.type}}">{{feature.properties.owner.type}}</span>
+                        Owner: {{feature.properties.owner.name}}
+                    </div>
                 </div>
             </div>
         </section>

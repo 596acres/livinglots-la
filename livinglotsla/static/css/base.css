@@ -3947,6 +3947,11 @@ footer .row {
   text-align: center;
   width: 20%;
 }
+.popup {
+  font-family: "Times New Roman", serif;
+  font-size: 15px;
+  font-style: italic;
+}
 .popup header {
   font-size: 20px;
 }
@@ -3954,17 +3959,31 @@ footer .row {
   color: black;
   text-transform: uppercase;
 }
+.popup-lot-details {
+  margin-top: 25px;
+}
 .popup .btn-learn-more {
-  background: purple;
+  background: #9D64A0;
   border-radius: 30px;
   color: white;
   font-size: 10px;
   height: 50px;
-  margin-top: 15px;
   padding: 0;
   padding-top: 10px;
   text-align: center;
   width: 50px;
+}
+.popup .btn-learn-more:last-child {
+  margin-top: 15px;
+}
+.popup .organizers-count {
+  color: #9D64A0;
+}
+.popup .owner-type {
+  text-transform: uppercase;
+}
+.popup .owner-type-private {
+  color: #9D64A0;
 }
 .filter-size {
   margin-left: 10px;
