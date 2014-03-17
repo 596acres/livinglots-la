@@ -249,10 +249,11 @@ define(
                 return false;
             });
 
-            $('.map-filters-communityplanarea').click(function () {
+            $('.map-filters-communityplanareas').select2();
+            $('.map-filters-communityplanareas').click(function () {
                 // TODO actually update filters
                 updateBoundary(map, 'communityplanarea_details_geojson',
-                               $(this).data('label'));
+                               $(this).val());
                 return false;
             });
 

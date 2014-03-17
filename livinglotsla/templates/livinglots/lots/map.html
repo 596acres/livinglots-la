@@ -125,17 +125,14 @@
                             <section class="map-filters map-filters-grouped">
                                 <h4 class="map-filters-expander">{% trans "community plan area" %}</h4>
                                 <div class="map-filters-content">
-                                    <ul class="map-filters-communityplanareas">
+                                    <select class="map-filters-communityplanareas">
                                         {% get_community_plan_areas as communityplanareas %}
                                         {% for communityplanarea in communityplanareas %}
-                                            <li>
-                                        
-                                                <a href="#" class="map-filters-communityplanarea" data-label="{{ communityplanarea.label }}">
-                                                    {{ communityplanarea.label }} 
-                                                </a>
-                                            </li>
+                                            <option value="{{ communityplanarea.label }}">
+                                                {{ communityplanarea.label }} 
+                                            </option>
                                         {% endfor %}
-                                    </ul>
+                                    </select>
                                 </div>
                             </section>
                             <section class="map-filters map-filters-grouped">
