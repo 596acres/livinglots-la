@@ -54,6 +54,11 @@ define(
                 params.council_district = councilDistrict;
             }
 
+            var neighborhoodCouncil = $('.map-filters-neighborhoodcouncils:input').val();
+            if (neighborhoodCouncil && neighborhoodCouncil !== '') {
+                params.neighborhood_council = neighborhoodCouncil;
+            }
+
             if (options && options.bbox) {
                 params.bbox = map.getBounds().toBBoxString();
             }

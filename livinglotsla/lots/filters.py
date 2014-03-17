@@ -9,6 +9,7 @@ from django.contrib.gis.measure import D
 import django_filters
 
 from ladata.councildistricts.models import CouncilDistrict
+from ladata.neighborhoodcouncils.models import NeighborhoodCouncil
 
 from .models import Lot
 
@@ -33,6 +34,7 @@ class BoundaryFilter(django_filters.Filter):
         if not value:
             return qs
         boundary = self.boundary_model.objects.get(label=value)
+        print boundary
         return qs.filter(centroid__within=boundary.geometry)
 
 
@@ -134,6 +136,7 @@ class LotFilter(django_filters.FilterSet):
     council_district = BoundaryFilter(CouncilDistrict)
     layers = LayerFilter()
     lot_center = LotCenterFilter()
+    neighborhood_council = BoundaryFilter(NeighborhoodCouncil)
     parents_only = LotGroupParentFilter()
     projects = ProjectFilter()
     public_owners = OwnerFilter(owner_type='public')
