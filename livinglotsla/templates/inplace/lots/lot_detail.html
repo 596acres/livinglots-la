@@ -92,7 +92,7 @@
                 {% endblocktrans %}
             </h2>
 
-            <a class="btn btn-default build-community-button lot-page-tooltip" href="{% url "organize:add_organizer" pk=lot.pk %}" data-toggle="tooltip" title="{% trans "Get involved with this lot or let people know you are already working towards growing community here." %}">
+            <a class="btn btn-default build-community-button" href="{% url "organize:add_organizer" pk=lot.pk %}" data-target="#organizer-modal" data-toggle="modal">
                 {% trans "organize with us" %}
             </a>
 
@@ -339,4 +339,12 @@
         </section>
 
     </aside>
+{% endblock %}
+
+{% block extra_body %}
+    <div id="organizer-modal" class="modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"></div>
+        </div>
+    </div>
 {% endblock %}

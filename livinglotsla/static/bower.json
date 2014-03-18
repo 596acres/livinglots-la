@@ -34,7 +34,8 @@
     "requirejs-text": "~2.0.10",
     "jQuery": "~2.1.0",
     "cartodb.js": "3.8.03",
-    "nouislider": "~6.0.0"
+    "nouislider": "~6.0.0",
+    "jquery-form": "~3.46.0"
   },
   "resolutions": {
     "leaflet": "e-tag:08329f89f"

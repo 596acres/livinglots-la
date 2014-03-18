@@ -11,9 +11,11 @@ define(
         'leaflet',
         'map.styles',
         'streetview',
+        'django',
 
+        'jquery.form',
         'leaflet.dataoptions'
-    ], function ($, Handlebars, L, mapstyles, StreetView) {
+    ], function ($, Handlebars, L, mapstyles, StreetView, Django) {
 
         function addBaseLayer(map) {
             var baseLayer = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
@@ -46,6 +48,21 @@ define(
             });
         }
 
+        function modalForm(modalId) {
+            $('#' + modalId).find('form').submit(function () {
+                $(this).ajaxSubmit({
+                    target: '#' + modalId + ' .modal-content',
+                    success: function () {
+                        modalForm(modalId);
+                    }
+                });
+                return false;
+            });
+            $('#' + modalId).find('.btn-close-modal').click(function () {
+                location.reload(false);
+            });
+        }
+
         $(document).ready(function () {
             var map = L.map('lot-detail-map');
             addBaseLayer(map);
@@ -56,6 +73,10 @@ define(
                 $('.lot-detail-streetview'),
                 $('.lot-detail-streetview-error')
             );
+
+            $('#organizer-modal').on('loaded.bs.modal', function () {
+                modalForm('organizer-modal');
+            });
         });
 
     }
