@@ -99,11 +99,6 @@
         border: @frame-border;
         width: 100%;
     }
-
-    .select2-container {
-        max-width: 100%;
-        width: 100%;
-    }
 }
 
 .map-filters-type {
@@ -266,4 +261,25 @@
     height: 100%;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.map-page {
+    .select2 {
+        &-results {
+            font-family: @body-font-family;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        &-result-label {
+            padding-bottom: 3px;
+            padding-top: 3px;
+        }
+
+        &-container {
+            font-family: @body-font-family;
+            max-width: 100%;
+            width: 100%;
+        }
+    }
 }

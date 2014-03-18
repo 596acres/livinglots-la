@@ -3902,10 +3902,6 @@ footer .row {
   border: 1px solid #aaaaaa;
   width: 100%;
 }
-.map-filters .select2-container {
-  max-width: 100%;
-  width: 100%;
-}
 .map-filters-type {
   font-size: 14px;
   font-family: "Times New Roman", serif;
@@ -4062,6 +4058,20 @@ footer .row {
     float: left;
     width: 25%;
   }
+}
+.map-page .select2-results {
+  font-family: "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 16px;
+}
+.map-page .select2-result-label {
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+.map-page .select2-container {
+  font-family: "Times New Roman", serif;
+  max-width: 100%;
+  width: 100%;
 }
 #lot-detail-map {
   width: 100%;
