@@ -1,0 +1,15 @@
+{% load i18n %}
+
+<div class="form-actions">
+    <div class="col-lg-offset-3 col-lg-6">
+        {% if cancel_button %}
+            <button class="btn btn-default btn-cancel" type="button">
+                {% trans "cancel" %}
+            </button>
+        {% endif %}
+        <button class="btn btn-primary" type="submit">
+            {% trans "submit" %}
+        </button>
+    </div>
+</div>
+<div class="clearfix"></div>
