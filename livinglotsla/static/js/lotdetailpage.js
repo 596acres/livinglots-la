@@ -12,10 +12,11 @@ define(
         'map.styles',
         'streetview',
         'django',
+        'spin',
 
         'jquery.form',
         'leaflet.dataoptions'
-    ], function ($, Handlebars, L, mapstyles, StreetView, Django) {
+    ], function ($, Handlebars, L, mapstyles, StreetView, Django, Spinner) {
 
         function addBaseLayer(map) {
             var baseLayer = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
@@ -50,6 +51,15 @@ define(
 
         function modalForm(modalId) {
             $('#' + modalId).find('form').submit(function () {
+                // Disable button and add a spinner
+                var $button = $(this).find('.btn-primary');
+                $button.prop('disabled', true);
+                var spinner = new Spinner({
+                    length: 8,
+                    lines: 9
+                }).spin($button[0]);
+
+                // Submit form via AJAX
                 $(this).ajaxSubmit({
                     target: '#' + modalId + ' .modal-content',
                     success: function () {
