@@ -3877,25 +3877,46 @@ footer .row {
   font-size: 14px;
   line-height: 18px;
 }
-form .btn-primary,
-form .btn-primary:focus {
-  color: #A1A1A1;
+form .btn-primary {
+  color: #a1a1a1;
   background-color: #454545;
-  border: 0;
+  border-color: #000000;
 }
 form .btn-primary:hover,
-form .btn-primary:active {
-  background-color: #2A2A2A;
+form .btn-primary:focus,
+form .btn-primary:active,
+form .btn-primary.active,
+.open .dropdown-toggleform .btn-primary {
+  color: #a1a1a1;
+  background-color: #313131;
+  border-color: #000000;
 }
-form .btn-primary.disabled.active,
-form .btn-primary[disabled].active,
-form .btn-primary.disabled:active,
-form .btn-primary[disabled]:active,
+form .btn-primary:active,
+form .btn-primary.active,
+.open .dropdown-toggleform .btn-primary {
+  background-image: none;
+}
+form .btn-primary.disabled,
+form .btn-primary[disabled],
+fieldset[disabled] form .btn-primary,
+form .btn-primary.disabled:hover,
+form .btn-primary[disabled]:hover,
+fieldset[disabled] form .btn-primary:hover,
 form .btn-primary.disabled:focus,
 form .btn-primary[disabled]:focus,
-form .btn-primary.disabled:hover,
-form .btn-primary[disabled]:hover {
-  background-color: #757575;
+fieldset[disabled] form .btn-primary:focus,
+form .btn-primary.disabled:active,
+form .btn-primary[disabled]:active,
+fieldset[disabled] form .btn-primary:active,
+form .btn-primary.disabled.active,
+form .btn-primary[disabled].active,
+fieldset[disabled] form .btn-primary.active {
+  background-color: #454545;
+  border-color: #000000;
+}
+form .btn-primary .badge {
+  color: #454545;
+  background-color: #a1a1a1;
 }
 /*
  * Pages
