@@ -3871,6 +3871,13 @@ footer .row {
   padding-top: 5px;
 }
 /*
+ * Forms
+ */
+.help-text {
+  font-size: 14px;
+  line-height: 18px;
+}
+/*
  * Pages
  */
 .blog-entry-list article {
@@ -4435,11 +4442,18 @@ footer .row {
   color: black;
   background: #eee;
 }
+.form-horizontal .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
 .form-control {
   border-radius: 0;
   font-size: 22px;
   height: 40px;
   padding: 6px 6px;
+}
+input[type="checkbox"] {
+  width: 40px;
 }
 .leaflet-bar a,
 .leaflet-bar a:hover {

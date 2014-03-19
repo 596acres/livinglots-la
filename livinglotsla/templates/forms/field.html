@@ -1,13 +1,12 @@
 {% load widget_tweaks %}
 
 <div class="form-group {% if field.errors %}has-error{% endif %} {% if field.field.required %}required{% endif %}">
-    <div class="col-lg-3 control-label">
+    <div class="control-label sr-only">
         {{ field.label_tag }}
     </div>
-    <div class="col-lg-6">
-
+    <div>
         <div class="controls">
-            {% render_field field class+="form-control" %}
+            {% render_field field class+="form-control" placeholder=field.label %}
 
             {% if field.errors %}
             <div class="help-block">
