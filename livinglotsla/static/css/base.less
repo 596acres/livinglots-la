@@ -227,6 +227,32 @@ footer {
     line-height: 18px;
 }
 
+form {
+
+    .btn-primary {
+        &,
+        &:focus {
+            color: #A1A1A1;
+            background-color: #454545;
+            border: 0;
+        }
+        &:hover,
+        &:active {
+            background-color: #2A2A2A;
+        }
+        &.disabled,
+        &[disabled] {
+            &.active,
+            &:active,
+            &:focus,
+            &:hover {
+                background-color: #757575;
+            }
+        }
+    }
+
+}
+
 
 /*
  * Pages

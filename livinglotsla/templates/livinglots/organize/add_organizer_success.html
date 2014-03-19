@@ -13,7 +13,10 @@
         {% trans "You were added as an organizer for" %}
         {{ participant.content_object.display_name|title|default:"unknown" }}
     </div>
-    <button class="btn btn-primary btn-close-modal" type="button">
-        {% trans "ok" %}
-    </button>
+    <form class="pull-right">
+        <button class="btn btn-primary btn-close-modal" type="button">
+            {% trans "ok" %}
+        </button>
+    </form>
+    <div class="clearfix"></div>
 </div>

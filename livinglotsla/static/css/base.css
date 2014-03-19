@@ -3877,6 +3877,26 @@ footer .row {
   font-size: 14px;
   line-height: 18px;
 }
+form .btn-primary,
+form .btn-primary:focus {
+  color: #A1A1A1;
+  background-color: #454545;
+  border: 0;
+}
+form .btn-primary:hover,
+form .btn-primary:active {
+  background-color: #2A2A2A;
+}
+form .btn-primary.disabled.active,
+form .btn-primary[disabled].active,
+form .btn-primary.disabled:active,
+form .btn-primary[disabled]:active,
+form .btn-primary.disabled:focus,
+form .btn-primary[disabled]:focus,
+form .btn-primary.disabled:hover,
+form .btn-primary[disabled]:hover {
+  background-color: #757575;
+}
 /*
  * Pages
  */
