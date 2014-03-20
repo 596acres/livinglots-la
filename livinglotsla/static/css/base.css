@@ -3753,6 +3753,7 @@ header .row {
 .navbar-default .navbar-nav > li > a {
   color: black;
   font-weight: bold;
+  line-height: 28px;
   padding: 5px;
   text-decoration: none;
   text-transform: uppercase;
