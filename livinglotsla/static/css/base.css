@@ -4263,6 +4263,7 @@ form .btn-primary .badge {
 #lot-detail-map {
   width: 100%;
   height: 150px;
+  cursor: pointer;
 }
 .lot-detail-streetview {
   width: 100%;
