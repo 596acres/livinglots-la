@@ -1,22 +1,10 @@
+{% extends "livinglots/usercontent/base_success.html" %}
 {% load i18n %}
 
-<div class="modal-header">
-    <button type="button" class="close btn-close-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h1 class="modal-title">
-        {% trans "Add your note" %}<br />
-        {{ object.content_object.display_name|title|default:"unknown" }}
-    </h1>
-</div>
+{% block modal_header_text %}
+    {% trans "Add your note" %}
+{% endblock %}
 
-<div class="modal-body">
-    <div>
-        {% trans "Your note was added to" %}
-        {{ object.content_object.display_name|title|default:"unknown" }}
-    </div>
-    <form class="pull-right">
-        <button class="btn btn-primary btn-close-modal" type="button">
-            {% trans "ok" %}
-        </button>
-    </form>
-    <div class="clearfix"></div>
-</div>
+{% block modal_body_text %}
+    {% trans "Your note was added to" %}
+{% endblock %}
