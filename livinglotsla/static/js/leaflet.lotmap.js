@@ -186,6 +186,7 @@ define(
                 var map = this;
                 map.addingCentroidsLayer = true;
                 cartodb.createLayer(map, {
+                    cartodb_logo: false,
                     user_name: 'laopenacres',
                     type: 'cartodb',
                     sublayers: [{
