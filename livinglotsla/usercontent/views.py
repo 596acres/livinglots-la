@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.views.generic import DetailView
 
 from livinglots_usercontent.notes.models import Note
+from livinglots_usercontent.photos.models import Photo
 from livinglots_usercontent.views import AddContentView
 
 from lots.models import Lot
@@ -46,3 +47,17 @@ class AddNoteSuccessView(SuccessView):
 class AddPhotoView(AddContentView):
     content_type_model = Lot
     form_class = PhotoForm
+
+    def get_form_valid_message(self):
+        return None
+
+    def get_success_url(self):
+        return reverse('usercontent:add_photo_success', kwargs={
+            'pk': self.object.content_object.pk,
+            'usercontent_pk': self.object.pk,
+        })
+
+
+class AddPhotoSuccessView(SuccessView):
+    model = Photo
+    pk_url_kwarg = 'usercontent_pk'

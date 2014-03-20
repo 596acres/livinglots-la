@@ -1,11 +1,14 @@
-{% extends "livinglots/usercontent/base.html" %}
-{% load i18n %}
+{% load flatblock_tags i18n %}
 
-{% block breadcrumbs %}
-    <li>{% trans "Add a photo" %}</li>
-{% endblock %}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h1 class="modal-title">
+        {% trans "Submit a photo" %}<br />
+        {{ content_object.display_name|title|default:"unknown" }}
+    </h1>
+</div>
 
-{% block content %}
-    <h1>{% trans "Add a photo" %}</h1>
-    {% include "_form.html" with form=form multipart=True %}
-{% endblock %}
+<div class="modal-body">
+    {% url "usercontent:add_photo" pk=content_object.pk as action_url %}
+    {% include "_form.html" with form=form action=action_url multipart=True %}
+</div>

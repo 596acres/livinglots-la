@@ -90,6 +90,9 @@ define(
             $('#organizer-modal').on('loaded.bs.modal', function () {
                 modalForm('organizer-modal');
             });
+            $('#photo-modal').on('loaded.bs.modal', function () {
+                modalForm('photo-modal');
+            });
         });
 
     }
