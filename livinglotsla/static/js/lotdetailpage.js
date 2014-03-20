@@ -84,6 +84,9 @@ define(
                 $('.lot-detail-streetview-error')
             );
 
+            $('#note-modal').on('loaded.bs.modal', function () {
+                modalForm('note-modal');
+            });
             $('#organizer-modal').on('loaded.bs.modal', function () {
                 modalForm('organizer-modal');
             });
