@@ -119,7 +119,7 @@
             <h2>
                 {% trans "Files" %}
             </h2>
-            <a class="btn btn-default" href="{% url "usercontent:add_file" pk=lot.pk %}">
+            <a class="btn btn-default" href="{% url "usercontent:add_file" pk=lot.pk %}" data-target="#file-modal" data-toggle="modal">
                 {% trans "Add a file" %}
             </a>
             {% render_file_list for lot %}
@@ -342,6 +342,11 @@
 {% endblock %}
 
 {% block extra_body %}
+    <div id="file-modal" class="modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"></div>
+        </div>
+    </div>
     <div id="note-modal" class="modal" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content"></div>

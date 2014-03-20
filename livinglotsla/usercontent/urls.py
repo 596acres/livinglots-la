@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 
-from .views import (AddFileView, AddNoteView, AddNoteSuccessView, AddPhotoView,
-                    AddPhotoSuccessView)
+from .views import (AddFileView, AddFileSuccessView, AddNoteView,
+                    AddNoteSuccessView, AddPhotoView, AddPhotoSuccessView)
 
 
 urlpatterns = patterns('',
@@ -25,5 +25,9 @@ urlpatterns = patterns('',
     url(r'^files/add/$',
         AddFileView.as_view(),
         name='add_file'),
+
+    url(r'^files/(?P<usercontent_pk>\d+)/add/success/$',
+        AddFileSuccessView.as_view(),
+        name='add_file_success'),
 
 )
