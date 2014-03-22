@@ -64,6 +64,11 @@ define(
                 params.neighborhood_council = neighborhoodCouncil;
             }
 
+            var zoneClass = $('.map-filters-zoneclasses:input').val();
+            if (zoneClass && zoneClass !== '') {
+                params.zone_class = zoneClass;
+            }
+
             if (options && options.bbox) {
                 params.bbox = map.getBounds().toBBoxString();
             }
@@ -289,6 +294,8 @@ define(
                 updateBoundary(map, 'neighborhoodcouncil_details_geojson',
                                $(this).val(), $(this).data('type'));
             });
+
+            $('.map-filters-zoneclasses').select2();
 
             $('.filter-size').noUiSlider({
                 connect: true,

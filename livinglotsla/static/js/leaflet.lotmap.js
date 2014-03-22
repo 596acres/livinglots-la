@@ -254,6 +254,9 @@ define(
                 if (params.size_min) {
                     whereConditions.push('size >= ' + params.size_min);
                 }
+                if (params.zone_class) {
+                    whereConditions.push("zone_class = '" + params.zone_class + "'");
+                }
                 if (whereConditions.length) {
                     sql += ' WHERE ' + whereConditions.join(' AND ');
                 }

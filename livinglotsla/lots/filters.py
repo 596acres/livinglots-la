@@ -130,6 +130,14 @@ class ProjectFilter(django_filters.Filter):
         return qs
 
 
+class ZoneClassFilter(django_filters.Filter):
+
+    def filter(self, qs, value):
+        if value:
+            return qs.filter(zoning_district__zone_class=value)
+        return qs
+
+
 class LotFilter(django_filters.FilterSet):
 
     bbox = BoundingBoxFilter()
@@ -143,6 +151,7 @@ class LotFilter(django_filters.FilterSet):
     public_owners = OwnerFilter(owner_type='public')
     size_max = AcreageMaxFilter()
     size_min = AcreageMinFilter()
+    zone_class = ZoneClassFilter()
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
@@ -167,4 +176,5 @@ class LotFilter(django_filters.FilterSet):
             'public_owners',
             'size_max',
             'size_min',
+            'zone_class',
         ]

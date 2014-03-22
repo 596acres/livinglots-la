@@ -1,4 +1,4 @@
-{% load communityplanareas_tags councildistricts_tags feincms_tags i18n inplace_tags neighborhoodcouncils_tags static %}
+{% load communityplanareas_tags councildistricts_tags feincms_tags i18n inplace_tags neighborhoodcouncils_tags static zoning_tags %}
 
 <script id="popup-template" type="text/x-handlebars-template">
     {% verbatim %}
@@ -162,7 +162,19 @@
                             </section>
                             <section class="map-filters map-filters-grouped">
                                 <h4 class="map-filters-expander">{% trans "zoning code" %}</h4>
-                                <div class="map-filters-content">{% trans "zoning code" %}</div>
+                                <div class="map-filters-content">
+                                    <select class="filter map-filters-zoneclasses">
+                                        <option value="">Pick one</option>
+                                        {% get_zoning_classes as zone_classes %}
+                                        {% for group, classes in zone_classes.items %}
+                                            <optgroup label="{{ group }}">
+                                                {% for class in classes %}
+                                                    <option>{{ class }}</option>
+                                                {% endfor %}
+                                            </optgroup>
+                                        {% endfor %}
+                                    </select>
+                                </div>
                             </section>
                         </div>
                     </section>
