@@ -127,7 +127,6 @@ class LotMixin(models.Model):
     # TODO council district
     # TODO community plan area
     # TODO neighborhood councils 1 -> *
-    # TODO zoning
 
     class Meta:
         abstract = True
@@ -142,6 +141,12 @@ class Lot(LotMixin, LotGroupLotMixin, BaseLot):
         related_name='lot_model',
         blank=True,
         null=True
+    )
+
+    zoning_district = models.ForeignKey(
+        'zoning.ZoningDistrict',
+        blank=True,
+        null=True,
     )
 
     class Meta:

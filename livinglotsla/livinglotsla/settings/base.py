@@ -205,6 +205,7 @@ INSTALLED_APPS = (
     'ladata.protectedareas',
     'ladata.transmissionlines',
     'ladata.weedabatements',
+    'ladata.zoning',
 )
 
 LOGGING = {
