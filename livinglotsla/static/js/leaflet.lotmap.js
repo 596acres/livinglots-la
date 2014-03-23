@@ -71,7 +71,7 @@ define(
                 },
                 popupOptions: {
                     autoPan: false,
-                    maxWidth: 250,
+                    maxWidth: 350,
                     minWidth: 250,
                     offset: [0, 0]
                 },
