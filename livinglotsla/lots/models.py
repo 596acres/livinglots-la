@@ -124,8 +124,6 @@ class LotMixin(models.Model):
 
     layer = property(_layer)
 
-    # TODO neighborhood councils 1 -> *
-
     class Meta:
         abstract = True
 
