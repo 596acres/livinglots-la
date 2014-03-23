@@ -36,6 +36,9 @@
                     {{/if}}
                     <div class="popup-lot-details-ain">
                         APN {{feature.properties.ain}}
+                        {{#if feature.properties.zone_class}}
+                            / Zone class: {{feature.properties.zone_class}}
+                        {{/if}}
                     </div>
                     {{#if feature.properties.number_of_lots_plural}}
                         <div class="lot-count">

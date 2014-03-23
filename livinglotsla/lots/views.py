@@ -33,7 +33,7 @@ class LotDetailJSON(JSONResponseView):
         return self.get_properties(lot)
 
     def get_properties(self, lot):
-        return {
+        properties = {
             'address_line1': lot.address_line1,
             'ain': lot.parcel.ain,
             'centroid': [lot.centroid.x, lot.centroid.y],
@@ -50,6 +50,11 @@ class LotDetailJSON(JSONResponseView):
             'pk': lot.pk,
             'size': round(lot.area_acres, 2),
         }
+        try:
+            properties['zone_class'] = lot.zoning_district.zone_class
+        except Exception:
+            pass
+        return properties
 
 
 class LotGeoJSONMixin(object):

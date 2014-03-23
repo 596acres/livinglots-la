@@ -251,6 +251,14 @@
                         {% trans "Use code" %}:
                         {{ lot.parcel.local_roll.use_cde }}
                     </li>
+
+                    {% if lot.zoning_district %}
+                        <li>
+                            {% trans "Zone class" %}:
+                            {{ lot.zoning_district.zone_class }}
+                        </li>
+                    {% endif %}
+
                 </ul>
             </div>
         </section>
