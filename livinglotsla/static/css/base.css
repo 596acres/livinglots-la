@@ -4263,6 +4263,14 @@ form .btn-primary .badge {
     margin-left: 8.333333333333332%;
   }
 }
+@media (max-width: 767px) {
+  .map-download-wrapper,
+  tr.map-download-wrapper,
+  th.map-download-wrapper,
+  td.map-download-wrapper {
+    display: none !important;
+  }
+}
 .map-download-inner-wrapper {
   margin-left: 0;
   margin-right: 0;
