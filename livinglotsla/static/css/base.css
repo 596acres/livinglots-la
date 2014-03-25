@@ -4030,6 +4030,8 @@ form .btn-primary .badge {
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 50px;
+  margin-left: 0;
+  margin-right: 0;
 }
 @media (min-width: 992px) {
   .blog-entry-list article {
