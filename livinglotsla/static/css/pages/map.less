@@ -16,8 +16,9 @@
 
 .map-filters-wrapper {
     .make-row(0);
-    .make-md-column(10);
-    .make-md-column-offset(1);
+    .make-xs-column(10);
+    margin-left: percentage((4 / @grid-columns));
+    .make-xs-column-offset(1);
     height: 100%;
 }
 
@@ -47,8 +48,8 @@
     }
 
     &#map-filters-parent {
-        .make-md-column(3);
-        .make-md-column-offset(9);
+        .make-sm-column(3);
+        .make-sm-column-offset(9);
 
         border: none;
         margin: 0;
