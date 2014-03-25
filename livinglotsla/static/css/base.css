@@ -3484,6 +3484,8 @@ button.close {
 .navbar-collapse:after,
 .modal-footer:before,
 .modal-footer:after,
+.header-row:before,
+.header-row:after,
 .blog-entry-list article:before,
 .blog-entry-list article:after,
 .map-filters-wrapper:before,
@@ -3509,6 +3511,7 @@ button.close {
 .navbar-header:after,
 .navbar-collapse:after,
 .modal-footer:after,
+.header-row:after,
 .blog-entry-list article:after,
 .map-filters-wrapper:after,
 .map-filters-inner-wrapper:after,
@@ -3733,6 +3736,11 @@ header {
 header .row {
   margin: 0;
 }
+.header-row {
+  margin-left: -15px;
+  margin-right: -15px;
+  height: 50px;
+}
 .header-menu {
   border-bottom: 1px solid #aaaaaa;
   border-top: 1px solid #aaaaaa;
@@ -3749,6 +3757,7 @@ header .row {
   line-height: 26px;
   padding-bottom: 5px;
   padding-top: 5px;
+  line-height: 40px;
 }
 .header-search input {
   border: 0;
@@ -3763,6 +3772,7 @@ header .row {
   padding-top: 5px;
   font-size: 12px;
   font-style: italic;
+  line-height: 17px;
 }
 .navbar-default {
   background-color: transparent;
@@ -3779,7 +3789,7 @@ header .row {
 .navbar-default .navbar-nav > li > a {
   color: black;
   font-weight: bold;
-  line-height: 28px;
+  line-height: 40px;
   padding: 5px;
   text-decoration: none;
   text-transform: uppercase;
