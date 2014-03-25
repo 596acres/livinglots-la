@@ -5,7 +5,7 @@
         LA Open Acres
     </div>
 
-    <div class="header-home-link">
+    <div class="header-home-link hidden-xs">
         <a href="/">
             <h1>
                 <img alt="{% trans "LA Open Acres" %}" src="{% static "img/logo.png" %}" />
@@ -16,22 +16,25 @@
     <div class="header-menu row">
         <div class="col-md-offset-1 col-md-10">
             <div class="row">
-                <div class="col-md-3 header-tagline">
+                <div class="col-md-3 hidden-xs header-tagline">
                     {% trans "Transforming vacant spaces into healthy places." %}
                 </div>
 
                 <nav class="col-md-6 navbar navbar-default hidden-print" role="navigation">
 
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        <a class="navbar-brand visible-xs" href="/">
+                            <img alt="{% trans "LA Open Acres" %}" src="{% static "img/logo.png" %}" />
+                        </a>
                     </div>
 
-                    <div class="collapse navbar-collapse navbar-main-collapse">
+                    <div class="collapse navbar-collapse" id="navbar-main">
                         <ul class="nav navbar-nav">
                             {% feincms_nav feincms_page level=2 depth=1 as mainmenu %}
                             {% for page in mainmenu %}
@@ -43,7 +46,7 @@
                     </div>
                 </nav>
 
-                <div class="col-md-3 header-search">
+                <div class="col-md-3 hidden-xs header-search">
                     <input type="search" placeholder="{% trans "search" %}" />
                 </div>
             </div>

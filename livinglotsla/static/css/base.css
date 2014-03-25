@@ -2338,6 +2338,27 @@ input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
 }
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+.fade.in {
+  opacity: 1;
+}
+.collapse {
+  display: none;
+}
+.collapse.in {
+  display: block;
+}
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.35s ease;
+  transition: height 0.35s ease;
+}
 .input-group {
   position: relative;
   display: table;
@@ -3716,6 +3737,11 @@ header .row {
   border-bottom: 1px solid #aaaaaa;
   border-top: 1px solid #aaaaaa;
 }
+@media (max-width: 767px) {
+  .header-menu > div {
+    padding: 0;
+  }
+}
 .header-search {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
@@ -3758,9 +3784,19 @@ header .row {
   text-decoration: none;
   text-transform: uppercase;
 }
-.navbar-collapse {
-  padding-left: 0;
-  padding-right: 0;
+.navbar-brand {
+  float: none;
+  height: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  width: 103px;
+}
+.navbar-toggle {
+  margin-top: 15px;
+  padding: 15px 10px;
 }
 /* Footer */
 footer {
