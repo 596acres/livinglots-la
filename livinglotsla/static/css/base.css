@@ -3751,6 +3751,10 @@ header .row {
   }
 }
 .header-search {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   height: 100%;
@@ -3758,6 +3762,26 @@ header .row {
   padding-bottom: 5px;
   padding-top: 5px;
   line-height: 40px;
+}
+@media (max-width: 767px) {
+  .header-search,
+  tr.header-search,
+  th.header-search,
+  td.header-search {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .header-search {
+    float: left;
+    width: 25%;
+  }
+}
+@media (min-width: 992px) {
+  .header-search {
+    float: left;
+    width: 25%;
+  }
 }
 .header-search input {
   border: 0;
@@ -3770,11 +3794,41 @@ header .row {
   line-height: 26px;
   padding-bottom: 5px;
   padding-top: 5px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   font-size: 12px;
   font-style: italic;
   line-height: 17px;
 }
+@media (max-width: 767px) {
+  .header-tagline,
+  tr.header-tagline,
+  th.header-tagline,
+  td.header-tagline {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .header-tagline,
+  tr.header-tagline,
+  th.header-tagline,
+  td.header-tagline {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .header-tagline {
+    float: left;
+    width: 25%;
+  }
+}
 .navbar-default {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   background-color: transparent;
   border: none;
   font-size: 16px;
@@ -3785,6 +3839,26 @@ header .row {
   min-height: 0;
   padding-left: 0;
   padding-right: 0;
+}
+@media print {
+  .navbar-default,
+  tr.navbar-default,
+  th.navbar-default,
+  td.navbar-default {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .navbar-default {
+    float: left;
+    width: 75%;
+  }
+}
+@media (min-width: 992px) {
+  .navbar-default {
+    float: left;
+    width: 50%;
+  }
 }
 .navbar-default .navbar-nav > li > a {
   color: black;

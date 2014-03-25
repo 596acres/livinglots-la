@@ -74,6 +74,9 @@ header .row {
     }
 
     &-search {
+        .hidden-xs();
+        .make-sm-column(3);
+        .make-md-column(3);
         input {
             border: 0;
             width: 100%;
@@ -84,6 +87,9 @@ header .row {
 
     &-tagline {
         .menu-bookend;
+        .hidden-xs();
+        .hidden-sm();
+        .make-md-column(3);
         font-size: 12px;
         font-style: italic;
         line-height: 17px;
@@ -91,6 +97,9 @@ header .row {
 }
 
 .navbar-default {
+    .hidden-print();
+    .make-sm-column(9);
+    .make-md-column(6);
     background-color: transparent;
     border: none;
     font-size: 16px;
