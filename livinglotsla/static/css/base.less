@@ -155,6 +155,12 @@ footer {
 }
 
 .footer {
+    &-row {
+        .make-row();
+        height: 50px;
+        margin: 0;
+    }
+
     &-menu {
         border-bottom: @frame-border;
         border-top: @frame-border;
@@ -168,12 +174,15 @@ footer {
         font-size: 12px;
         text-align: center;
         text-transform: uppercase;
-        line-height: 27px;
+        line-height: 40px;
         padding-top: 5px;
 
         @media (max-width: @screen-xs-max) {
             padding-left: 0;
             padding-right: 0;
+        }
+        @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+            line-height: 20px;
         }
 
         a {
@@ -186,7 +195,7 @@ footer {
     &-subscribe {
         .menu-bookend;
         .make-md-column(3);
-        line-height: 27px;
+        line-height: 40px;
 
         @media (max-width: @screen-sm-max) {
             padding-left: 0;
@@ -206,7 +215,7 @@ footer {
         .hidden-xs();
         .make-md-column(3);
         .make-sm-column(3);
-        line-height: 27px;
+        line-height: 50px;
 
         ul {
             list-style: none;
