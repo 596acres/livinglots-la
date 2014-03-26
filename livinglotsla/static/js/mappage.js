@@ -25,7 +25,8 @@ define(
         'map.search'
     ], function (Django, $, Handlebars, _, L, Spinner, singleminded) {
 
-        var sizeMax = 3;
+        var sizeMin = 0,
+            sizeMax = 3;
 
         function buildLotFilterParams(map, options) {
             var layers = _.map($('.filter-layer:checked'), function (layer) {
@@ -39,8 +40,12 @@ define(
                 parents_only: true,
                 projects: $('.filter-projects').val(),
                 public_owners: publicOwners.join(','),
-                size_min: $('.filter-size').val()[0]
             };
+
+            var selectedSizeMin = $('.filter-size').val()[0];
+            if (selectedSizeMin < sizeMin) {
+                params.size_min = selectedSizeMin;
+            }
 
             // Only include maximum size if it's less than the maximum in the
             // range.
@@ -301,10 +306,10 @@ define(
                 connect: true,
                 margin: 0.05,
                 range: {
-                    min: 0,
+                    min: sizeMin,
                     max: sizeMax
                 },
-                start: [0, sizeMax],
+                start: [sizeMin, sizeMax],
                 step: 0.05
             });
             updateSizeLabels();
