@@ -203,6 +203,7 @@ INSTALLED_APPS = (
     'ladata.neighborhoodcouncils',
     'ladata.parcels',
     'ladata.protectedareas',
+    'ladata.sidelots',
     'ladata.transmissionlines',
     'ladata.weedabatements',
     'ladata.zoning',
