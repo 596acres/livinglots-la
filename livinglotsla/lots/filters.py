@@ -46,8 +46,10 @@ class LayerFilter(django_filters.Filter):
 
         for layer in layers:
             if layer == 'public':
+                # Exclude sidelots here, will be included as another layer
                 layer_filter = layer_filter | Q(
                     Q(known_use=None) | Q(known_use__visible=True),
+                    Q(parcel__sidelot=None),
                     owner__owner_type='public',
                 )
             elif layer == 'public_sidelot':
