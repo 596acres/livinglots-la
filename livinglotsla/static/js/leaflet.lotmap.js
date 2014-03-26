@@ -58,10 +58,10 @@ define(
                 },
                 style: function (feature) {
                     var style = {
-                        fillColor: '#000000',
                         fillOpacity: 1,
-                        stroke: 1,
-                        color: '#E7DADF'
+                        stroke: true,
+                        color: '#FFFFFF',
+                        weight: 1
                     };
                     style.fillColor = mapstyles[feature.properties.layer];
                     if (!style.fillColor) {
