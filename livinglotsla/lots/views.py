@@ -65,18 +65,9 @@ class LotGeoJSONMixin(object):
             return 'unknown'
         return round(acres, 2)
 
-    def get_layer(self, lot):
-        if lot.known_use:
-            return 'in_use'
-        elif lot.owner and lot.owner.owner_type == 'public':
-            return 'public'
-        elif lot.owner and lot.owner.owner_type == 'private':
-            return 'private'
-        return ''
-
     def get_properties(self, lot):
         return {
-            'layer': self.get_layer(lot),
+            'layer': lot.layer,
         }
 
     def get_geometry(self, lot):
