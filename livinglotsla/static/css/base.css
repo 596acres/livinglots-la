@@ -4324,6 +4324,9 @@ form .btn-primary .badge {
 .map-filters-type-public-remnant {
   color: #8C474D;
 }
+.map-filters-type-public-sidelot {
+  color: #A9746E;
+}
 .map-filters-type-private {
   color: #D4A7D4;
 }
