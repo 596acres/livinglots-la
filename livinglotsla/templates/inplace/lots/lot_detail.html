@@ -307,16 +307,22 @@
             </div>
         </section>
 
-        <section class="lot-detail-special">
-            <div class="lot-detail-icon"></div>
-            <div class="lot-detail-content">
-                {% trans "Special Categories" %}:
-                <ul>
-                    <li>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        {% get_special_categories for lot as categories %}
+        {% if categories %}
+            <section class="lot-detail-special">
+                <div class="lot-detail-icon"></div>
+                <div class="lot-detail-content">
+                    {% trans "Special Categories" %}:
+                    <ul>
+                        {% for category in categories %}
+                            <li>
+                                {{ category|safe }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        {% endif %}
 
         {% if "lots.view_all_details" in perms %}
             <section>

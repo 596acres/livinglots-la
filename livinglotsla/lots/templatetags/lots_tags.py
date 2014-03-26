@@ -7,6 +7,21 @@ from django import template
 register = template.Library()
 
 
+class GetSpecialCategories(AsTag):
+    options = Options(
+        'for',
+        Argument('lot', resolve=True, required=True),
+        'as',
+        Argument('varname', resolve=False, required=False),
+    )
+
+    def get_value(self, context, lot):
+        categories = []
+        if lot.parcel.sidelot_set.count() > 0:
+            categories.append('Side Yard')
+        return categories
+
+
 class GetVacantReasons(AsTag):
     options = Options(
         'for',
@@ -25,4 +40,5 @@ class GetVacantReasons(AsTag):
         return reasons
 
 
+register.tag(GetSpecialCategories)
 register.tag(GetVacantReasons)
