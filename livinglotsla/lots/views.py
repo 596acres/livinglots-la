@@ -198,6 +198,7 @@ class LotsCountViewWithAcres(LotsCountView):
             'private-lots-count': lots.filter(owner__owner_type='private').count(),
             'private-taxdefault-count': 0,
             'public-lots-count': lots.filter(owner__owner_type='public').count(),
+            'public-sidelot-count': lots.exclude(parcel__sidelot=None).count(),
             'public-remnant-count': 0,
             'no-known-use-count': no_known_use.count(),
             'in-use-count': in_use.count(),

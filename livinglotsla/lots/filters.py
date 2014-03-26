@@ -50,6 +50,11 @@ class LayerFilter(django_filters.Filter):
                     Q(known_use=None) | Q(known_use__visible=True),
                     owner__owner_type='public',
                 )
+            elif layer == 'public_sidelot':
+                layer_filter = layer_filter | Q(
+                    Q(Q(known_use=None) | Q(known_use__visible=True)),
+                    ~Q(parcel__sidelot=None),
+                )
             elif layer == 'private':
                 layer_filter = layer_filter | Q(
                     Q(known_use=None) | Q(known_use__visible=True),

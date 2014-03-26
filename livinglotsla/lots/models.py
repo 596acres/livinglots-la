@@ -116,6 +116,8 @@ class LotMixin(models.Model):
     def _layer(self):
         if self.known_use:
             return 'in_use'
+        if self.parcel.sidelot_set.count() > 0:
+            return 'public_sidelot'
         elif self.owner and self.owner.owner_type == 'public':
             return 'public'
         elif self.owner and self.owner.owner_type == 'private':
