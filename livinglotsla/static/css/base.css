@@ -4631,15 +4631,24 @@ form .btn-primary .badge {
   padding: 0;
 }
 .lot-detail-legal .lot-detail-icon {
-  background: url(/static/img/lot-detail-legal.png);
+  background: url(/static/img/lot-detail-legal.png) no-repeat;
 }
 .lot-detail-ownership {
   margin-top: 25px;
 }
 .lot-detail-ownership .lot-detail-icon {
-  background: url(/static/img/lot-detail-ownership.png);
+  background: url(/static/img/lot-detail-ownership.png) no-repeat;
   height: 23px;
   width: 13px;
+}
+.lot-detail-special {
+  margin-top: 25px;
+}
+.lot-detail-special .lot-detail-icon {
+  background: url(/static/img/lot-detail-special.png) no-repeat;
+  height: 17px;
+  margin-left: 3px;
+  width: 5px;
 }
 .lot-detail-reasons {
   margin-top: 25px;
