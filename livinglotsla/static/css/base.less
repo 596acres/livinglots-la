@@ -59,7 +59,10 @@ header .row {
 .header {
     &-row {
         .make-row();
-        height: 50px;
+        margin: 0;
+        @media (min-width: @screen-sm-min) {
+            height: 50px;
+        }
     }
 
     &-menu {
