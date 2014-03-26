@@ -4311,6 +4311,10 @@ form .btn-primary .badge {
   margin-top: 5px;
   padding: 0;
 }
+.map-filters-type ul ul {
+  margin-top: 0;
+  margin-left: 15px;
+}
 .map-filters-type-item {
   cursor: pointer;
   list-style: circle;

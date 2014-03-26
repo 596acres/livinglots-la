@@ -82,16 +82,18 @@
                                         {% trans "publicly owned vacant" %}
                                         (<span id="public-lots-count"></span>)
                                     </li>
-                                    <li class="map-filters-type-item map-filters-type-public-remnant">
-                                        <input type="checkbox" name="public_remnant" class="filter filter-layer hidden" />
-                                        {% trans "remnant/odd shape" %}
-                                        (<span id="public-remnant-count"></span>)
-                                    </li>
-                                    <li class="map-filters-type-item map-filters-type-public-sidelot on">
-                                        <input type="checkbox" name="public_sidelot" class="filter filter-layer hidden" checked="true" />
-                                        {% trans "side yard" %}
-                                        (<span id="public-sidelot-count"></span>)
-                                    </li>
+                                    <ul>
+                                        <li class="map-filters-type-item map-filters-type-public-remnant">
+                                            <input type="checkbox" name="public_remnant" class="filter filter-layer hidden" />
+                                            {% trans "remnant/odd shape" %}
+                                            (<span id="public-remnant-count"></span>)
+                                        </li>
+                                        <li class="map-filters-type-item map-filters-type-public-sidelot on">
+                                            <input type="checkbox" name="public_sidelot" class="filter filter-layer hidden" checked="true" />
+                                            {% trans "side yard" %}
+                                            (<span id="public-sidelot-count"></span>)
+                                        </li>
+                                    </ul>
                                 </ul>
                                 <ul>
                                     <li class="map-filters-type-item map-filters-type-private on">
@@ -99,11 +101,13 @@
                                         {% trans "privately owned vacant" %}
                                         (<span id="private-lots-count"></span>)
                                     </li>
-                                    <li class="map-filters-type-item map-filters-type-private-tax-default">
-                                        <input type="checkbox" name="private_tax_default" class="filter filter-layer hidden" />
-                                        {% trans "tax default" %}
-                                        (<span id="private-taxdefault-count"></span>)
-                                    </li>
+                                    <ul>
+                                        <li class="map-filters-type-item map-filters-type-private-tax-default">
+                                            <input type="checkbox" name="private_tax_default" class="filter filter-layer hidden" />
+                                            {% trans "tax default" %}
+                                            (<span id="private-taxdefault-count"></span>)
+                                        </li>
+                                    </ul>
                                 </ul>
                                 <ul>
                                     <li>{% trans "being organized" %}</li>
