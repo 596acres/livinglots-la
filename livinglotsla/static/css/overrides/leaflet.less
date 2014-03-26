@@ -18,7 +18,10 @@
 }
 
 .leaflet-left {
-    margin-left: 8.33333333333333%;
+    margin-left: percentage(1 / @grid-columns);
+    @media (max-width: @screen-xs-max) {
+        margin-left: 1%;
+    }
 }
 
 .leaflet-popup-content-wrapper {

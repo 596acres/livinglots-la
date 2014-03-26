@@ -4730,7 +4730,12 @@ input[type="checkbox"] {
   border-radius: 0 !important;
 }
 .leaflet-left {
-  margin-left: 8.33333333333333%;
+  margin-left: 8.333333333333332%;
+}
+@media (max-width: 767px) {
+  .leaflet-left {
+    margin-left: 1%;
+  }
 }
 .leaflet-popup-content-wrapper {
   border-radius: 0;
