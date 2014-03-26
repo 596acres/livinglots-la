@@ -82,3 +82,31 @@ class TransmissionLineFinder(object):
     def accept_parcel(self, parcel):
         Lot.objects.create_lot_for_parcels([parcel], known_use=None,
                                            known_use_certainty=7)
+
+
+class SideLotFinder(object):
+    """
+    Find lots by looking for parcels that are side lots.
+    """
+
+    def find_parcels(self, count=None):
+        parcels = Parcel.objects.exclude(sidelot=None)
+        parcels = parcels.filter(lot_model=None).order_by('ain')
+        if count:
+            parcels = parcels[:count]
+        return parcels
+
+    def find_lots(self, batch_size=5000):
+        for parcel in self.find_parcels(count=batch_size):
+            if Building.objects.filter(geom__overlaps=parcel.geom).exists():
+                # Ensure parcel has no buildings on it
+                continue
+            if ProtectedArea.objects.filter(geom__overlaps=parcel.geom).exists():
+                # Ensure parcel is not in a protected area
+                continue
+            else:
+                self.accept_parcel(parcel)
+
+    def accept_parcel(self, parcel):
+        Lot.objects.create_lot_for_parcels([parcel], known_use=None,
+                                           known_use_certainty=7)
