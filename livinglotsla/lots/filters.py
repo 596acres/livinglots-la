@@ -41,28 +41,7 @@ class BoundaryFilter(django_filters.Filter):
 class LayerFilter(django_filters.Filter):
 
     def filter(self, qs, value):
-        layers = value.split(',')
-        layer_filter = Q()
-
-        for layer in layers:
-            if layer == 'public':
-                # Exclude sidelots here, will be included as another layer
-                layer_filter = layer_filter | Q(
-                    Q(known_use=None) | Q(known_use__visible=True),
-                    Q(parcel__sidelot=None),
-                    owner__owner_type='public',
-                )
-            elif layer == 'public_sidelot':
-                layer_filter = layer_filter | Q(
-                    Q(Q(known_use=None) | Q(known_use__visible=True)),
-                    ~Q(parcel__sidelot=None),
-                )
-            elif layer == 'private':
-                layer_filter = layer_filter | Q(
-                    Q(known_use=None) | Q(known_use__visible=True),
-                    owner__owner_type='private',
-                )
-        return qs.filter(layer_filter)
+        return qs.filter(lotlayer__name__in=value.split(','))
 
 
 class LotGroupParentFilter(django_filters.Filter):

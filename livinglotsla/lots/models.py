@@ -3,12 +3,14 @@ from pint import UnitRegistry
 from django.conf import settings
 from django.contrib.contenttypes import generic
 from django.db import models
+from django.db.models import Q
 from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
 from cartodbsync.models import SyncEntry
-from livinglots_lots.models import BaseLot, BaseLotGroup, BaseLotManager
+from livinglots_lots.models import (BaseLot, BaseLotGroup, BaseLotLayer,
+                                    BaseLotManager)
 
 from organize.models import Organizer
 from owners.models import Owner
@@ -155,6 +157,26 @@ class Lot(LotMixin, LotGroupLotMixin, BaseLot):
 
 class LotGroup(BaseLotGroup, Lot):
     objects = models.Manager()
+
+
+class LotLayer(BaseLotLayer):
+
+    @classmethod
+    def get_layer_filters(cls):
+        return {
+            'public': Q(
+                Q(known_use=None) | Q(known_use__visible=True),
+                owner__owner_type='public',
+            ),
+            'private': Q(
+                Q(known_use=None) | Q(known_use__visible=True),
+                owner__owner_type='private',
+            ),
+            'public_sidelot': Q(
+                Q(Q(known_use=None) | Q(known_use__visible=True)),
+                ~Q(parcel__sidelot=None),
+            ),
+        }
 
 
 #

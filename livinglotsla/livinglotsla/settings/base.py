@@ -288,6 +288,7 @@ LIVING_LOTS = {
     'MODELS': {
         'lot': 'lots.Lot',
         'lotgroup': 'lots.LotGroup',
+        'lotlayer': 'lots.LotLayer',
         'organizer': 'organize.Organizer',
         'owner': 'owners.Owner',
         'pathway': 'pathways.Pathway',
