@@ -4360,19 +4360,22 @@ form .btn-primary .badge {
 .popup-lot-details {
   margin-top: 25px;
 }
-.popup .btn-learn-more {
+.popup .btn {
   background: #9D64A0;
   border-radius: 30px;
   color: white;
-  font-size: 10px;
+  font-size: 9px;
   height: 50px;
   padding: 0;
-  padding-top: 10px;
+  padding-top: 12px;
   text-align: center;
   width: 50px;
 }
-.popup .btn-learn-more:last-child {
+.popup .btn:last-child {
   margin-top: 15px;
+}
+.popup .btn-organize {
+  padding-top: 18px;
 }
 .popup .organizers-count {
   color: #9D64A0;
