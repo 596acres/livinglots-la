@@ -308,7 +308,6 @@ CONTACT_FORM_REASONS = OrderedDict([
     ('I want to share my land access story.', ['hello@laopenacres.org',]),
     ('I want to loan or lease my land for a temporary project.', ['hello@laopenacres.org',]),
     ('I want to invite admins to an event.', ['hello@laopenacres.org',]),
-    ('I want to reach 596 Acres, the team that made this site.', ['paula@596acres.org',]),
     ('I have a press inquiry.', ['hello@laopenacres.org',]),
 ])
 
