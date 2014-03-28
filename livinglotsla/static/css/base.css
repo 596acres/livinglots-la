@@ -4734,6 +4734,7 @@ input[type="checkbox"] {
 }
 .leaflet-bar a,
 .leaflet-bar a:hover {
+  border: none;
   font-size: 30px;
   height: 36px;
   line-height: 36px;
