@@ -55,6 +55,9 @@ urlpatterns += patterns('',
         'authentication_form': AuthenticationForm,
     }),
 
+    # Watson
+    url(r"^search/", include("watson.urls", namespace="watson")),
+
     # FeinCMS
     url(r'', include('feincms.urls')),
 )

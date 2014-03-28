@@ -47,7 +47,9 @@
                 </nav>
 
                 <div class="header-search">
-                    <input type="search" placeholder="{% trans "search" %}" />
+                    <form action="{% url "watson:search" %}" method="get">
+                        <input type="search" name="q" placeholder="{% trans "search" %}" value="{{ request.GET.q }}" />
+                    </form>
                 </div>
             </div>
         </div>

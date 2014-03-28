@@ -92,6 +92,7 @@ MIDDLEWARE_CLASSES = (
 
     'honeypot.middleware.HoneypotMiddleware',
     'reversion.middleware.RevisionMiddleware',
+    'watson.middleware.SearchContextMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -155,6 +156,7 @@ INSTALLED_APPS = (
     'reversion',
     'reversion_compare',
     'south',
+    'watson',
     'widget_tweaks',
 
     #
@@ -165,6 +167,7 @@ INSTALLED_APPS = (
     'inplace_activity_stream',
     'pagepermissions',
     'rsssync',
+    'search',
 
     #
     # Living Lots

@@ -1,0 +1,2 @@
+{% load search_tags %}
+<a href="{{ obj.get_absolute_url }}">{{ obj|highlight:query }}</a> (page)

@@ -7,6 +7,7 @@ from feincms.module.page.models import Page
 from feincms.content.application.models import ApplicationContent
 from feincms.content.medialibrary.models import MediaFileContent
 from feincms.content.richtext.models import RichTextContent
+import watson
 
 from livinglots_pathways.cms import PathwayListContent
 
@@ -183,3 +184,7 @@ Pathway.create_content_type(RichTextContent)
 Pathway.create_content_type(MediaFileContent, TYPE_CHOICES=(
     ('default', _('default')),
 ))
+
+
+watson.register(Page, fields=['title'])
+watson.register(Page.content_type_for(RichTextContent))

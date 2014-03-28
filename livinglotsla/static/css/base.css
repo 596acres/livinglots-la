@@ -4707,6 +4707,9 @@ form .btn-primary .badge {
 .lot-detail-page .modal .close:focus {
   outline: none;
 }
+.search-highlight {
+  font-weight: bold;
+}
 /*
  * Overrides
  */
