@@ -96,6 +96,13 @@ define(
             $('#photo-modal').on('loaded.bs.modal', function () {
                 modalForm('photo-modal');
             });
+
+            if (window.location.hash === '#organize') {
+                $('#organizer-modal').modal({
+                    show: true,
+                    remote: $('.build-community-button').attr('href')
+                });
+            }
         });
 
     }
