@@ -1,11 +1,11 @@
 # General requirements
 Fabric==1.8.3
 IMAPClient==0.10.2
-Pillow==1.7.8
-Pint==0.3.2
-ipython==1.1.0
+Pillow==2.3.1
+Pint==0.4.2
+ipython>=1.2.0
 lxml==3.1.0
-pilkit==1.1.5
+pilkit==1.1.6
 psycopg2==2.4.6
 python-dateutil==2.1
 simplejson==3.0.7
@@ -33,8 +33,8 @@ django-extensions==1.1.1
 git+git://github.com/596acres/django-external-data-sync/@master
 django-filter==0.7
 git+git://github.com/funkybob/django-flatblocks/@5c921d9ab4b2b08ad6d1b5995bdf190b65dc9f79
-django-honeypot==0.3.0
-django-imagekit==3.0.4
+django-honeypot==0.4.0
+django-imagekit==3.2
 git+git://github.com/ebrelsford/django-inplace/@master
 git+git://github.com/ebrelsford/django-inplace-activity-stream/@master
 django-jsonfield==0.9.12
