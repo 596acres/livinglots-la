@@ -1,8 +1,13 @@
 {% extends "base.html" %}
-{% load watson %}
+{% load i18n watson %}
 
 {% block title %}
     Search results{% if query %} for &ldquo;{{query}}&rdquo;{% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <li><a href="/">{% trans "Home" %}</a></li>
+    <li>{% trans "Search" %}</li>
 {% endblock %}
 
 {% block content %}
