@@ -1,3 +1,3 @@
 {% load search_tags %}
-<a href="{{ obj.parent.get_absolute_url }}">{{ obj.parent }}</a>: (page)
+<a href="{{ obj.parent.get_absolute_url }}">{{ obj.parent }}</a>:
 {{ obj.render|highlight:query|safe }}
