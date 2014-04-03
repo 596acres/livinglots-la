@@ -18,3 +18,12 @@ def highlight(text, query):
                              r'<span class="%s">\1</span>' % css_class,
                              str(text), flags=re.IGNORECASE)
     return mark_safe(highlighted)
+
+
+@register.filter
+def truncatequery(text, query):
+    """
+    Truncate the incoming text around the query.
+    """
+    matches = re.findall(r'(?:\S+\s*){0,2}%s(?:\s*\S+){0,2}' % query, text)
+    return mark_safe('...%s...' % '...'.join(matches))
