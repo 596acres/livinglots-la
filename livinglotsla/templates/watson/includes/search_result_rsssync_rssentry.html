@@ -1,0 +1,3 @@
+{% load search_tags %}
+<a href="{{ obj.get_absolute_url }}">{{ obj.title|highlight:query }}</a>:
+{{ obj.summary|truncatequery:query|striptags|highlight:query|safe }}

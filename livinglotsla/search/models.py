@@ -1,3 +1,5 @@
-from django.db import models
+from rsssync.models import RssEntry
+import watson
 
-# Create your models here.
+
+watson.register(RssEntry)
