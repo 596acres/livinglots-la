@@ -25,5 +25,5 @@ def truncatequery(text, query):
     """
     Truncate the incoming text around the query.
     """
-    matches = re.findall(r'(?:\S+\s*){0,2}%s(?:\s*\S+){0,2}' % query, text)
+    matches = re.findall(r'(?:\S+\s*){0,3}%s(?:\s*\S+){0,3}' % query, text)
     return mark_safe('...%s...' % '...'.join(matches))
