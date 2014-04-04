@@ -3889,6 +3889,7 @@ header .row {
     border-left: 1px solid #aaaaaa;
     border-right: 1px solid #aaaaaa;
     line-height: 26px;
+    border-right: 0;
   }
 }
 .navbar-default .navbar-nav > li > a {
@@ -3948,6 +3949,8 @@ footer .row {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  height: 100%;
+  overflow-y: hidden;
   color: #aaa;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 12px;
@@ -3974,6 +3977,14 @@ footer .row {
     padding-right: 0;
   }
 }
+@media (max-width: 991px) {
+  .footer-collaborator-links {
+    border-left: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;
+    line-height: 26px;
+    border-left: 0;
+  }
+}
 @media (min-width: 992px) and (max-width: 1199px) {
   .footer-collaborator-links {
     line-height: 20px;
@@ -3988,6 +3999,8 @@ footer .row {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   line-height: 26px;
+  height: 100%;
+  overflow-y: hidden;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -4002,10 +4015,9 @@ footer .row {
 }
 @media (max-width: 991px) {
   .footer-subscribe {
-    padding-left: 0;
-    padding-right: 0;
-    border-left: 0;
-    border-right: 0;
+    border-top: 1px solid #aaaaaa;
+    clear: both;
+    overflow-y: visible;
   }
 }
 .footer-subscribe input {
@@ -4016,6 +4028,8 @@ footer .row {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   line-height: 26px;
+  height: 100%;
+  overflow-y: hidden;
   position: relative;
   min-height: 1px;
   padding-left: 15px;

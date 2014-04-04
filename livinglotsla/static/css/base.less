@@ -53,7 +53,7 @@ header .row {
     line-height: 26px;
 }
 
-.header-section() {
+.menu-section() {
     height: 100%;
     overflow-y: hidden;
 }
@@ -79,7 +79,7 @@ header .row {
     }
 
     &-search {
-        .header-section();
+        .menu-section();
         .menu-bookend;
         .hidden-xs();
         .make-sm-column(3);
@@ -94,7 +94,7 @@ header .row {
     }
 
     &-tagline {
-        .header-section();
+        .menu-section();
         .menu-bookend;
         .hidden-xs();
         .hidden-sm();
@@ -117,7 +117,7 @@ header .row {
     .hidden-print();
     .make-sm-column(9);
     .make-md-column(6);
-    .header-section();
+    .menu-section();
 
     background-color: transparent;
     border: none;
@@ -133,6 +133,7 @@ header .row {
 
     @media (max-width: @screen-sm-max) {
         .menu-bookend();
+        border-right: 0;
     }
 
     .navbar-nav > li > a {
@@ -203,6 +204,7 @@ footer {
     &-collaborator-links {
         .make-sm-column(9);
         .make-md-column(6);
+        .menu-section();
         color: #aaa;
         font-family: @header-font-family; 
         font-size: 12px;
@@ -214,6 +216,10 @@ footer {
         @media (max-width: @screen-xs-max) {
             padding-left: 0;
             padding-right: 0;
+        }
+        @media (max-width: @screen-sm-max) {
+            .menu-bookend();
+            border-left: 0;
         }
         @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
             line-height: 20px;
@@ -228,14 +234,14 @@ footer {
 
     &-subscribe {
         .menu-bookend;
+        .menu-section();
         .make-md-column(3);
         line-height: 40px;
 
         @media (max-width: @screen-sm-max) {
-            padding-left: 0;
-            padding-right: 0;
-            border-left: 0;
-            border-right: 0;
+            border-top: @frame-border;
+            clear: both;
+            overflow-y: visible;
         }
 
         input {
@@ -246,6 +252,7 @@ footer {
 
     &-social {
         .menu-bookend;
+        .menu-section();
         .hidden-xs();
         .make-md-column(3);
         .make-sm-column(3);
