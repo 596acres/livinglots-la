@@ -3896,6 +3896,10 @@ header .row {
   text-decoration: none;
   text-transform: uppercase;
 }
+.navbar-default.overflowing .navbar-nav > li > a {
+  padding-left: 4px;
+  padding-right: 4px;
+}
 .navbar-collapse.collapsing,
 .navbar-collapse.collapse.in {
   font-size: 22px;

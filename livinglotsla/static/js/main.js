@@ -53,6 +53,14 @@ define(
                 $tagline.addClass('overflowing');
             }
 
+            /*
+             * If the navbar isn't fitting, squeeze it a bit.
+             */
+            var $navbar = $('.navbar-default');
+            if ($navbar[0].scrollHeight > $navbar.innerHeight()) {
+                $navbar.addClass('overflowing');
+            }
+
         });
 
 
