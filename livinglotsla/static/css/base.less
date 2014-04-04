@@ -51,14 +51,11 @@ header .row {
     border-left: @frame-border;
     border-right: @frame-border;
     line-height: 26px;
-    padding-bottom: 5px;
-    padding-top: 5px;
 }
 
 .header-section() {
     height: 100%;
     overflow-y: hidden;
-    text-overflow: ellipsis;
 }
 
 .header {
@@ -87,6 +84,8 @@ header .row {
         .hidden-xs();
         .make-sm-column(3);
         .make-md-column(3);
+        padding-bottom: 5px;
+        padding-top: 5px;
         input {
             border: 0;
             width: 100%;
@@ -103,6 +102,8 @@ header .row {
         font-size: 12px;
         font-style: italic;
         line-height: 17px;
+        padding-bottom: 5px;
+        padding-top: 5px;
         @media (min-width: @screen-lg-min) {
             line-height: 35px;
         }
@@ -117,8 +118,10 @@ header .row {
     .make-sm-column(9);
     .make-md-column(6);
     .header-section();
+
     background-color: transparent;
     border: none;
+    border-radius: 0;
     font-size: 12px;
     font-family: @header-font-family; 
     font-weight: bold;
@@ -127,6 +130,10 @@ header .row {
     min-height: 0;
     padding-left: 0;
     padding-right: 0;
+
+    @media (max-width: @screen-sm-max) {
+        .menu-bookend();
+    }
 
     .navbar-nav > li > a {
         color: black;

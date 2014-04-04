@@ -3764,16 +3764,15 @@ header .row {
 .header-search {
   height: 100%;
   overflow-y: hidden;
-  text-overflow: ellipsis;
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   line-height: 26px;
-  padding-bottom: 5px;
-  padding-top: 5px;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   line-height: 40px;
 }
 @media (max-width: 767px) {
@@ -3803,12 +3802,9 @@ header .row {
 .header-tagline {
   height: 100%;
   overflow-y: hidden;
-  text-overflow: ellipsis;
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   line-height: 26px;
-  padding-bottom: 5px;
-  padding-top: 5px;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -3816,6 +3812,8 @@ header .row {
   font-size: 12px;
   font-style: italic;
   line-height: 17px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 @media (max-width: 767px) {
   .header-tagline,
@@ -3854,9 +3852,9 @@ header .row {
   padding-right: 15px;
   height: 100%;
   overflow-y: hidden;
-  text-overflow: ellipsis;
   background-color: transparent;
   border: none;
+  border-radius: 0;
   font-size: 12px;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: bold;
@@ -3884,6 +3882,13 @@ header .row {
   .navbar-default {
     float: left;
     width: 50%;
+  }
+}
+@media (max-width: 991px) {
+  .navbar-default {
+    border-left: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;
+    line-height: 26px;
   }
 }
 .navbar-default .navbar-nav > li > a {
@@ -3983,8 +3988,6 @@ footer .row {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   line-height: 26px;
-  padding-bottom: 5px;
-  padding-top: 5px;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -4013,8 +4016,6 @@ footer .row {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
   line-height: 26px;
-  padding-bottom: 5px;
-  padding-top: 5px;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
