@@ -1,6 +1,6 @@
 {% load rsssync_tags %}
 
-<section class="blog-entry-list row">
+<section class="blog-entry-list">
     {% get_latest_entries for content.feed 10 as entries %}
     {% for entry in entries %}
         <article>
