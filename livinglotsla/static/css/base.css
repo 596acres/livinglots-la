@@ -3844,6 +3844,9 @@ header .row {
     line-height: 35px;
   }
 }
+.header-tagline.overflowing {
+  line-height: 17px;
+}
 .navbar-default {
   position: relative;
   min-height: 1px;

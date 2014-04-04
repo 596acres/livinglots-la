@@ -45,6 +45,14 @@ define(
                 $('.fancybox').fancybox();
             });
 
+            /*
+             * If the tagline isn't fitting, squeeze it down.
+             */
+            var $tagline = $('.header-tagline');
+            if ($tagline[0].scrollHeight > $tagline.innerHeight()) {
+                $tagline.addClass('overflowing');
+            }
+
         });
 
 
