@@ -50,10 +50,15 @@ header .row {
 .menu-bookend() {
     border-left: @frame-border;
     border-right: @frame-border;
-    height: 100%;
     line-height: 26px;
     padding-bottom: 5px;
     padding-top: 5px;
+}
+
+.header-section() {
+    height: 100%;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
 }
 
 .header {
@@ -77,6 +82,8 @@ header .row {
     }
 
     &-search {
+        .header-section();
+        .menu-bookend;
         .hidden-xs();
         .make-sm-column(3);
         .make-md-column(3);
@@ -84,11 +91,11 @@ header .row {
             border: 0;
             width: 100%;
         }
-        .menu-bookend;
         line-height: 40px;
     }
 
     &-tagline {
+        .header-section();
         .menu-bookend;
         .hidden-xs();
         .hidden-sm();
@@ -106,6 +113,7 @@ header .row {
     .hidden-print();
     .make-sm-column(9);
     .make-md-column(6);
+    .header-section();
     background-color: transparent;
     border: none;
     font-size: 12px;

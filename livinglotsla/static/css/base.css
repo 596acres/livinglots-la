@@ -3762,16 +3762,18 @@ header .row {
   }
 }
 .header-search {
+  height: 100%;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  border-left: 1px solid #aaaaaa;
+  border-right: 1px solid #aaaaaa;
+  line-height: 26px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  border-left: 1px solid #aaaaaa;
-  border-right: 1px solid #aaaaaa;
-  height: 100%;
-  line-height: 26px;
-  padding-bottom: 5px;
-  padding-top: 5px;
   line-height: 40px;
 }
 @media (max-width: 767px) {
@@ -3799,9 +3801,11 @@ header .row {
   width: 100%;
 }
 .header-tagline {
+  height: 100%;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
-  height: 100%;
   line-height: 26px;
   padding-bottom: 5px;
   padding-top: 5px;
@@ -3845,6 +3849,9 @@ header .row {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  height: 100%;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
   background-color: transparent;
   border: none;
   font-size: 12px;
@@ -3968,7 +3975,6 @@ footer .row {
 .footer-subscribe {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
-  height: 100%;
   line-height: 26px;
   padding-bottom: 5px;
   padding-top: 5px;
@@ -3999,7 +4005,6 @@ footer .row {
 .footer-social {
   border-left: 1px solid #aaaaaa;
   border-right: 1px solid #aaaaaa;
-  height: 100%;
   line-height: 26px;
   padding-bottom: 5px;
   padding-top: 5px;
