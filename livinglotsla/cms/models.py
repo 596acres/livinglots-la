@@ -146,6 +146,7 @@ Page.register_templates({
         ('footer_bottom', _('Footer Bottom'), 'inherited'),
     ),
 })
+Page.objects.exclude_from_copy.append('template_key')
 
 Page.create_content_type(RichTextContent)
 
