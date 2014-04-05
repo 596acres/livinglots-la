@@ -194,14 +194,14 @@ class LotsCountViewWithAcres(LotsCountView):
         in_use = lots.filter(known_use__isnull=False, known_use__visible=True)
 
         context = {
-            'lots-count': lots.count(),
-            'private-lots-count': lots.filter(lotlayer__name='private').count(),
+            'lots-count': lots.distinct().count(),
+            'private-lots-count': lots.filter(lotlayer__name='private').distinct().count(),
             'private-taxdefault-count': 0,
-            'public-lots-count': lots.filter(lotlayer__name='public').count(),
-            'public-sidelot-count': lots.filter(lotlayer__name='public_sidelot').count(),
+            'public-lots-count': lots.filter(lotlayer__name='public').distinct().count(),
+            'public-sidelot-count': lots.filter(lotlayer__name='public_sidelot').distinct().count(),
             'public-remnant-count': 0,
-            'no-known-use-count': no_known_use.count(),
-            'in-use-count': in_use.count(),
+            'no-known-use-count': no_known_use.distinct().count(),
+            'in-use-count': in_use.distinct().count(),
         }
         return context
 
