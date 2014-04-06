@@ -4582,6 +4582,11 @@ form .btn-primary .badge {
     width: 25%;
   }
 }
+@media (min-width: 992px) {
+  .lot-detail-page #aside-left {
+    right: 75%;
+  }
+}
 .lot-detail-page #main {
   position: relative;
   min-height: 1px;
@@ -4611,6 +4616,11 @@ form .btn-primary .badge {
   .lot-detail-page #aside-right {
     float: left;
     width: 25%;
+  }
+}
+@media (min-width: 992px) {
+  .lot-detail-page #aside-right {
+    left: 75%;
   }
 }
 .lot-detail-main-section {
