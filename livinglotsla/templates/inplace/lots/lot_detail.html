@@ -70,7 +70,7 @@
                         {% trans "Is this an active project?" %}
                     </a>
 
-                    <a class="btn btn-default lot-page-tooltip" href="{% url "groundtruth:add_groundtruthrecord" pk=lot.pk %}" data-toggle="tooltip" title="{% trans "Let us know that this lot's actual use is not correctly identified." %}">
+                    <a class="btn btn-default" href="{% url "groundtruth:add_groundtruthrecord" pk=lot.pk %}" data-target="#groundtruth-modal" data-toggle="modal" title="{% trans "Let us know that this lot's actual use is not correctly identified." %}">
                         {% trans "Have we made a mistake?" %}
                     </a>
                 </div>
@@ -389,6 +389,11 @@
 
 {% block extra_body %}
     <div id="file-modal" class="modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <div id="groundtruth-modal" class="modal" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content"></div>
         </div>

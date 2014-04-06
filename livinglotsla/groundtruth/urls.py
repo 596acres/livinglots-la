@@ -5,13 +5,17 @@ import django_monitor
 from django_monitor.util import save_handler
 
 from .models import GroundtruthRecord
-from .views import AddGroundtruthRecordView
+from .views import AddGroundtruthRecordView, AddGroundtruthRecordSuccessView
 
 
 urlpatterns = patterns('',
 
     url(r'^add/$', AddGroundtruthRecordView.as_view(),
         name='add_groundtruthrecord'),
+
+    url(r'^(?P<groundtruthrecord_pk>\d+)/add/success/$',
+        AddGroundtruthRecordSuccessView.as_view(),
+        name='add_groundtruthrecord_success'),
 
 )
 

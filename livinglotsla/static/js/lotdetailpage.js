@@ -87,6 +87,9 @@ define(
             $('#file-modal').on('loaded.bs.modal', function () {
                 modalForm('file-modal');
             });
+            $('#groundtruth-modal').on('loaded.bs.modal', function () {
+                modalForm('groundtruth-modal');
+            });
             $('#note-modal').on('loaded.bs.modal', function () {
                 modalForm('note-modal');
             });
