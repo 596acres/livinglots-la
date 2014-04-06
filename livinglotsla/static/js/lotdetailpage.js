@@ -84,23 +84,11 @@ define(
                 $('.lot-detail-streetview-error')
             );
 
-            $('#file-modal').on('loaded.bs.modal', function () {
-                modalForm('file-modal');
-            });
-            $('#groundtruth-modal').on('loaded.bs.modal', function () {
-                modalForm('groundtruth-modal');
-            });
-            $('#note-modal').on('loaded.bs.modal', function () {
-                modalForm('note-modal');
-            });
-            $('#organizer-modal').on('loaded.bs.modal', function () {
-                modalForm('organizer-modal');
-            });
-            $('#photo-modal').on('loaded.bs.modal', function () {
-                modalForm('photo-modal');
-            });
-            $('#steward-modal').on('loaded.bs.modal', function () {
-                modalForm('steward-modal');
+            // Prepare all of the modals, which will have forms
+            $('.modal').each(function () {
+                $(this).on('loaded.bs.modal', function () {
+                    modalForm($(this).attr('id'));
+                });
             });
 
             if (window.location.hash === '#organize') {
