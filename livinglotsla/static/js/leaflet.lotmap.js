@@ -149,17 +149,19 @@ define(
 
                 this.bing = new L.BingLayer('Ajio1n0EgmAAvT3zLndCpHrYR_LHJDgfDU6B0tV_1RClr7OFLzy4RnkLXlSdkJ_x');
 
-                // TODO re-add layers control
-                /*
                 var baseLayers = {
-                    streets: cloudmade,
-                    satellite: bing
+                    streets: this.cloudmade,
+                    satellite: this.bing
                 };
 
                 L.control.layers(baseLayers, {}, {
                     position: 'topleft'               
                 }).addTo(this);
-                */
+
+                this.cloudmade.bringToBack();
+                this.on('baselayerchange', function (e) {
+                    e.layer.bringToBack();
+                });
             },
 
             addLotsLayer: function (params) {
@@ -213,7 +215,7 @@ define(
                         $('#' + map._container.id).css('cursor', 'grab');
                     });
 
-                    map.addLayer(layer);
+                    map.addLayer(layer, false);
                 });
             },
 
