@@ -17,7 +17,7 @@
                 <div class="meta">
                     <time datetime="{{ entry.date|date:"Y-d-m H:i" }}">{{ entry.date|date:"d F, Y" }}</time>
                 </div>
-                {{ entry.summary|striptags|truncatewords:"75" }}
+                {{ entry.summary|striptags|truncatewords:"75"|safe }}
                 {% if entry.link %}
                     <a class="meta" href="{{ entry.link }}">
                         read more
