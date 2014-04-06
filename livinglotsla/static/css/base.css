@@ -3983,6 +3983,10 @@ footer .row {
     border-left: 1px solid #aaaaaa;
     border-right: 1px solid #aaaaaa;
     line-height: 26px;
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .footer-collaborator-links {
     border-left: 0;
   }
 }
