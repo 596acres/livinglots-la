@@ -96,6 +96,9 @@ define(
             $('#photo-modal').on('loaded.bs.modal', function () {
                 modalForm('photo-modal');
             });
+            $('#steward-modal').on('loaded.bs.modal', function () {
+                modalForm('steward-modal');
+            });
 
             if (window.location.hash === '#organize') {
                 $('#organizer-modal').modal({

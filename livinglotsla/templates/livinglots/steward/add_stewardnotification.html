@@ -1,28 +1,14 @@
-{% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}
-    {{ content_object.display_name|title|default:"unknown" }} |
-    {% trans "LA Open Acres" %}
-{% endblock %}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h1 class="modal-title">
+        {% trans "Add an existing project" %}<br />
+        {{ content_object.display_name|title|default:"unknown" }}
+    </h1>
+</div>
 
-{% block body_class %} lot-add-page {% endblock %}
-
-{% block breadcrumbs_wrapper %}
-    <ul class="breadcrumb">
-        <li>
-            <a href="/">{% trans "Home" %}</a>
-        </li>
-        <li>
-            <a href="{{ content_object.get_absolute_url }}">
-                {{ content_object.display_name|title|default:"unknown" }}
-            </a>
-        </li>
-        <li>{% trans "Add an existing project" %}</li>
-    </ul>
-{% endblock %}
-
-{% block content %}
-    <h1>{% trans "Add an existing project" %}</h1>
-    {% include "_form.html" with form=form %}
-{% endblock %}
+<div class="modal-body">
+    {% url "steward:add_stewardnotification" pk=content_object.pk as action_url %}
+    {% include "_form.html" with form=form action=action_url %}
+</div>
