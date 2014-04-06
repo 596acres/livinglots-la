@@ -8,5 +8,29 @@
 
 {% block modal_body %}
     {% url "steward:add_stewardnotification" pk=content_object.pk as action_url %}
-    {% include "_form.html" with form=form action=action_url %}
+    <form class="form-horizontal" method="post" 
+        {% if action_url %}action="{{ action_url }}"{% endif %}
+        >
+
+        {% include "forms/header.html" with form=form %}
+
+        <div class="row">
+            <div class="col-md-6">
+                {% include "forms/field.html" with field=form.project_name %}
+                {% include "forms/field.html" with field=form.use %}
+                {% include "forms/field.html" with field=form.support_organization %}
+                {% include "forms/field.html" with field=form.land_tenure_status %}
+                {% include "forms/field.html" with field=form.include_on_map %}
+            </div>
+            <div class="col-md-6">
+                {% include "forms/field.html" with field=form.name %}
+                {% include "forms/field.html" with field=form.email %}
+                {% include "forms/field.html" with field=form.phone %}
+                {% include "forms/field.html" with field=form.url %}
+                {% include "forms/field.html" with field=form.type %}
+            </div>
+        </div>
+
+        {% include "forms/footer.html" %}
+    </form>
 {% endblock %}
