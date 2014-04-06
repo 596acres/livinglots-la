@@ -1,14 +1,11 @@
+{% extends "modals/success.html" %}
 {% load i18n %}
 
-<div class="modal-header">
-    <button type="button" class="close btn-close-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h1 class="modal-title">
-        {% trans "Organize this lot!" %}<br />
-        {{ content_object.display_name|title|default:"unknown" }}
-    </h1>
-</div>
+{% block modal_header_text %}
+    {% trans "Organize this lot!" %}
+{% endblock %}
 
-<div class="modal-body">
+{% block modal_body %}
     <div>
         {% trans "You were added as an organizer for" %}
         {{ participant.content_object.display_name|title|default:"unknown" }}
@@ -19,4 +16,4 @@
         </button>
     </form>
     <div class="clearfix"></div>
-</div>
+{% endblock %}

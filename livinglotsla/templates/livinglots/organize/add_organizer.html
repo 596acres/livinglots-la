@@ -1,14 +1,12 @@
+{% extends "modals/base.html" %}
 {% load flatblock_tags i18n %}
 
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h1 class="modal-title">
-        {% trans "Organize this lot!" %}<br />
-        {{ content_object.display_name|title|default:"unknown" }}
-    </h1>
-</div>
+{% block modal_header %}
+    {% trans "Organize this lot!" %}<br />
+    {{ content_object.display_name|title|default:"unknown" }}
+{% endblock %}
 
-<div class="modal-body">
+{% block modal_body %}
     {% flatblock "organizer-add-intro" %}
     {% url "organize:add_organizer" pk=content_object.pk as action_url %}
     <form class="form-horizontal" method="post" 
@@ -34,4 +32,4 @@
 
         {% include "forms/footer.html" %}
     </form>
-</div>
+{% endblock %}

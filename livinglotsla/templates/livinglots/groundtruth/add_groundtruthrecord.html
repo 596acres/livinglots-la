@@ -1,14 +1,12 @@
+{% extends "modals/base.html" %}
 {% load i18n %}
 
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h1 class="modal-title">
-        {% trans "Make a correction" %}<br />
-        {{ content_object.display_name|title|default:"unknown" }}
-    </h1>
-</div>
+{% block modal_header %}
+    {% trans "Make a correction" %}<br />
+    {{ content_object.display_name|title|default:"unknown" }}
+{% endblock %}
 
-<div class="modal-body">
+{% block modal_body %}
     {% url "groundtruth:add_groundtruthrecord" pk=content_object.pk as action_url %}
     {% include "_form.html" with form=form action=action_url %}
-</div>
+{% endblock %}
