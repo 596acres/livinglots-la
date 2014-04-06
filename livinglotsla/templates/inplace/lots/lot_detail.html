@@ -62,12 +62,6 @@
                 </a>
             {% endif %}
 
-            {% if lot.nearby %}
-                <a class="btn btn-default disabled">
-                    {% trans "find lots nearby" %}
-                </a>
-            {% endif %}
-
             {% if not lot.known_use %}
                 <a class="btn btn-default lot-page-tooltip" href="{% url "steward:add_stewardnotification" pk=lot.pk %}" data-toggle="tooltip" title="{% trans "Tell us more about your project." %}">
                     {% trans "Is this an active project?" %}
