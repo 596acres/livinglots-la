@@ -57,7 +57,7 @@
 
         <section class="lot-detail-actions">
             {% if "lots.change_lot" in perms %}
-                <a class="btn btn-small btn-warning" href="{% url "admin:lots_lot_change" lot.pk %}">
+                <a class="btn btn-admin" href="{% url "admin:lots_lot_change" lot.pk %}">
                     {% trans "Edit this lot" %}
                 </a>
             {% endif %}
@@ -134,13 +134,13 @@
                         {% if "steward.change_stewardproject" in perms %}
 
                             <div class="lot-detail-admin admin-only grid">
-                                <a class="btn btn-small btn-warning" href="{% url "admin:phillyorganize_organizer_change" steward.organizer.pk %}">
+                                <a class="btn btn-admin" href="{% url "admin:phillyorganize_organizer_change" steward.organizer.pk %}">
                                     {% trans "Edit this steward's contact information" %}
                                 </a>
                             </div>
 
                             <div class="lot-detail-admin admin-only grid">
-                                <a class="btn btn-small btn-warning" href="{% url "admin:steward_stewardproject_change" steward.pk %}">
+                                <a class="btn btn-admin" href="{% url "admin:steward_stewardproject_change" steward.pk %}">
                                     {% trans "Edit this steward's other information" %}
                                 </a>
                             </div>
@@ -328,7 +328,7 @@
                     <div class="help-text">(This section is only visible to admins.)</div>
 
                     <span class="lot-detail-admin admin-only">
-                        <a class="btn btn-small btn-warning" href="{% url "admin:lots_lot_changelist" %}?owner={{ lot.owner.pk }}">
+                        <a class="btn btn-admin" href="{% url "admin:lots_lot_changelist" %}?owner={{ lot.owner.pk }}">
                             {% trans "View all lots this owner owns" %}
                         </a>
                     </span>

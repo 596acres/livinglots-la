@@ -2,24 +2,31 @@
     background: transparent;
 }
 
+.btn-admin {
+    .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+    .btn-xs();
+}
+
+.btn-default {
+    .button-variant(white; black; black);
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    .open .dropdown-toggle& {
+        color: white;
+        background-color: lighten(black, 20%);
+    }
+}
+
 .btn {
     border: none;
     border-radius: 0;
     font-family: @header-font-family; 
-    font-size: 18px;
+    //font-size: 18px;
     font-style: normal;
     font-weight: bold;
     text-transform: uppercase;
-}
-
-.btn-default {
-    background: black;
-    color: white;
-
-    &:hover {
-        color: black;
-        background: #eee;
-    }
 }
 
 .form-horizontal .form-group {

@@ -4759,22 +4759,107 @@ form .btn-primary .badge {
 .breadcrumb {
   background: transparent;
 }
+.btn-admin {
+  color: #ffffff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.btn-admin:hover,
+.btn-admin:focus,
+.btn-admin:active,
+.btn-admin.active,
+.open .dropdown-toggle.btn-admin {
+  color: #ffffff;
+  background-color: #ed9c28;
+  border-color: #d58512;
+}
+.btn-admin:active,
+.btn-admin.active,
+.open .dropdown-toggle.btn-admin {
+  background-image: none;
+}
+.btn-admin.disabled,
+.btn-admin[disabled],
+fieldset[disabled] .btn-admin,
+.btn-admin.disabled:hover,
+.btn-admin[disabled]:hover,
+fieldset[disabled] .btn-admin:hover,
+.btn-admin.disabled:focus,
+.btn-admin[disabled]:focus,
+fieldset[disabled] .btn-admin:focus,
+.btn-admin.disabled:active,
+.btn-admin[disabled]:active,
+fieldset[disabled] .btn-admin:active,
+.btn-admin.disabled.active,
+.btn-admin[disabled].active,
+fieldset[disabled] .btn-admin.active {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+.btn-admin .badge {
+  color: #f0ad4e;
+  background-color: #ffffff;
+}
+.btn-default {
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #000000;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #000000;
+}
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  background-image: none;
+}
+.btn-default.disabled,
+.btn-default[disabled],
+fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled:active,
+.btn-default[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,
+.btn-default[disabled].active,
+fieldset[disabled] .btn-default.active {
+  background-color: #000000;
+  border-color: #000000;
+}
+.btn-default .badge {
+  color: #000000;
+  background-color: #ffffff;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  color: white;
+  background-color: #333333;
+}
 .btn {
   border: none;
   border-radius: 0;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 18px;
   font-style: normal;
   font-weight: bold;
   text-transform: uppercase;
-}
-.btn-default {
-  background: black;
-  color: white;
-}
-.btn-default:hover {
-  color: black;
-  background: #eee;
 }
 .form-horizontal .form-group {
   margin-left: 0;

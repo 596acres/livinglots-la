@@ -25,7 +25,7 @@
 
         {% if "pathways.change_pathway" in perms %}
             <div class="lot-detail-admin admin-only grid">
-                <a class="btn btn-warning" href="{% url "admin:pathways_pathway_change" pathway.pk %}">{% trans "Edit this pathway" %}</a>
+                <a class="btn btn-admin" href="{% url "admin:pathways_pathway_change" pathway.pk %}">{% trans "Edit this pathway" %}</a>
             </div>
         {% endif %}
 

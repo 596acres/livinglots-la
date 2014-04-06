@@ -19,13 +19,13 @@
                 <div class="admin-only">
 
                     {% if "notes.change_note" in perms %}
-                        <a href="{% url "admin:notes_note_change" note.pk %}" class="btn btn-small btn-warning">
+                        <a href="{% url "admin:notes_note_change" note.pk %}" class="btn btn-admin">
                             {% trans "Edit this note" %}
                         </a>
                     {% endif %}
 
                     {% if "notes.delete_note" in perms %}
-                        <a href="{% url "admin:notes_note_delete" note.pk %}" class="btn btn-small btn-warning">
+                        <a href="{% url "admin:notes_note_delete" note.pk %}" class="btn btn-admin">
                             {% trans "Delete this note" %}
                         </a>
                     {% endif %}
