@@ -298,6 +298,22 @@
                     </li>
                     <li>
                         {{ lot.owner.name|default:"unknown"|title }}
+                        <div class="lot-owner-contacts">
+                            {% for owner_contact in lot.owner.ownercontact_set.all %}
+                                Contact: {{ owner_contact.name }}<br />
+                                {% if owner_contact.phone %}
+                                    {{ owner_contact.phone }}<br />
+                                {% endif %}
+                                {% if owner_contact.email %}
+                                    <a href="mailto:{{ owner_contact.email }}?subject=Question about parcel with AIN {{ lot.parcel.ain }}">
+                                        {{ owner_contact.email }}
+                                    </a><br />
+                                {% endif %}
+                                {% if owner_contact.notes %}
+                                    {{ owner_contact.notes }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </li>
                 </ul>
             </div>
