@@ -37,6 +37,8 @@ class GetVacantReasons(AsTag):
                            'Assessor')
         if lot.parcel.sidelot_set.count() > 0:
             reasons.append("It is in the city's sidelot data")
+        if lot.parcel.transmissionline_set.count() > 0:
+            reasons.append('It is under a transmission line')
         return reasons
 
 
