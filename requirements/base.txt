@@ -21,7 +21,7 @@ git+git://github.com/justquick/django-activity-stream.git@6db2bec6
 django-admin-enhancer==0.1.2
 django-admin-tools==0.5.1
 django-appconf==0.6
-django-autocomplete-light==1.2.2
+django-autocomplete-light==1.4.13
 django-braces==1.2.2
 django-cache-machine>=0.8
 git+git://github.com/jbalogh/django-cache-machine/@7c3d3abfc85fc26d0e522fd05e9a42fc9b9a5430

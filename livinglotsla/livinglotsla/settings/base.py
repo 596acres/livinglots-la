@@ -139,6 +139,7 @@ INSTALLED_APPS = (
     #
     'actstream',
     'admin_enhancer',
+    'autocomplete_light',
     'compressor',
     'contact_form',
     'django_monitor',
