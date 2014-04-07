@@ -314,6 +314,13 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
+                        {% if "owners.add_owner" in perms %}
+                            <div class="lot-owner-contacts-add">
+                                <a class="btn btn-admin" href="{% url "admin:owners_ownercontact_add" %}?owner={{ lot.owner.pk }}" target="_blank">
+                                    {% trans "Add a contact for this owner" %}
+                                </a>   
+                            </div>
+                        {% endif %}
                     </li>
                 </ul>
             </div>
