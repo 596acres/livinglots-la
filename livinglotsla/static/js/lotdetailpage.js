@@ -27,7 +27,11 @@ define(
 
         function addLotsLayer(map) {
             var url = map.options.lotsurl + '?' + 
-                $.param({ lot_center: map.options.lotPk });
+                $.param({ 
+                    layers: 'public,public_sidelot,private',
+                    lot_center: map.options.lotPk,
+                    parents_only: true
+                });
             $.getJSON(url, function (data) {
                 var lotsLayer = L.geoJson(data, {
                     style: function (feature) {
