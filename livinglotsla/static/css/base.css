@@ -4204,6 +4204,7 @@ form .btn-primary .badge {
 }
 .blog-entry-list .meta {
   color: gray;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 15px;
