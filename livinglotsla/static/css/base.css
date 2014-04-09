@@ -4973,6 +4973,9 @@ fieldset[disabled] .btn-default.active {
 input[type="checkbox"] {
   width: 40px;
 }
+.help-text {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
 .leaflet-bar a,
 .leaflet-bar a:hover {
   border: none;
