@@ -4366,8 +4366,8 @@ form .btn-primary .badge {
 }
 .map-filters-type-item {
   cursor: pointer;
-  text-transform: capitalize;
   list-style: none;
+  text-transform: capitalize;
 }
 .map-filters-type-disc {
   display: inline-block;
