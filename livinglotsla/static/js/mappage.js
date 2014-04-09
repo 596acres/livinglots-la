@@ -15,6 +15,7 @@ define(
         'singleminded',
 
         'jquery.infinitescroll',
+        'perfect-scrollbar',
 
         'leaflet.loading',
         'leaflet.lotmap',
@@ -278,6 +279,7 @@ define(
 
             $('.map-filters-expander').click(function () {
                 $(this).parent('.map-filters').toggleClass('expanded');
+                $('#map-filters-parent').perfectScrollbar('update');
             });
 
             $('.map-filters-councildistrict').click(function () {
@@ -320,6 +322,11 @@ define(
 
             updateDetailsLink(map);
             updateExportLinks(map);
+
+            $('#map-filters-parent').perfectScrollbar({
+                includePadding: true,
+                suppressScrollX: true
+            });
 
         });
 

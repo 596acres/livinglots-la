@@ -7,6 +7,7 @@ requirejs.config({
         "fancybox": "../bower_components/fancybox/source/jquery.fancybox",
         "jquery": "../bower_components/jQuery/dist/jquery.min",
         "jquery.form": "../bower_components/jquery-form/jquery.form",
+        "jquery.mousewheel": "../bower_components/perfect-scrollbar/src/jquery.mousewheel",
         "jquery.infinitescroll": "../bower_components/infinite-scroll/jquery.infinitescroll",
         "handlebars": "../bower_components/handlebars/handlebars",
         "leaflet": "../bower_components/leaflet/leaflet-src",
@@ -16,6 +17,7 @@ requirejs.config({
         "leaflet.loading": "../bower_components/leaflet.loading/src/Control.Loading",
         "leaflet.usermarker": "../bower_components/leaflet.usermarker/src/leaflet.usermarker",
         "nouislider": "../bower_components/nouislider/jquery.nouislider",
+        "perfect-scrollbar": "../bower_components/perfect-scrollbar/src/perfect-scrollbar",
         "requirejs": "../bower_components/requirejs",
         "select2": "../bower_components/select2/select2",
         "spin": "../bower_components/spin.js/spin",
@@ -47,6 +49,7 @@ requirejs.config({
         "leaflet.bing": ["leaflet"],
         "leaflet.hash": ["leaflet"],
         "leaflet.usermarker": ["leaflet"],
+        "perfect-scrollbar": ["jquery.mousewheel"],
         "underscore": {
             "exports": "_"
         }
