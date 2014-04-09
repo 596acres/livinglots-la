@@ -116,7 +116,7 @@ class LotMixin(models.Model):
     area_acres = property(_area_acres)
 
     def _layer(self):
-        if self.known_use:
+        if self.known_use and self.known_use.visible:
             return 'in_use'
         if self.parcel.sidelot_set.count() > 0:
             return 'public_sidelot'
@@ -164,6 +164,7 @@ class LotLayer(BaseLotLayer):
     @classmethod
     def get_layer_filters(cls):
         return {
+            'in_use': Q(known_use__visible=True),
             'public': Q(
                 Q(known_use=None) | Q(known_use__visible=True),
                 owner__owner_type='public',

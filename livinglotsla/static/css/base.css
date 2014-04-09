@@ -4370,6 +4370,9 @@ form .btn-primary .badge {
 .map-filters-type-item.on {
   list-style: disc;
 }
+.map-filters-type-in-use {
+  color: #999933;
+}
 .map-filters-type-public {
   color: #A9756D;
 }
