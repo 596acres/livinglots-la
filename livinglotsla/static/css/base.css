@@ -4346,6 +4346,15 @@ form .btn-primary .badge {
   margin-left: 8%;
   width: 92%;
 }
+.map-filters-search-nearby label {
+  font-family: "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+.map-filters-search-nearby input[type="checkbox"] {
+  margin-left: 8%;
+  width: 20px;
+}
 .map-filters-type {
   font-size: 14px;
   font-family: "Times New Roman", serif;
