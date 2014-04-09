@@ -4391,12 +4391,14 @@ form .btn-primary .badge {
   color: #996699;
 }
 .map-filters-councildistricts {
+  font-family: "Times New Roman", serif;
+  font-size: 14px;
   margin-left: 3%;
 }
 .map-filters-councildistricts .map-filters-councildistrict {
   display: block;
   text-align: center;
-  width: 20%;
+  width: 15%;
 }
 .popup {
   font-family: "Times New Roman", serif;
