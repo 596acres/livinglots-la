@@ -4365,6 +4365,7 @@ form .btn-primary .badge {
 }
 .map-filters-type-item {
   cursor: pointer;
+  text-transform: capitalize;
   list-style: circle;
 }
 .map-filters-type-item.on {
