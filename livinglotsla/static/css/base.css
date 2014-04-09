@@ -3727,7 +3727,8 @@ body {
   font-size: 21px;
   line-height: 24px;
 }
-a {
+a,
+a:hover {
   color: black;
 }
 h1,
