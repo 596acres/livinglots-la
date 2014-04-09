@@ -4376,6 +4376,15 @@ form .btn-primary .badge {
   height: 10px;
   width: 10px;
 }
+.map-filters-type-friendly-owner {
+  color: #663300;
+}
+.map-filters-type-friendly-owner .map-filters-type-disc {
+  border: 1px solid #663300;
+}
+.map-filters-type-friendly-owner.on .map-filters-type-disc {
+  background-color: #663300;
+}
 .map-filters-type-in-use {
   color: #999933;
 }
@@ -4384,6 +4393,15 @@ form .btn-primary .badge {
 }
 .map-filters-type-in-use.on .map-filters-type-disc {
   background-color: #999933;
+}
+.map-filters-type-organized {
+  color: #ff00ff;
+}
+.map-filters-type-organized .map-filters-type-disc {
+  border: 1px solid #ff00ff;
+}
+.map-filters-type-organized.on .map-filters-type-disc {
+  background-color: #ff00ff;
 }
 .map-filters-type-public {
   color: #990000;

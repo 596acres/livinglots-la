@@ -121,8 +121,18 @@
                                         {% trans "green space" %}
                                         (<span id="in-use-count"></span>)
                                     </li>
-                                    <li>{% trans "being organized" %}</li>
-                                    <li>{% trans "friendly owner" %}</li>
+                                    <li class="map-filters-type-item map-filters-type-organized on">
+                                        <span class="map-filters-type-disc"></span>
+                                        <input type="checkbox" name="organized" class="filter filter-layer hidden" />
+                                        {% trans "being organized" %}
+                                        (<span id="organized-count">0</span>)
+                                    </li>
+                                    <li class="map-filters-type-item map-filters-type-friendly-owner on">
+                                        <span class="map-filters-type-disc"></span>
+                                        <input type="checkbox" name="friendly_owner" class="filter filter-layer hidden" />
+                                        {% trans "friendly owner" %}
+                                        (<span id="friendly-owner-count">0</span>)
+                                    </li>
                                 </ul>
                             </ul>
                         </div>
