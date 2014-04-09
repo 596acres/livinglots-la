@@ -4966,6 +4966,7 @@ fieldset[disabled] .btn-default.active {
 .form-control {
   border-radius: 0;
   font-size: 22px;
+  font-style: italic;
   height: 40px;
   padding: 6px 6px;
 }
