@@ -43,14 +43,6 @@
 
                     <section id="main">
 
-                        {% block breadcrumbs_wrapper %}
-                            <ul class="breadcrumb">
-                                {% block breadcrumbs %}
-                                    {% feincms_breadcrumbs feincms_page %}
-                                {% endblock %}
-                            </ul>
-                        {% endblock %}
-
                         {% block messages %}
                             {% include "_messages.html" %}
                         {% endblock %}
