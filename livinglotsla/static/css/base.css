@@ -4742,8 +4742,10 @@ form .btn-primary .badge {
 .note-list-item {
   margin-top: 10px;
 }
-.note-text {
-  font-size: 24px;
+.note-meta {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
 }
 .file-list {
   list-style: none;
