@@ -4343,7 +4343,8 @@ form .btn-primary .badge {
 }
 .map-filters-search {
   border: 1px solid #aaaaaa;
-  width: 100%;
+  margin-left: 8%;
+  width: 92%;
 }
 .map-filters-type {
   font-size: 14px;
