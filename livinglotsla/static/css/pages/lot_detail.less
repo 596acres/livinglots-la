@@ -207,3 +207,21 @@
         }
     }
 }
+
+#organizer-modal {
+    input[type="checkbox"] {
+        display: none;
+
+        & + label .checkbox-x {
+            border: 1px solid white;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+        }
+        &:checked {
+            & + label .checkbox-x {
+                background: url("/static/img/checkbox-x.png");
+            }
+        }
+    }
+}

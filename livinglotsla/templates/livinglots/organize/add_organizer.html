@@ -1,5 +1,5 @@
 {% extends "modals/base.html" %}
-{% load flatblock_tags i18n %}
+{% load flatblock_tags i18n widget_tweaks %}
 
 {% block modal_header %}
     {% trans "Organize this lot!" %}<br />
@@ -23,7 +23,32 @@
                 {% include "forms/field.html" with field=form.phone %}
                 {% include "forms/field.html" with field=form.url %}
                 {% include "forms/field.html" with field=form.type %}
-                {% include "forms/field.html" with field=form.post_publicly %}
+
+                {% with field=form.post_publicly %}
+                    <div class="form-group {% if field.errors %}has-error{% endif %} {% if field.field.required %}required{% endif %}">
+                        <div class="controls">
+                            {% render_field field class+="form-control" placeholder=field.label %}
+                            <label for="{{ field.auto_id }}">
+                                <span class="checkbox-x"></span>
+                                {{ field.label }}
+                            </label>
+
+                            {% if field.errors %}
+                            <div class="help-block">
+                                {% for error in field.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                        {% if field.help_text %}
+                        <div class="help-text">{{ field.help_text|safe }}</div>
+                        {% endif %}
+                    </div>
+                {% endwith %}
+
             </div>
             <div class="col-md-6">
                 {% include "forms/field.html" with field=form.notes %}
