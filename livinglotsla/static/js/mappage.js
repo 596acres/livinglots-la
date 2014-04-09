@@ -43,7 +43,7 @@ define(
             };
 
             var selectedSizeMin = $('.filter-size').val()[0];
-            if (selectedSizeMin < sizeMin) {
+            if (selectedSizeMin > sizeMin) {
                 params.size_min = selectedSizeMin;
             }
 
