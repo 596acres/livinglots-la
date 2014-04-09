@@ -3906,6 +3906,11 @@ header .row {
 .navbar-default .navbar-nav > li > a:hover {
   text-decoration: underline;
 }
+.navbar-default .navbar-nav > .active > a {
+  background-color: inherit;
+  color: black;
+  text-decoration: underline;
+}
 .navbar-default.overflowing .navbar-nav > li > a {
   padding-left: 4px;
   padding-right: 4px;
