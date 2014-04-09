@@ -15,6 +15,7 @@ define(
         'singleminded',
 
         'jquery.infinitescroll',
+        'jquery.mousewheel',
         'perfect-scrollbar',
 
         'leaflet.loading',
