@@ -5,12 +5,13 @@
 define(['underscore'], function (_) {
 
     var layers = {
-        in_use: '#BAB974',
-        private: '#D4A7D4',
-        private_tax_default: '#9A649E',
-        public: '#A9756D',
-        public_remnant: '#8C474D',
-        public_sidelot: '#A9746E'
+        in_use: '#999933',
+        private: '#663366',
+        private_tax_default: '#996699',
+        private_ab_551: '#CC99CC',
+        public: '#990000',
+        public_remnant: '#993333',
+        public_sidelot: '#996666'
     };
 
     var defaults = {
