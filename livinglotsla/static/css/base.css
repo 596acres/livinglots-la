@@ -4296,7 +4296,6 @@ form .btn-primary .badge {
   border: none;
   margin: 0;
   overflow-y: auto;
-  padding-bottom: 5px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 5px;
@@ -4315,6 +4314,9 @@ form .btn-primary .badge {
 }
 .map-filters#map-filters-parent.expanded {
   height: 100%;
+}
+.map-filters#map-filters-parent h2 {
+  margin-top: 10px;
 }
 .map-filters-expander {
   cursor: pointer;
