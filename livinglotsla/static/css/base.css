@@ -4385,6 +4385,9 @@ form .btn-primary .badge {
 .map-filters-type-friendly-owner.on .map-filters-type-disc {
   background-color: #663300;
 }
+.map-filters-type-friendly-owner .friendly-owner-share {
+  font-size: 12px;
+}
 .map-filters-type-in-use {
   color: #999933;
 }
