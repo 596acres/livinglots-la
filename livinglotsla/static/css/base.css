@@ -4367,28 +4367,68 @@ form .btn-primary .badge {
 .map-filters-type-item {
   cursor: pointer;
   text-transform: capitalize;
-  list-style: circle;
+  list-style: none;
 }
-.map-filters-type-item.on {
-  list-style: disc;
+.map-filters-type-disc {
+  display: inline-block;
+  border-radius: 100%;
+  margin-left: -15px;
+  height: 10px;
+  width: 10px;
 }
 .map-filters-type-in-use {
   color: #999933;
 }
+.map-filters-type-in-use .map-filters-type-disc {
+  border: 1px solid #999933;
+}
+.map-filters-type-in-use.on .map-filters-type-disc {
+  background-color: #999933;
+}
 .map-filters-type-public {
   color: #990000;
+}
+.map-filters-type-public .map-filters-type-disc {
+  border: 1px solid #990000;
+}
+.map-filters-type-public.on .map-filters-type-disc {
+  background-color: #990000;
 }
 .map-filters-type-public-remnant {
   color: #993333;
 }
+.map-filters-type-public-remnant .map-filters-type-disc {
+  border: 1px solid #993333;
+}
+.map-filters-type-public-remnant.on .map-filters-type-disc {
+  background-color: #993333;
+}
 .map-filters-type-public-sidelot {
   color: #996666;
+}
+.map-filters-type-public-sidelot .map-filters-type-disc {
+  border: 1px solid #996666;
+}
+.map-filters-type-public-sidelot.on .map-filters-type-disc {
+  background-color: #996666;
 }
 .map-filters-type-private {
   color: #663366;
 }
+.map-filters-type-private .map-filters-type-disc {
+  border: 1px solid #663366;
+}
+.map-filters-type-private.on .map-filters-type-disc {
+  background-color: #663366;
+}
 .map-filters-type-private-tax-default {
   color: #996699;
+}
+.map-filters-type-private-tax-default .map-filters-type-disc {
+  border: 1px solid #996699;
+}
+.map-filters-type-private-tax-default.on .map-filters-type-disc {
+  background-color: #996699;
 }
 .map-filters-councildistricts {
   font-family: "Times New Roman", serif;

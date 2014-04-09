@@ -103,6 +103,17 @@
     }
 }
 
+.make-map-filters-type-item(@color) {
+    color: @color;
+
+    .map-filters-type-disc {
+        border: 1px solid @color;
+    }
+    &.on .map-filters-type-disc {
+        background-color: @color;
+    }
+}
+
 .map-filters-type {
     font-size: 14px;
     font-family: @body-font-family;
@@ -127,34 +138,39 @@
         cursor: pointer;
         text-transform: capitalize;
 
-        list-style: circle;
-        &.on {
-            list-style: disc;
-        }
+        list-style: none;
+    }
+
+    &-disc {
+        display: inline-block;
+        border-radius: 100%;
+        margin-left: -15px;
+        height: 10px;
+        width: 10px;
     }
 
     &-in-use {
-        color: @in-use-color;
+        .make-map-filters-type-item(@in-use-color);
     }
 
     &-public {
-        color: @public-color;
+        .make-map-filters-type-item(@public-color);
     }
 
     &-public-remnant {
-        color: @public-remnant-color;
+        .make-map-filters-type-item(@public-remnant-color);
     }
 
     &-public-sidelot {
-        color: @public-sidelot-color;
+        .make-map-filters-type-item(@public-sidelot-color);
     }
 
     &-private {
-        color: @private-color;
+        .make-map-filters-type-item(@private-color);
     }
 
     &-private-tax-default {
-        color: @private-tax-default-color;
+        .make-map-filters-type-item(@private-tax-default-color);
     }
 
 }
