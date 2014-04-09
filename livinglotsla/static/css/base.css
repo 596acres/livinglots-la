@@ -4182,8 +4182,8 @@ form .btn-primary .badge {
   margin-right: -15px;
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
   margin-bottom: 50px;
   margin-left: 0;
   margin-right: 0;
@@ -4220,6 +4220,7 @@ form .btn-primary .badge {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-left: 0;
 }
 @media (min-width: 992px) {
   .blog-entry-summary {
