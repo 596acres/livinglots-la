@@ -38,7 +38,7 @@ class StewardProject(BaseStewardProject):
     )
 
     def __unicode__(self):
-        return self.name or '%d' % self.pk
+        return self.project_name or '%d' % self.pk
 
 
 class StewardNotification(BaseStewardNotification):
@@ -100,6 +100,7 @@ def create_steward_project_and_organizer(sender, instance, **kwargs):
     steward_project.save()
 
     lot = steward_project.content_object
+    lot.name = steward_project.project_name
     lot.known_use = steward_project.use
     lot.known_use_certainty = 10
     lot.known_use_locked = True
