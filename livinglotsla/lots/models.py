@@ -9,6 +9,7 @@ from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
 from cartodbsync.models import SyncEntry
+from livinglots import get_stewardproject_model_name
 from livinglots_lots.models import (BaseLot, BaseLotGroup, BaseLotLayer,
                                     BaseLotManager)
 
@@ -89,6 +90,7 @@ class LotGroupLotMixin(models.Model):
 class LotMixin(models.Model):
 
     organizers = generic.GenericRelation(Organizer)
+    steward_projects = generic.GenericRelation(get_stewardproject_model_name())
 
     @classmethod
     def get_filter(cls):
@@ -127,6 +129,12 @@ class LotMixin(models.Model):
         return ''
 
     layer = property(_layer)
+
+    def _actively_organizing(self):
+        """Actively organizing: has organizers but no steward projects"""
+        return self.organizers.exists() and not self.steward_projects.exists()
+
+    actively_organizing = property(_actively_organizing)
 
     class Meta:
         abstract = True

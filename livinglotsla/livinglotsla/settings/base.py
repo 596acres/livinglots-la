@@ -296,6 +296,7 @@ LIVING_LOTS = {
         'organizer': 'organize.Organizer',
         'owner': 'owners.Owner',
         'pathway': 'pathways.Pathway',
+        'stewardproject': 'steward.StewardProject',
     },
 }
 

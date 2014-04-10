@@ -22,8 +22,24 @@ define(['underscore'], function (_) {
         'marker-width': 10
     };
 
+    var organizingStyle = {
+        'marker-fill': '#FF00FF',
+        // TODO make domain-agnostic?
+        'marker-file': 'url(http://dev.laopenacres.org/static/img/organizing.svg)'
+    }
+
     function asCartocss(tableName) {
         var cartocss = '#' + tableName + ' {';
+
+        // TODO add star for friendly owner places, eg
+        //  #lots[layer='private'][friendly_owner=true]::friendly-star {}
+
+        // Add star around organizing sites
+        cartocss += '[organizing=true]::organizing {';
+        _.each(_.keys(organizingStyle), function (property) {
+            cartocss += property + ': ' + organizingStyle[property] + ';';
+        });
+        cartocss += '}';
 
         _.each(_.keys(defaults), function (property) {
             cartocss += property + ': ' + defaults[property] + ';';
