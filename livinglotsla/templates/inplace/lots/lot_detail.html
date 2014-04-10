@@ -133,7 +133,7 @@
                         {% if "steward.change_stewardproject" in perms %}
 
                             <div class="lot-detail-admin admin-only grid">
-                                <a class="btn btn-admin" href="{% url "admin:phillyorganize_organizer_change" steward.organizer.pk %}">
+                                <a class="btn btn-admin" href="{% url "admin:organize_organizer_change" steward.organizer.pk %}">
                                     {% trans "Edit this steward's contact information" %}
                                 </a>
                             </div>
