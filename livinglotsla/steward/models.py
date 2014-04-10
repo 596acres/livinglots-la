@@ -1,8 +1,10 @@
 from django.db import models
+from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
 import django_monitor
+from cartodbsync.models import SyncEntry
 
 from livinglots_notify.helpers import notify_facilitators
 from livinglots_steward.models import (BaseStewardProject,
@@ -106,3 +108,21 @@ def create_steward_project_and_organizer(sender, instance, **kwargs):
     lot.known_use_locked = True
     lot.steward_inclusion_opt_in = steward_project.include_on_map
     lot.save()
+
+
+#
+# Signals to update CartoDB when an organizer is added or removed from a lot.
+#
+
+@receiver(post_save, sender=StewardProject,
+          dispatch_uid='steward.models.sync_lot_on_create')
+def sync_lot_on_create(sender, instance=None, created=False, **kwargs):
+    if instance and created:
+        SyncEntry.objects.mark_as_pending_update([instance.content_object])
+
+
+@receiver(post_delete, sender=StewardProject,
+          dispatch_uid='steward.models.sync_lot_on_delete')
+def sync_lot_on_delete(sender, instance=None, **kwargs):
+    if instance:
+        SyncEntry.objects.mark_as_pending_update([instance.content_object])
