@@ -15,7 +15,7 @@ define(['underscore'], function (_) {
     };
 
     var defaults = {
-        'marker-allow-overlap': true,
+        'marker-allow-overlap': 'true',
         'marker-fill': 'black',
         'marker-line-color': 'white',
         'marker-line-width': 1,
@@ -27,14 +27,14 @@ define(['underscore'], function (_) {
     var organizingStyle = {
         'marker-fill': organizingColor,
         // TODO make domain-agnostic? Using Django.js?
-        'marker-file': 'url(http://dev.laopenacres.org/static/img/organizing.svg)',
+        'marker-file': 'url("http://dev.laopenacres.org/static/img/organizing.svg")',
         'marker-width': 20
     }
 
     function joinStyle(style) {
-        return  _.reduce(style, function (memo, property) {
+        return  _.reduce(_.keys(style), function (memo, property) {
             return memo + [property, style[property]].join(':') + ';';
-        });
+        }, '');
     }
 
     function asCartocss(tableName) {
@@ -50,11 +50,11 @@ define(['underscore'], function (_) {
 
         cartocss += joinStyle(defaults);
 
-        _.each(_.keys(layers), function (layer) {
-            cartocss += '[layer = "' + layer + '"] {' +
-                'marker-fill: ' + layers[layer] + ';' +
-                '}';
-        });
+        cartocss += _.reduce(_.keys(layers), function (memo, name) {
+            return memo + '[layer = "' + name + '"] {' +
+                'marker-fill: ' + layers[name] + ';' +
+            '}';
+        }, '');
 
         cartocss += '}';
         return cartocss;
