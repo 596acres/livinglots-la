@@ -42,8 +42,9 @@ define(
                             opacity: 0.5,
                             weight: 1
                         };
-                        if (feature.properties.pk === map.options.lotPk) {
+                        if (feature.id === map.options.lotPk) {
                             style.color = '#000';
+                            style.fillOpacity = 0.75;
                             style.opacity = 1;
                         }
                         return style;
