@@ -4254,7 +4254,7 @@ form .btn-primary .badge {
 .map-overlay {
   background: rgba(255, 255, 255, 0.8);
 }
-.map-overlay a {
+.map-overlay #map-filters a {
   color: black;
   text-decoration: underline;
 }
@@ -5018,6 +5018,9 @@ input[type="checkbox"] {
 }
 .help-text {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+.leaflet-container a {
+  color: inherit;
 }
 .leaflet-bar a,
 .leaflet-bar a:hover {

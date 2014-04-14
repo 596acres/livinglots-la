@@ -71,7 +71,7 @@
         <div class="map-filters-inner-wrapper">
             <div id="map-filters-parent" class="map-overlay map-filters">
                 <h2 class="map-filters-expander">{% trans "filter" %}</h2>
-                <section class="map-filters-content">
+                <section id="map-filters" class="map-filters-content">
                     <section class="map-filters">
                         <h3 class="map-filters-expander">{% trans "land access pathways" %}</h3>
                         <div class="map-filters-content">
@@ -230,6 +230,18 @@
                         </div>
                     </section>
                 </section>
+
+                {% if "lot.add_lot" in perms %}
+                    <section id="map-admin-parent" class="map-filters">
+                        <h2 class="map-filters-expander">{% trans "admin" %}</h2>
+                        <section class="map-filters-content">
+                            <a id="admin-button-add-lot" class="btn btn-admin btn-block">
+                                {% trans "add lot" %}
+                            </a>
+                        </section>
+                    </section>
+                {% endif %}
+
             </div>
         </div>
     </div>
@@ -261,20 +273,6 @@
 {% comment %}
 <div class="overlaymenu overlaymenu-details">
     {% include "livinglots/lots/details.html" %}
-</div>
-
-<div class="overlaymenu overlaymenu-admin">
-    <div class="overlaymenu-tip-container">
-        <div class="overlaymenu-tip"></div>
-    </div>
-
-    <div class="overlaymenu-menu-content">
-        <section>
-            <a class="admin-button-add-lot btn btn-default btn-block">
-                {% trans "add lot" %}
-            </a>
-        </section>
-    </div>
 </div>
 
 <div class="overlaymenu overlaymenu-news">
