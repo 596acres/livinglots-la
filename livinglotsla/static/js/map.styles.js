@@ -31,6 +31,12 @@ define(['underscore'], function (_) {
         'marker-width': 20
     }
 
+    function joinStyle(style) {
+        return  _.reduce(style, function (memo, property) {
+            return memo + [property, style[property]].join(':') + ';';
+        });
+    }
+
     function asCartocss(tableName) {
         var cartocss = '#' + tableName + ' {';
 
@@ -39,14 +45,10 @@ define(['underscore'], function (_) {
 
         // Add star around organizing sites
         cartocss += '[organizing=true]::organizing {';
-        _.each(_.keys(organizingStyle), function (property) {
-            cartocss += property + ': ' + organizingStyle[property] + ';';
-        });
+        cartocss += joinStyle(organizingStyle);
         cartocss += '}';
 
-        _.each(_.keys(defaults), function (property) {
-            cartocss += property + ': ' + defaults[property] + ';';
-        });
+        cartocss += joinStyle(defaults);
 
         _.each(_.keys(layers), function (layer) {
             cartocss += '[layer = "' + layer + '"] {' +
