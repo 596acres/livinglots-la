@@ -22,10 +22,12 @@ define(['underscore'], function (_) {
         'marker-width': 10
     };
 
+    // TODO stars for polygons, too, not just CartoDB layers
     var organizingStyle = {
         'marker-fill': '#FF00FF',
-        // TODO make domain-agnostic?
-        'marker-file': 'url(http://dev.laopenacres.org/static/img/organizing.svg)'
+        // TODO make domain-agnostic? Using Django.js?
+        'marker-file': 'url(http://dev.laopenacres.org/static/img/organizing.svg)',
+        'marker-width': 20
     }
 
     function asCartocss(tableName) {
