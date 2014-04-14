@@ -54,8 +54,8 @@ define(
                     latlng, latlngs, i, len;
 
                 var options = L.extend({}, vectorOptions);
-                if (geojson.properties.has_organizers) {
-                    options.hasOrganizers = true;
+                if (geojson.properties.organizing) {
+                    options.organizing = true;
                 }
 
                 coordsToLatLng = coordsToLatLng || L.GeoJSON.coordsToLatLng;

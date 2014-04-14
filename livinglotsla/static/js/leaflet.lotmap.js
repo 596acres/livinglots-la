@@ -51,8 +51,8 @@ define(
                 },
                 pointToLayer: function (feature, latlng) {
                     var options = {};
-                    if (feature.properties.has_organizers) {
-                        options.hasOrganizers = true;
+                    if (feature.properties.organizing) {
+                        options.organizing = true;
                     }
                     return L.lotMarker(latlng, options);
                 },

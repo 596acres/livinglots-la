@@ -119,6 +119,7 @@ class LotsGeoJSONPolygon(LotGeoJSONMixin, FilteredLotsMixin, GeoJSONListView):
             round(lot.centroid.x, 4),
             round(lot.centroid.y, 4)
         )
+        properties['organizing'] = lot.actively_organizing
         return properties
 
     def get_queryset(self):

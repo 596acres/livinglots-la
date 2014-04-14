@@ -1,10 +1,10 @@
-define(['leaflet'], function (L) {
+define(['leaflet', 'map.styles'], function (L, MapStyles) {
     L.LotPathMixin = {
 
         initActionPath: function() {
-            if (this.options.hasOrganizers) {
+            if (this.options.organizing) {
                 this._actionPath = this._createElement('path');
-                this._actionPath.setAttribute('style', 'fill:#eec619; fill-opacity:1;');
+                this._actionPath.setAttribute('style', 'fill:' + MapStyles.organizingColor + '; fill-opacity:1;');
                 this._actionPath.setAttribute('d', this.getActionPathSvgStr());
                 this._container.insertBefore(this._actionPath, this._path);
 
