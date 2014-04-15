@@ -20,6 +20,7 @@ define(
 
         'leaflet.loading',
         'leaflet.lotmap',
+        'livinglots.addlot',
 
         'nouislider',
         'select2',
@@ -280,7 +281,13 @@ define(
 
             $('.map-filters-expander').click(function () {
                 $(this).parent('.map-filters').toggleClass('expanded');
-                $('#map-filters-parent').perfectScrollbar('update');
+                if ($('.map-filters.expanded').length > 0) {
+                    $('#map-sidebar-parent').addClass('expanded');
+                }
+                else {
+                    $('#map-sidebar-parent').removeClass('expanded');
+                }
+                $('#map-sidebar-parent').perfectScrollbar('update');
             });
 
             $('.map-filters-councildistrict').click(function () {
@@ -324,9 +331,17 @@ define(
             updateDetailsLink(map);
             updateExportLinks(map);
 
-            $('#map-filters-parent').perfectScrollbar({
+            $('#map-sidebar-parent').perfectScrollbar({
                 includePadding: true,
                 suppressScrollX: true
+            });
+
+            map.on('lotaddwindowchange', function () {
+                $('#map-sidebar-parent').perfectScrollbar('update');
+            });
+
+            $('#admin-button-add-lot').click(function () {
+                map.enterLotAddMode();
             });
 
         });
