@@ -1,0 +1,20 @@
+{% extends "modals/success.html" %}
+{% load i18n %}
+
+{% block modal_header %}
+    {% trans "Hide this lot" %}<br />
+    {{ lot.display_name|title|default:"unknown" }}
+{% endblock %}
+
+{% block modal_body %}
+    <p>
+        {{ lot.display_name|title|default:"unknown" }} 
+        {% trans "was hidden. It will likely take a few minutes to be removed." %}
+    </p>
+    <form class="pull-right">
+        <button class="btn btn-primary btn-close-modal" type="button">
+            {% trans "ok" %}
+        </button>
+    </form>
+    <div class="clearfix"></div>
+{% endblock %}

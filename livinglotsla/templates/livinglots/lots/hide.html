@@ -1,0 +1,17 @@
+{% extends "modals/base.html" %}
+{% load flatblock_tags i18n widget_tweaks %}
+
+{% block modal_header %}
+    {% trans "Hide this lot" %}<br />
+    {{ lot.display_name|title|default:"unknown" }}
+{% endblock %}
+
+{% block modal_body %}
+    <p>
+        {% blocktrans %}
+            Select a use to hide this lot from the map.
+        {% endblocktrans %}
+    </p>
+    {% url "lots:hide_lot" pk=lot.pk as action_url %}
+    {% include "_form.html" with form=form action=action_url %}
+{% endblock %}

@@ -62,6 +62,9 @@
                     <a class="btn btn-admin" href="{% url "admin:lots_lot_change" lot.pk %}">
                         {% trans "edit this lot" %}
                     </a>
+                    <a class="btn btn-admin" href="{% url "lots:hide_lot" pk=lot.pk %}" data-target="#hide-modal" data-toggle="modal" title="{% trans "Remove this lot from the map" %}">
+                        {% trans "hide this lot" %}
+                    </a>
                 </div>
             {% endif %}
 
@@ -418,6 +421,11 @@
         </div>
     </div>
     <div id="groundtruth-modal" class="modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <div id="hide-modal" class="modal" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content"></div>
         </div>
