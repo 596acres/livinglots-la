@@ -17,8 +17,9 @@ class GetSpecialCategories(AsTag):
 
     def get_value(self, context, lot):
         categories = []
-        if lot.parcel.sidelot_set.count() > 0:
-            categories.append('Side Yard')
+        for l in lot.lots:
+            if l.parcel.sidelot_set.count() > 0:
+                categories.append('Side Yard')
         return categories
 
 
@@ -32,15 +33,16 @@ class GetVacantReasons(AsTag):
 
     def get_value(self, context, lot):
         reasons = []
-        if lot.parcel.is_coded_vacant:
-            reasons.append('Its use code is vacant according to the LA County '
-                           'Assessor')
-        if lot.parcel.sidelot_set.count() > 0:
-            reasons.append("It is in the city's sidelot data")
-        if lot.parcel.transmissionline_set.count() > 0:
-            reasons.append('It is under a transmission line')
-        if lot.parcel.weedabatement_set.count() > 0:
-            reasons.append('It is marked for weed abatement')
+        for l in lot.lots:
+            if l.parcel.is_coded_vacant:
+                reasons.append('Its use code is vacant according to the LA County '
+                            'Assessor')
+            if l.parcel.sidelot_set.count() > 0:
+                reasons.append("It is in the city's sidelot data")
+            if l.parcel.transmissionline_set.count() > 0:
+                reasons.append('It is under a transmission line')
+            if l.parcel.weedabatement_set.count() > 0:
+                reasons.append('It is marked for weed abatement')
         return reasons
 
 
