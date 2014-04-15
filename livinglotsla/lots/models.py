@@ -69,12 +69,25 @@ class LotMixin(models.Model):
     def _layer(self):
         if self.known_use and self.known_use.visible:
             return 'in_use'
-        if self.parcel.sidelot_set.count() > 0:
-            return 'public_sidelot'
+
+        # Side lots
+        try:
+            if self.parcel.sidelot_set.count() > 0:
+                return 'public_sidelot'
+        except Exception:
+            pass
+
         if self.owner and self.owner.owner_type == 'public':
             return 'public'
         if self.owner and self.owner.owner_type == 'private':
             return 'private'
+
+        # Account for lot groups, where the parent likely will not have an
+        # owner
+        if not self.owner and len(self.lots) > 1:
+            owner_types = set(map(lambda l: l.owner.owner_type, self.lots))
+            if len(owner_types) == 1:
+                return owner_types.pop()
         return ''
 
     layer = property(_layer)
@@ -124,11 +137,13 @@ class LotLayer(BaseLotLayer):
             'in_use': Q(known_use__visible=True),
             'public': Q(
                 Q(known_use=None) | Q(known_use__visible=True),
-                owner__owner_type='public',
+                (Q(owner__owner_type='public') |
+                 Q(lotgroup__lot__lotlayer__name='public')),
             ),
             'private': Q(
                 Q(known_use=None) | Q(known_use__visible=True),
-                owner__owner_type='private',
+                (Q(owner__owner_type='private') |
+                 Q(lotgroup__lot__lotlayer__name='private')),
             ),
             'public_sidelot': Q(
                 Q(Q(known_use=None) | Q(known_use__visible=True)),
