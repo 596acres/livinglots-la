@@ -206,22 +206,6 @@
                 </h2>
                 <div class="lot-detail-details">
 
-                    {% if lot.parcel %}
-                        <div>
-                            AIN {{ lot.parcel.ain }}
-                        </div>
-                    {% endif %}
-
-                    <div>
-                        {% if lot.address_line1 %}
-                            {{ lot.address_line1|title }}<br />
-                        {% endif %}
-                        {% if lot.city %}
-                            {{ lot.city|title }}, {{ lot.state_province|default:"CA" }}
-                        {% endif %}
-                        {{ lot.postal_code|default:"" }}
-                    </div>
-
                     {% if lot.number_of_lots > 1 %}
                         <div>
                             {% trans "Number of Lots" %}: {{ lot.number_of_lots }}
@@ -233,6 +217,24 @@
                             {% trans "Known Use" %}: {{ lot.known_use }}
                         </div>
                     {% endif %}
+
+                    {% for l in lot.lots %}
+                        {% if l.parcel %}
+                            <div>
+                                AIN {{ l.parcel.ain }}
+                            </div>
+                        {% endif %}
+
+                        <div>
+                            {% if l.address_line1 %}
+                                {{ l.address_line1|title }}<br />
+                            {% endif %}
+                            {% if l.city %}
+                                {{ l.city|title }}, {{ l.state_province|default:"CA" }}
+                            {% endif %}
+                            {{ l.postal_code|default:"" }}
+                        </div>
+                    {% endfor %}
 
                 </div>
             </div>
