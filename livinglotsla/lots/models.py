@@ -71,9 +71,9 @@ class LotMixin(models.Model):
             return 'in_use'
         if self.parcel.sidelot_set.count() > 0:
             return 'public_sidelot'
-        elif self.owner and self.owner.owner_type == 'public':
+        if self.owner and self.owner.owner_type == 'public':
             return 'public'
-        elif self.owner and self.owner.owner_type == 'private':
+        if self.owner and self.owner.owner_type == 'private':
             return 'private'
         return ''
 
