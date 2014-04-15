@@ -16,6 +16,13 @@ requirejs.config({
         "leaflet.hash": "../bower_components/leaflet-hash/leaflet-hash",
         "leaflet.loading": "../bower_components/leaflet.loading/src/Control.Loading",
         "leaflet.usermarker": "../bower_components/leaflet.usermarker/src/leaflet.usermarker",
+
+        "livinglots.addlot": "../bower_components/livinglots-map/src/livinglots.addlot",
+        "livinglots.addlot.window": "../bower_components/livinglots-map/src/templates/addlot/window",
+        "livinglots.addlot.success": "../bower_components/livinglots-map/src/templates/addlot/success",
+        "livinglots.addlot.failure": "../bower_components/livinglots-map/src/templates/addlot/failure",
+        "livinglots.addlot.existspopup": "../bower_components/livinglots-map/src/templates/addlot/existspopup",
+
         "nouislider": "../bower_components/nouislider/jquery.nouislider",
         "perfect-scrollbar": "../bower_components/perfect-scrollbar/src/perfect-scrollbar",
         "requirejs": "../bower_components/requirejs",
