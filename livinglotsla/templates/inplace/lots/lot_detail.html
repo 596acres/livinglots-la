@@ -291,41 +291,9 @@
         <section class="lot-detail-ownership">
             <div class="lot-detail-icon"></div>
             <div class="lot-detail-content">
-                <ul>
-                    <li>
-                        {% if lot.owner.owner_type == "public" %}
-                            {% trans "publicly owned" %}
-                        {% elif lot.owner.owner_type == "private" %}
-                            {% trans "privately owned" %}
-                        {% endif %}
-                    </li>
-                    <li>
-                        {{ lot.owner.name|default:"unknown"|title }}
-                        <div class="lot-owner-contacts">
-                            {% for owner_contact in lot.owner.ownercontact_set.all %}
-                                Contact: {{ owner_contact.name }}<br />
-                                {% if owner_contact.phone %}
-                                    {{ owner_contact.phone }}<br />
-                                {% endif %}
-                                {% if owner_contact.email %}
-                                    <a href="mailto:{{ owner_contact.email }}?subject=Question about parcel with AIN {{ lot.parcel.ain }}">
-                                        {{ owner_contact.email }}
-                                    </a><br />
-                                {% endif %}
-                                {% if owner_contact.notes %}
-                                    {{ owner_contact.notes }}
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        {% if "owners.add_owner" in perms %}
-                            <div class="lot-owner-contacts-add">
-                                <a class="btn btn-admin" href="{% url "admin:owners_ownercontact_add" %}?owner={{ lot.owner.pk }}" target="_blank">
-                                    {% trans "Add a contact for this owner" %}
-                                </a>   
-                            </div>
-                        {% endif %}
-                    </li>
-                </ul>
+                {% for l in lot.lots %}
+                    {% include "inplace/lots/_owner.html" with lot=l %}
+                {% endfor %}
             </div>
         </section>
 
