@@ -35,10 +35,36 @@ class LotDetailJSON(JSONResponseView):
             raise Http404
         return self.get_properties(lot)
 
+    def get_ain(self, lot):
+        try:
+            if lot.parcel:
+                return lot.parcel.ain
+            return ', '.join(map(lambda l: l.parcel.ain, lot.lots))
+        except Exception:
+            return None
+
+    def get_owner_name(self, lot):
+        try:
+            return str(lot.owner.name) or 'unknown',
+        except Exception:
+            try:
+                return ', '.join(map(lambda l: l.owner.name, lot.lots))
+            except Exception:
+                return None
+
+    def get_owner_type(self, lot):
+        try:
+            return str(lot.owner.owner_type) or 'unknown',
+        except Exception:
+            try:
+                return ', '.join(set(map(lambda l: l.owner.owner_type, lot.lots)))
+            except Exception:
+                return None
+
     def get_properties(self, lot):
         properties = {
             'address_line1': lot.address_line1,
-            'ain': lot.parcel.ain,
+            'ain': self.get_ain(lot),
             'centroid': [lot.centroid.x, lot.centroid.y],
             'has_organizers': lot.organizers.count() > 0,
             'layer': lot.layer,
@@ -47,8 +73,8 @@ class LotDetailJSON(JSONResponseView):
             'organizers_count': lot.organizers.count(),
             'organizers_count_plural': lot.organizers.count() > 1,
             'owner': {
-                'name': str(lot.owner.name) or 'unknown',
-                'type': str(lot.owner.owner_type),
+                'name': self.get_owner_name(lot),
+                'type': self.get_owner_type(lot),
             },
             'pk': lot.pk,
             'size': round(lot.area_acres, 2),
