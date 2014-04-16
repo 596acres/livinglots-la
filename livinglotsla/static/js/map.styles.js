@@ -22,13 +22,15 @@ define(['underscore'], function (_) {
         'marker-width': 10
     };
 
+    var burstFile = 'http://dev.laopenacres.org/static/img/organizing.svg';
+
     var organizingColor = '#FF00FF';
 
     var organizingStyle = {
         'marker-fill': organizingColor,
         // TODO make domain-agnostic? Using Django.js?
-        'marker-file': 'url("http://dev.laopenacres.org/static/img/map-burst.svg")',
-        'marker-width': 20
+        'marker-file': 'url("' + burstFile + '")',
+        'marker-width': 50
     }
 
     function joinStyle(style) {
