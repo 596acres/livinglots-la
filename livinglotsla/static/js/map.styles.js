@@ -27,7 +27,7 @@ define(['underscore'], function (_) {
     var organizingStyle = {
         'marker-fill': organizingColor,
         // TODO make domain-agnostic? Using Django.js?
-        'marker-file': 'url("http://dev.laopenacres.org/static/img/organizing.svg")',
+        'marker-file': 'url("http://dev.laopenacres.org/static/img/map-burst.svg")',
         'marker-width': 20
     }
 
