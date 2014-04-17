@@ -59,6 +59,9 @@
         <section class="lot-detail-actions">
             {% if "lots.change_lot" in perms %}
                 <div>
+                    <a id="btn-admin-toggle" class="btn btn-admin btn-admin-always-visible" href="#">
+                        {% trans "toggle admin view" %}
+                    </a>
                     <a class="btn btn-admin" href="{% url "admin:lots_lot_change" lot.pk %}">
                         {% trans "edit this lot" %}
                     </a>

@@ -102,6 +102,16 @@ define(
                     remote: $('.build-community-button').attr('href')
                 });
             }
+
+            $('#btn-admin-toggle').click(function () {
+                if ($('.btn-admin:visible:not(.btn-admin-always-visible)').length > 0) {
+                    $('.btn-admin:not(.btn-admin-always-visible)').hide();
+                }
+                else {
+                    $('.btn-admin').show();
+                }
+                return false;
+            });
         });
 
     }
