@@ -250,7 +250,9 @@
                     </li>
                     <li>
                         {% trans "Use code" %}:
-                        {{ lot.parcel.local_roll.use_cde }}
+                        {% for l in lot.lots %}
+                            {{ l.parcel.local_roll.use_cde }}
+                        {% endfor %}
                     </li>
 
                     {% get_council_district lot.centroid.y lot.centroid.x as council_district %}
