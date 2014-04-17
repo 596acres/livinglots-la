@@ -76,6 +76,13 @@ define(
             $('#' + modalId).find('.btn-close-modal').click(function () {
                 location.reload(false);
             });
+
+            // Reload page on <Esc> or <Enter> if successful
+            $('body').keyup(function (e) {
+                if ((e.keyCode === 27 || e.keyCode === 13) && $('.btn-close-modal').length > 0) {
+                    location.reload(false);
+                }
+            });
         }
 
         $(document).ready(function () {
