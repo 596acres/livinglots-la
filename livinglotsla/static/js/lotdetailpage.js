@@ -111,11 +111,12 @@ define(
             }
 
             $('#btn-admin-toggle').click(function () {
-                if ($('.btn-admin:visible:not(.btn-admin-always-visible)').length > 0) {
-                    $('.btn-admin:not(.btn-admin-always-visible)').hide();
+                if ($('.btn-admin:visible:not(.btn-admin-always-visible)').length > 0 ||
+                    $('.admin-only:visible').length > 0) {
+                    $('.btn-admin:not(.btn-admin-always-visible),.admin-only').hide();
                 }
                 else {
-                    $('.btn-admin').show();
+                    $('.btn-admin,.admin-only').show();
                 }
                 return false;
             });
