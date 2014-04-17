@@ -3,7 +3,7 @@
 <ul class="photo-list">
     {% for photo in photos %}
         <li class="photo-list-item">
-            <a href="{{ photo.original_image.url }}" class="fancybox">
+            <a href="{{ photo.original_image.url }}" id="photo-{{ photo.pk }}" class="fancybox">
                 {% thumbnail '300x300' photo.original_image %}
             </a>
 

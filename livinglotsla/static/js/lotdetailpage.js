@@ -110,6 +110,17 @@ define(
                 });
             }
 
+            if (window.location.hash.indexOf('#photos') === 0) {
+                $.fancybox.open($('.fancybox'));
+                var hashArgs = window.location.hash.split('/');
+                if (hashArgs.length > 1) {
+                    var index = $('.fancybox').index($('#photo-' + hashArgs[1]));
+                    if (index > 0) {
+                        $.fancybox.jumpto(index);
+                    }
+                }
+            }
+
             $('#btn-admin-toggle').click(function () {
                 if ($('.btn-admin:visible:not(.btn-admin-always-visible)').length > 0 ||
                     $('.admin-only:visible').length > 0) {
