@@ -4430,8 +4430,19 @@ form .btn-primary .badge {
 .map-filters-type-friendly-owner.on .map-filters-type-disc {
   background-color: #663300;
 }
-.map-filters-type-friendly-owner .friendly-owner-share {
-  font-size: 12px;
+.map-filters-type-friendly-owner .map-filters-type-disc {
+  background-color: transparent;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAABX5MJvAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAABcSAAAXEgFnn9JSAAAAB3RJTUUH3gQREBoqjnXRuAAAANJJREFUWMPtmEESwyAIRYHxRs2ZmjN5J+9Edx3HVgWN4KRlmRj9fh6REZkZvINmPj4P5PNAdhVh4kRrp/lzyZhWBKntAAAxMWrGSwN7YJYTxsSoWUQinEZg3Ko6biXizcQKm6WsuDhRwkoaim/DxLfNkram/9WxMi34fIBrQxET4z7psE7FRzryU9RCjHuJ1uY3ZaLmNK3uFSRCyFLAVn/McsOhB8+sQ5L5gvXh1S3Rn+4xSQNQTIy1tLXeXeZEvkBrsRExOHo1kLs0CzVdSflovADts4Hz44gUOAAAAABJRU5ErkJggg==");
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  border: none;
+  height: 15px;
+  margin-left: -20px;
+  width: 15px;
+}
+.map-filters-type-friendly-owner.on .map-filters-type-disc {
+  background-color: transparent;
+  border: none;
 }
 .map-filters-type-in-use {
   color: #999933;
@@ -4450,6 +4461,20 @@ form .btn-primary .badge {
 }
 .map-filters-type-organized.on .map-filters-type-disc {
   background-color: #ff00ff;
+}
+.map-filters-type-organized .map-filters-type-disc {
+  background-color: transparent;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAABX5MJvAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAABcSAAAXEgFnn9JSAAAAB3RJTUUH3gQREBI4tRUq+AAAAMhJREFUWMPtV9EOwyAIPIj//8vsZV2ImQhaxXTzsaFwXO8okogg+/DU2wQBQXJBbGHC6lQ/98QYp7hpBwABheK9X7UrzDqhgEJFHMB5SIxHueNJIMpKms28Sis5TFRi5YiKn6OJL81y1NN/d9zuFsU6CZIXCgEdMjGzrCnvReGjiQvIDl2kW7SRf68mGkzz6l3BA4S3z4ljJmbVcOmKZ5YhR76y/efVtegv75gcspMatdYYXseELmAVGwBTZm9PzbgAEL5T5aPnBb5NQ0U5mxGDAAAAAElFTkSuQmCC");
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  border: none;
+  height: 15px;
+  margin-left: -20px;
+  width: 15px;
+}
+.map-filters-type-organized.on .map-filters-type-disc {
+  background-color: transparent;
+  border: none;
 }
 .map-filters-type-public {
   color: #990000;
