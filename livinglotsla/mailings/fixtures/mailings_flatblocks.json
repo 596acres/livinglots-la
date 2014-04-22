@@ -1,0 +1,20 @@
+[
+{
+ "pk": null, 
+ "model": "flatblocks.flatblock", 
+ "fields": {
+  "content": "Welcome! Here's your lot organizing information.", 
+  "header": "", 
+  "slug": "mailings.organize.start_organizing.subject"
+ }
+},
+{
+ "pk": null, 
+ "model": "flatblocks.flatblock", 
+ "fields": {
+  "content": "Greetings from LA Open Acres. You're getting this email because you clicked \"organize with us\" on a lot on our site.\r\n\r\n{% if not has_received_this_mailing %}This{% else %}As you know, this{% endif %} means that any time someone adds information to the lot's page, you'll get an email like this. And (if you posted publicly) it means that other folks who are interested in this lot can see your contact information on its page and may reach out to you directly.", 
+  "header": "", 
+  "slug": "mailings.organize.start_organizing.text"
+ }
+}
+]

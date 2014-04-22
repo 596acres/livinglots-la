@@ -1,0 +1,5 @@
+{% load flatblock_tags %}{% flatblock "mailings.organize.start_organizing.text" evaluated=True using="flatblocks/flatblock.txt" %}
+You are now organizing: {% include "livinglots/mailings/organize/_lots.txt" %}
+--
+
+{% include "livinglots/mailings/organize/_edit.txt" %}
