@@ -1,0 +1,15 @@
+[
+{
+ "pk": 1, 
+ "model": "mailings.daysafteraddedmailing", 
+ "fields": {
+  "days_after_added": 0, 
+  "target_types": [
+   [
+    "organize", 
+    "organizer"
+   ]
+  ]
+ }
+}
+]

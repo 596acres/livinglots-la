@@ -1,0 +1,19 @@
+[
+{
+ "pk": 1, 
+ "model": "livinglots_mailings.mailing", 
+ "fields": {
+  "name": "Start Organizing", 
+  "target_types": [
+   [
+    "organize", 
+    "organizer"
+   ]
+  ], 
+  "text_template_name": "livinglots/mailings/organize/start_organizing_text.txt", 
+  "duplicate_handling": "merge", 
+  "last_checked": "2014-01-01T00:00:00Z", 
+  "subject_template_name": "livinglots/mailings/organize/start_organizing_subject.txt"
+ }
+}
+]
