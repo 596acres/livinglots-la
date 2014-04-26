@@ -81,6 +81,14 @@ define(
                 params.bbox = map.getBounds().toBBoxString();
             }
 
+            if ($('#map-filters-search-nearby').is(':checked')) {
+                var lat = $('#map-filters-search-lat').val(),
+                    lng = $('#map-filters-search-lng').val();
+                if (lat && lng) {
+                    params.nearby_center = [lat, lng].join(',');
+                }
+            }
+
             return params;
         }
 
@@ -205,6 +213,14 @@ define(
             }
         }
 
+        function updateDisplayedLotsAndLinks(map) {
+            var params = buildLotFilterParams(map);
+            map.updateDisplayedLots(params);
+            updateDetailsLink(map);
+            updateExportLinks(map);
+            updateLotCount(map);
+        }
+
         $(window).resize(_.debounce(maximizeMainContentHeight, 250));
 
         $(document).ready(function () {
@@ -242,14 +258,14 @@ define(
                 })
                 .on('searchresultfound', function (e, result) {
                     map.addUserLayer([result.latitude, result.longitude]);
+                    $('#map-filters-search-lat').val(result.latitude);
+                    $('#map-filters-search-lng').val(result.longitude);
+
+                    updateDisplayedLotsAndLinks(map);
                 });
 
             $('.filter').change(function () {
-                var params = buildLotFilterParams(map);
-                map.updateDisplayedLots(params);
-                updateDetailsLink(map);
-                updateExportLinks(map);
-                updateLotCount(map);
+                updateDisplayedLotsAndLinks(map);
             });
 
             $('.map-filters-type-item').click(function () {

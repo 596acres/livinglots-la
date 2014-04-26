@@ -3,7 +3,7 @@ from pint import UnitRegistry
 
 from django.db.models import Q
 
-from django.contrib.gis.geos import Polygon
+from django.contrib.gis.geos import Point, Polygon
 from django.contrib.gis.measure import D
 
 import django_filters
@@ -101,6 +101,16 @@ class AcreageMinFilter(django_filters.Filter):
         return qs.filter(polygon_area__gte=min_sq_feet.magnitude)
 
 
+class NearbyCenterFilter(django_filters.Filter):
+
+    def filter(self, qs, value):
+        if not value:
+            return qs
+        lat, lng = map(lambda c: float(c), value.split(','))
+        point = Point(lng, lat, srid=4326)
+        return qs.filter(centroid__distance_lte=(point, D(mi=0.5)))
+
+
 class ProjectFilter(django_filters.Filter):
 
     def filter(self, qs, value):
@@ -131,6 +141,7 @@ class LotFilter(django_filters.FilterSet):
     council_district = BoundaryFilter(CouncilDistrict)
     layers = LayerFilter()
     lot_center = LotCenterFilter()
+    nearby_center = NearbyCenterFilter()
     neighborhood_council = BoundaryFilter(NeighborhoodCouncil)
     parents_only = LotGroupParentFilter()
     projects = ProjectFilter()

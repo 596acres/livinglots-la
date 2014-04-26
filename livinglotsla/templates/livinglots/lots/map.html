@@ -135,9 +135,11 @@
                                 <form class="map-filters-search-form" data-bounds="[-117.5359,33.5391,-118.8872,34.5733]" data-city="Los Angeles" data-state="CA" data-error-message="{% trans "Could not find your location. Try again?" %}" data-warning-selector=".map-filters-search.warning">
                                     <input id="map-filters-search" class="map-filters-search" type="search" placeholder="{% trans "address, intersection, zip, owner" %}" />
                                     <div class="warning" style="display: none;"></div>
+                                    <input id="map-filters-search-lat" type="hidden" />
+                                    <input id="map-filters-search-lng" type="hidden" />
                                     <div class="map-filters-search-nearby">
-                                        <input id="map-filters-search-nearby" name="map-filters-search-nearby" type="checkbox" disabled />
-                                        <label for="map-filters-search-nearby">{% trans "Show all within 1/2 mile" %}</label>
+                                        <input id="map-filters-search-nearby" name="map-filters-search-nearby" type="checkbox" />
+                                        <label for="map-filters-search-nearby">{% trans "Show only lots within 1/2 mile" %}</label>
                                     </div>
                                 </form>
                             </div>
