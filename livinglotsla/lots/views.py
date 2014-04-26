@@ -225,6 +225,7 @@ class LotsCountViewWithAcres(LotsCountView):
 
         context = {
             'lots-count': lots.distinct().count(),
+            'organized-count': lots.exclude(organizers=None).filter(steward_projects=None).distinct().count(),
             'private-lots-count': lots.filter(lotlayer__name='private').distinct().count(),
             'private-taxdefault-count': 0,
             'public-lots-count': lots.filter(lotlayer__name='public').distinct().count(),
