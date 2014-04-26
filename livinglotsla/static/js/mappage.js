@@ -41,8 +41,7 @@ define(
             var params = {
                 layers: layers.join(','),
                 parents_only: true,
-                projects: $('.filter-projects').val(),
-                public_owners: publicOwners.join(','),
+                public_owners: publicOwners.join(',')
             };
 
             var selectedSizeMin = $('.filter-size').val()[0];
@@ -205,12 +204,10 @@ define(
                 $('.filter-owner-public[data-owner-pk=' + pk +']').prop('checked', true);
             });
 
-            // Set boundaries filters
-
-            var projects = params.projects;
-            if (projects !== '') {
-                $('.filter-projects').val(projects);
-            }
+            // TODO boundaries
+            // TODO size
+            // TODO zoning
+            // TODO search / nearby
         }
 
         function updateDisplayedLotsAndLinks(map) {
