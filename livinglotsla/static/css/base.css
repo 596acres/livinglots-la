@@ -4549,6 +4549,9 @@ form .btn-primary .badge {
 .popup-lot-details {
   margin-top: 25px;
 }
+.popup-streetview {
+  width: 300px;
+}
 .popup .btn {
   background: #9D64A0;
   border-radius: 30px;
