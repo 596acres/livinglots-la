@@ -206,8 +206,18 @@ define(
             });
 
             // TODO boundaries
-            // TODO size
             // TODO zoning
+
+            // Size
+            var size = [sizeMin, sizeMax];
+            if (params.size_min) {
+                size[0] = parseFloat(params.size_min);
+            }
+            if (params.size_max) {
+                size[1] = parseFloat(params.size_max);
+            }
+            $('.filter-size').val(size);
+            updateSizeLabels();
 
             // Search & nearby
             if (params.search !== '') {
@@ -234,6 +244,22 @@ define(
 
         $(document).ready(function () {
             maximizeMainContentHeight();
+
+            $('.filter-size').noUiSlider({
+                connect: true,
+                margin: 0.05,
+                range: {
+                    min: sizeMin,
+                    max: sizeMax
+                },
+                start: [sizeMin, sizeMax],
+                step: 0.05
+            });
+            updateSizeLabels();
+            $('.filter-size').on({
+                set: updateSizeLabels,
+                slide: updateSizeLabels
+            });
 
             var params;
             if (window.location.search.length) {
@@ -336,22 +362,6 @@ define(
             });
 
             $('.map-filters-zoneclasses').select2();
-
-            $('.filter-size').noUiSlider({
-                connect: true,
-                margin: 0.05,
-                range: {
-                    min: sizeMin,
-                    max: sizeMax
-                },
-                start: [sizeMin, sizeMax],
-                step: 0.05
-            });
-            updateSizeLabels();
-            $('.filter-size').on({
-                set: updateSizeLabels,
-                slide: updateSizeLabels
-            });
 
             updateDetailsLink(map);
             updateExportLinks(map);
