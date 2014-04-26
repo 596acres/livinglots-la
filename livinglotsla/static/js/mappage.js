@@ -80,6 +80,7 @@ define(
                 params.bbox = map.getBounds().toBBoxString();
             }
 
+            params.search = $('#map-filters-search').val();
             if ($('#map-filters-search-nearby').is(':checked')) {
                 var lat = $('#map-filters-search-lat').val(),
                     lng = $('#map-filters-search-lng').val();
@@ -207,7 +208,18 @@ define(
             // TODO boundaries
             // TODO size
             // TODO zoning
-            // TODO search / nearby
+
+            // Search & nearby
+            if (params.search !== '') {
+                var search = decodeURIComponent((params.search).replace(/\+/g, '%20'));
+                $('#map-filters-search').val(search);
+            }
+            if (params.nearby_center && params.nearby_center !== '') {
+                var latlng = params.nearby_center.split(',');
+                $('#map-filters-search-nearby').prop('checked', true);
+                $('#map-filters-search-lat').val(latlng[0]);
+                $('#map-filters-search-lng').val(latlng[1]);
+            }
         }
 
         function updateDisplayedLotsAndLinks(map) {
