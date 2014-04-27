@@ -31,6 +31,10 @@ define(
         var sizeMin = 0,
             sizeMax = 3;
 
+        function urlDecode(str) {
+            return decodeURIComponent(str.replace(/\+/g, '%20'));
+        }
+
         function buildLotFilterParams(map, options) {
             var layers = _.map($('.filter-layer:checked'), function (layer) {
                 return $(layer).attr('name'); 
@@ -189,7 +193,7 @@ define(
             }
         }
 
-        function setFilters(params) {
+        function setFilters(params, map) {
             // Clear checkbox filters
             $('.filter[type=checkbox]').prop('checked', false);
 
@@ -207,9 +211,17 @@ define(
 
             // TODO boundaries
 
+            // Neighborhood Council
+            if (params.neighborhood_council) {
+                var council = urlDecode(params.neighborhood_council);
+                $('.map-filters-neighborhoodcouncils').select2('val', council);
+                updateBoundary(map, 'neighborhoodcouncil_details_geojson', council,
+                               $('.map-filters-neighborhoodcouncils').data('type'));
+            }
+
             // Zoning
             if (params.zone_class) {
-                $('.map-filters-zoneclasses').select2('val', params.zone_class);
+                $('.map-filters-zoneclasses').select2('val', urlDecode(params.zone_class));
             }
 
             // Size
@@ -225,7 +237,7 @@ define(
 
             // Search & nearby
             if (params.search !== '') {
-                var search = decodeURIComponent((params.search).replace(/\+/g, '%20'));
+                var search = urlDecode(params.search);
                 $('#map-filters-search').val(search);
             }
             if (params.nearby_center && params.nearby_center !== '') {
@@ -267,11 +279,11 @@ define(
 
             $('.map-filters-zoneclasses').select2();
 
-            var params;
-            if (window.location.search.length) {
-                params = deparam();
-                setFilters(params);
-            }
+            $('.map-filters-neighborhoodcouncils').select2();
+            $('.map-filters-neighborhoodcouncils').change(function () {
+                updateBoundary(map, 'neighborhoodcouncil_details_geojson',
+                               $(this).val(), $(this).data('type'));
+            });
 
             var map = L.lotMap('map', {
 
@@ -282,6 +294,12 @@ define(
                 }
 
             });
+
+            var params;
+            if (window.location.search.length) {
+                params = deparam();
+                setFilters(params, map);
+            }
 
             map.addLotsLayer(buildLotFilterParams(map));
 
@@ -358,12 +376,6 @@ define(
             $('.map-filters-communityplanareas').select2();
             $('.map-filters-communityplanareas').change(function () {
                 updateBoundary(map, 'communityplanarea_details_geojson',
-                               $(this).val(), $(this).data('type'));
-            });
-
-            $('.map-filters-neighborhoodcouncils').select2();
-            $('.map-filters-neighborhoodcouncils').change(function () {
-                updateBoundary(map, 'neighborhoodcouncil_details_geojson',
                                $(this).val(), $(this).data('type'));
             });
 
