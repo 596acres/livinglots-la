@@ -5184,6 +5184,9 @@ input[type="checkbox"] {
 /*
  * Tooltips
  */
+.tooltip {
+  left: 5px !important;
+}
 .tooltip-inner {
   border-radius: 0;
   font-size: 16px;
