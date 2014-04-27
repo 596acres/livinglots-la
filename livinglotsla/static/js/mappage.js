@@ -211,6 +211,14 @@ define(
 
             // TODO boundaries
 
+            // Community Plan Area
+            if (params.community_plan_area) {
+                var area = urlDecode(params.community_plan_area);
+                $('.map-filters-communityplanareas').select2('val', area);
+                updateBoundary(map, 'communityplanarea_details_geojson', area,
+                               $('.map-filters-communityplanareas').data('type'));
+            }
+
             // Neighborhood Council
             if (params.neighborhood_council) {
                 var council = urlDecode(params.neighborhood_council);
