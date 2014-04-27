@@ -14,6 +14,7 @@ define(
         'spin',
         'singleminded',
 
+        'bootstrap',
         'jquery.infinitescroll',
         'jquery.mousewheel',
         'perfect-scrollbar',
@@ -409,6 +410,8 @@ define(
             $('#admin-button-add-lot').click(function () {
                 map.enterLotAddMode();
             });
+
+            $('[data-toggle=tooltip]').tooltip('show');
 
         });
 
