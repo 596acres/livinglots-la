@@ -206,7 +206,11 @@ define(
             });
 
             // TODO boundaries
-            // TODO zoning
+
+            // Zoning
+            if (params.zone_class) {
+                $('.map-filters-zoneclasses').select2('val', params.zone_class);
+            }
 
             // Size
             var size = [sizeMin, sizeMax];
@@ -260,6 +264,8 @@ define(
                 set: updateSizeLabels,
                 slide: updateSizeLabels
             });
+
+            $('.map-filters-zoneclasses').select2();
 
             var params;
             if (window.location.search.length) {
@@ -360,8 +366,6 @@ define(
                 updateBoundary(map, 'neighborhoodcouncil_details_geojson',
                                $(this).val(), $(this).data('type'));
             });
-
-            $('.map-filters-zoneclasses').select2();
 
             updateDetailsLink(map);
             updateExportLinks(map);
