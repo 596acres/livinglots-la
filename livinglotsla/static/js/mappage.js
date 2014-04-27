@@ -209,14 +209,21 @@ define(
                 $('.filter-owner-public[data-owner-pk=' + pk +']').prop('checked', true);
             });
 
-            // TODO boundaries
-
             // Community Plan Area
             if (params.community_plan_area) {
                 var area = urlDecode(params.community_plan_area);
                 $('.map-filters-communityplanareas').select2('val', area);
                 updateBoundary(map, 'communityplanarea_details_geojson', area,
                                $('.map-filters-communityplanareas').data('type'));
+            }
+
+            // Council District
+            if (params.council_district) {
+                var councilDistrict = urlDecode(params.council_district);
+                $('.map-filters-councildistricts').data('selected', councilDistrict);
+                updateBoundary(map, 'councildistrict_details_geojson',
+                               councilDistrict,
+                               $('.map-filters-councildistricts').data('type'));
             }
 
             // Neighborhood Council
