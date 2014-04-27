@@ -82,14 +82,18 @@
                                         <li class="map-filters-type-item map-filters-type-public on">
                                             <span class="map-filters-type-disc"></span>
                                             <input type="checkbox" name="public" class="filter filter-layer hidden" checked="true" />
-                                            {% trans "publicly owned vacant" %}
+                                            <span data-toggle="tooltip" data-placement="bottom" title="{% trans "Parcels that are owned by public agencies" %}">
+                                                {% trans "publicly owned vacant" %}
+                                            </span>
                                             (<span id="public-lots-count"></span>)
                                         </li>
                                         <ul>
                                             <li class="map-filters-type-item map-filters-type-public-sidelot on">
                                                 <span class="map-filters-type-disc"></span>
                                                 <input type="checkbox" name="public_sidelot" class="filter filter-layer hidden" checked="true" />
-                                                {% trans "side yard" %}
+                                                <span data-toggle="tooltip" data-placement="bottom" title="{% trans "Parcels that are part of the city's side yard program" %}">
+                                                    {% trans "side yard" %}
+                                                </span>
                                                 (<span id="public-sidelot-count"></span>)
                                             </li>
                                         </ul>
@@ -98,7 +102,9 @@
                                         <li class="map-filters-type-item map-filters-type-private on">
                                             <span class="map-filters-type-disc"></span>
                                             <input type="checkbox" name="private" class="filter filter-layer hidden" checked="true" />
-                                            {% trans "privately owned vacant" %}
+                                            <span data-toggle="tooltip" data-placement="bottom" title="{% trans "Parcels that are owned by private entities" %}">
+                                                {% trans "privately owned vacant" %}
+                                            </span>
                                             (<span id="private-lots-count"></span>)
                                         </li>
                                     </ul>
@@ -112,13 +118,17 @@
                                         <li class="map-filters-type-item map-filters-type-organized on">
                                             <span class="map-filters-type-disc"></span>
                                             <input type="checkbox" name="organized" class="filter filter-layer hidden" />
-                                            {% trans "being organized" %}
+                                            <span data-toggle="tooltip" data-placement="bottom" title="{% trans "Parcels that people are organizing to get access to" %}">
+                                                {% trans "being organized" %}
+                                            </span>
                                             (<span id="organized-count">0</span>)
                                         </li>
                                         <li class="map-filters-type-item map-filters-type-friendly-owner on">
                                             <span class="map-filters-type-disc"></span>
                                             <input type="checkbox" name="friendly_owner" class="filter filter-layer hidden" />
-                                            {% trans "friendly owner" %}
+                                            <span data-toggle="tooltip" data-placement="bottom" title="{% trans "Parcels with friendly owners who might be more open to giving you access to them" %}">
+                                                {% trans "friendly owner" %}
+                                            </span>
                                             (<span id="friendly-owner-count">0</span>)
                                             <div>
                                                 <a class="friendly-owner-share" href="#">
