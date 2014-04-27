@@ -411,7 +411,7 @@ define(
                 map.enterLotAddMode();
             });
 
-            $('[data-toggle=tooltip]').tooltip('show');
+            $('[data-toggle=tooltip]').tooltip();
 
         });
 
