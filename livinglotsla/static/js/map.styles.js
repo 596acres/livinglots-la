@@ -41,23 +41,39 @@ define(['underscore'], function (_) {
     }
 
     function asCartocss(tableName) {
+        var layerFills = _.reduce(_.keys(layers), function (memo, name) {
+            return memo + '[layer = "' + name + '"] {' +
+                'marker-fill: ' + layers[name] + ';' +
+            '}';
+        }, '');
+
+        var markerStyle = joinStyle(defaults);
+
         var cartocss = '#' + tableName + ' {';
 
         // TODO add star for friendly owner places, eg
         //  #lots[layer='private'][friendly_owner=true]::friendly-star {}
+
+        // Default markers
+        cartocss += layerFills;
+        cartocss += markerStyle;
+
+
+        /*
+         * Stars for organizing sites. Done as attachments so they will be
+         * rendered on top of other markers.
+         */
 
         // Add star around organizing sites
         cartocss += '[organizing=true]::organizing {';
         cartocss += joinStyle(organizingStyle);
         cartocss += '}';
 
-        cartocss += joinStyle(defaults);
-
-        cartocss += _.reduce(_.keys(layers), function (memo, name) {
-            return memo + '[layer = "' + name + '"] {' +
-                'marker-fill: ' + layers[name] + ';' +
-            '}';
-        }, '');
+        // Re-add markers for organizing sites
+        cartocss += '[organizing=true]::dots {';
+        cartocss += layerFills;
+        cartocss += markerStyle;
+        cartocss += '}';
 
         cartocss += '}';
         return cartocss;
