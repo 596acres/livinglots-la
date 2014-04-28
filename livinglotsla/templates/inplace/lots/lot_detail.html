@@ -260,8 +260,10 @@
                     {% get_council_district lot.centroid.y lot.centroid.x as council_district %}
                     {% if council_district %}
                         <li>
-                            {% trans "Council District" %}
-                            {{ council_district }}
+                            <a href="http://cd{{ council_district }}.lacity.org" target="_blank">
+                                {% trans "Council District" %}
+                                {{ council_district }}
+                            </a>
                         </li>
                     {% endif %}
 
