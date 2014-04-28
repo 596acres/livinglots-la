@@ -270,7 +270,13 @@
                         <li>
                             {% trans "Neighborhood Council" %}:
                             {% for council in neighborhood_councils %}
-                                {{ council }}
+                                {% if council.waddress %}
+                                    <a href="{{ council.waddress }}" target="_blank">
+                                        {{ council }}
+                                    </a>
+                                {% else %}
+                                    {{ council }}
+                                {% endif %}
                             {% endfor %}
                         </li>
                     {% endif %}
