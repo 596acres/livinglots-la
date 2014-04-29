@@ -4730,6 +4730,7 @@ form .btn-primary .badge {
   background: transparent;
 }
 .filter-size-labels {
+  font-size: 12px;
   margin-top: 10px;
 }
 .filter-size-label-max {
