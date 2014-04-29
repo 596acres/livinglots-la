@@ -3870,6 +3870,8 @@ header .row {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  font-size: 16px;
+  font-style: italic;
   padding-bottom: 5px;
   padding-top: 5px;
   line-height: 40px;
@@ -4118,7 +4120,10 @@ footer .row {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  font-size: 16px;
+  font-style: italic;
   line-height: 40px;
+  padding-top: 5px;
 }
 @media (min-width: 992px) {
   .footer-subscribe {
