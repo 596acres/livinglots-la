@@ -4548,6 +4548,9 @@ form .btn-primary .badge {
   background-color: transparent;
   border: none;
 }
+.map-filters-type-friendly-owner .friendly-owner-share {
+  font-size: 12px;
+}
 .map-filters-type-in-use {
   color: #999933;
 }
