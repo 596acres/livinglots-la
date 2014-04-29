@@ -4803,6 +4803,7 @@ form .btn-primary .badge {
 }
 .map-page .select2-container {
   font-family: "Times New Roman", serif;
+  font-size: 14px;
   max-width: 100%;
   width: 100%;
 }
