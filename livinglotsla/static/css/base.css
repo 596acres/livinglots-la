@@ -4478,6 +4478,7 @@ form .btn-primary .badge {
 }
 .map-filters-search {
   border: 1px solid #aaaaaa;
+  font-size: 12px;
   margin-left: 8%;
   width: 92%;
 }
