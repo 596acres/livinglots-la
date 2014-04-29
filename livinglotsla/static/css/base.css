@@ -4809,8 +4809,9 @@ form .btn-primary .badge {
 .map-page .select2-container {
   font-family: "Times New Roman", serif;
   font-size: 14px;
-  max-width: 100%;
-  width: 100%;
+  margin-left: 15px;
+  max-width: 90%;
+  width: 90%;
 }
 .map-page .select2-container .select2-choice {
   border-radius: 0;
