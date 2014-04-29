@@ -4753,7 +4753,6 @@ form .btn-primary .badge {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  height: 65px;
   position: absolute;
   bottom: 0;
   z-index: 4999;
@@ -4789,6 +4788,7 @@ form .btn-primary .badge {
   padding-right: 15px;
   height: 100%;
   font-weight: bold;
+  padding-bottom: 5px;
   text-transform: uppercase;
 }
 @media (min-width: 992px) {
