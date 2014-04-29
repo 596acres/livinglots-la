@@ -4812,6 +4812,23 @@ form .btn-primary .badge {
   max-width: 100%;
   width: 100%;
 }
+.map-page .select2-container .select2-choice {
+  border-radius: 0;
+}
+.map-page .select2-container-active .select2-choice {
+  border-color: #aaa;
+}
+.map-page .select2-drop {
+  border-radius: 0;
+}
+.map-page .select2-drop-active {
+  border-color: #aaa;
+}
+.map-page .select2-drop.select2-drop-above,
+.map-page .select2-drop.select2-drop-below {
+  border-color: #aaa;
+  border-radius: 0;
+}
 .map-add-lot-mode-container h1 {
   font-size: 18px;
 }

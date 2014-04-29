@@ -404,6 +404,28 @@
             font-size: 14px;
             max-width: 100%;
             width: 100%;
+
+            .select2-choice {
+                border-radius: 0;
+            }
+
+            &-active .select2-choice {
+                border-color: #aaa;
+            }
+        }
+
+        &-drop {
+            border-radius: 0;
+
+            &-active {
+                border-color: #aaa;
+            }
+
+            &.select2-drop-above,
+            &.select2-drop-below {
+                border-color: #aaa;
+                border-radius: 0;
+            }
         }
     }
 }
