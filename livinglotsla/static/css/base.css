@@ -4313,22 +4313,6 @@ form .btn-primary .badge {
     width: 83.33333333333334%;
   }
 }
-.blog-entry-list h2,
-.blog-entry-list h2 a {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin-top: 0;
-  text-transform: uppercase;
-}
-.blog-entry-list .meta {
-  color: gray;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
 .blog-entry-list img {
   height: auto;
   max-width: 100%;
@@ -4359,6 +4343,22 @@ form .btn-primary .badge {
     float: left;
     width: 33.33333333333333%;
   }
+}
+.blog-entry-meta {
+  color: gray;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+h2.blog-entry-title,
+h2.blog-entry-title a {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 0;
+  text-transform: uppercase;
 }
 .map-page #map {
   width: 100%;
@@ -4879,6 +4879,42 @@ form .btn-primary .badge {
   #map-scrollover-content {
     margin-left: 8.333333333333332%;
   }
+}
+#map-scrollover .map-scrollover-blog-entry {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  #map-scrollover .map-scrollover-blog-entry {
+    float: left;
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  #map-scrollover .map-scrollover-blog-entry {
+    float: left;
+    width: 25%;
+  }
+}
+#map-scrollover .map-scrollover-blog-entry:first-child {
+  padding-left: 0;
+}
+#map-scrollover .map-scrollover-blog-entry:last-child {
+  padding-right: 0;
+}
+#map-scrollover .map-scrollover-blog-entry-title {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+#map-scrollover .map-scrollover-blog-entry-text {
+  font-size: 16px;
+  line-height: 20px;
+}
+#map-scrollover .map-scrollover-blog-entry img {
+  max-width: 100%;
+  padding-bottom: 10px;
 }
 #lot-detail-map {
   width: 100%;

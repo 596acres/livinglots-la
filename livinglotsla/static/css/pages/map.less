@@ -462,4 +462,32 @@
         .make-md-column(10);
         .make-md-column-offset(1);
     }
+
+    .map-scrollover-blog-entry {
+        .make-sm-column(6);
+        .make-md-column(3);
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
+
+        &-title {
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+
+        &-text {
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            padding-bottom: 10px;
+        }
+    }
 }

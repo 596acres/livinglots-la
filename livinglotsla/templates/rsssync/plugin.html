@@ -5,7 +5,7 @@
     {% for entry in entries %}
         <article>
             <div class="blog-entry-summary">
-                <h2>
+                <h2 class="blog-entry-title">
                     {% if entry.link %}
                         <a href="{{ entry.link }}">
                             {{ entry.title }}
@@ -14,12 +14,12 @@
                         {{ entry.title }}
                     {% endif %}
                 </h2>
-                <div class="meta">
+                <div class="blog-entry-meta">
                     <time datetime="{{ entry.date|date:"Y-d-m H:i" }}">{{ entry.date|date:"d F, Y" }}</time>
                 </div>
                 {{ entry.summary|striptags|truncatewords:"75"|safe }}
                 {% if entry.link %}
-                    <a class="meta" href="{{ entry.link }}">
+                    <a class="blog-entry-meta" href="{{ entry.link }}">
                         read more
                     </a>
                 {% endif %}
