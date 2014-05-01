@@ -52,7 +52,18 @@ INTERNAL_IPS = ('127.0.0.1',)
 MIDDLEWARE_CLASSES += (
     #'debug_toolbar.middleware.DebugToolbarMiddleware',
     #'django_pdb.middleware.PdbMiddleware',
+    #'johnny.middleware.LocalStoreClearMiddleware',
+    #'johnny.middleware.QueryCacheMiddleware',
 )
+
+#CACHES = {
+    #'default' : {
+        #'BACKEND': 'johnny.backends.memcached.MemcachedCache',
+        #'LOCATION': ['127.0.0.1:11211'],
+        #'JOHNNY_CACHE': True,
+    #}
+#}
+#JOHNNY_MIDDLEWARE_KEY_PREFIX='jc_myproj'
 
 INSTALLED_APPS += (
     #'debug_toolbar',

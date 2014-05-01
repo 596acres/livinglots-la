@@ -23,18 +23,24 @@ MEDIA_ROOT = get_env_variable('MEDIA_ROOT')
 STATIC_ROOT = get_env_variable('STATIC_ROOT')
 
 #
-# cache-machine
+# johnny-cache
 #
 
+MIDDLEWARE_CLASSES = (
+    'johnny.middleware.LocalStoreClearMiddleware',
+    'johnny.middleware.QueryCacheMiddleware',
+) + MIDDLEWARE_CLASSES
+
 CACHES = {
-    'default': {
-        'BACKEND': 'caching.backends.memcached.MemcachedCache',
+    'default' : {
+        'BACKEND': 'johnny.backends.memcached.MemcachedCache',
         'LOCATION': [
             get_env_variable('MEMCACHE_LOCATION'),
         ],
-    },
+        'JOHNNY_CACHE': True,
+    }
 }
-CACHE_COUNT_TIMEOUT = 60
+JOHNNY_MIDDLEWARE_KEY_PREFIX = get_env_variable('JOHNNY_MEMCACHE_PREFIX')
 
 
 #
