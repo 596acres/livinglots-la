@@ -15,7 +15,7 @@ wsgiref==0.1.2
 geojson==1.0.1
 
 # Django-specific requirements
-Django==1.6.3
+Django==1.6.4
 FeinCMS==1.9.3
 South==0.8.4
 git+git://github.com/justquick/django-activity-stream.git@6db2bec6
