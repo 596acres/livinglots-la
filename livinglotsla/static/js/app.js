@@ -15,6 +15,7 @@ requirejs.config({
         "leaflet.dataoptions": "../bower_components/leaflet.dataoptions/src/leaflet.dataoptions",
         "leaflet.hash": "../bower_components/leaflet-hash/leaflet-hash",
         "leaflet.loading": "../bower_components/leaflet.loading/src/Control.Loading",
+        "leaflet.snogylop": "../bower_components/leaflet.snogylop/src/leaflet.snogylop",
         "leaflet.usermarker": "../bower_components/leaflet.usermarker/src/leaflet.usermarker",
 
         "livinglots.addlot": "../bower_components/livinglots-map/src/livinglots.addlot",

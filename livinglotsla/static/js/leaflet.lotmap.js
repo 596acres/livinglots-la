@@ -13,6 +13,7 @@ define(
         'leaflet.hash',
         'leaflet.lotlayer',
         'leaflet.lotmarker',
+        'leaflet.snogylop',
         'leaflet.usermarker'
     ], function ($, Django, L, mapstyles, _, Handlebars) {
 
@@ -109,8 +110,12 @@ define(
                 var hash = new L.Hash(this);
 
                 this.boundariesLayer = L.geoJson(null, {
+                    clickable: false,
                     color: '#58595b',
-                    fill: false
+                    fill: true,
+                    fillColor: 'black',
+                    fillOpacity: 0.9,
+                    invert: true
                 }).addTo(this);
 
                 this.on('zoomend', function () {
