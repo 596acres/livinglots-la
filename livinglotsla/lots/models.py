@@ -124,6 +124,9 @@ class Lot(LotMixin, LotGroupLotMixin, BaseLot):
             ('view_preview', 'Can view preview map'),
         )
 
+    def __unicode__(self):
+        return self.display_name
+
 
 class LotGroup(BaseLotGroup, Lot):
     objects = models.Manager()
