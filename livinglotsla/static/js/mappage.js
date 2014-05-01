@@ -97,11 +97,18 @@ define(
             return params;
         }
 
-        function maximizeMainContentHeight() {
-            var otherHeight = $('header').outerHeight() + $('footer').outerHeight(),
+        function adjustContentHeight() {
+            var headerHeight = $('header').outerHeight(),
+                otherHeight = headerHeight + $('footer').outerHeight(),
                 windowHeight = $(window).height(),
-                mainContentHeight = windowHeight - otherHeight;
+                mainContentHeight = windowHeight - otherHeight,
+                scrolloverTop = headerHeight + mainContentHeight,
+                scrolloverBottom = mainContentHeight;
             $('#map').height(mainContentHeight);
+            $('#map-scrollover').css({
+                'margin-top': scrolloverTop,
+                'padding-bottom': scrolloverBottom
+            });
         }
 
         function updateLotCount(map) {
@@ -272,10 +279,10 @@ define(
             updateLotCount(map);
         }
 
-        $(window).resize(_.debounce(maximizeMainContentHeight, 250));
+        $(window).resize(_.debounce(adjustContentHeight, 250));
 
         $(document).ready(function () {
-            maximizeMainContentHeight();
+            adjustContentHeight();
 
             $('.filter-size').noUiSlider({
                 connect: true,

@@ -3598,6 +3598,8 @@ button.close {
 .map-download-wrapper:after,
 .map-download-inner-wrapper:before,
 .map-download-inner-wrapper:after,
+#map-scrollover-row:before,
+#map-scrollover-row:after,
 .lot-detail-page .content-wrapper:before,
 .lot-detail-page .content-wrapper:after {
   content: " ";
@@ -3621,6 +3623,7 @@ button.close {
 .map-filters-inner-wrapper:after,
 .map-download-wrapper:after,
 .map-download-inner-wrapper:after,
+#map-scrollover-row:after,
 .lot-detail-page .content-wrapper:after {
   clear: both;
 }
@@ -4360,7 +4363,7 @@ form .btn-primary .badge {
 .map-page #map {
   width: 100%;
   height: 1000px;
-  position: absolute;
+  position: fixed;
   margin-top: 127px;
 }
 .map-overlay {
@@ -4843,6 +4846,37 @@ form .btn-primary .badge {
 }
 .map-add-lot-mode-container .btn {
   color: white;
+}
+#map-scrollover {
+  background: white;
+  border-top: 1px solid #aaaaaa;
+  position: absolute;
+  z-index: 3900;
+  margin-top: 1127px;
+  padding-bottom: 1000px;
+  width: 100%;
+}
+#map-scrollover-row {
+  margin-left: -15px;
+  margin-right: -15px;
+  margin: 0;
+}
+#map-scrollover-content {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  #map-scrollover-content {
+    float: left;
+    width: 83.33333333333334%;
+  }
+}
+@media (min-width: 992px) {
+  #map-scrollover-content {
+    margin-left: 8.333333333333332%;
+  }
 }
 #lot-detail-map {
   width: 100%;

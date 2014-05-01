@@ -3,7 +3,7 @@
 .map-page #map {
     width: 100%;
     height: 1000px;
-    position: absolute;
+    position: fixed;
     margin-top: @header-height;
 }
 
@@ -439,5 +439,25 @@
     }
     .btn {
         color: white;
+    }
+}
+
+#map-scrollover {
+    background: white;
+    border-top: @frame-border;
+    position: absolute;
+    z-index: 3900;
+    margin-top: 1127px;
+    padding-bottom: 1000px;
+    width: 100%;
+
+    &-row {
+        .make-row();
+        margin: 0;
+    }
+
+    &-content {
+        .make-md-column(10);
+        .make-md-column-offset(1);
     }
 }
