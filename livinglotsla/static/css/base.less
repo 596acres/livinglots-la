@@ -40,6 +40,11 @@ h1, h2, h3 {
 
 header {
     background-color: white;
+    height: @header-height;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5000;
 }
 
 header .row {
@@ -324,6 +329,7 @@ footer {
     .make-row();
     margin: 0;
     margin-bottom: 150px;
+    margin-top: @header-height;
 }
 
 
