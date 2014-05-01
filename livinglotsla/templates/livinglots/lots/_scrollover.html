@@ -1,7 +1,15 @@
-{% load rsssync_tags %}
+{% load activities_tags activity_tags rsssync_tags %}
 
 <section>
     <h2>Recent Activity</h2>
+    <div class="map-scrollover-activities-row">
+        {% get_activities 4 as activities %}
+        {% for activity in activities %}
+            <div class="map-scrollover-activity">
+                {% display_action activity %}
+            </div>
+        {% endfor %}
+    </div>
 </section>
 <section>
     <h2>Recent Posts</h2>

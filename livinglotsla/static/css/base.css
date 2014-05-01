@@ -3600,6 +3600,8 @@ button.close {
 .map-download-inner-wrapper:after,
 #map-scrollover-row:before,
 #map-scrollover-row:after,
+#map-scrollover .map-scrollover-activities-row:before,
+#map-scrollover .map-scrollover-activities-row:after,
 .lot-detail-page .content-wrapper:before,
 .lot-detail-page .content-wrapper:after {
   content: " ";
@@ -3624,6 +3626,7 @@ button.close {
 .map-download-wrapper:after,
 .map-download-inner-wrapper:after,
 #map-scrollover-row:after,
+#map-scrollover .map-scrollover-activities-row:after,
 .lot-detail-page .content-wrapper:after {
   clear: both;
 }
@@ -4915,6 +4918,30 @@ h2.blog-entry-title a {
 #map-scrollover .map-scrollover-blog-entry img {
   max-width: 100%;
   padding-bottom: 10px;
+}
+#map-scrollover .map-scrollover-activities-row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#map-scrollover .map-scrollover-activities-row .map-scrollover-activity {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  #map-scrollover .map-scrollover-activities-row .map-scrollover-activity {
+    float: left;
+    width: 25%;
+  }
+}
+#map-scrollover .map-scrollover-activities-row .action-timestamp {
+  color: gray;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
 }
 #lot-detail-map {
   width: 100%;

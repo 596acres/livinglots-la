@@ -173,6 +173,7 @@ INSTALLED_APPS = (
     #
     # Living Lots
     #
+    'livinglots_activities',
     'livinglots_lots',
     'livinglots_mailings',
     'livinglots_notify',
