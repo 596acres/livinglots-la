@@ -5349,6 +5349,15 @@ input[type="checkbox"] {
 .tooltip.bottom .tooltip-arrow {
   left: 15%;
 }
+/*
+ * Modals
+ */
+.modal {
+  z-index: 7000;
+}
+.modal-backdrop {
+  z-index: 6999;
+}
 .leaflet-container a {
   color: inherit;
 }
