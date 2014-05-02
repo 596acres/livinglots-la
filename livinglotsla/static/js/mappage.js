@@ -124,18 +124,6 @@ define(
             });
         }
 
-        function updateOwnershipOverview(map) {
-            var url = Django.url('lots:lot_ownership_overview'),
-                params = buildLotFilterParams(map, { bbox: true });
-            $.getJSON(url + '?' + $.param(params), function (data) {
-                var template = Handlebars.compile($('#details-template').html());
-                var content = template({
-                    lottypes: data
-                });
-                $('.details-overview').html(content);
-            });
-        }
-
         function updateDetailsLink(map) {
             var params = buildLotFilterParams(map);
             delete params.parents_only;
