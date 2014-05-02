@@ -45,6 +45,10 @@ header#page-header {
     top: 0;
     width: 100%;
     z-index: 5000;
+
+    @media (max-width: @screen-sm-max) {
+        height: @header-height-sm;
+    }
 }
 
 header .row {
@@ -176,6 +180,7 @@ header .row {
 .navbar-collapse.collapsing,
 .navbar-collapse.collapse.in {
     font-size: 22px;
+    background: white;
 }
 
 .navbar-brand {
@@ -330,6 +335,10 @@ footer {
     margin: 0;
     margin-bottom: 150px;
     margin-top: @header-height;
+
+    @media (max-width: @screen-sm-max) {
+        margin-top: @header-height-sm;
+    }
 }
 
 

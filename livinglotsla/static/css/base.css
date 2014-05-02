@@ -3849,6 +3849,11 @@ header#page-header {
   width: 100%;
   z-index: 5000;
 }
+@media (max-width: 991px) {
+  header#page-header {
+    height: 77px;
+  }
+}
 header .row {
   margin: 0;
 }
@@ -4030,6 +4035,7 @@ header .row {
 .navbar-collapse.collapsing,
 .navbar-collapse.collapse.in {
   font-size: 22px;
+  background: white;
 }
 .navbar-brand {
   float: none;
@@ -4222,6 +4228,11 @@ footer .row {
   margin-bottom: 150px;
   margin-top: 127px;
 }
+@media (max-width: 991px) {
+  #page-wrapper {
+    margin-top: 77px;
+  }
+}
 /* Base page */
 #main {
   position: relative;
@@ -4368,6 +4379,11 @@ h2.blog-entry-title a {
   height: 1000px;
   position: fixed;
   margin-top: 127px;
+}
+@media (max-width: 991px) {
+  .map-page #map {
+    margin-top: 77px;
+  }
 }
 .map-overlay {
   background: rgba(255, 255, 255, 0.8);
