@@ -120,6 +120,7 @@ define(
                     _.each(data, function (value, key) {
                         $('#' + key).text(value);
                     });
+                    $('#map-download').data('lots-count', data['lots-count']);
                 })
             });
         }
@@ -407,6 +408,18 @@ define(
             });
 
             $('[data-toggle=tooltip]').tooltip();
+
+            $('.export').click(function () {
+                var lotsCount = $('#map-download').data('lots-count');
+                if (lotsCount === 0) {
+                    alert($('#map-download').data('too-few'));
+                    return false;
+                }
+                if (lotsCount > 2500) {
+                    alert($('#map-download').data('too-many'));
+                    return false;
+                }
+            });
 
         });
 

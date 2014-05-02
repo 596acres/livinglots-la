@@ -258,7 +258,7 @@
 
     <div class="map-download-wrapper">
         <div class="map-download-inner-wrapper">
-            <div id="map-download" class="map-overlay">
+            <div id="map-download" class="map-overlay" data-too-few="{% trans "No lots are on the screen to download. Please adjust your filters or map view before downloading." %}" data-too-many="{% trans "Downloading over 2500 lots is currently not supported. Please adjust your filters or map view before downloading." %}">
                 <div>
                     <a class="details-link" href="#">{% trans "link to this view" %}</a>
                 </div>
