@@ -3841,7 +3841,7 @@ h3 {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 /* Header */
-header {
+header#page-header {
   background-color: white;
   height: 127px;
   position: fixed;
