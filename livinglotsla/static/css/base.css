@@ -5161,28 +5161,6 @@ h2.blog-entry-title a {
   list-style: disc outside;
   padding-left: 25px;
 }
-.lot-detail-page .modal-header {
-  border-bottom: 0;
-}
-.lot-detail-page .modal-content {
-  color: white;
-  background-color: black;
-  border: 0;
-  border-radius: 0;
-}
-.lot-detail-page .modal-title {
-  font-size: 16px;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.lot-detail-page .modal .close {
-  color: white;
-  opacity: 1;
-}
-.lot-detail-page .modal .close:focus {
-  outline: none;
-}
 #organizer-modal input[type="checkbox"] {
   display: none;
 }
@@ -5357,6 +5335,28 @@ input[type="checkbox"] {
 }
 .modal-backdrop {
   z-index: 6999;
+}
+.modal-header {
+  border-bottom: 0;
+}
+.modal-content {
+  color: white;
+  background-color: black;
+  border: 0;
+  border-radius: 0;
+}
+.modal-title {
+  font-size: 16px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.modal .close {
+  color: white;
+  opacity: 1;
+}
+.modal .close:focus {
+  outline: none;
 }
 .leaflet-container a {
   color: inherit;
