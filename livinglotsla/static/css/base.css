@@ -4647,16 +4647,16 @@ h2.blog-entry-title a {
   color: #996666;
 }
 .map-filters-type-private {
-  color: #663366;
+  color: #cc99cc;
 }
 .map-filters-type-private .map-filters-type-disc {
-  border: 1px solid #663366;
+  border: 1px solid #cc99cc;
 }
 .map-filters-type-private.on .map-filters-type-disc {
-  background-color: #663366;
+  background-color: #cc99cc;
 }
 .map-filters-type-private .tooltip-inner {
-  color: #663366;
+  color: #cc99cc;
 }
 .map-filters-type-private-tax-default {
   color: #996699;

@@ -6,9 +6,9 @@ define(['underscore'], function (_) {
 
     var layers = {
         in_use: '#999933',
-        private: '#663366',
+        private: '#CC99CC',
         private_tax_default: '#996699',
-        private_ab_551: '#CC99CC',
+        private_ab_551: '#663366',
         public: '#990000',
         public_remnant: '#993333',
         public_sidelot: '#996666'
