@@ -46,7 +46,6 @@ git+git://github.com/ebrelsford/django-rsssync/@master
 django.js==0.8.1
 feincms-cleanse==2
 git+git://github.com/ebrelsford/feincms-pagepermissions@master
-git+git://github.com/jmoiron/johnny-cache/@26252521
 django-watson==1.1.3
 django-widget-tweaks==1.3
 

@@ -22,26 +22,6 @@ ALLOWED_HOSTS = get_env_variable('ALLOWED_HOSTS').split(',')
 MEDIA_ROOT = get_env_variable('MEDIA_ROOT')
 STATIC_ROOT = get_env_variable('STATIC_ROOT')
 
-#
-# johnny-cache
-#
-
-MIDDLEWARE_CLASSES = (
-    'johnny.middleware.LocalStoreClearMiddleware',
-    'johnny.middleware.QueryCacheMiddleware',
-) + MIDDLEWARE_CLASSES
-
-CACHES = {
-    'default' : {
-        'BACKEND': 'johnny.backends.memcached.MemcachedCache',
-        'LOCATION': [
-            get_env_variable('MEMCACHE_LOCATION'),
-        ],
-        'JOHNNY_CACHE': True,
-    }
-}
-JOHNNY_MIDDLEWARE_KEY_PREFIX = get_env_variable('JOHNNY_MEMCACHE_PREFIX')
-
 
 #
 # email
