@@ -1,7 +1,7 @@
 //
-// mappage.js
+// lotdetailpage.js
 //
-// Scripts that only run on the map page.
+// Scripts that only run on the lot detail page.
 //
 
 define(
