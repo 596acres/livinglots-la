@@ -1,7 +1,5 @@
-from collections import OrderedDict
 import geojson
 import json
-from operator import itemgetter
 from pint import UnitRegistry
 from random import shuffle
 
@@ -168,52 +166,6 @@ class LotsGeoJSONPolygon(LotGeoJSONMixin, FilteredLotsMixin, GeoJSONListView):
         def _get_value():
             return super(LotsGeoJSONPolygon, self).get_features()
         return cached(_get_value, key, 60 * 15)
-
-
-class LotsOwnershipOverview(FilteredLotsMixin, JSONResponseView):
-
-    layer_labels = {
-        'public': 'publicly owned land',
-        'private': 'private land belonging to an owner who wants to see it used',
-    }
-
-    def get_owners(self, lots_qs):
-        owners = []
-        for row in lots_qs.values('owner__name').annotate(count=Count('pk')):
-            label = 'owned by %s' % row['owner__name']
-            if row['owner__name'] == 'private owner':
-                label = ''
-            owners.append({
-                'name': row['owner__name'],
-                'label': label,
-                'count': row['count'],
-            })
-        return sorted(owners, key=itemgetter('name'))
-
-    def get_layers(self, lots):
-        return OrderedDict({
-            'public': lots.filter(owner__owner_type='public'),
-            'private': lots.filter(
-                owner__owner_type='private',
-            ),
-        })
-
-    def get_layer_counts(self, layers):
-        counts = []
-        for layer, qs in layers.items():
-            owners = self.get_owners(qs)
-            if owners:
-                counts.append({
-                    'label': self.layer_labels[layer],
-                    'owners': owners,
-                    'type': layer,
-                })
-        return counts
-
-    def get_context_data(self, **kwargs):
-        lots = self.get_lots().qs
-        layers = self.get_layers(lots)
-        return self.get_layer_counts(layers)
 
 
 class LotsCountViewWithAcres(LotsCountView):

@@ -3,8 +3,8 @@ from django.conf.urls import patterns, url
 import livinglots_lots.urls as llurls
 
 from .views import (CreateLotView, LotsCountViewWithAcres, LotDetailJSON,
-                    LotsGeoJSONCentroid, LotsGeoJSONPolygon,
-                    LotsOwnershipOverview, LotsCSV, LotsKML, LotsGeoJSON)
+                    LotsGeoJSONCentroid, LotsGeoJSONPolygon, LotsCSV, LotsKML,
+                    LotsGeoJSON)
 
 
 urlpatterns = patterns('',
@@ -13,8 +13,6 @@ urlpatterns = patterns('',
         name='nola_lot_geojson_centroid'),
     url(r'^geojson-polygon/', LotsGeoJSONPolygon.as_view(),
         name='lot_geojson_polygon'),
-    url(r'^count/ownership/', LotsOwnershipOverview.as_view(),
-        name='lot_ownership_overview'),
     url(r'^count/', LotsCountViewWithAcres.as_view(), name='lot_count'),
     url(r'^csv/', LotsCSV.as_view(), name='csv'),
     url(r'^kml/', LotsKML.as_view(), name='kml'),
