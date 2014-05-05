@@ -1,9 +1,10 @@
 define(['jquery', 'spin', 'jquery.form'],
     function ($, Spinner) {
 
-        $.fn.modalForm = function (reloadOnSuccess) {
+        $.fn.modalForm = function (options) {
             var $modal = $(this),
-                id = $(this).attr('id');
+                id = $(this).attr('id'),
+                options = options || {};
             $(this).find('form').submit(function () {
                 // Disable button and add a spinner
                 var $button = $(this).find('.btn-primary');
@@ -18,7 +19,7 @@ define(['jquery', 'spin', 'jquery.form'],
                     target: '#' + id + ' .modal-content',
                     success: function () {
                         // Assume we got the form again and modalFormize it
-                        $modal.modalForm();
+                        $modal.modalForm(options);
                     }
                 });
                 return false;
@@ -28,7 +29,7 @@ define(['jquery', 'spin', 'jquery.form'],
             });
 
             // Reload page on <Esc> or <Enter> if successful
-            if (reloadOnSuccess) {
+            if (options.reloadOnSuccess) {
                 $('body').keyup(function (e) {
                     if ((e.keyCode === 27 || e.keyCode === 13)
                         && $('.btn-close-modal').length > 0) {

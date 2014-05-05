@@ -68,7 +68,7 @@ define(
             // Prepare all of the modals, which will have forms
             $('.modal').each(function () {
                 $(this).on('loaded.bs.modal', function () {
-                    $(this).modalForm(true);
+                    $(this).modalForm({ reloadOnSuccess: true });
                 });
             });
 
