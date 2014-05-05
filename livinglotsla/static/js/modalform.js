@@ -20,6 +20,9 @@ define(['jquery', 'spin', 'jquery.form'],
                     success: function () {
                         // Assume we got the form again and modalFormize it
                         $modal.modalForm(options);
+                        if (options.onSuccess) {
+                            options.onSuccess();
+                        }
                     }
                 });
                 return false;
