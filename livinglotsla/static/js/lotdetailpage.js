@@ -12,11 +12,10 @@ define(
         'map.styles',
         'streetview',
         'django',
-        'spin',
 
-        'jquery.form',
-        'leaflet.dataoptions'
-    ], function ($, Handlebars, L, mapstyles, StreetView, Django, Spinner) {
+        'leaflet.dataoptions',
+        'modalform'
+    ], function ($, Handlebars, L, mapstyles, StreetView, Django) {
 
         function addBaseLayer(map) {
             L.tileLayer('https://{s}.tiles.mapbox.com/v3/{mapboxId}/{z}/{x}/{y}.png', {
@@ -55,37 +54,6 @@ define(
             });
         }
 
-        function modalForm(modalId) {
-            $('#' + modalId).find('form').submit(function () {
-                // Disable button and add a spinner
-                var $button = $(this).find('.btn-primary');
-                $button.prop('disabled', true);
-                var spinner = new Spinner({
-                    length: 8,
-                    lines: 9
-                }).spin($button[0]);
-
-                // Submit form via AJAX
-                $(this).ajaxSubmit({
-                    target: '#' + modalId + ' .modal-content',
-                    success: function () {
-                        modalForm(modalId);
-                    }
-                });
-                return false;
-            });
-            $('#' + modalId).find('.btn-close-modal').click(function () {
-                location.reload(false);
-            });
-
-            // Reload page on <Esc> or <Enter> if successful
-            $('body').keyup(function (e) {
-                if ((e.keyCode === 27 || e.keyCode === 13) && $('.btn-close-modal').length > 0) {
-                    location.reload(false);
-                }
-            });
-        }
-
         $(document).ready(function () {
             var map = L.map('lot-detail-map');
             addBaseLayer(map);
@@ -100,7 +68,7 @@ define(
             // Prepare all of the modals, which will have forms
             $('.modal').each(function () {
                 $(this).on('loaded.bs.modal', function () {
-                    modalForm($(this).attr('id'));
+                    $(this).modalForm(true);
                 });
             });
 
