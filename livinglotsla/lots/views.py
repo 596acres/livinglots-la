@@ -150,13 +150,15 @@ class LotsGeoJSONPolygon(LotGeoJSONMixin, FilteredLotsMixin, GeoJSONListView):
         return properties
 
     def get_queryset(self):
+        # TODO would be nice to get sidelots and organizers more efficiently
         return self.get_lots().qs.filter(polygon__isnull=False).geojson(
             field_name='polygon',
             precision=8,
         ).select_related(
             'known_use',
             'lotgroup',
-            'owner__owner_type'
+            'owner__owner_type',
+            'parcel',
         ).annotate(organizers__count=Count('organizers'))
 
     def get_features(self):
