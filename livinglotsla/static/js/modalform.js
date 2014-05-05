@@ -17,6 +17,7 @@ define(['jquery', 'spin', 'jquery.form'],
                 $(this).ajaxSubmit({
                     target: '#' + id + ' .modal-content',
                     success: function () {
+                        // Assume we got the form again and modalFormize it
                         $modal.modalForm();
                     }
                 });
