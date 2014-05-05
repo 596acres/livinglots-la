@@ -139,7 +139,7 @@
                                             </span>
                                             (<span id="friendly-owner-count">0</span>)
                                             <div>
-                                                <a class="friendly-owner-share" href="#">
+                                                <a class="friendly-owner-share" href="{% url "friendlyowners:add" %}" data-target="#friendlyowner-modal" data-toggle="modal">
                                                     {% trans "I own land I'd like to share" %}
                                                 </a>
                                         </li>
@@ -279,3 +279,11 @@
         </div>
     </div>
 </div>
+
+{% block extra_body %}
+    <div id="friendlyowner-modal" class="modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+{% endblock %}

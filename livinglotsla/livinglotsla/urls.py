@@ -30,6 +30,8 @@ urlpatterns += patterns('',
         include('organize.urls', 'organize')),
     url(r'^lots/', include('lots.urls', 'lots')),
 
+    url(r'^opt-in/', include('friendlyowners.urls', 'friendlyowners')),
+
     # LA data
     url('^communityplanareas/', include('ladata.communityplanareas.urls')),
     url('^councildistricts/', include('ladata.councildistricts.urls')),

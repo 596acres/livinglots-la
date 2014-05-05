@@ -13,6 +13,7 @@ define(
         'leaflet',
         'spin',
         'singleminded',
+        'friendlyowners',
 
         'bootstrap',
         'jquery.infinitescroll',
@@ -26,8 +27,9 @@ define(
         'nouislider',
         'select2',
 
-        'map.search'
-    ], function (Django, $, Handlebars, _, L, Spinner, singleminded) {
+        'map.search',
+        'modalform'
+    ], function (Django, $, Handlebars, _, L, Spinner, singleminded, friendlyowners) {
 
         var sizeMin = 0,
             sizeMax = 3;
@@ -419,6 +421,18 @@ define(
                     alert($('#map-download').data('too-many'));
                     return false;
                 }
+            });
+
+            // Prepare all of the modals, which will have forms
+            $('#friendlyowner-modal').each(function () {
+                $(this).on('loaded.bs.modal', function () {
+                    friendlyowners.onload(map.getCenter());
+                    $(this).modalForm({
+                        onSuccess: function () {
+                            friendlyowners.onload(map.getCenter());
+                        }                
+                    });
+                });
             });
 
         });

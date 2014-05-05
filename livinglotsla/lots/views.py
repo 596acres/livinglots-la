@@ -94,6 +94,7 @@ class LotGeoJSONMixin(object):
 
     def get_properties(self, lot):
         return {
+            # XXX expensive!
             'layer': lot.layer,
         }
 
@@ -146,6 +147,7 @@ class LotsGeoJSONPolygon(LotGeoJSONMixin, FilteredLotsMixin, GeoJSONListView):
             round(lot.centroid.x, 4),
             round(lot.centroid.y, 4)
         )
+        # XXX expensive!
         properties['organizing'] = lot.actively_organizing
         return properties
 

@@ -14,7 +14,9 @@ define(
         'leaflet.lotlayer',
         'leaflet.lotmarker',
         'leaflet.snogylop',
-        'leaflet.usermarker'
+        'leaflet.usermarker',
+        'map.lots',
+        'map.tiles'
     ], function ($, Django, L, mapstyles, _, Handlebars) {
 
         var cartodb = window.cartodb;
@@ -57,25 +59,12 @@ define(
                     }
                     return L.lotMarker(latlng, options);
                 },
-                style: function (feature) {
-                    var style = {
-                        fillOpacity: 1,
-                        stroke: true,
-                        color: '#FFFFFF',
-                        weight: 1
-                    };
-                    style.fillColor = mapstyles[feature.properties.layer];
-                    if (!style.fillColor) {
-                        style.fillColor = '#000000';
-                    }
-                    return style;
-                },
                 popupOptions: {
                     autoPan: false,
                     maxWidth: 350,
                     minWidth: 250,
                     offset: [0, 0]
-                },
+                }
             },
 
             createAndOpenPopup: function (lotPk, latlng) {
@@ -147,13 +136,9 @@ define(
             },
 
             addBaseLayer: function () {
-                this.mapbox = L.tileLayer('https://{s}.tiles.mapbox.com/v3/{mapboxId}/{z}/{x}/{y}.png', {
-                    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
-                    maxZoom: 18,
-                    mapboxId: this.options.mapboxId
-                }).addTo(this);
-
+                this.mapbox = this.addTileLayer();
                 this.bing = new L.BingLayer('Ajio1n0EgmAAvT3zLndCpHrYR_LHJDgfDU6B0tV_1RClr7OFLzy4RnkLXlSdkJ_x');
+                this.bing.options.maxZoom = 19;
 
                 var baseLayers = {
                     streets: this.mapbox,
@@ -171,7 +156,7 @@ define(
             },
 
             addLotsLayer: function (params) {
-                this.addPolygonsLayer(params);
+                this.addTiledPolygonLotLayer(params, this.lotLayerOptions, false);
                 if (this.getZoom() <= this.lotLayerTransitionPoint) {
                     this.addCentroidsLayer(params);
                     if (this.centroidsLayer) {
@@ -223,23 +208,6 @@ define(
 
                     map.addLayer(layer, false);
                 });
-            },
-
-            addPolygonsLayer: function (params) {
-                if (this.polygonsLayer) {
-                    this.removeLayer(this.polygonsLayer);
-                }
-                var url = this.options.lotPolygonsUrl + '?' + $.param(params);
-
-                var options = {
-                    serverZooms: [16],
-                    unique: function (feature) {
-                        return feature.id;
-                    }
-                };
-
-                var layerOptions = L.extend({}, this.lotLayerOptions);
-                this.polygonsLayer = L.lotLayer(url, options, layerOptions);
             },
 
             updateDisplayedLots: function (params) {

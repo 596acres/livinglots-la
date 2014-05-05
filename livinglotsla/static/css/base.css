@@ -5395,3 +5395,23 @@ input[type="checkbox"] {
 .leaflet-control-loading {
   background-image: url(/static/img/loading.gif);
 }
+/*
+ * Widgets
+ */
+#friendlyowner-add-form textarea {
+  height: 150px;
+}
+#friendlyowner-parcel-map {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 15px;
+}
+#friendlyowner-parcel-map .leaflet-bar {
+  color: black;
+}
+#friendlyowner-parcel-map .leaflet-left {
+  margin-left: 0;
+}
+#friendlyowner-parcel-map .leaflet-popup {
+  color: black;
+}

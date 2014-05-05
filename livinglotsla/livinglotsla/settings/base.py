@@ -174,6 +174,7 @@ INSTALLED_APPS = (
     # Living Lots
     #
     'livinglots_activities',
+    'livinglots_friendlyowners',
     'livinglots_lots',
     'livinglots_mailings',
     'livinglots_notify',
@@ -192,6 +193,7 @@ INSTALLED_APPS = (
     'cms',
     'contact',
     'datasync',
+    'friendlyowners',
     'groundtruth',
     'lots',
     'lotfinders',
@@ -298,6 +300,7 @@ LIVING_LOTS = {
         'organizer': 'organize.Organizer',
         'owner': 'owners.Owner',
         'pathway': 'pathways.Pathway',
+        'parcel': 'parcels.Parcel',
         'stewardproject': 'steward.StewardProject',
     },
 }
