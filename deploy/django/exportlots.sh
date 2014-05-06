@@ -18,3 +18,6 @@ zip $ZIP_FILE ${SHP_FILE_PREFIX}.{dbf,prj,shp,shx}
 # Make latest
 cp $GEOJSON_FILE $GEOJSON_LATEST_FILE
 cp $ZIP_FILE $ZIP_LATEST_FILE
+
+# Delete shapefiley things
+rm ${SHP_FILE_PREFIX}.{dbf,prj,shp,shx}
