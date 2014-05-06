@@ -193,6 +193,7 @@ INSTALLED_APPS = (
     'cms',
     'contact',
     'datasync',
+    'export',
     'friendlyowners',
     'groundtruth',
     'lots',
