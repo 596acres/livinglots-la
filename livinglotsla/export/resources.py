@@ -66,24 +66,21 @@ class LotResource(ModelResource):
             if lot.parcel.sidelot_set.count() > 0:
                 return 'yes'
         except Exception:
-            pass
-        finally:
             return 'no'
+        return 'no'
 
     def dehydrate_transmission_line_easement(self, lot):
         try:
             if lot.parcel.transmissionline_set.count() > 0:
                 return 'yes'
         except Exception:
-            pass
-        finally:
             return 'no'
+        return 'no'
 
     def dehydrate_weed_abatement(self, lot):
         try:
             if lot.parcel.weedabatement_set.count() > 0:
                 return 'yes'
         except Exception:
-            pass
-        finally:
             return 'no'
+        return 'no'
