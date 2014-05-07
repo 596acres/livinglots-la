@@ -34,6 +34,8 @@ class GetVacantReasons(AsTag):
     def get_value(self, context, lot):
         reasons = []
         for l in lot.lots:
+            if l.friendly_owner:
+                reasons.append('The owner opted to add it to our map')
             if l.parcel.is_coded_vacant:
                 reasons.append('Its use code is vacant according to the LA County '
                             'Assessor')
