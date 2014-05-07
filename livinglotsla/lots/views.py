@@ -147,6 +147,7 @@ class LotsGeoJSONPolygon(LotGeoJSONMixin, FilteredLotsMixin, GeoJSONListView):
             round(lot.centroid.x, 4),
             round(lot.centroid.y, 4)
         )
+        properties['friendly_owner'] = lot.friendly_owner
         # XXX expensive!
         properties['organizing'] = lot.actively_organizing
         return properties
