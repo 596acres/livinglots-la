@@ -54,6 +54,9 @@ define(
                 },
                 pointToLayer: function (feature, latlng) {
                     var options = {};
+                    if (feature.properties.friendly_owner) {
+                        options.friendly_owner = true;
+                    }
                     if (feature.properties.organizing) {
                         options.organizing = true;
                     }

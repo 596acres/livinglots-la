@@ -2,7 +2,8 @@ define(['leaflet', 'leaflet.lotpath'], function (L) {
     L.LotMarker = L.CircleMarker.extend({
 
         onZoomEnd: function () {
-            if (this._map && this.feature.properties.organizing) {
+            if (this._map && (this.feature.properties.organizing ||
+                              this.feature.properties.friendly_owner)) {
                 this.bringToFront();
             }
         },
@@ -43,13 +44,15 @@ define(['leaflet', 'leaflet.lotpath'], function (L) {
             'add': function () {
                 this.initActionPath();
 
-                if (this.feature && this.feature.properties.organizing) {
+                if (this.feature && (this.feature.properties.organizing ||
+                                     this.feature.properties.friendly_owner)) {
                     var layer = this;
                     this._map.on('zoomend', this.onZoomEnd, layer);
                 }
             },
             'remove': function () {
-                if (this.feature && this.feature.properties.organizing) {
+                if (this.feature && (this.feature.properties.organizing ||
+                                     this.feature.properties.friendly_owner)) {
                     var layer = this;
                     this._map.off('zoomend', this.onZoomEnd, layer);
                 }

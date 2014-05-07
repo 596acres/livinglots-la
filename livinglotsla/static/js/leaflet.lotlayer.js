@@ -54,6 +54,9 @@ define(
                     latlng, latlngs, i, len;
 
                 var options = L.extend({}, vectorOptions);
+                if (geojson.properties.friendly_owner) {
+                    options.friendly_owner = true;
+                }
                 if (geojson.properties.organizing) {
                     options.organizing = true;
                 }

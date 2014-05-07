@@ -9,6 +9,7 @@ class LotSynchronizer(BaseSynchronizer):
     def get_cartodb_mapping(self, instance):
         return {
             'id': instance.pk,
+            'friendly_owner': instance.friendly_owner,
             'layer': instance.layer,
             'organizing': instance.actively_organizing,
             'size': round(instance.area_acres, 2),

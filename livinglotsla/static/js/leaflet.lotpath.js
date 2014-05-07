@@ -2,9 +2,16 @@ define(['leaflet', 'map.styles'], function (L, MapStyles) {
     L.LotPathMixin = {
 
         initActionPath: function() {
-            if (this.options.organizing) {
+            if (this.options.organizing || this.options.friendly_owner) {
+                var fillColor = '#000000';
+                if (this.options.organizing) {
+                    fillColor = MapStyles.organizingColor;
+                }
+                else if (this.options.friendly_owner) {
+                    fillColor = MapStyles.friendlyOwnerColor;
+                }
                 this._actionPath = this._createElement('path');
-                this._actionPath.setAttribute('style', 'fill:' + MapStyles.organizingColor + '; fill-opacity:1;');
+                this._actionPath.setAttribute('style', 'fill:' + fillColor + '; fill-opacity:1;');
                 this._actionPath.setAttribute('d', this.getActionPathSvgStr());
                 this._container.insertBefore(this._actionPath, this._path);
 

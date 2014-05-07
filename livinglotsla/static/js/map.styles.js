@@ -32,7 +32,16 @@ define(['underscore'], function (_) {
         // TODO make domain-agnostic? Using Django.js?
         'marker-file': 'url("' + burstFile + '")',
         'marker-width': 20
-    }
+    };
+
+    var friendlyOwnerColor = '#663300';
+
+    var friendlyOwnerStyle = {
+        'marker-allow-overlap': 'true',
+        'marker-fill': friendlyOwnerColor,
+        'marker-file': 'url("' + burstFile + '")',
+        'marker-width': 20
+    };
 
     function joinStyle(style) {
         return  _.reduce(_.keys(style), function (memo, property) {
@@ -51,18 +60,26 @@ define(['underscore'], function (_) {
 
         var cartocss = '#' + tableName + ' {';
 
-        // TODO add star for friendly owner places, eg
-        //  #lots[layer='private'][friendly_owner=true]::friendly-star {}
-
         // Default markers
         cartocss += layerFills;
         cartocss += markerStyle;
 
 
         /*
-         * Stars for organizing sites. Done as attachments so they will be
-         * rendered on top of other markers.
+         * Stars for organizing and friendly-owner. Done as attachments so they
+         * will be rendered on top of other markers.
          */
+
+        // Add star around friendly owner sites
+        cartocss += '[friendly_owner=true]::friendly_owner {';
+        cartocss += joinStyle(friendlyOwnerStyle);
+        cartocss += '}';
+
+        // Re-add markers for organizing sites
+        cartocss += '[friendly_owner=true]::dots {';
+        cartocss += layerFills;
+        cartocss += markerStyle;
+        cartocss += '}';
 
         // Add star around organizing sites
         cartocss += '[organizing=true]::organizing {';
@@ -82,6 +99,7 @@ define(['underscore'], function (_) {
     return (function () {
         return _.extend({}, layers, {
             asCartocss: asCartocss,
+            friendlyOwnerColor: friendlyOwnerColor,
             organizingColor: organizingColor
         });
     })();
