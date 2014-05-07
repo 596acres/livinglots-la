@@ -38,6 +38,7 @@ class LotGroupLotMixin(models.Model):
 
 class LotMixin(models.Model):
 
+    owner_opt_in = models.BooleanField(default=False)
     organizers = generic.GenericRelation(Organizer)
     steward_projects = generic.GenericRelation(get_stewardproject_model_name())
 
@@ -97,6 +98,12 @@ class LotMixin(models.Model):
         return self.organizers.exists() and not self.steward_projects.exists()
 
     actively_organizing = property(_actively_organizing)
+
+    def _friendly_owner(self):
+        """Friendly owner: owner opted in and no organizing or access"""
+        return self.owner_opt_in and not self.steward_projects.exists()
+
+    friendly_owner = property(_friendly_owner)
 
     class Meta:
         abstract = True

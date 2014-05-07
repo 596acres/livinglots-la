@@ -40,7 +40,8 @@ def add_lot(sender, instance, **kwargs):
     lot.known_use = None
     lot.known_use_certainty = 10
     lot.known_use_locked = True
-    lot.save()
+    lot.owner_opt_in = True
 
-    instance.lot = lot
-    instance.save()
+    # TODO XXX this doesn't work when automoderated
+    lot.friendlyowner_set.add(instance)
+    lot.save()
