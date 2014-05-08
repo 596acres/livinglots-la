@@ -2,8 +2,11 @@ define(['leaflet', 'leaflet.lotpath'], function (L) {
     L.LotPolygon = L.Polygon.extend({
 
         _pickOpacity: function (zoom) {
+            if (zoom >= 19) {
+                return 0.25;
+            }
             if (zoom >= 18) {
-                return 0.65;
+                return 0.5;
             }
             if (zoom >= 17) {
                 return 0.85;
