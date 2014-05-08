@@ -46,11 +46,13 @@
                     </div>
                 </nav>
 
-                <div class="header-search">
-                    <form action="{% url "watson:search" %}" method="get">
-                        <input type="search" name="q" placeholder="{% trans "search" %}" value="{{ request.GET.q }}" />
+                <div class="subscribe clearfix">
+                    <form action="http://laopenacres.us7.list-manage2.com/subscribe/post?u=e1b2a93e34ac7e27fc741aaf8&amp;id=645ab10bfb" method="post" target="_blank">
+                        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" data-cip-id="mce-EMAIL" placeholder="{% trans "subscribe" %}">
+                        <input style="background: none; float: right; width: 0; height: 0;" type="submit" />
                     </form>
                 </div>
+
             </div>
         </div>
     </div>

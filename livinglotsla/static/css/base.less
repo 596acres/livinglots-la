@@ -86,23 +86,6 @@ header .row {
         }
     }
 
-    &-search {
-        .menu-section();
-        .menu-bookend;
-        .hidden-xs();
-        .make-sm-column(3);
-        .make-md-column(3);
-        font-size: 16px;
-        font-style: italic;
-        padding-bottom: 5px;
-        padding-top: 5px;
-        input {
-            border: 0;
-            width: 100%;
-        }
-        line-height: 40px;
-    }
-
     &-tagline {
         .menu-section();
         .menu-bookend;
@@ -120,6 +103,38 @@ header .row {
         &.overflowing {
             line-height: 17px;
         }
+    }
+}
+
+.header-footer-input() {
+    .menu-bookend();
+    .menu-section();
+    font-size: 12px;
+    font-style: italic;
+    line-height: 40px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    input {
+        border: 0;
+        width: 100%;
+    }
+}
+
+.search {
+    .hidden-xs();
+    .make-sm-column(3);
+    .make-md-column(3);
+    .header-footer-input();
+}
+
+.subscribe {
+    .make-md-column(3);
+    .header-footer-input();
+
+    @media (max-width: @screen-sm-max) {
+        border-top: @frame-border;
+        clear: both;
+        overflow-y: visible;
     }
 }
 
@@ -256,27 +271,6 @@ footer {
             color: black;
             text-decoration: none;
             text-transform: uppercase;
-        }
-    }
-
-    &-subscribe {
-        .menu-bookend;
-        .menu-section();
-        .make-md-column(3);
-        font-size: 16px;
-        font-style: italic;
-        line-height: 40px;
-        padding-top: 5px;
-
-        @media (max-width: @screen-sm-max) {
-            border-top: @frame-border;
-            clear: both;
-            overflow-y: visible;
-        }
-
-        input {
-            border: 0;
-            width: 100%;
         }
     }
 
