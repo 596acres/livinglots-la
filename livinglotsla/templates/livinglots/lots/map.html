@@ -258,25 +258,23 @@
     </div>
 
     <div class="map-download-wrapper">
-        <div class="map-download-inner-wrapper">
-            <div id="map-download" class="map-overlay" data-too-few="{% trans "No lots are on the screen to download. Please adjust your filters or map view before downloading." %}" data-too-many="{% trans "Downloading over 2500 lots is currently not supported. Please adjust your filters or map view before downloading." %}">
-                <div>
-                    <a class="details-link" href="#">{% trans "link to this view" %}</a>
-                </div>
-
-                <section class="details-buttons hidden-print">
-                    {% trans "download lots as" %}
-                    <a href="#" class="export export-csv" data-baseurl="{% url "lots:csv" %}?">
-                        {% trans "csv" %}
-                    </a> /
-                    <a href="#" class="export export-geojson" data-baseurl="{% url "lots:geojson" %}?download=yes&">
-                        {% trans "GeoJSON" %}
-                    </a> /
-                    <a href="#" class="export export-kml" data-baseurl="{% url "lots:kml" %}?">
-                        {% trans "KML" %}
-                    </a>
-                </section>
+        <div id="map-download" class="map-overlay" data-too-few="{% trans "No lots are on the screen to download. Please adjust your filters or map view before downloading." %}" data-too-many="{% trans "Downloading over 2500 lots is currently not supported. Please adjust your filters or map view before downloading." %}">
+            <div>
+                <a class="details-link" href="#">{% trans "link to this view" %}</a>
             </div>
+
+            <section class="details-buttons hidden-print">
+                {% trans "download lots as" %}
+                <a href="#" class="export export-csv" data-baseurl="{% url "lots:csv" %}?">
+                    {% trans "csv" %}
+                </a> /
+                <a href="#" class="export export-geojson" data-baseurl="{% url "lots:geojson" %}?download=yes&">
+                    {% trans "GeoJSON" %}
+                </a> /
+                <a href="#" class="export export-kml" data-baseurl="{% url "lots:kml" %}?">
+                    {% trans "KML" %}
+                </a>
+            </section>
         </div>
     </div>
 </div>

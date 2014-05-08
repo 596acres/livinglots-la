@@ -3596,8 +3596,6 @@ button.close {
 .map-filters-inner-wrapper:after,
 .map-download-wrapper:before,
 .map-download-wrapper:after,
-.map-download-inner-wrapper:before,
-.map-download-inner-wrapper:after,
 #map-scrollover-row:before,
 #map-scrollover-row:after,
 #map-scrollover .map-scrollover-activities-row:before,
@@ -3624,7 +3622,6 @@ button.close {
 .map-filters-wrapper:after,
 .map-filters-inner-wrapper:after,
 .map-download-wrapper:after,
-.map-download-inner-wrapper:after,
 #map-scrollover-row:after,
 #map-scrollover .map-scrollover-activities-row:after,
 .lot-detail-page .content-wrapper:after {
@@ -4808,11 +4805,6 @@ h2.blog-entry-title a {
   td.map-download-wrapper {
     display: none !important;
   }
-}
-.map-download-inner-wrapper {
-  margin-left: 0;
-  margin-right: 0;
-  height: 100%;
 }
 #map-download {
   position: relative;
