@@ -120,6 +120,7 @@ define(
         L.LotLayer = L.TileLayer.Vector.extend({
 
             initialize: function (url, options, geojsonOptions) {
+                options.maxZoom = 19;
                 options.tileCacheFactory = L.tileCache;
                 options.layerFactory = L.lotGeoJson;
                 L.TileLayer.Vector.prototype.initialize.call(this, url, options,
