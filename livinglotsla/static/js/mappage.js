@@ -375,12 +375,9 @@ define(
 
             $('.map-filters-expander').click(function () {
                 $(this).parent('.map-filters').toggleClass('expanded');
-                if ($('#map-filters-parent.expanded').length > 0) {
-                    $('#map-sidebar-parent').addClass('expanded');
-                }
-                else {
-                    $('#map-sidebar-parent').removeClass('expanded');
-                }
+                $('#map-sidebar-parent').toggleClass('expanded',
+                    $('#map-filters-parent.expanded').length > 0
+                );
                 $('#map-sidebar-parent').perfectScrollbar('update');
             });
 
