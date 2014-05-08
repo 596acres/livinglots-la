@@ -3931,10 +3931,11 @@ header .row {
   border-right: 1px solid #aaaaaa;
   line-height: 26px;
   height: 100%;
-  overflow-y: hidden;
   font-size: 12px;
   font-style: italic;
   line-height: 40px;
+  overflow-x: hidden;
+  overflow-y: hidden;
   padding-bottom: 5px;
   padding-top: 5px;
 }
@@ -3971,10 +3972,11 @@ header .row {
   border-right: 1px solid #aaaaaa;
   line-height: 26px;
   height: 100%;
-  overflow-y: hidden;
   font-size: 12px;
   font-style: italic;
   line-height: 40px;
+  overflow-x: hidden;
+  overflow-y: hidden;
   padding-bottom: 5px;
   padding-top: 5px;
 }
