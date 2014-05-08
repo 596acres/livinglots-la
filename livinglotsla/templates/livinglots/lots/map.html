@@ -79,11 +79,11 @@
 >
     <div class="map-filters-wrapper">
         <div class="map-filters-inner-wrapper">
-            <div id="map-sidebar-parent" class="map-overlay">
-                <section id="map-filters-parent" class="map-filters">
+            <div id="map-sidebar-parent" class="map-overlay expanded">
+                <section id="map-filters-parent" class="map-filters expanded">
                     <h2 class="map-filters-expander">{% trans "filter" %}</h2>
                     <section id="map-filters" class="map-filters-content">
-                        <section class="map-filters">
+                        <section class="map-filters expanded">
                             <h3 class="map-filters-expander">{% trans "land access pathways" %}</h3>
                             <div class="map-filters-content">
                                 <ul class="map-filters-type">
@@ -148,7 +148,7 @@
                                 </ul>
                             </div>
                         </section>
-                        <section class="map-filters">
+                        <section class="map-filters expanded">
                             <h3 class="map-filters-expander">{% trans "search" %}</h3>
                             <div class="map-filters-content">
                                 <form class="map-filters-search-form" data-bounds="[-117.5359,33.5391,-118.8872,34.5733]" data-city="Los Angeles" data-state="CA" data-error-message="{% trans "Could not find your location. Try again?" %}" data-warning-selector=".map-filters-search.warning">
@@ -227,7 +227,7 @@
                                 </section>
                             </div>
                         </section>
-                        <section class="map-filters">
+                        <section class="map-filters expanded">
                             <h3 class="map-filters-expander">{% trans "size" %}</h3>
                             <div class="map-filters-content">
                                 <div class="filter filter-size"></div>
