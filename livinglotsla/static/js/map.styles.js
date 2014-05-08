@@ -76,7 +76,7 @@ define(['underscore'], function (_) {
         cartocss += '}';
 
         // Re-add markers for organizing sites
-        cartocss += '[friendly_owner=true]::dots {';
+        cartocss += '[friendly_owner=true]::friendly_owner_dots {';
         cartocss += layerFills;
         cartocss += markerStyle;
         cartocss += '}';
@@ -87,7 +87,7 @@ define(['underscore'], function (_) {
         cartocss += '}';
 
         // Re-add markers for organizing sites
-        cartocss += '[organizing=true]::dots {';
+        cartocss += '[organizing=true]::organizing_dots {';
         cartocss += layerFills;
         cartocss += markerStyle;
         cartocss += '}';
