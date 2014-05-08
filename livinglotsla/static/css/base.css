@@ -4400,6 +4400,7 @@ h2.blog-entry-title a {
   margin: 0;
   overflow-x: none;
   overflow-y: hidden;
+  padding-bottom: 25px;
   padding-left: 15px;
   padding-right: 20px;
   padding-top: 5px;
