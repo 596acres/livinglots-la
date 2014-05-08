@@ -98,7 +98,7 @@ define(
                     clickable: false,
                     color: '#58595b',
                     fill: true,
-                    fillColor: 'black',
+                    fillColor: '#d0d0d0',
                     fillOpacity: 0.9,
                     invert: true
                 }).addTo(this);
