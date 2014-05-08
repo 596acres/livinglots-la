@@ -16,7 +16,7 @@ def highlight(text, query):
     css_class = 'search-highlight'
     highlighted, n = re.subn(r'(%s)' % query,
                              r'<span class="%s">\1</span>' % css_class,
-                             str(text), flags=re.IGNORECASE)
+                             unicode(text), flags=re.IGNORECASE)
     return mark_safe(highlighted)
 
 
