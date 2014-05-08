@@ -37,12 +37,7 @@ define(
                 onEachFeature: function (feature, layer) {
                     layer.on({
                         'click': function (layer) {
-                            var latlng = layer.latlng,
-                                x = this._map.latLngToContainerPoint(latlng).x,
-                                y = this._map.latLngToContainerPoint(latlng).y - 100,
-                                point = this._map.containerPointToLatLng([x, y]);
-                            this._map.createAndOpenPopup(this.feature.id, latlng);
-                            return this._map.setView(point, this._map._zoom);
+                            return this._map.createAndOpenPopup(this.feature.id, layer.latlng);
                         },
                         'mouseover': function (event) {
                             this._map.options.onMouseOverFeature(event.target.feature);
@@ -63,10 +58,8 @@ define(
                     return L.lotMarker(latlng, options);
                 },
                 popupOptions: {
-                    autoPan: false,
                     maxWidth: 350,
-                    minWidth: 250,
-                    offset: [0, 0]
+                    minWidth: 250
                 }
             },
 

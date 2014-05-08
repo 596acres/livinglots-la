@@ -5394,6 +5394,7 @@ input[type="checkbox"] {
 }
 .leaflet-popup-content-wrapper {
   border-radius: 0;
+  min-height: 300px;
 }
 .leaflet-control-layers-toggle {
   background-image: url(/static/img/layer-switcher.png);
