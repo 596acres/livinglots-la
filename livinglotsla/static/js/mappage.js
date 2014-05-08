@@ -104,7 +104,8 @@ define(
                 otherHeight = headerHeight + $('footer').outerHeight(),
                 windowHeight = $(window).height(),
                 mainContentHeight = windowHeight - otherHeight,
-                scrolloverTop = headerHeight + mainContentHeight,
+                handleHeight = $('#map-scrollover-handle').outerHeight(),
+                scrolloverTop = headerHeight + mainContentHeight - handleHeight,
                 scrolloverBottom = mainContentHeight;
             $('#map').height(mainContentHeight);
             $('#map-scrollover').css({
@@ -268,6 +269,10 @@ define(
             updateDetailsLink(map);
             updateExportLinks(map);
             updateLotCount(map);
+        }
+
+        function scrolloverCheckIn() {
+            $('#map-scrollover-handle').toggleClass('in', $('body').scrollTop() > 0);
         }
 
         $(window).resize(_.debounce(adjustContentHeight, 250));
@@ -434,6 +439,19 @@ define(
                     });
                 });
             });
+
+            $('#map-scrollover-handle').click(function () {
+                if (!$(this).is('.in')) {
+                    $('body').animate({ scrollTop: 200 }, 1000);
+                }
+                else {
+                    $('body').animate({ scrollTop: 0 }, 1000);
+                }
+                $(this).toggleClass('in');
+            });
+
+            $(document).scroll(scrolloverCheckIn);
+            scrolloverCheckIn();
 
         });
 

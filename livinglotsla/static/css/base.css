@@ -4821,7 +4821,7 @@ h2.blog-entry-title a {
   padding-right: 15px;
   height: 100%;
   font-weight: bold;
-  padding-bottom: 5px;
+  padding-bottom: 25px;
   text-transform: uppercase;
 }
 @media (min-width: 992px) {
@@ -4879,6 +4879,22 @@ h2.blog-entry-title a {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+}
+#map-scrollover-handle {
+  cursor: pointer;
+  text-align: center;
+  height: 25px;
+  width: 100%;
+}
+#map-scrollover-handle:after {
+  content: "▲";
+}
+#map-scrollover-handle.in:after {
+  content: "▼";
+}
+#map-scrollover-handle:hover {
+  background: #d0d0d0;
+  color: white;
 }
 #map-scrollover-row {
   margin-left: -15px;

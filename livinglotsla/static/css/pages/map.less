@@ -388,7 +388,7 @@
     .make-md-column(3);
     height: 100%;
     font-weight: bold;
-    padding-bottom: 5px;
+    padding-bottom: 25px;
     text-transform: uppercase;
 }
 
@@ -456,6 +456,26 @@
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+
+    &-handle {
+        cursor: pointer;
+        text-align: center;
+        height: 25px;
+        width: 100%;
+
+        &:after {
+            content: "▲";
+        }
+
+        &.in:after {
+            content: "▼";
+        }
+
+        &:hover {
+            background: #d0d0d0;
+            color: white;
+        }
+    }
 
     &-row {
         .make-row();
