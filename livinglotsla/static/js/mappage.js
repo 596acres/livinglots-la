@@ -99,7 +99,7 @@ define(
             return params;
         }
 
-        function adjustContentHeight() {
+        function adjustContentHeight(map) {
             var headerHeight = $('header').outerHeight(),
                 otherHeight = headerHeight + $('footer').outerHeight(),
                 windowHeight = $(window).height(),
@@ -112,6 +112,10 @@ define(
                 'margin-top': scrolloverTop,
                 'padding-bottom': scrolloverBottom
             });
+
+            if (map) {
+                map.invalidateSize();
+            }
         }
 
         function updateLotCount(map) {
@@ -275,8 +279,6 @@ define(
             $('#map-scrollover-handle').toggleClass('in', $('body').scrollTop() > 0);
         }
 
-        $(window).resize(_.debounce(adjustContentHeight, 250));
-
         $(document).ready(function () {
             adjustContentHeight();
 
@@ -313,6 +315,9 @@ define(
                 }
 
             });
+            $(window).resize(_.debounce(function () {
+                adjustContentHeight(map);   
+            }, 250));
 
             var params;
             if (window.location.search.length) {
