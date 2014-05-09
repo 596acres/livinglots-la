@@ -3846,7 +3846,7 @@ header#page-header {
   width: 100%;
   z-index: 5000;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   header#page-header {
     height: 77px;
   }
@@ -3865,6 +3865,7 @@ header .row {
   }
 }
 .header-menu {
+  background: white;
   border-bottom: 1px solid #aaaaaa;
   border-top: 1px solid #aaaaaa;
 }
@@ -3944,12 +3945,6 @@ header .row {
     display: none !important;
   }
 }
-@media (min-width: 768px) {
-  .search {
-    float: left;
-    width: 25%;
-  }
-}
 @media (min-width: 992px) {
   .search {
     float: left;
@@ -3977,16 +3972,6 @@ header .row {
   padding-bottom: 5px;
   padding-top: 5px;
 }
-@media (min-width: 992px) {
-  .subscribe {
-    float: left;
-    width: 25%;
-  }
-}
-.subscribe input {
-  border: 0;
-  width: 100%;
-}
 @media (max-width: 767px) {
   .subscribe,
   tr.subscribe,
@@ -3995,12 +3980,15 @@ header .row {
     display: none !important;
   }
 }
-@media (max-width: 991px) {
+@media (min-width: 768px) {
   .subscribe {
-    border-top: 1px solid #aaaaaa;
-    clear: both;
-    overflow-y: visible;
+    float: left;
+    width: 25%;
   }
+}
+.subscribe input {
+  border: 0;
+  width: 100%;
 }
 .navbar-default {
   position: relative;
@@ -4236,7 +4224,7 @@ footer .row {
   margin-bottom: 150px;
   margin-top: 127px;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   #page-wrapper {
     margin-top: 77px;
   }
@@ -4388,7 +4376,7 @@ h2.blog-entry-title a {
   position: fixed;
   margin-top: 127px;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   .map-page #map {
     margin-top: 77px;
   }
