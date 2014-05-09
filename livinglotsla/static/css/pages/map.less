@@ -66,10 +66,17 @@
 
 .map-filters-wrapper {
     .make-row(0);
-    .make-sm-column(10);
     margin-left: percentage((4 / @grid-columns));
     .make-sm-column-offset(1);
+    .make-md-column(10);
     height: 100%;
+
+    @media (max-width: @screen-sm-max) {
+        margin-left: 0;
+    }
+    @media (max-width: @screen-xs-max) {
+        margin-left: 33.3333%;
+    }
 }
 
 .map-filters-inner-wrapper {
