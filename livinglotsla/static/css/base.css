@@ -3987,6 +3987,14 @@ header .row {
   border: 0;
   width: 100%;
 }
+@media (max-width: 767px) {
+  .subscribe,
+  tr.subscribe,
+  th.subscribe,
+  td.subscribe {
+    display: none !important;
+  }
+}
 @media (max-width: 991px) {
   .subscribe {
     border-top: 1px solid #aaaaaa;
