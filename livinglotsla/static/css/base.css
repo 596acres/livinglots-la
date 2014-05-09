@@ -5407,7 +5407,7 @@ input[type="checkbox"] {
 .leaflet-left {
   margin-left: 8.333333333333332%;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .leaflet-left {
     margin-left: 1%;
   }
