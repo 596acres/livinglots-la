@@ -153,7 +153,7 @@ class LotsGeoJSONPolygon(LotGeoJSONMixin, FilteredLotsMixin, GeoJSONListView):
         return properties
 
     def get_queryset(self):
-        # TODO would be nice to get sidelots and organizers more efficiently
+        # TODO would be nice to get organizers more efficiently
         return self.get_lots().qs.filter(polygon__isnull=False).geojson(
             field_name='polygon',
             precision=8,
@@ -194,10 +194,7 @@ class LotsCountViewWithAcres(LotsCountView):
             'friendly-owner-count': lots.filter(owner_opt_in=True).filter(steward_projects=None).distinct().count(),
             'organized-count': lots.exclude(organizers=None).filter(steward_projects=None).distinct().count(),
             'private-lots-count': lots.filter(lotlayer__name='private').distinct().count(),
-            'private-taxdefault-count': 0,
             'public-lots-count': lots.filter(lotlayer__name='public').distinct().count(),
-            'public-sidelot-count': lots.filter(lotlayer__name='public_sidelot').distinct().count(),
-            'public-remnant-count': 0,
             'no-known-use-count': no_known_use.distinct().count(),
             'in-use-count': in_use.distinct().count(),
         }

@@ -22,7 +22,6 @@ class LotResource(ModelResource):
     neighborhood_councils = Field()
     owner = Field(attribute='owner__name')
     owner_type = Field(attribute='owner__owner_type')
-    side_yard = Field()
     transmission_line_easement = Field()
     weed_abatement = Field()
     zip_code = Field(attribute='parcel__zip_code')
@@ -60,14 +59,6 @@ class LotResource(ModelResource):
             return ','.join(ncs.values_list('label', flat=True))
         except Exception:
             return ''
-
-    def dehydrate_side_yard(self, lot):
-        try:
-            if lot.parcel.sidelot_set.count() > 0:
-                return 'yes'
-        except Exception:
-            return 'no'
-        return 'no'
 
     def dehydrate_transmission_line_easement(self, lot):
         try:
