@@ -34,6 +34,14 @@ define(
         var sizeMin = 0,
             sizeMax = 3;
 
+        var nearbyCircle,
+            nearbyCircleSize = 804.7, // meters in .5 miles
+            nearbyCircleStyle = {
+                color: '#d0d0d0',
+                fill: false,
+                opacity: 0.8
+            };
+
         function urlDecode(str) {
             return decodeURIComponent(str.replace(/\+/g, '%20'));
         }
@@ -338,12 +346,22 @@ define(
             $('form.map-filters-search-form').mapsearch()
                 .on('searchstart', function (e) {
                     map.removeUserLayer();
+                    if (nearbyCircle) {
+                        map.removeLayer(nearbyCircle);
+                    }
                 })
                 .on('searchresultfound', function (e, result) {
-                    map.addUserLayer([result.latitude, result.longitude]);
+                    var latlng = [result.latitude, result.longitude];
+                    map.addUserLayer(latlng);
                     $('#map-filters-search-lat').val(result.latitude);
                     $('#map-filters-search-lng').val(result.longitude);
 
+                    if ($('#map-filters-search-nearby').is(':checked')) {
+                        nearbyCircle = L.circle(latlng,
+                            nearbyCircleSize,
+                            nearbyCircleStyle
+                        ).addTo(map);
+                    }
                     updateDisplayedLotsAndLinks(map);
                 });
 
