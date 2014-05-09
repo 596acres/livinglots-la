@@ -3,7 +3,7 @@ import json
 from pint import UnitRegistry
 from random import shuffle
 
-from django.db.models import Count
+from django.db.models import Count, Sum
 from django.http import Http404
 
 from caching.base import cached
@@ -175,12 +175,21 @@ class LotsGeoJSONPolygon(LotGeoJSONMixin, FilteredLotsMixin, GeoJSONListView):
 
 class LotsCountViewWithAcres(LotsCountView):
 
+    def get_acres(self, lots):
+        try:
+            sf = lots.distinct().aggregate(Sum('polygon_area'))['polygon_area__sum']
+            acres = (sf * ureg.feet ** 2).to(ureg.acre).magnitude
+            return int(round(acres, 0))
+        except Exception:
+            return 0
+
     def get_context_data(self, **kwargs):
         lots = self.get_lots().qs
         no_known_use = lots.filter(known_use__isnull=True)
         in_use = lots.filter(known_use__isnull=False, known_use__visible=True)
 
         context = {
+            'lots-acres': self.get_acres(lots.distinct()),
             'lots-count': lots.distinct().count(),
             'friendly-owner-count': lots.filter(owner_opt_in=True).filter(steward_projects=None).distinct().count(),
             'organized-count': lots.exclude(organizers=None).filter(steward_projects=None).distinct().count(),
