@@ -50,6 +50,11 @@ class GetVacantReasons(AsTag):
             if not Building.objects.filter(geom__overlaps=lot.polygon).exists():
                 reasons.append('There are no buildings on it according to '
                                'the county building outlines')
+
+            improvement_value = l.parcel.local_roll.improvement_value
+            if not improvement_value or improvement_value is 0:
+                reasons.append('It has no improvement value according to the '
+                               'LA County Assessor')
         return reasons
 
 
