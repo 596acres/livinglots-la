@@ -1,0 +1,9 @@
+{% load activity_tags %}
+
+<div class="map-scrollover-activities-row">
+    {% for activity in object_list %}
+        <div class="map-scrollover-activity">
+            {% display_action activity %}
+        </div>
+    {% endfor %}
+</div>
