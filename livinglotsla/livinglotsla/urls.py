@@ -39,8 +39,7 @@ urlpatterns += patterns('',
     url('^parcels/', include('ladata.parcels.urls', 'parcels')),
 
     # Activity stream
-    url('^activity/', include('actstream.urls')),
-    url('^activity-stream/', include('inplace_activity_stream.urls')),
+    url('^activity/', include('activities.urls')),
 
     # Django.js
     url(r'^djangojs/', include('djangojs.urls')),

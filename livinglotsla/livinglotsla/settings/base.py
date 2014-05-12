@@ -190,6 +190,7 @@ INSTALLED_APPS = (
     # first-party, project-specific
     #
     'activity_stream',
+    'activities',
     'cms',
     'contact',
     'datasync',
