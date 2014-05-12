@@ -1,6 +1,4 @@
 from hashlib import sha1
-from pint import UnitRegistry
-
 from django.db.models import Q
 
 from django.contrib.gis.geos import Point, Polygon
@@ -13,9 +11,7 @@ from ladata.councildistricts.models import CouncilDistrict
 from ladata.neighborhoodcouncils.models import NeighborhoodCouncil
 
 from .models import Lot
-
-
-ureg = UnitRegistry()
+from .utils import acres_to_square_feet
 
 
 class BoundingBoxFilter(django_filters.Filter):
@@ -88,8 +84,7 @@ class AcreageMaxFilter(django_filters.Filter):
     def filter(self, qs, value):
         if not value:
             return qs
-        max_sq_feet = (float(value) * ureg.acre).to(ureg.feet ** 2)
-        return qs.filter(polygon_area__lte=max_sq_feet.magnitude)
+        return qs.filter(polygon_area__lte=acres_to_square_feet(value))
 
 
 class AcreageMinFilter(django_filters.Filter):
@@ -97,8 +92,7 @@ class AcreageMinFilter(django_filters.Filter):
     def filter(self, qs, value):
         if not value:
             return qs
-        min_sq_feet = (float(value) * ureg.acre).to(ureg.feet ** 2)
-        return qs.filter(polygon_area__gte=min_sq_feet.magnitude)
+        return qs.filter(polygon_area__gte=acres_to_square_feet(value))
 
 
 class NearbyCenterFilter(django_filters.Filter):
