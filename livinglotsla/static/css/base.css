@@ -5116,6 +5116,9 @@ h2.blog-entry-title a {
   max-width: 100%;
   height: auto;
 }
+.photo-list .photo-meta {
+  font-size: 12px;
+}
 .lot-detail-organizers-count {
   color: #8D474D;
 }

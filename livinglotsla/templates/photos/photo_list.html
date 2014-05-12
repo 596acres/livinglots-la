@@ -11,6 +11,15 @@
                 {{ photo.description }}
             </div>
 
+            <div class="photo-meta">
+                <span class="photo-added">
+                    {{ photo.added }}
+                </span> |
+                <span class="photo-added-by-name">
+                    {{ photo.added_by_name }}
+                </span>
+            </div>
+
             {% if "photos" in perms %}
                 <div class="admin-only">
 
