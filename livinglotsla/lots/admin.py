@@ -6,6 +6,7 @@ from .models import Lot
 
 
 class LotAdmin(BaseLotAdmin):
+    list_display = ('pk', 'address_line1', 'city', 'name', 'known_use',)
     fieldsets = BaseLotAdmin.fieldsets + (
         ('Ownership', {
             'fields': ('owner',),
