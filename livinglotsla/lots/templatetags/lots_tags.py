@@ -39,8 +39,8 @@ class GetVacantReasons(AsTag):
             if l.friendly_owner:
                 reasons.append('The owner opted to add it to our map')
             if l.parcel.is_coded_vacant:
-                reasons.append('Its use code is vacant according to the LA County '
-                            'Assessor')
+                reasons.append('Its use code is vacant according to the LA '
+                               'County Assessor')
             if l.parcel.sidelot_set.count() > 0:
                 reasons.append("It is in the city's sidelot data")
             if l.parcel.transmissionline_set.count() > 0:
