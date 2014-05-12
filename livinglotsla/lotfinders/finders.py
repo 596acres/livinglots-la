@@ -36,6 +36,10 @@ class VacantParcelFinder(object):
             elif ProtectedArea.objects.filter(geom__overlaps=parcel.geom).exists():
                 # Ensure parcel is not in a protected area
                 self.reject_parcel(parcel, 'in a protected area')
+            elif (parcel.local_roll and parcel.local_roll.improvement_value and
+                  parcel.local_roll.improvement_value > 0):
+                # Ensure parcel doesn't have an improvement value
+                self.reject_parcel(parcel, 'non-zero improvement value')
             else:
                 self.accept_parcel(parcel, 'use code vacant')
 
