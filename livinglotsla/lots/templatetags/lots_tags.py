@@ -64,7 +64,7 @@ class GetVacantReasons(AsTag):
                     It has no improvement value according to the
                     <a href="%s" target="_blank">LA County Assessor</a>
                 """ % local_roll_url)
-        return reasons
+        return list(set(reasons))
 
 
 register.tag(GetSpecialCategories)
