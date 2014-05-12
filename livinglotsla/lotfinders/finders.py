@@ -31,7 +31,6 @@ class VacantParcelFinder(object):
     def find_lots(self, batch_size=1000):
         for parcel in self.find_parcels(count=batch_size):
             if Building.objects.filter(geom__overlaps=parcel.geom).exists():
-                # PRE: 28088
                 # Ensure parcel has no buildings on it
                 self.reject_parcel(parcel, 'contains buildings')
             elif ProtectedArea.objects.filter(geom__overlaps=parcel.geom).exists():
