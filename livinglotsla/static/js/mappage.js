@@ -28,7 +28,8 @@ define(
         'select2',
 
         'map.search',
-        'modalform'
+        'modalform',
+        'scrollover'
     ], function (Django, $, Handlebars, _, L, Spinner, singleminded, friendlyowners) {
 
         var sizeMin = 0,
