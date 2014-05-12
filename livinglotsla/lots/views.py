@@ -1,6 +1,5 @@
 import geojson
 import json
-from pint import UnitRegistry
 from random import shuffle
 
 from django.db.models import Count, Sum
@@ -19,9 +18,7 @@ from livinglots_lots.views import LotsGeoJSON as BaseLotsGeoJSON
 from ladata.parcels.models import Parcel
 
 from .models import Lot
-
-
-ureg = UnitRegistry()
+from .utils import square_feet_to_acres
 
 
 class LotDetailJSON(JSONResponseView):
@@ -178,8 +175,7 @@ class LotsCountViewWithAcres(LotsCountView):
     def get_acres(self, lots):
         try:
             sf = lots.distinct().aggregate(Sum('polygon_area'))['polygon_area__sum']
-            acres = (sf * ureg.feet ** 2).to(ureg.acre).magnitude
-            return int(round(acres, 0))
+            return int(round(square_feet_to_acres(sf), 0))
         except Exception:
             return 0
 
