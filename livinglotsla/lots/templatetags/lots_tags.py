@@ -3,6 +3,8 @@ from classytags.arguments import Argument
 from classytags.helpers import AsTag
 from django import template
 
+from ladata.buildings.models import Building
+
 
 register = template.Library()
 
@@ -45,6 +47,9 @@ class GetVacantReasons(AsTag):
                 reasons.append('It is under a transmission line')
             if l.parcel.weedabatement_set.count() > 0:
                 reasons.append('It is marked for weed abatement')
+            if not Building.objects.filter(geom__overlaps=lot.polygon).exists():
+                reasons.append('There are no buildings on it according to '
+                               'the county building outlines')
         return reasons
 
 
