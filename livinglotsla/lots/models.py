@@ -1,5 +1,3 @@
-from pint import UnitRegistry
-
 from django.conf import settings
 from django.contrib.contenttypes import generic
 from django.db import models
@@ -15,8 +13,7 @@ from livinglots_lots.models import (BaseLot, BaseLotGroup, BaseLotLayer,
 
 from organize.models import Organizer
 
-
-ureg = UnitRegistry()
+from .utils import square_feet_to_acres
 
 
 class LotManager(BaseLotManager):
@@ -62,8 +59,7 @@ class LotMixin(models.Model):
     area = property(_area)
 
     def _area_acres(self):
-        area = self.area * (ureg.feet ** 2)
-        return area.to(ureg.acre).magnitude
+        return square_feet_to_acres(self.area)
 
     area_acres = property(_area_acres)
 
