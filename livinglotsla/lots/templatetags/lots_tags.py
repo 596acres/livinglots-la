@@ -48,8 +48,12 @@ class GetVacantReasons(AsTag):
             if l.parcel.weedabatement_set.count() > 0:
                 reasons.append('It is marked for weed abatement')
             if not Building.objects.filter(geom__overlaps=lot.polygon).exists():
-                reasons.append('There are no buildings on it according to '
-                               'the county building outlines')
+                url = 'http://egis3.lacounty.gov/dataportal/2011/04/28/countywide-building-outlines/'
+                reason = """
+                    There are no buildings on it according to the
+                    <a target="_blank" href="%s">county building outlines</a>
+                """ % url
+                reasons.append(reason)
 
             improvement_value = l.parcel.local_roll.improvement_value
             if not improvement_value or improvement_value is 0:
