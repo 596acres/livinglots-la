@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<div>
+<div class="lot-detail-owner" title="{{ lot.parcel.ain }}">
     <div>
         {% if lot.owner.owner_type == "public" %}
             {% trans "publicly owned" %}

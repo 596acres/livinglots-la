@@ -5161,6 +5161,12 @@ h2.blog-entry-title a {
   height: 23px;
   width: 13px;
 }
+.lot-detail-ownership.lot-group .lot-detail-owner {
+  margin-top: 10px;
+}
+.lot-detail-ownership.lot-group .lot-detail-owner:first-child {
+  margin-top: 0;
+}
 .lot-detail-special {
   margin-top: 25px;
 }
@@ -5176,6 +5182,9 @@ h2.blog-entry-title a {
 .lot-detail-reasons ul {
   list-style: disc outside;
   padding-left: 25px;
+}
+.lot-detail-address {
+  margin-top: 10px;
 }
 .lot-detail-admin {
   margin-top: 25px;

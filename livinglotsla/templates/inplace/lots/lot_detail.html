@@ -220,24 +220,27 @@
                         </div>
                     {% endif %}
 
-                    {% for l in lot.lots %}
-                        {% if l.parcel %}
-                            <div>
-                                AIN {{ l.parcel.ain }}
+                    <div class="lot-detail-addresses {% if lot.number_of_lots > 1 %} lot-group {% endif %}">
+                        {% for l in lot.lots %}
+                            <div class="lot-detail-address">
+                                {% if l.parcel %}
+                                    <div>
+                                        AIN {{ l.parcel.ain }}
+                                    </div>
+                                {% endif %}
+
+                                <div>
+                                    {% if l.address_line1 %}
+                                        {{ l.address_line1|title }}<br />
+                                    {% endif %}
+                                    {% if l.city %}
+                                        {{ l.city|title }}, {{ l.state_province|default:"CA" }}
+                                    {% endif %}
+                                    {{ l.postal_code|default:"" }}
+                                </div>
                             </div>
-                        {% endif %}
-
-                        <div>
-                            {% if l.address_line1 %}
-                                {{ l.address_line1|title }}<br />
-                            {% endif %}
-                            {% if l.city %}
-                                {{ l.city|title }}, {{ l.state_province|default:"CA" }}
-                            {% endif %}
-                            {{ l.postal_code|default:"" }}
-                        </div>
-                    {% endfor %}
-
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </section>
@@ -251,9 +254,16 @@
                         {{ lot.area_acres|floatformat:"2"|default:"unknown" }} acres
                     </li>
                     <li>
-                        {% trans "Use code" %}:
+                        {% if lot.number_of_lots <= 1 %}
+                            {% trans "Use code" %}:
+                        {% else %}
+                            {% trans "Use codes" %}:
+                        {% endif %}
+
                         {% for l in lot.lots %}
-                            {{ l.parcel.local_roll.use_cde }}
+                            <span title="{{ l.parcel.ain }}">
+                                {{ l.parcel.local_roll.use_cde }}
+                            </span>
                         {% endfor %}
                     </li>
 
@@ -304,7 +314,7 @@
             </div>
         </section>
 
-        <section class="lot-detail-ownership">
+        <section class="lot-detail-ownership {% if lot.number_of_lots > 1 %}lot-group{% endif %}">
             <div class="lot-detail-icon"></div>
             <div class="lot-detail-content">
                 {% for l in lot.lots %}
