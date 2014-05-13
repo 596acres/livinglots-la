@@ -72,9 +72,43 @@ class LivingLotsDashboard(Dashboard):
             ]
         ))
 
+        self.children.append(modules.Group(
+            title=_('Advanced'),
+            display='accordion',
+            children=[
+                modules.ModelList(
+                    title='Activities',
+                    models=(
+                        'actstream.*',
+                    )
+                ),
+                modules.ModelList(
+                    title='Data',
+                    models=(
+                        'datasync.*',
+                    )
+                ),
+                modules.ModelList(
+                    title='Mailings',
+                    models=(
+                        'livinglots_mailings.*',
+                        'mailings.*',
+                    )
+                ),
+                modules.ModelList(
+                    title='RSS',
+                    models=(
+                        'rsssync.*',
+                    )
+                ),
+            ]
+        ))
+
         self.children.append(modules.AppList(
-            title=_('Other Applications'),
+            title=_('Everything else'),
             exclude=(
+                'actstream.*',
+                'datasync.*',
                 'django.contrib.*',
                 'django_monitor.*',
                 'elephantblog.*',
@@ -83,12 +117,15 @@ class LivingLotsDashboard(Dashboard):
                 'friendlyowners.*',
                 'groundtruth.*',
                 'livinglots_lots.*',
+                'livinglots_mailings.*',
                 'livinglots_organize.*',
                 'livinglots_usercontent.*',
+                'mailings.*',
                 'lots.*',
                 'organize.*',
                 'owners.*',
                 'pathways.*',
+                'rsssync.*',
                 'steward.*',
             ),
         ))
