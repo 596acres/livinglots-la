@@ -32,18 +32,44 @@ class LivingLotsDashboard(Dashboard):
             ),
         ))
 
-        self.children.append(modules.ModelList(
+        self.children.append(modules.Group(
             title=_('Lot Content'),
-            models=(
-                'livinglots_usercontent.*',
-                'organize.*',
-                'livinglots_organize.*',
-                'owners.*',
-                'groundtruth.*',
-                'steward.*',
-                'friendlyowners.*',
-                'livinglots_lots.*',
-            ),
+            display='accordion',
+            children=[
+                modules.ModelList(
+                    title='Lot info',
+                    models=(
+                        'livinglots_lots.*',
+                    )
+                ),
+                modules.ModelList(
+                    title='User-generated',
+                    models=(
+                        'livinglots_usercontent.*',
+                    )
+                ),
+                modules.ModelList(
+                    title='Organizing',
+                    models=(
+                        'organize.*',
+                        'livinglots_organize.*',
+                    )
+                ),
+                modules.ModelList(
+                    title='Owners',
+                    models=(
+                        'owners.*',
+                        'friendlyowners.*',
+                    )
+                ),
+                modules.ModelList(
+                    title='Corrections and projects',
+                    models=(
+                        'groundtruth.*',
+                        'steward.*',
+                    )
+                ),
+            ]
         ))
 
         self.children.append(modules.AppList(
