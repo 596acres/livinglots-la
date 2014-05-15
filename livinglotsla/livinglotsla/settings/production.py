@@ -40,20 +40,20 @@ SERVER_EMAIL = get_env_variable('SERVER_EMAIL')
 #
 # Caching
 #
-INSTALLED_APPS = (
-    'cacheops',
-) + INSTALLED_APPS
-CACHEOPS_REDIS = {
-    'host': 'localhost',
-    'port': get_env_variable('REDIS_PORT'),
-    'db': 1,
-    'socket_timeout': 3,
-}
-CACHEOPS = {
-    'django_monitor.*': ('just_enable', 60 * 1),
-    '*.*': ('all', 60 * 60),
-}
-CACHEOPS_DEGRADE_ON_FAILURE = True
+#INSTALLED_APPS = (
+    #'cacheops',
+#) + INSTALLED_APPS
+#CACHEOPS_REDIS = {
+    #'host': 'localhost',
+    #'port': get_env_variable('REDIS_PORT'),
+    #'db': 1,
+    #'socket_timeout': 3,
+#}
+#CACHEOPS = {
+    #'django_monitor.*': ('just_enable', 60 * 1),
+    #'*.*': ('all', 60 * 60),
+#}
+#CACHEOPS_DEGRADE_ON_FAILURE = True
 
 
 #
