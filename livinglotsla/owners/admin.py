@@ -15,6 +15,7 @@ class OwnerAdmin(BaseOwnerAdmin):
 
 class OwnerContactAdminForm(forms.ModelForm):
     owner = ModelChoiceField(
+        help_text='Start typing an owner name to pick an owner',
         queryset=Owner.objects.all(),
         widget=ChoiceWidget('OwnerAutocomplete'),
     )
