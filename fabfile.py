@@ -48,7 +48,7 @@ def workon(version):
 @task
 def pull(version='prod'):
     with cdversion(version):
-        run('git pull')
+        run('git pull --no-edit')
 
 
 @task
