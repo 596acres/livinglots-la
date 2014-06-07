@@ -187,7 +187,7 @@ define(
             if (type !== 'communityplanareas') {
                 $('.map-filters-communityplanareas.select2-container').select2('val', '');
             }
-            if (type !== 'councildistrict') {
+            if (type !== 'councildistricts') {
                 $('.map-filters-councildistricts.select2-container').select2('val', '');
             }
             if (type !== 'neighborhoodcouncils') {
