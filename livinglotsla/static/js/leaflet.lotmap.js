@@ -99,8 +99,9 @@ define(
                     color: '#58595b',
                     fill: true,
                     fillColor: '#d0d0d0',
-                    fillOpacity: 0.9,
-                    invert: true
+                    fillOpacity: 0.7,
+                    invert: true,
+                    weight: 1
                 }).addTo(this);
 
                 this.on('zoomend', function () {
