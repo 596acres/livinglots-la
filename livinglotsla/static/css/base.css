@@ -4399,7 +4399,7 @@ h2.blog-entry-title a {
   padding-left: 15px;
   padding-right: 20px;
   padding-top: 5px;
-  z-index: 3500;
+  z-index: 4980;
 }
 @media (min-width: 768px) {
   #map-sidebar-parent {
@@ -4792,7 +4792,7 @@ h2.blog-entry-title a {
   padding-right: 15px;
   position: absolute;
   bottom: 0;
-  z-index: 4999;
+  z-index: 4970;
 }
 @media (min-width: 992px) {
   .map-download-wrapper {
@@ -4873,7 +4873,7 @@ h2.blog-entry-title a {
   background: white;
   border-top: 1px solid #aaaaaa;
   position: absolute;
-  z-index: 3900;
+  z-index: 4990;
   margin-top: 1127px;
   padding-bottom: 1000px;
   width: 100%;

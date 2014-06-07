@@ -1,4 +1,7 @@
 @map-overlay-background: rgba(256, 256, 256, .8);
+@scrollover-z: (@frame-z - 10);
+@sidebar-z: (@scrollover-z - 10);
+@downloads-z: (@sidebar-z - 10);
 
 .map-page #map {
     width: 100%;
@@ -31,7 +34,7 @@
     padding-left: 15px;
     padding-right: 20px;
     padding-top: 5px;
-    z-index: 3500;
+    z-index: @sidebar-z;
     &.expanded {
         height: 100%;
         padding-bottom: 25px;
@@ -384,7 +387,7 @@
     .hidden-xs();
     position: absolute;
     bottom: 0;
-    z-index: 4999;
+    z-index: @downloads-z;
 }
 
 #map-download {
@@ -454,7 +457,7 @@
     background: white;
     border-top: @frame-border;
     position: absolute;
-    z-index: 3900;
+    z-index: @scrollover-z;
     margin-top: 1127px;
     padding-bottom: 1000px;
     width: 100%;

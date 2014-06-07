@@ -44,7 +44,7 @@ header#page-header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 5000;
+    z-index: @frame-z;
 
     @media (max-width: @screen-xs-max) {
         height: @header-height-xs;
@@ -219,7 +219,7 @@ footer {
     bottom: 0;
     position: fixed;
     width: 100%;
-    z-index: 5000;
+    z-index: @frame-z;
 
     .row {
         margin: 0;
