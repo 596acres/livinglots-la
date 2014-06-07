@@ -49,7 +49,7 @@
 
                         <article>
                             {% block content %}
-                                <h1>{{ feincms_page.title }}</h1>
+                                <h1 class="sr-only">{{ feincms_page.title }}</h1>
                                 {% feincms_render_region feincms_page "main" request %}
                             {% endblock %}
                         </article>

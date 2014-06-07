@@ -4250,6 +4250,9 @@ footer .row {
     margin-left: 8.333333333333332%;
   }
 }
+#main article {
+  margin-top: 50px;
+}
 .header-home-link {
   text-align: center;
 }
