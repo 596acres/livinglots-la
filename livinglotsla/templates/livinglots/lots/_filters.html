@@ -87,64 +87,56 @@
         </section>
         <section class="map-filters">
             <h3 class="map-filters-expander">{% trans "boundaries" %}</h3>
-            <div class="map-filters-content">
+            <div class="map-filters-content" id="map-filters-boundaries">
                 <section class="map-filters map-filters-grouped">
-                    <h4 class="map-filters-expander">{% trans "council district" %}</h4>
-                    <div class="map-filters-content">
-                        <select class="map-filters-councildistricts" data-type="councildistricts">
-                            <option value="">Council District</option>
-                            {% get_council_districts as councildistricts %}
-                            {% for councildistrict in councildistricts %}
-                                <option value="{{ councildistrict.label }}">
-                                    {{ councildistrict.label }} 
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
+                    <h4>{% trans "council district" %}</h4>
+                    <select class="map-filters-councildistricts" data-type="councildistricts">
+                        <option value="">Council District</option>
+                        {% get_council_districts as councildistricts %}
+                        {% for councildistrict in councildistricts %}
+                            <option value="{{ councildistrict.label }}">
+                                {{ councildistrict.label }} 
+                            </option>
+                        {% endfor %}
+                    </select>
                 </section>
                 <section class="map-filters map-filters-grouped">
-                    <h4 class="map-filters-expander">{% trans "neighborhood council area" %}</h4>
-                    <div class="map-filters-content">
-                        <select class="map-filters-neighborhoodcouncils" data-type="neighborhoodcouncils">
-                            <option value="">Neighborhood Council Area</option>
-                            {% get_neighborhood_councils as neighborhoodcouncils %}
-                            {% for neighborhoodcouncil in neighborhoodcouncils %}
-                                <option value="{{ neighborhoodcouncil.label }}">
-                                    {{ neighborhoodcouncil.label }} 
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
+                    <h4>{% trans "neighborhood council area" %}</h4>
+                    <select class="map-filters-neighborhoodcouncils" data-type="neighborhoodcouncils">
+                        <option value="">Neighborhood Council Area</option>
+                        {% get_neighborhood_councils as neighborhoodcouncils %}
+                        {% for neighborhoodcouncil in neighborhoodcouncils %}
+                            <option value="{{ neighborhoodcouncil.label }}">
+                                {{ neighborhoodcouncil.label }} 
+                            </option>
+                        {% endfor %}
+                    </select>
                 </section>
                 <section class="map-filters map-filters-grouped">
-                    <h4 class="map-filters-expander">{% trans "community plan area" %}</h4>
-                    <div class="map-filters-content">
-                        <select class="map-filters-communityplanareas" data-type="communityplanareas">
-                            <option value="">Community Plan Area</option>
-                            {% get_community_plan_areas as communityplanareas %}
-                            {% for communityplanarea in communityplanareas %}
-                                <option value="{{ communityplanarea.label }}">
-                                    {{ communityplanarea.label }} 
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
+                    <h4>{% trans "community plan area" %}</h4>
+                    <select class="map-filters-communityplanareas" data-type="communityplanareas">
+                        <option value="">Community Plan Area</option>
+                        {% get_community_plan_areas as communityplanareas %}
+                        {% for communityplanarea in communityplanareas %}
+                            <option value="{{ communityplanarea.label }}">
+                                {{ communityplanarea.label }} 
+                            </option>
+                        {% endfor %}
+                    </select>
                 </section>
                 <section class="map-filters map-filters-grouped">
-                    <h4 class="map-filters-expander">{% trans "zoning code" %}</h4>
-                    <div class="map-filters-content">
-                        <select class="filter map-filters-zoneclasses">
-                            <option value="">Zoning Code</option>
-                            {% get_zoning_classes as zone_classes %}
-                            {% for group, classes in zone_classes.items %}
-                                <optgroup label="{{ group }}">
-                                    {% for class in classes %}
-                                        <option>{{ class }}</option>
-                                    {% endfor %}
-                                </optgroup>
-                            {% endfor %}
-                        </select>
-                    </div>
+                    <h4>{% trans "zoning code" %}</h4>
+                    <select class="filter map-filters-zoneclasses">
+                        <option value="">Zoning Code</option>
+                        {% get_zoning_classes as zone_classes %}
+                        {% for group, classes in zone_classes.items %}
+                            <optgroup label="{{ group }}">
+                                {% for class in classes %}
+                                    <option>{{ class }}</option>
+                                {% endfor %}
+                            </optgroup>
+                        {% endfor %}
+                    </select>
                 </section>
             </div>
         </section>

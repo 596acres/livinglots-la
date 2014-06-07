@@ -4437,6 +4437,10 @@ h2.blog-entry-title a {
   opacity: 0.6;
   filter: alpha(opacity = 60);
 }
+#map-sidebar-parent #map-filters-boundaries h4 {
+  margin-left: 15px;
+  text-transform: capitalize;
+}
 .map-filters-wrapper {
   margin-left: 0;
   margin-right: 0;
