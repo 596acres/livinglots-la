@@ -77,7 +77,7 @@ define(
                 params.community_plan_area = communityPlanAreas;
             }
 
-            var councilDistrict = $('.map-filters-councildistricts').data('selected');
+            var councilDistrict = $('.map-filters-councildistricts:input').val();
             if (councilDistrict && councilDistrict !== '') {
                 params.council_district = councilDistrict;
             }
@@ -188,7 +188,7 @@ define(
                 $('.map-filters-communityplanareas.select2-container').select2('val', '');
             }
             if (type !== 'councildistrict') {
-                $('.map-filters-councildistricts').removeData('selected');
+                $('.map-filters-councildistricts.select2-container').select2('val', '');
             }
             if (type !== 'neighborhoodcouncils') {
                 $('.map-filters-neighborhoodcouncils.select2-container').select2('val', '');
@@ -232,10 +232,9 @@ define(
 
             // Council District
             if (params.council_district) {
-                var councilDistrict = urlDecode(params.council_district);
-                $('.map-filters-councildistricts').data('selected', councilDistrict);
-                updateBoundary(map, 'councildistrict_details_geojson',
-                               councilDistrict,
+                var label = urlDecode(params.council_district);
+                $('.map-filters-councildistricts').select2('val', label);
+                updateBoundary(map, 'councildistrict_details_geojson', label,
                                $('.map-filters-councildistricts').data('type'));
             }
 
@@ -405,12 +404,10 @@ define(
                 $('#map-sidebar-parent').perfectScrollbar('update');
             });
 
-            $('.map-filters-councildistrict').click(function () {
-                var label = $(this).data('label');
-                updateBoundary(map, 'councildistrict_details_geojson', label,
-                               $(this).data('type'));
-                $('.map-filters-councildistricts').data('selected', label);
-                return false;
+            $('.map-filters-councildistricts').select2();
+            $('.map-filters-councildistricts').change(function () {
+                updateBoundary(map, 'councildistrict_details_geojson',
+                               $(this).val(), $(this).data('type'));
             });
 
             $('.map-filters-communityplanareas').select2();

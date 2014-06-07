@@ -91,16 +91,15 @@
                 <section class="map-filters map-filters-grouped">
                     <h4 class="map-filters-expander">{% trans "council district" %}</h4>
                     <div class="map-filters-content">
-                        <div class="map-filters-councildistricts">
+                        <select class="map-filters-councildistricts" data-type="councildistricts">
+                            <option value="">Pick one</option>
                             {% get_council_districts as councildistricts %}
                             {% for councildistrict in councildistricts %}
-                            
-                                <a href="#" class="map-filters-councildistrict pull-left" data-label="{{ councildistrict.label }}" data-type="councildistricts">
+                                <option value="{{ councildistrict.label }}">
                                     {{ councildistrict.label }} 
-                                </a>
+                                </option>
                             {% endfor %}
-                            <div class="clearfix"></div>
-                        </div>
+                        </select>
                     </div>
                 </section>
                 <section class="map-filters map-filters-grouped">
