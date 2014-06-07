@@ -115,7 +115,7 @@ define(
                 mainContentHeight = windowHeight - otherHeight,
                 handleHeight = $('#map-scrollover-handle').outerHeight(),
                 scrolloverTop = headerHeight + mainContentHeight - handleHeight,
-                scrolloverBottom = mainContentHeight;
+                scrolloverBottom = mainContentHeight / 4.0;
             $('#map').height(mainContentHeight);
             $('#map-scrollover').css({
                 'margin-top': scrolloverTop,
