@@ -87,7 +87,10 @@
             {% get_organizer_count for lot as organizer_count %}
             <h2>
                 {% trans "build community" %}: 
-                <span class="lot-detail-organizers-count">{{ organizer_count }}</span>
+                <span class="lot-detail-organizers-count 
+                    lot-detail-organizers-count-{{ lot.owner.owner_type|default:"unknown" }} {% if lot.known_use %} 
+                    lot-detail-organizers-count-in-use{% endif %}"
+                >{{ organizer_count }}</span>
                 {% blocktrans count counter=organizer_count %}
                     organizer and counting!
                 {% plural %}

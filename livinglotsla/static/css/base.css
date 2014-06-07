@@ -5134,8 +5134,14 @@ h2.blog-entry-title a {
 .photo-list .photo-meta {
   font-size: 12px;
 }
-.lot-detail-organizers-count {
-  color: #8D474D;
+.lot-detail-organizers-count-private {
+  color: #cc99cc;
+}
+.lot-detail-organizers-count-public {
+  color: #990000;
+}
+.lot-detail-organizers-count-in-use {
+  color: #999933;
 }
 .lot-detail-organizers .organizer-list {
   font-size: 18px;

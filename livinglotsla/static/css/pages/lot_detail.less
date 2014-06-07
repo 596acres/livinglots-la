@@ -103,8 +103,16 @@
 }
 
 .lot-detail-organizers {
-    &-count {
-        color: #8D474D;
+    &-count-private {
+       color: @private-color;
+    }
+
+    &-count-public {
+       color: @public-color;
+    }
+
+    &-count-in-use {
+        color: @in-use-color;
     }
 
     .organizer-list {
