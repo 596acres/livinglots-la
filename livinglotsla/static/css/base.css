@@ -4979,8 +4979,13 @@ h2.blog-entry-title a {
   text-transform: uppercase;
 }
 #map-totals {
+  color: #777;
   margin-bottom: 5px;
   margin-top: 5px;
+}
+#map-totals #lots-count,
+#map-totals #lots-acres {
+  color: black;
 }
 #lot-detail-map {
   width: 100%;
