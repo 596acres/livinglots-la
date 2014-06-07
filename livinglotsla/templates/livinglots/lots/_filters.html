@@ -92,7 +92,7 @@
                     <h4 class="map-filters-expander">{% trans "council district" %}</h4>
                     <div class="map-filters-content">
                         <select class="map-filters-councildistricts" data-type="councildistricts">
-                            <option value="">Pick one</option>
+                            <option value="">Council District</option>
                             {% get_council_districts as councildistricts %}
                             {% for councildistrict in councildistricts %}
                                 <option value="{{ councildistrict.label }}">
@@ -106,7 +106,7 @@
                     <h4 class="map-filters-expander">{% trans "neighborhood council area" %}</h4>
                     <div class="map-filters-content">
                         <select class="map-filters-neighborhoodcouncils" data-type="neighborhoodcouncils">
-                            <option value="">Pick one</option>
+                            <option value="">Neighborhood Council Area</option>
                             {% get_neighborhood_councils as neighborhoodcouncils %}
                             {% for neighborhoodcouncil in neighborhoodcouncils %}
                                 <option value="{{ neighborhoodcouncil.label }}">
@@ -120,7 +120,7 @@
                     <h4 class="map-filters-expander">{% trans "community plan area" %}</h4>
                     <div class="map-filters-content">
                         <select class="map-filters-communityplanareas" data-type="communityplanareas">
-                            <option value="">Pick one</option>
+                            <option value="">Community Plan Area</option>
                             {% get_community_plan_areas as communityplanareas %}
                             {% for communityplanarea in communityplanareas %}
                                 <option value="{{ communityplanarea.label }}">
@@ -134,7 +134,7 @@
                     <h4 class="map-filters-expander">{% trans "zoning code" %}</h4>
                     <div class="map-filters-content">
                         <select class="filter map-filters-zoneclasses">
-                            <option value="">Pick one</option>
+                            <option value="">Zoning Code</option>
                             {% get_zoning_classes as zone_classes %}
                             {% for group, classes in zone_classes.items %}
                                 <optgroup label="{{ group }}">
