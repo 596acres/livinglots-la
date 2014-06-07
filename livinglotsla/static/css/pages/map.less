@@ -463,6 +463,8 @@
 #map-scrollover {
     background: white;
     border-top: @frame-border;
+    font-family: @header-font-family;
+    font-size: 18px;
     position: absolute;
     z-index: @scrollover-z;
     margin-top: 1127px;
@@ -470,6 +472,10 @@
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+
+    h2 {
+        font-size: 24px;
+    }
 
     &-handle {
         cursor: pointer;

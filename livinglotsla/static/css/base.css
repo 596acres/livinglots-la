@@ -4882,6 +4882,8 @@ h2.blog-entry-title a {
 #map-scrollover {
   background: white;
   border-top: 1px solid #aaaaaa;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 18px;
   position: absolute;
   z-index: 4990;
   margin-top: 1127px;
@@ -4889,6 +4891,9 @@ h2.blog-entry-title a {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+}
+#map-scrollover h2 {
+  font-size: 24px;
 }
 #map-scrollover-handle {
   cursor: pointer;
