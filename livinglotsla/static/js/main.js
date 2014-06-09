@@ -7,12 +7,13 @@
 define(
     [
         'jquery',
+        'underscore',
 
         'bootstrap'
-    ], function ($) {
+    ], function ($, _) {
 
         /*
-         * Global form-related scripts
+         * Global scripts
          */
         $(document).ready(function () {
             /*
@@ -54,11 +55,20 @@ define(
             }
 
             /*
-             * If the navbar isn't fitting, squeeze it a bit.
+             * If the navbar isn't fitting, squeeze it a bit. If it has room,
+             * attempt to center it.
              */
             var $navbar = $('.navbar-default');
             if ($navbar[0].scrollHeight > $navbar.innerHeight()) {
                 $navbar.addClass('overflowing');
+            }
+            else {
+                var width = _.reduce(
+                    $navbar.find('li'),
+                    function (memo, e) { return memo + $(e).outerWidth(); },
+                    0
+                );
+                $('.navbar-nav').outerWidth(width);
             }
 
         });
