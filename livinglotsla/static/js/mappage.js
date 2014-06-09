@@ -481,6 +481,13 @@ define(
                 1500
             );
 
+            if (window.location.hash.indexOf('add-your-parcel') > 0) {
+                $('#friendlyowner-modal').modal({
+                    show: true,
+                    remote: $('.friendly-owner-share').attr('href')
+                });
+            }
+
         });
 
     }
