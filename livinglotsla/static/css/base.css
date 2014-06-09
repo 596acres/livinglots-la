@@ -4446,9 +4446,13 @@ h2.blog-entry-title a {
   opacity: 0.6;
   filter: alpha(opacity = 60);
 }
-#map-sidebar-parent #map-filters-boundaries h4 {
+#map-sidebar-parent #map-filters-boundaries h4,
+#map-sidebar-parent #map-filters-search h4 {
   margin-left: 15px;
   text-transform: capitalize;
+}
+#map-sidebar-parent #map-filters-zoning {
+  border-top: 0;
 }
 .map-filters-wrapper {
   margin-left: 0;

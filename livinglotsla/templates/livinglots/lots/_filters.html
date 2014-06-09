@@ -59,7 +59,7 @@
                 </ul>
             </div>
         </section>
-        <section class="map-filters expanded">
+        <section class="map-filters expanded" id="map-filters-search">
             <h3 class="map-filters-expander">{% trans "search" %}</h3>
             <div class="map-filters-content">
                 <form class="map-filters-search-form" data-bounds="[-117.5359,33.5391,-118.8872,34.5733]" data-city="Los Angeles" data-state="CA" data-error-message="{% trans "Could not find your location. Try again?" %}" data-warning-selector=".map-filters-search.warning">
@@ -72,6 +72,20 @@
                         <label for="map-filters-search-nearby">{% trans "Show only lots within 1/2 mile" %}</label>
                     </div>
                 </form>
+                <section class="map-filters" id="map-filters-zoning">
+                    <h4>{% trans "zoning code" %}</h4>
+                    <select class="filter map-filters-zoneclasses">
+                        <option value="">Zoning Code</option>
+                        {% get_zoning_classes as zone_classes %}
+                        {% for group, classes in zone_classes.items %}
+                            <optgroup label="{{ group }}">
+                                {% for class in classes %}
+                                    <option>{{ class }}</option>
+                                {% endfor %}
+                            </optgroup>
+                        {% endfor %}
+                    </select>
+                </section>
             </div>
         </section>
         <section class="map-filters expanded">
@@ -121,20 +135,6 @@
                             <option value="{{ communityplanarea.label }}">
                                 {{ communityplanarea.label }} 
                             </option>
-                        {% endfor %}
-                    </select>
-                </section>
-                <section class="map-filters map-filters-grouped">
-                    <h4>{% trans "zoning code" %}</h4>
-                    <select class="filter map-filters-zoneclasses">
-                        <option value="">Zoning Code</option>
-                        {% get_zoning_classes as zone_classes %}
-                        {% for group, classes in zone_classes.items %}
-                            <optgroup label="{{ group }}">
-                                {% for class in classes %}
-                                    <option>{{ class }}</option>
-                                {% endfor %}
-                            </optgroup>
                         {% endfor %}
                     </select>
                 </section>
