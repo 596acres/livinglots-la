@@ -6,15 +6,13 @@ ADMINS = (
     ('Eric', 'eric@596acres.org'),
 )
 
-# TODO Fill with appropriate managers
 MANAGERS = (
-    ('', 'manager@example.com'),
+    ('', 'hello@laopenacres.org'),
 )
 
-# TODO Fill with appropriate facilitators
 FACILITATORS = {
     'global': [
-        'eric@596acres.org',
+        'hello@laopenacres.org',
     ],
 }
 
