@@ -16,7 +16,8 @@ define(
         'map.tiles'
     ], function ($, Handlebars, L, StreetView, Django) {
 
-        var parcelsLayer,
+        var map,
+            parcelsLayer,
             selectedParcel;
 
         var parcelDefaultStyle = {
@@ -92,16 +93,26 @@ define(
             map.addLayer(parcelsLayer);
         }
 
+        function setView(latlng) {
+            if (map) {
+                map.setView(latlng, 18);
+            }
+        }
+
         return {
+
             onload: function (latlng) {
                 var mapId = 'friendlyowner-parcel-map';
                 if ($('#' + mapId).length === 0) return;
-                var map = L.map(mapId);
-                map.setView(latlng, 18);
+                map = L.map(mapId);
+                setView(latlng);
                 map.addTileLayer({ minZoom: 16 });
                 map.addTiledPolygonLotLayer({}, {}, true);
                 addParcelsLayer(map);
-            }
+            },
+
+            setView: setView
+
         }
 
     }

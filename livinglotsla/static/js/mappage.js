@@ -448,14 +448,18 @@ define(
 
             // Prepare all of the modals, which will have forms
             $('#friendlyowner-modal').each(function () {
-                $(this).on('loaded.bs.modal', function () {
-                    friendlyowners.onload(map.getCenter());
-                    $(this).modalForm({
-                        onSuccess: function () {
-                            friendlyowners.onload(map.getCenter());
-                        }                
+                $(this)
+                    .on('shown.bs.modal', function () {
+                        friendlyowners.setView(map.getCenter());
+                    })
+                    .on('loaded.bs.modal', function () {
+                        friendlyowners.onload(map.getCenter());
+                        $(this).modalForm({
+                            onSuccess: function () {
+                                friendlyowners.onload(map.getCenter());
+                            }                
+                        });
                     });
-                });
             });
 
             $('#map-scrollover-handle').click(function () {
