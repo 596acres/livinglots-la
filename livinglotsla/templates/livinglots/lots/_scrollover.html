@@ -19,10 +19,23 @@
         <a href="/blog/" target="_blank">Recent Posts</a>
     </h2>
 
-    <div>
-        {% get_latest_entries for "LA Open Acres" 4 as entries %}
-        {% for entry in entries %}
-            {% include "livinglots/lots/_scrollover_entry.html" with entry=entry %}
-        {% endfor %}
+    <div class="map-scrollover-blog-entry-row">
+        {% get_latest_entries for "LA Open Acres" 8 as entries %}
+        <div class="map-scrollover-blog-entry-column">
+            {% include "livinglots/lots/_scrollover_entry.html" with entry=entries.0 %}
+            {% include "livinglots/lots/_scrollover_entry.html" with entry=entries.4 %}
+        </div>
+        <div class="map-scrollover-blog-entry-column">
+            {% include "livinglots/lots/_scrollover_entry.html" with entry=entries.1 %}
+            {% include "livinglots/lots/_scrollover_entry.html" with entry=entries.5 %}
+        </div>
+        <div class="map-scrollover-blog-entry-column">
+            {% include "livinglots/lots/_scrollover_entry.html" with entry=entries.2 %}
+            {% include "livinglots/lots/_scrollover_entry.html" with entry=entries.6 %}
+        </div>
+        <div class="map-scrollover-blog-entry-column">
+            {% include "livinglots/lots/_scrollover_entry.html" with entry=entries.3 %}
+            {% include "livinglots/lots/_scrollover_entry.html" with entry=entries.7 %}
+        </div>
     </div>
 </section>

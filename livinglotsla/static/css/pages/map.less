@@ -508,15 +508,18 @@
     }
 
     .map-scrollover-blog-entry {
-        .make-sm-column(6);
-        .make-md-column(3);
 
-        &:first-child {
-            padding-left: 0;
+        &-row {
+            .make-row();
+        }
+
+        &-column {
+            .make-sm-column(6);
+            .make-md-column(3);
         }
 
         &:last-child {
-            padding-right: 0;
+            margin-top: 50px;
         }
 
         &-title {
