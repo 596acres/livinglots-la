@@ -471,6 +471,16 @@ define(
             $(document).scroll(scrolloverCheckIn);
             scrolloverCheckIn();
 
+            // Scroll document a little to reveal recent activities
+            window.setTimeout(
+                function () {
+                    $('html,body').animate({
+                        scrollTop: 100
+                    }, 1000);
+                },
+                1500
+            );
+
         });
 
     }
