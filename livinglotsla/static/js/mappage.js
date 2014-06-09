@@ -474,9 +474,9 @@ define(
             // Scroll document a little to reveal recent activities
             window.setTimeout(
                 function () {
-                    $('html,body').animate({
-                        scrollTop: 100
-                    }, 1000);
+                    if ($('body').scrollTop() === 0) {
+                        $('body').animate({ scrollTop: 100 }, 1000);
+                    }
                 },
                 1500
             );
