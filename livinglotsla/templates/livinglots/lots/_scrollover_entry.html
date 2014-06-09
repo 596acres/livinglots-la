@@ -1,0 +1,29 @@
+<div class="map-scrollover-blog-entry">
+    <div class="map-scrollover-blog-entry-title">
+        {% if entry.link %}
+            <a href="{{ entry.link }}" target="_blank">
+                {% if entry.cover_image_url %}
+                    <img src="{{ entry.cover_image_url }}" />
+                {% endif %}
+                <h2 class="blog-entry-title">
+                    {{ entry.title }}
+                </h2>
+            </a>
+        {% else %}
+            {% if entry.cover_image_url %}
+                <img src="{{ entry.cover_image_url }}" />
+            {% endif %}
+            <h2 class="blog-entry-title">
+                {{ entry.title }}
+            </h2>
+        {% endif %}
+    </div>
+    <div class="map-scrollover-blog-entry-text">
+        {{ entry.summary|striptags|truncatewords:"50"|safe }}
+        {% if entry.link %}
+            <a class="blog-entry-meta" href="{{ entry.link }}" target="_blank">
+                read more
+            </a>
+        {% endif %}
+    </div>
+</div>
