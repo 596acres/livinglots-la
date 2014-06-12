@@ -11,9 +11,9 @@
             <div class="popup-streetview">
                 <div>
                     {{#if feature.properties.centroid}}
-                        <img src="http://maps.googleapis.com/maps/api/streetview?location={{feature.properties.centroid.[1]}},{{feature.properties.centroid.[0]}}&size=300x110&sensor=false&fov=45" />
+                        <img src="//maps.googleapis.com/maps/api/streetview?location={{feature.properties.centroid.[1]}},{{feature.properties.centroid.[0]}}&size=300x110&sensor=false&fov=45" />
                     {{else}}
-                        <img src="http://maps.googleapis.com/maps/api/streetview?location={{feature.geometry.coordinates.[1]}},{{feature.geometry.coordinates.[0]}}&size=300x110&sensor=false&fov=45" />
+                        <img src="//maps.googleapis.com/maps/api/streetview?location={{feature.geometry.coordinates.[1]}},{{feature.geometry.coordinates.[0]}}&size=300x110&sensor=false&fov=45" />
                     {{/if}}
                 </div>
             </div>
