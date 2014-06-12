@@ -184,7 +184,7 @@ define(
                         interactivity: 'id',
                         sql: 'SELECT * FROM lots_production'
                     }]
-                })
+                }, { https: true })
                 .addTo(map)
                 .done(function (layer) {
                     map.centroidsLayer = layer;
