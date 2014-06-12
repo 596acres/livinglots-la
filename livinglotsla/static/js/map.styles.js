@@ -22,7 +22,7 @@ define(['underscore'], function (_) {
         'marker-width': 10
     };
 
-    var burstFile = 'http://dev.laopenacres.org/static/img/burst.svg';
+    var burstFile = 'http://laopenacres.org/static/img/burst.svg';
 
     var organizingColor = '#FF00FF';
 
