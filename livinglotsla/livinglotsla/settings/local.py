@@ -44,6 +44,15 @@ LOGGING = {
 
 
 #
+# Django extensions
+#
+
+INSTALLED_APPS += (
+    'django_extensions',
+)
+
+
+#
 # debug toolbar settings
 #
 
