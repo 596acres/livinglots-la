@@ -5088,6 +5088,9 @@ h2.blog-entry-title a {
     margin-left: 0%;
   }
 }
+.lot-detail-page #main article {
+  margin-top: 0;
+}
 .lot-detail-page #aside-right {
   position: relative;
   min-height: 1px;
