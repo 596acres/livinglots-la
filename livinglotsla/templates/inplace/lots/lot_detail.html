@@ -44,13 +44,7 @@
 
 {% block content %}
 
-    <div class="lot-detail-streetview" 
-        data-lat="{{ lot.centroid.y }}"
-        data-lon="{{ lot.centroid.x }}"
-    >
-        <div class="lot-detail-streetview-error alert alert-warning">
-            {% trans "Sorry, we could not load streetview imagery for this lot." %}
-        </div>
+    <div class="lot-detail-banner-image">
     </div>
 
     <div class="lot-detail-main">
