@@ -4740,7 +4740,11 @@ h2.blog-entry-title a {
 .popup-lot-details {
   margin-top: 25px;
 }
-.popup-streetview {
+.popup-banner-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100px;
   width: 300px;
 }
 .popup .btn {
@@ -5021,9 +5025,12 @@ h2.blog-entry-title a {
   cursor: pointer;
 }
 .lot-detail-banner-image {
-  display: none;
-  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   height: 250px;
+  overflow: hidden;
+  width: 100%;
 }
 .lot-detail-page .content-wrapper {
   margin-left: -15px;

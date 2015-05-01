@@ -1,4 +1,4 @@
-{% load feincms_tags i18n inplace_tags %}
+{% load feincms_tags i18n inplace_tags llla_photos_tags %}
 
 <script id="popup-template" type="text/x-handlebars-template">
     {% verbatim %}
@@ -8,15 +8,11 @@
                     {{feature.properties.address_line1}}
                 </a>
             </header>
-            <div class="popup-streetview">
-                <div>
-                    {{#if feature.properties.centroid}}
-                        <img src="//maps.googleapis.com/maps/api/streetview?location={{feature.properties.centroid.[1]}},{{feature.properties.centroid.[0]}}&size=300x110&sensor=false&fov=45" />
-                    {{else}}
-                        <img src="//maps.googleapis.com/maps/api/streetview?location={{feature.geometry.coordinates.[1]}},{{feature.geometry.coordinates.[0]}}&size=300x110&sensor=false&fov=45" />
-                    {{/if}}
-                </div>
-            </div>
+
+            {{#if feature.properties.banner_image_url}}
+                <div class="popup-banner-image" style="background-image: url({{feature.properties.banner_image_url}});"></div>
+            {{/if}}
+
             <div class="popup-lot-details row">
                 <div class="col-xs-2">
                     <a target="_blank" href="{{detailUrl}}" class="btn btn-learn-more">learn<br />more</a>

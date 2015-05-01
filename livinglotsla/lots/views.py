@@ -2,6 +2,7 @@ import geojson
 import json
 from random import shuffle
 
+from django.contrib.contenttypes.models import ContentType
 from django.db.models import Count, Sum
 from django.http import Http404
 
@@ -14,6 +15,7 @@ from livinglots_lots.views import (BaseCreateLotView, FilteredLotsMixin,
 from livinglots_lots.views import LotsCSV as BaseLotsCSV
 from livinglots_lots.views import LotsKML as BaseLotsKML
 from livinglots_lots.views import LotsGeoJSON as BaseLotsGeoJSON
+from livinglots_usercontent.photos.models import Photo
 
 from ladata.parcels.models import Parcel
 
@@ -76,6 +78,13 @@ class LotDetailJSON(JSONResponseView):
         }
         try:
             properties['zone_class'] = lot.zoning_district.zone_class
+        except Exception:
+            pass
+        try:
+            properties['banner_image_url'] = Photo.objects.filter(
+                content_type=ContentType.objects.get_for_model(lot),
+                object_id=lot.pk,
+            ).order_by('?')[0].original_image.url
         except Exception:
             pass
         return properties

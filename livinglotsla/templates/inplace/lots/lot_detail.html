@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load communityplanareas_tags councildistricts_tags files_tags flatblock_tags i18n neighborhoodcouncils_tags inplace_tags lots_tags notes_tags organize_tags pathways_tags photos_tags %}
+{% load communityplanareas_tags councildistricts_tags files_tags flatblock_tags i18n neighborhoodcouncils_tags imagekit inplace_tags llla_photos_tags lots_tags notes_tags organize_tags pathways_tags photos_tags %}
 
 {% block title %}
     {{ lot.display_name|title|default:"unknown" }} |
@@ -44,8 +44,11 @@
 
 {% block content %}
 
-    <div class="lot-detail-banner-image">
-    </div>
+    {% get_random_photo for lot as banner_image %}
+    {% if banner_image %}
+        {% thumbnail '800x400' banner_image.original_image as banner_thumbnail %}
+        <div class="lot-detail-banner-image" style="background-image: url({{ banner_thumbnail.url }});"></div>
+    {% endif %}
 
     <div class="lot-detail-main">
 
